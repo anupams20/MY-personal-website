@@ -46,7 +46,7 @@ window.I18N = {
       /* hero — hero.pill1 is deliberately absent: "B.Tech, IIT Kanpur"
          stays exactly as it is in English */
       'hero.pill2'  : 'नए प्रोजेक्ट के लिए उपलब्ध',
-      'hero.h1'     : 'आपके बिज़नेस की वेबसाइट — <span class="hl">भारत में कहीं भी</span>, बनाई <span class="hl">IIT Kanpur के इंजीनियर</span> ने।',
+      'hero.h1'     : 'भारत के हर बिज़नेस के लिए <span class="hl">प्रोफेशनल वेबसाइट</span> — <span class="hl">IIT Kanpur के इंजीनियर</span> द्वारा।',
       'hero.lede'   : 'मैं अनुपम हूँ। नौकरी में मैं वो सॉफ़्टवेयर सिस्टम संभालता हूँ जिन पर भारत का एक बड़ा बैंक हर दिन चलता है। वेबसाइट बनाना मेरा <strong>शौक़ है</strong> — इसीलिए आपको ऐसी वेबसाइट मिलती है जो फ़ोन पर तेज़ चले और सच में ग्राहक लाए: <strong>एक हफ़्ते में तैयार</strong>, <strong class="mark">₹10,000</strong> से शुरू, और कीमत पहले ही तय।',
       'hero.cta1'   : 'WhatsApp पर मैसेज करें',
       'hero.cta2'   : 'कीमत और पैकेज देखें',
@@ -67,7 +67,7 @@ window.I18N = {
       'sec.about.eye'   : 'मेरे बारे में',
       'sec.faq.eye'     : 'सवाल',
 
-      'h2.services': 'तीन काम, <span class="hl">पूरे मन से</span>।',
+      'h2.services': 'तीन तरह के डिजिटल काम, <span class="hl">एक ही मकसद</span> — आपके बिज़नेस को बेहतर बनाना।',
       'h2.pricing' : 'कीमत तय। <span class="hl">सबके सामने।</span>',
       'h2.work'    : 'कुछ <span class="hl">नमूने</span>।',
       'h2.about'   : 'मैं <span class="hl">अकेला इंजीनियर</span> हूँ। कोई एजेंसी नहीं।',
