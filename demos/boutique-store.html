@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalika Handloom — Demo store by Anupam Singh</title>
+<meta name="description" content="Demonstration e-commerce website for a handloom boutique. Built by Anupam Singh, freelance web developer, India.">
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== Demo: handloom boutique. Warm, editorial, serif. Terracotta + cream. ===== */
+:root{
+  --brand:#9a3412; --brand-dk:#7c2d12; --gold:#b45309;
+  --cream:#fdf8f3; --cream2:#f7ede2; --ink:#1c1410; --body:#5c4d43; --muted:#8a7868; --line:#e8dbcc;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--body);
+  line-height:1.68;font-size:16px;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.ser{font-family:'Fraunces',Georgia,serif;color:var(--ink);line-height:1.14;
+  letter-spacing:-.015em;margin:0 0 .45em;font-weight:600}
+p{margin:0 0 1em}
+ul{margin:0;padding:0;list-style:none}
+a{color:var(--brand);text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.sec{padding:76px 0}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 12px}
+.h2{font-size:clamp(30px,4.2vw,44px)}
+.sub{color:var(--muted);max-width:560px;margin-bottom:40px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14.5px;
+  padding:13px 26px;border-radius:2px;transition:.15s;border:0;cursor:pointer;font-family:inherit}
+.btn--p{background:var(--brand);color:#fff}
+.btn--p:hover{background:var(--brand-dk)}
+.btn--o{border:1px solid var(--ink);color:var(--ink);background:transparent}
+.btn--o:hover{background:var(--ink);color:var(--cream)}
+
+/* announcement */
+.ann{background:var(--ink);color:var(--cream2);text-align:center;font-size:13px;padding:9px 22px;letter-spacing:.02em}
+.ann b{color:#f0b27a}
+/* nav */
+.nav{position:sticky;top:0;z-index:30;background:rgba(253,248,243,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:30px;height:76px}
+.logo{margin-right:auto;font-family:'Fraunces',serif;font-weight:700;font-size:25px;color:var(--ink);letter-spacing:-.01em}
+.logo small{display:block;font-family:'Inter',sans-serif;font-size:9.5px;font-weight:600;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-top:-2px}
+.nav nav{display:flex;gap:26px}
+.nav nav a{color:var(--body);font-size:14.5px;font-weight:500}
+.nav nav a:hover{color:var(--brand)}
+.icons{display:flex;gap:16px;align-items:center}
+.icons a{color:var(--ink);position:relative;display:grid;place-items:center}
+.icons svg{width:21px;height:21px;fill:currentColor}
+.bag{position:absolute;top:-5px;right:-7px;background:var(--brand);color:#fff;font-size:10px;
+  font-weight:700;width:16px;height:16px;border-radius:50%;display:grid;place-items:center;font-family:'Inter',sans-serif}
+
+/* hero */
+.hero{background:var(--cream2);padding:0;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding-block:72px}
+.hero h1{font-size:clamp(38px,5.6vw,62px);font-weight:400}
+.hero h1 em{font-style:italic;color:var(--brand)}
+.hero .lede{font-size:17.5px;max-width:44ch;margin-bottom:26px}
+.hcta{display:flex;gap:12px;flex-wrap:wrap}
+.hero__art{aspect-ratio:4/5;border-radius:3px;position:relative;overflow:hidden;
+  background:linear-gradient(165deg,#c2410c,#9a3412 55%,#7c2d12);display:grid;place-items:center}
+.hero__art::after{content:"";position:absolute;inset:0;opacity:.3;
+  background:repeating-linear-gradient(90deg,transparent 0 11px,rgba(255,255,255,.16) 11px 12px),
+             repeating-linear-gradient(0deg,transparent 0 11px,rgba(0,0,0,.12) 11px 12px)}
+.hero__art svg{width:130px;height:130px;stroke:rgba(255,255,255,.75);fill:none;stroke-width:1;z-index:2}
+.badge{position:absolute;bottom:22px;left:22px;background:var(--cream);padding:12px 18px;z-index:3}
+.badge b{display:block;font-family:'Fraunces',serif;color:var(--ink);font-size:17px}
+.badge span{font-size:12px;color:var(--muted);letter-spacing:.04em}
+
+/* usp strip */
+.usp{border-block:1px solid var(--line);background:var(--cream)}
+.usp .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding-block:26px;text-align:center}
+.usp div b{display:block;color:var(--ink);font-size:14.5px;font-weight:600}
+.usp div span{font-size:13px;color:var(--muted)}
+
+/* products */
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.p{position:relative}
+.p__img{aspect-ratio:3/4;border-radius:2px;margin-bottom:14px;position:relative;overflow:hidden;display:grid;place-items:center}
+.p__img svg{width:56px;height:56px;stroke:rgba(255,255,255,.8);fill:none;stroke-width:1}
+.p__img::after{content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,transparent 0 8px,rgba(255,255,255,.14) 8px 9px)}
+.w1{background:linear-gradient(160deg,#7c2d12,#431407)}
+.w2{background:linear-gradient(160deg,#0f766e,#134e4a)}
+.w3{background:linear-gradient(160deg,#b45309,#78350f)}
+.w4{background:linear-gradient(160deg,#4c1d95,#2e1065)}
+.w5{background:linear-gradient(160deg,#be123c,#881337)}
+.w6{background:linear-gradient(160deg,#1e40af,#172554)}
+.w7{background:linear-gradient(160deg,#3f6212,#1a2e05)}
+.w8{background:linear-gradient(160deg,#a16207,#713f12)}
+.p .lbl{position:absolute;top:10px;left:10px;background:var(--cream);color:var(--ink);
+  font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;z-index:2}
+.p h3{font-size:16.5px;font-weight:600;margin-bottom:3px}
+.p .cat{font-size:12.5px;color:var(--muted);margin-bottom:7px}
+.p .pr{font-family:'Fraunces',serif;color:var(--ink);font-size:18px;font-weight:600}
+.p .pr s{color:var(--muted);font-size:14px;font-weight:400;margin-left:7px;font-family:'Inter',sans-serif}
+.p__add{margin-top:11px;width:100%;padding:10px;border:1px solid var(--line);background:transparent;
+  font-family:inherit;font-size:13px;font-weight:600;color:var(--ink);cursor:pointer;transition:.15s;border-radius:2px}
+.p__add:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+
+/* story */
+.story{background:var(--ink);color:#c9b8a8;padding:80px 0}
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.story h2{color:var(--cream);font-size:clamp(28px,4vw,42px);font-weight:400}
+.story h2 em{font-style:italic;color:#f0b27a}
+.story .art{aspect-ratio:1;background:
+  repeating-linear-gradient(45deg,#2d221b 0 18px,#241b15 18px 36px);display:grid;place-items:center}
+.story .art svg{width:100px;height:100px;stroke:#f0b27a;fill:none;stroke-width:.9}
+
+/* checkout trust */
+.pay{text-align:center}
+.pay .chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:4px;padding:11px 20px;
+  font-size:13.5px;font-weight:600;color:var(--ink)}
+
+footer{background:var(--cream2);border-top:1px solid var(--line);padding:44px 0 26px;font-size:14px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;margin-bottom:30px}
+.fgrid h4{font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink);margin:0 0 14px}
+.fgrid li{margin-bottom:8px}
+.fgrid a{color:var(--body)}
+.fbot{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+
+.ribbon{position:fixed;right:14px;bottom:14px;z-index:99;background:var(--ink);color:#fff;
+  border-radius:3px;padding:10px 15px;font-size:13px;font-weight:600;
+  box-shadow:0 8px 26px rgba(28,20,16,.35);display:flex;gap:9px}
+.ribbon b{color:#f0b27a}
+.ribbon a{color:#fff;text-decoration:underline;text-underline-offset:2px}
+
+@media(max-width:980px){.prods{grid-template-columns:repeat(2,1fr)}.fgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){
+  .hero .wrap,.story .wrap{grid-template-columns:1fr;gap:34px}
+  .nav nav{display:none}
+  .usp .wrap{grid-template-columns:1fr 1fr}
+  .sec{padding:54px 0}
+}
+</style>
+</head>
+<body>
+
+<div class="ann">Free shipping across India on orders above ₹1,999 · <b>Festive sale — up to 30% off</b></div>
+
+<header class="nav"><div class="wrap">
+  <a href="#" class="logo">Kalika<small>Handloom</small></a>
+  <nav>
+    <a href="#shop">Sarees</a><a href="#shop">Kurtas</a><a href="#shop">Dupattas</a><a href="#story">Our Story</a>
+  </nav>
+  <div class="icons">
+    <a href="#" aria-label="Search"><svg viewBox="0 0 24 24"><path d="M10 2a8 8 0 1 0 4.9 14.3l5.4 5.4 1.4-1.4-5.4-5.4A8 8 0 0 0 10 2Zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12Z"/></svg></a>
+    <a href="#" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M7 4h-2l-1 2H2v2h2l3 9h11l3-9h-2.5L17 4H7Zm2 16a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/></svg><span class="bag" id="cnt">0</span></a>
+  </div>
+  <a href="#shop" class="btn btn--p">Shop now</a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <p class="eyebrow">Handwoven in Pochampally</p>
+    <h1>Six yards, <em>woven by hand</em>, made to be worn.</h1>
+    <p class="lede">Ikat and Kanjivaram sarees sourced directly from weaving families in Telangana. No middlemen, no polyester, no inflated "original price".</p>
+    <div class="hcta">
+      <a href="#shop" class="btn btn--p">Shop the new collection</a>
+      <a href="#story" class="btn btn--o">Meet the weavers</a>
+    </div>
+  </div>
+  <div class="hero__art">
+    <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18M6 3v18M12 3v18M18 3v18"/></svg>
+    <div class="badge"><b>Festive Collection</b><span>42 new pieces</span></div>
+  </div>
+</div></section>
+
+<div class="usp"><div class="wrap">
+  <div><b>Direct from weavers</b><span>Fair prices, paid upfront</span></div>
+  <div><b>Free shipping</b><span>Above ₹1,999, all India</span></div>
+  <div><b>7-day returns</b><span>No questions asked</span></div>
+  <div><b>UPI &amp; cards</b><span>Secure Razorpay checkout</span></div>
+</div></div>
+
+<section class="sec" id="shop"><div class="wrap">
+  <p class="eyebrow">New arrivals</p>
+  <h2 class="h2">The festive collection</h2>
+  <p class="sub">Each piece is one of a kind — when it's gone, it's gone.</p>
+  <div class="prods">
+    <article class="p">
+      <div class="p__img w1"><span class="lbl">New</span><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 10h16M4 16h16M10 4v16M16 4v16"/></svg></div>
+      <h3>Pochampally Ikat Saree</h3><p class="cat">Pure silk · Rust &amp; gold</p>
+      <p class="pr">₹4,850 <s>₹6,200</s></p>
+      <button class="p__add">Add to bag</button>
+    </article>
+    <article class="p">
+      <div class="p__img w2"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 10h16M4 16h16M10 4v16M16 4v16"/></svg></div>
+      <h3>Kanjivaram Silk Saree</h3><p class="cat">Pure silk · Emerald</p>
+      <p class="pr">₹12,400</p>
+      <button class="p__add">Add to bag</button>
+    </article>
+    <article class="p">
+      <div class="p__img w3"><span class="lbl">Bestseller</span><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 10h16M4 16h16M10 4v16M16 4v16"/></svg></div>
+      <h3>Chanderi Cotton Kurta</h3><p class="cat">Cotton silk · Ochre</p>
+      <p class="pr">₹1,890 <s>₹2,400</s></p>
+      <button class="p__add">Add to bag</button>
+    </article>
+    <article class="p">
+      <div class="p__img w4"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 10h16M4 16h16M10 4v16M16 4v16"/></svg></div>
+      <h3>Banarasi Dupatta</h3><p class="cat">Silk blend · Aubergine</p>
+      <p class="pr">₹2,250</p>
+      <button class="p__add">Add to bag</button>
+    </article>
+    <article class="p">
+      <div class="p__img w5"><span class="lbl">Low stock</span><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 10h16M4 16h16M10 4v16M16 4v16"/></svg></div>
+      <h3>Gadwal Cotton Saree</h3><p class="cat">Cotton · Crimson border</p>
+      <p class="pr">₹3,400 <s>₹4,100</s></p>
+      <button class="p__add">Add to bag</button>
+    </article>
+    <article class="p">
+      <div class="p__img w6"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 10h16M4 16h16M10 4v16M16 4v16"/></svg></div>
+      <h3>Indigo Block-print Kurta</h3><p class="cat">Cotton · Natural indigo</p>
+      <p class="pr">₹1,450</p>
+      <button class="p__add">Add to bag</button>
+    </article>
+    <article class="p">
+      <div class="p__img w7"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 10h16M4 16h16M10 4v16M16 4v16"/></svg></div>
+      <h3>Narayanpet Cotton Saree</h3><p class="cat">Cotton · Olive check</p>
+      <p class="pr">₹2,150</p>
+      <button class="p__add">Add to bag</button>
+    </article>
+    <article class="p">
+      <div class="p__img w8"><span class="lbl">New</span><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 10h16M4 16h16M10 4v16M16 4v16"/></svg></div>
+      <h3>Mangalagiri Kurta Set</h3><p class="cat">Cotton · Mustard</p>
+      <p class="pr">₹2,780 <s>₹3,300</s></p>
+      <button class="p__add">Add to bag</button>
+    </article>
+  </div>
+</div></section>
+
+<section class="story" id="story"><div class="wrap">
+  <div class="art"><svg viewBox="0 0 24 24"><path d="M2 7h20M2 12h20M2 17h20M7 2v20M12 2v20M17 2v20"/></svg></div>
+  <div>
+    <p class="eyebrow" style="color:#f0b27a">Our story</p>
+    <h2>We buy from <em>fourteen weaving families</em>. That's the whole supply chain.</h2>
+    <p>Kalika started in 2019 because good handloom was either impossible to find or priced like a luxury import. We work directly with weavers in Pochampally, Gadwal and Narayanpet, pay upfront before the loom starts, and sell at a fixed margin.</p>
+    <p>Every saree carries the name of the person who wove it. If you want to know how long yours took, ask us — we'll tell you.</p>
+    <a href="#" class="btn btn--p" style="margin-top:8px">Read the full story</a>
+  </div>
+</div></section>
+
+<section class="sec pay"><div class="wrap">
+  <p class="eyebrow">Secure checkout</p>
+  <h2 class="h2">Pay however you like</h2>
+  <p class="sub" style="margin-inline:auto">All payments handled by Razorpay. We never see your card details.</p>
+  <div class="chips">
+    <span class="chip">UPI / GPay / PhonePe</span><span class="chip">Credit &amp; debit cards</span>
+    <span class="chip">Net banking</span><span class="chip">Cash on delivery</span><span class="chip">EMI available</span>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <a href="#" class="logo" style="font-size:22px">Kalika<small>Handloom</small></a>
+      <p style="margin-top:12px;font-size:13.5px;max-width:30ch">Handwoven textiles from Telangana, sold directly by the people who make them.</p>
+    </div>
+    <div><h4>Shop</h4><ul><li><a href="#">Sarees</a></li><li><a href="#">Kurtas</a></li><li><a href="#">Dupattas</a></li><li><a href="#">Gift cards</a></li></ul></div>
+    <div><h4>Help</h4><ul><li><a href="#">Shipping</a></li><li><a href="#">Returns</a></li><li><a href="#">Size guide</a></li><li><a href="#">Track order</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li>+91 98765 43210</li><li>hello@kalika.example</li><li>Hyderabad, Telangana</li></ul></div>
+  </div>
+  <div class="fbot">
+    <span>© 2026 Kalika Handloom. All rights reserved.</span>
+    <span>Privacy · Terms · Refund policy</span>
+  </div>
+</div></footer>
+
+<div class="ribbon"><span><b>Demo store</b> — built by <a href="../index.html">Anupam Singh</a></span></div>
+
+<script>
+var n = 0;
+document.querySelectorAll('.p__add').forEach(function (b) {
+  b.addEventListener('click', function () {
+    document.getElementById('cnt').textContent = ++n;
+    b.textContent = '✓ Added';
+    setTimeout(function () { b.textContent = 'Add to bag'; }, 1400);
+  });
+});
+</script>
+</body>
+</html>

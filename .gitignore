@@ -1,0 +1,14 @@
+# OS / editor noise
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# Netlify local state
+.netlify/
+
+# Never commit these — this repo is public and the parent folder
+# holds your resume and personal documents.
+*.pdf
+*_resume*

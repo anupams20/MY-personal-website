@@ -1,0 +1,465 @@
+/* ==========================================================================
+   Anupam Singh — website development, Hyderabad
+   Hand-written CSS. No framework, no build step.
+   Edit colours in one place: the :root block below.
+   ========================================================================== */
+
+:root{
+  --ink:      #0f1115;   /* headings, dark surfaces */
+  --body:     #454c58;   /* body text */
+  --muted:    #767f8c;   /* captions, fine print */
+  --line:     #e5e7eb;   /* borders */
+  --bg:       #ffffff;
+  --bg-alt:   #f7f8f7;
+  --accent:   #1a4fd6;   /* links, highlighted words in headings */
+  --accent-sf:#eaf0ff;   /* soft wash behind marked text */
+  --wa:       #25d366;   /* WhatsApp green — recognised, so it converts */
+  --wa-dark:  #1da851;
+  --radius:   14px;
+  --shadow:   0 1px 2px rgba(15,17,21,.04), 0 8px 24px rgba(15,17,21,.06);
+  --maxw:     1120px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:17px; line-height:1.65; color:var(--body); background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3{color:var(--ink);line-height:1.18;letter-spacing:-.022em;margin:0 0 .5em}
+p{margin:0 0 1.1em}
+ul,ol{margin:0;padding:0;list-style:none}
+
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:200;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.wrap--narrow{max-width:780px}
+.section{padding:88px 0}
+.section--alt{background:var(--bg-alt);border-block:1px solid var(--line)}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 14px;
+}
+.eyebrow::before{content:"";width:18px;height:2px;background:var(--accent);border-radius:2px;flex:none}
+
+.h2{font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:12px}
+.sub{font-size:18px;color:var(--muted);max-width:640px;margin-bottom:44px}
+.sub strong{color:var(--ink);font-weight:600}
+
+/* ---------- emphasis ----------
+   .hl   coloured words inside a dark heading
+   .mark a soft highlighter wash — use sparingly, 2-3 times per page max  */
+.hl{color:var(--accent)}
+.hl-light{color:#8fb4ff}
+.mark{
+  color:var(--ink);font-weight:700;background:var(--accent-sf);
+  padding:.06em .32em;border-radius:5px;box-decoration-break:clone;
+  -webkit-box-decoration-break:clone;
+}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:inherit;font-size:15px;font-weight:600;line-height:1;
+  padding:13px 22px;border-radius:10px;border:1px solid transparent;
+  cursor:pointer;transition:transform .12s ease,background .15s ease,box-shadow .15s ease;
+  white-space:nowrap;
+}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn--lg{font-size:16px;padding:16px 28px;border-radius:12px}
+.btn--block{display:flex;width:100%}
+.btn--wa{background:var(--wa);color:#06301a;box-shadow:0 2px 10px rgba(37,211,102,.3)}
+.btn--wa:hover{background:var(--wa-dark);color:#fff}
+.btn--dark{background:var(--ink);color:#fff}
+.btn--dark:hover{background:#252a33}
+.btn--ghost{background:#fff;color:var(--ink);border-color:var(--line);box-shadow:var(--shadow)}
+.btn--ghost:hover{border-color:#c9cfd8}
+.ico{width:18px;height:18px;flex:none}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:60;background:rgba(255,255,255,.88);
+  backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid transparent;
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+.nav.is-stuck{border-bottom-color:var(--line);box-shadow:0 1px 12px rgba(15,17,21,.05)}
+.nav__inner{display:flex;align-items:center;gap:28px;height:68px}
+.nav__logo{font-weight:800;color:var(--ink);font-size:16.5px;letter-spacing:-.02em;margin-right:auto}
+.nav__logo:hover{text-decoration:none}
+.nav__logo span{color:var(--wa)}
+.nav__links{display:flex;gap:26px}
+.nav__links a{font-size:15px;font-weight:500;color:var(--body)}
+.nav__links a:hover{color:var(--ink);text-decoration:none}
+.nav__phone{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:15px;font-weight:700;color:var(--ink);white-space:nowrap;
+}
+.nav__phone:hover{color:var(--accent);text-decoration:none}
+.nav__phone .ico{width:16px;height:16px;color:var(--accent)}
+.nav__burger{display:none;background:none;border:0;padding:8px;cursor:pointer}
+.nav__burger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px}
+.nav__burger span+span{margin-top:5px}
+
+/* ---------- hero ---------- */
+.hero{padding:64px 0 0}
+.hero__grid{display:grid;grid-template-columns:1.35fr .65fr;gap:64px;align-items:center}
+.hero h1{font-size:clamp(34px,5.2vw,54px);font-weight:800;letter-spacing:-.032em;margin-bottom:22px}
+.lede{font-size:19px;line-height:1.62;max-width:56ch;margin-bottom:30px}
+.lede strong{color:var(--ink);font-weight:600}
+
+/* credential pills above the headline — the first thing the eye lands on */
+.pills{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px}
+.pill{
+  display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
+  font-size:13px;font-weight:600;color:var(--body);
+  background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;
+}
+.pill--iit{
+  background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700;
+  box-shadow:0 3px 12px rgba(15,17,21,.2);
+}
+.pill--iit .ico{width:15px;height:15px;opacity:.95}
+.hero__cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px}
+.hero__note{font-size:14.5px;color:var(--muted);margin:0}
+
+.hero__photo{position:relative;justify-self:center}
+.hero__photo img{
+  width:250px;height:250px;border-radius:50%;object-fit:cover;
+  border:5px solid #fff;box-shadow:0 10px 40px rgba(15,17,21,.16);
+}
+.hero__badge{
+  position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);
+  display:flex;align-items:center;gap:7px;white-space:nowrap;
+  background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:7px 15px;font-size:13px;font-weight:600;color:var(--ink);box-shadow:var(--shadow);
+}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--wa);flex:none;
+  box-shadow:0 0 0 3px rgba(37,211,102,.22)}
+
+.creds{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:14px;
+  margin:68px 0 0;padding:22px 0 0;border-top:1px solid var(--line);
+}
+.creds li{
+  display:flex;flex-direction:column;gap:3px;
+  padding:16px 18px;background:var(--bg-alt);border-radius:11px;
+}
+.creds strong{color:var(--ink);font-size:16px;font-weight:800;letter-spacing:-.015em}
+.creds li:first-child strong{color:var(--accent)}
+.creds span{font-size:13.5px;color:var(--muted);line-height:1.4}
+
+/* ---------- cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px 28px;box-shadow:var(--shadow);
+}
+.card__ico{
+  font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--accent);
+  background:rgba(31,94,255,.08);width:36px;height:36px;border-radius:9px;
+  display:grid;place-items:center;margin-bottom:18px;
+}
+.card h3{font-size:20px;font-weight:700;margin-bottom:10px}
+.card p{font-size:15.5px;margin-bottom:18px}
+
+.ticks li{position:relative;padding-left:26px;font-size:15px;margin-bottom:9px;color:var(--body)}
+.ticks li::before{
+  content:"";position:absolute;left:0;top:8px;width:14px;height:8px;
+  border-left:2px solid var(--wa);border-bottom:2px solid var(--wa);
+  transform:rotate(-45deg);
+}
+.ticks li strong{color:var(--ink)}
+
+/* ---------- pricing ---------- */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+.tier{
+  position:relative;background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius);padding:32px 28px;box-shadow:var(--shadow);
+}
+.tier--pop{border:2px solid var(--ink);box-shadow:0 12px 36px rgba(15,17,21,.12)}
+.tier__tag{
+  position:absolute;top:-13px;left:28px;background:var(--ink);color:#fff;
+  font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;
+}
+.tier h3{font-size:20px;font-weight:800;margin-bottom:6px;letter-spacing:-.015em}
+.tier__for{font-size:14.5px;color:var(--muted);min-height:44px;margin-bottom:14px}
+.price{font-size:40px;font-weight:800;color:var(--ink);letter-spacing:-.035em;margin:0 0 22px}
+.tier--pop .price{color:var(--accent)}
+.tier .ticks{margin-bottom:26px}
+
+.amc{
+  display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;
+  margin-top:26px;padding:26px 30px;background:#fff;
+  border:1px dashed #c9cfd8;border-radius:var(--radius);
+}
+.amc h3{font-size:18px;font-weight:700;margin-bottom:6px}
+.amc h3 span{font-weight:500;color:var(--muted);font-size:15px}
+.amc p{font-size:15px;margin:0;max-width:62ch}
+.fineprint{font-size:14px;color:var(--muted);margin:22px 0 0;max-width:74ch}
+
+/* ---------- work ---------- */
+.work{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.work__item{display:block;color:inherit}
+
+/* Live preview: the demo page is rendered in an iframe at 4x the container
+   width, then scaled to 25%. That always yields the desktop layout at any
+   screen size, and the preview can never drift from the real page. */
+.work__thumb{
+  position:relative;display:block;overflow:hidden;
+  aspect-ratio:16/10;border-radius:var(--radius);margin-bottom:16px;
+  border:1px solid var(--line);background:var(--bg-alt);
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.work__thumb iframe{
+  position:absolute;top:0;left:0;
+  width:400%;height:400%;border:0;
+  transform:scale(.25);transform-origin:0 0;
+  pointer-events:none;   /* the wrapping <a> handles the click */
+}
+.work__open{
+  position:absolute;inset:0;z-index:2;display:grid;place-items:center;
+  background:rgba(15,17,21,.62);color:#fff;font-size:14px;font-weight:700;
+  opacity:0;transition:opacity .18s ease;
+}
+.work__thumb:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(15,17,21,.16);border-color:#c9cfd8}
+.work__thumb:hover .work__open,
+.work__thumb:focus-visible .work__open{opacity:1}
+
+.work__item h3{font-size:18px;font-weight:700;margin-bottom:6px}
+.work__item p{font-size:15px;margin-bottom:12px}
+.work__meta{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.work__meta a{font-size:14px;font-weight:700}
+.work__tag{
+  display:inline-block;font-size:12px;font-weight:600;color:var(--ink);
+  border:1px solid var(--line);border-radius:999px;padding:4px 12px;background:#fff;
+}
+.work__note{
+  margin:30px 0 0;padding:16px 20px;font-size:14.5px;color:var(--muted);
+  background:var(--bg-alt);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;
+}
+.work__note strong{color:var(--ink)}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:start}
+.about__text p{font-size:17px}
+.about__text strong{color:var(--ink);font-weight:600}
+.stats{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:22px;
+  margin:34px 0 28px;padding:26px 0;border-block:1px solid var(--line);
+}
+.stats div{display:flex;flex-direction:column}
+.stats strong{font-size:26px;font-weight:800;color:var(--ink);letter-spacing:-.025em}
+.stats span{font-size:14px;color:var(--muted);line-height:1.4}
+.about__links{display:flex;gap:22px;font-size:15px;font-weight:600;margin:0}
+
+.about__side{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow)}
+.about__side h3{font-size:18px;font-weight:700;margin-bottom:22px}
+.steps{counter-reset:s}
+.steps li{position:relative;counter-increment:s;padding-left:42px;margin-bottom:22px}
+.steps li:last-child{margin-bottom:0}
+.steps li::before{
+  content:counter(s);position:absolute;left:0;top:1px;width:27px;height:27px;
+  border-radius:50%;background:var(--ink);color:#fff;font-size:13px;font-weight:700;
+  display:grid;place-items:center;
+}
+.steps strong{display:block;color:var(--ink);font-size:15.5px;font-weight:700;margin-bottom:3px}
+.steps span{display:block;font-size:14.5px;color:var(--muted);line-height:1.55}
+
+/* ---------- faq ---------- */
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{
+  cursor:pointer;list-style:none;padding:22px 40px 22px 0;position:relative;
+  font-size:17px;font-weight:600;color:var(--ink);
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"";position:absolute;right:8px;top:50%;width:9px;height:9px;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:translateY(-70%) rotate(45deg);transition:transform .2s ease;
+}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq details p{padding:0 0 22px;margin:0;font-size:16px;max-width:72ch}
+
+/* ---------- cta ---------- */
+.cta{background:var(--ink);color:#c3cad6;padding:92px 0}
+.cta__inner{text-align:center}
+.cta h2{color:#fff;font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:14px}
+.cta p{font-size:18px;max-width:56ch;margin:0 auto 32px}
+.cta__alt{font-size:15px;color:#8b95a5;margin:26px 0 0}
+.cta__alt a{color:#fff;font-weight:600}
+
+/* ---------- footer ---------- */
+.foot{background:var(--ink);border-top:1px solid rgba(255,255,255,.1);padding:26px 0;color:#7f8a9a}
+.foot__inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.foot p{margin:0;font-size:14px}
+.foot__links{display:flex;gap:20px}
+.foot__links a{color:#b4bdcb}
+
+/* ==========================================================================
+   Floating chat widget
+   ========================================================================== */
+.chat{position:fixed;right:18px;bottom:18px;z-index:90;
+  display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+
+/* launcher */
+.chat__fab{
+  position:relative;width:58px;height:58px;border-radius:50%;border:0;cursor:pointer;
+  background:var(--wa);color:#06301a;display:grid;place-items:center;
+  box-shadow:0 8px 24px rgba(37,211,102,.45);transition:transform .16s ease,background .16s ease;
+  align-self:flex-end;
+}
+.chat__fab:hover{transform:scale(1.06)}
+.chat__fab svg{width:30px;height:30px;grid-area:1/1;transition:opacity .16s ease,transform .16s ease}
+.chat__i-close{opacity:0;transform:rotate(-90deg)}
+.chat.is-open .chat__i-chat{opacity:0;transform:rotate(90deg)}
+.chat.is-open .chat__i-close{opacity:1;transform:none}
+.chat.is-open .chat__fab{background:var(--ink);color:#fff}
+/* Badge stays hidden until JS is alive and has wired the launcher up.
+   A visible "1 unread" on a dead button is the worst of both worlds. */
+.chat__badge{
+  position:absolute;top:-2px;right:-2px;min-width:20px;height:20px;padding:0 5px;
+  border-radius:999px;background:#e11d48;color:#fff;font-size:11.5px;font-weight:800;
+  display:none;place-items:center;border:2px solid #fff;
+}
+.chat.is-ready .chat__badge{display:grid}
+.chat.is-open .chat__badge,.chat.is-seen .chat__badge{display:none}
+
+/* teaser bubble */
+.chat__teaser{
+  position:relative;width:250px;background:#fff;border:1px solid var(--line);
+  border-radius:14px 14px 4px 14px;padding:15px 17px;box-shadow:0 12px 34px rgba(15,17,21,.17);
+  cursor:pointer;animation:teaseIn .34s cubic-bezier(.2,.9,.3,1.2) both;
+}
+.chat__teaser:hover{border-color:#c9cfd8}
+@keyframes teaseIn{from{opacity:0;transform:translateY(10px) scale(.94)}to{opacity:1;transform:none}}
+.chat__teaser-head{font-size:14.5px;font-weight:800;color:var(--ink);margin:0 0 3px;line-height:1.35}
+.chat__teaser-sub{font-size:13.5px;color:var(--muted);margin:0 0 9px;line-height:1.45}
+.chat__teaser-cta{font-size:13.5px;font-weight:700;color:var(--wa-dark)}
+.chat__x{
+  position:absolute;top:6px;right:8px;width:24px;height:24px;border:0;background:none;
+  color:var(--muted);font-size:20px;line-height:1;cursor:pointer;border-radius:6px;
+}
+.chat__x:hover{background:var(--bg-alt);color:var(--ink)}
+
+/* panel */
+.chat__panel{
+  width:330px;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  box-shadow:0 18px 50px rgba(15,17,21,.24);animation:panelIn .26s cubic-bezier(.2,.9,.3,1.1) both;
+}
+@keyframes panelIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+.chat__head{display:flex;align-items:center;gap:11px;padding:15px 16px;background:var(--ink);position:relative}
+.chat__head img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.25);flex:none}
+.chat__who{display:flex;flex-direction:column;min-width:0}
+.chat__who strong{color:#fff;font-size:15px;font-weight:700;line-height:1.2}
+.chat__who span{color:#9fb0c4;font-size:12px;display:flex;align-items:center;gap:6px;margin-top:2px}
+.chat__who .dot{width:7px;height:7px;border-radius:50%;background:var(--wa);flex:none;
+  box-shadow:0 0 0 3px rgba(37,211,102,.25)}
+.chat__x--head{color:#8b95a5;top:10px;right:10px}
+.chat__x--head:hover{background:rgba(255,255,255,.12);color:#fff}
+
+.chat__body{padding:16px;max-height:min(58vh,430px);overflow-y:auto;background:var(--bg-alt)}
+.msg{
+  background:#fff;border:1px solid var(--line);border-radius:13px 13px 13px 4px;
+  padding:12px 14px;font-size:14.5px;line-height:1.55;color:var(--body);margin-bottom:9px;
+}
+.msg strong{color:var(--ink)}
+.msg--offer{
+  background:linear-gradient(135deg,#0f1115,#252a33);border-color:var(--ink);color:#d6dde8;
+}
+.msg--offer strong{color:var(--wa);display:block;font-size:16px;margin-bottom:3px}
+.chat__prompt{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);margin:16px 0 9px}
+.chat__quick{display:flex;flex-direction:column;gap:8px}
+.qr{
+  display:block;background:#fff;border:1px solid #cfd9ee;border-radius:10px;
+  padding:11px 14px;font-size:14px;font-weight:600;color:var(--accent);transition:.14s;
+}
+.qr:hover{background:var(--accent);border-color:var(--accent);color:#fff;text-decoration:none}
+.chat__foot{display:flex;border-top:1px solid var(--line);background:#fff}
+.chat__foot a{
+  flex:1;text-align:center;padding:13px 8px;font-size:13.5px;font-weight:600;color:var(--body);
+}
+.chat__foot a:hover{background:var(--bg-alt);color:var(--ink);text-decoration:none}
+.chat__foot a+a{border-left:1px solid var(--line)}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width:1040px){
+  .nav__inner{gap:20px}
+  .nav__phone span{display:none}   /* icon-only phone once space is tight */
+  .nav__phone{padding:8px}
+}
+
+@media (max-width:940px){
+  /* Headline first, photo after. The pitch has to be readable without
+     scrolling — the face is reassurance, not the opening argument. */
+  .hero__grid{grid-template-columns:1fr;gap:34px;text-align:center}
+  .hero__copy{order:1}
+  .hero__photo{order:2}
+  .hero h1{font-size:clamp(26px,6.2vw,34px)}
+  .hero__photo img{width:170px;height:170px;border-width:4px}
+  .lede{margin-inline:auto;font-size:17px}
+  .hero__cta{justify-content:center}
+  .pills{justify-content:center}
+  .creds{grid-template-columns:repeat(2,1fr);margin-top:52px}
+  .cards,.tiers,.work{grid-template-columns:1fr;gap:18px}
+  .tier__for{min-height:0}
+  .about{grid-template-columns:1fr;gap:40px}
+}
+
+@media (max-width:720px){
+  body{font-size:16px}
+  .section{padding:64px 0}
+  .hero{padding:30px 0 0}
+  .hero h1{font-size:29px;letter-spacing:-.025em;margin-bottom:16px}
+  .pills{margin-bottom:16px}
+  .pill{font-size:12.5px;padding:5px 12px}
+  .hero__cta .btn{flex:1 1 100%}   /* full-width CTAs are easier to hit */
+  .nav__cta{display:none}
+  .nav__phone{display:inline-flex;margin-left:auto}
+  .nav__phone span{display:inline}   /* number back on, it's the mobile CTA */
+  .nav__phone{font-size:14.5px;padding:0}
+  .nav__burger{display:block}
+  .creds li{padding:14px 16px}
+  .nav__links{
+    display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;
+    gap:0;background:#fff;border-bottom:1px solid var(--line);padding:8px 24px 18px;
+    box-shadow:0 10px 24px rgba(15,17,21,.08);
+  }
+  .nav__links.is-open{display:flex}
+  .nav__links a{padding:13px 0;border-bottom:1px solid var(--line);font-size:16px}
+  .nav__links a:last-child{border-bottom:0}
+  .amc{flex-direction:column;align-items:flex-start;padding:24px}
+  .stats{grid-template-columns:1fr 1fr;gap:18px}
+  .foot__inner{flex-direction:column;text-align:center}
+  .cta{padding:72px 0}
+  /* chat widget goes near-full-width so the quick replies are thumb-sized */
+  .chat{right:12px;bottom:12px;left:12px;align-items:flex-end}
+  .chat__panel{width:100%}
+  .chat__teaser{width:min(260px,100%)}
+  .chat__body{max-height:52vh}
+}
+
+@media (max-width:400px){
+  .nav__phone span{display:none}     /* very small screens: icon only, keeps the logo readable */
+  .creds{grid-template-columns:1fr}
+  .price{font-size:34px}
+  .hero h1{font-size:26px}
+  .hero__photo img{width:150px;height:150px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
