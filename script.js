@@ -31,6 +31,96 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
 (function () {
   'use strict';
 
+  /* ==========================================================
+     Language: browser detection for the default, manual toggle
+     as the override, choice remembered in localStorage.
+
+     Order of precedence:
+       1. a saved choice from a previous visit  (explicit — wins)
+       2. navigator.language / navigator.languages (the user's own
+          device setting, so it beats guessing from an IP)
+       3. English
+     ========================================================== */
+  var LANGS = ['en', 'hi'];
+
+  var mem = {
+    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  };
+
+  function detect() {
+    var saved = mem.get('lang');
+    if (saved && LANGS.indexOf(saved) > -1) return saved;
+
+    var list = navigator.languages || [navigator.language || ''];
+    for (var i = 0; i < list.length; i++) {
+      var code = String(list[i]).toLowerCase().split('-')[0];
+      if (LANGS.indexOf(code) > -1) return code;
+    }
+    return 'en';
+  }
+
+  /* Remember the English original the first time an element is touched,
+     so switching back is exact rather than a reverse-translation. */
+  var originals = new WeakMap();
+
+  function keep(el, prop) {
+    if (!originals.has(el)) originals.set(el, el[prop]);
+    return originals.get(el);
+  }
+
+  function apply(lang) {
+    var pack = (window.I18N && window.I18N[lang]) || null;
+    var keys = pack ? pack.KEYS : {};
+    var text = pack ? pack.TEXT : {};
+
+    /* elements tagged in the HTML */
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var en = keep(el, 'textContent');
+      el.textContent = keys[el.getAttribute('data-i18n')] || en;
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+      var en = keep(el, 'innerHTML');
+      el.innerHTML = keys[el.getAttribute('data-i18n-html')] || en;
+    });
+
+    /* everything else, matched on its exact English text */
+    var sel = 'li,summary,h3,h4,p,a,span,button,strong';
+    document.querySelectorAll(sel).forEach(function (el) {
+      if (el.hasAttribute('data-i18n') || el.hasAttribute('data-i18n-html')) return;
+      if (el.querySelector('*')) return;              /* leaf nodes only */
+      if (el.closest('[data-i18n-html]')) return;     /* already handled above */
+      if (el.closest('#lang')) return;                /* the toggle labels never translate */
+      var en = keep(el, 'textContent');
+      var hit = text[en.replace(/\s+/g, ' ').trim()];
+      el.textContent = hit || en;
+    });
+
+    document.documentElement.lang = lang;
+    document.querySelectorAll('#lang button').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+    });
+    mem.set('lang', lang);
+  }
+
+  var current = detect();
+  if (current !== 'en') apply(current);
+  else {
+    document.querySelectorAll('#lang button').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.lang === 'en'));
+    });
+  }
+
+  var langBox = document.getElementById('lang');
+  if (langBox) {
+    langBox.addEventListener('click', function (e) {
+      var b = e.target.closest('button[data-lang]');
+      if (!b || b.dataset.lang === current) return;
+      current = b.dataset.lang;
+      apply(current);
+    });
+  }
+
   /* ---------- footer year ---------- */
   var yr = document.getElementById('yr');
   if (yr) yr.textContent = new Date().getFullYear();

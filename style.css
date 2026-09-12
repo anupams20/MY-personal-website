@@ -4,6 +4,9 @@
    Edit colours in one place: the :root block below.
    ========================================================================== */
 
+html[lang="hi"] body{line-height:1.78}
+html[lang="hi"] h1,html[lang="hi"] h2,html[lang="hi"] h3{line-height:1.32}
+
 :root{
   --ink:      #0f1115;   /* headings, dark surfaces */
   --body:     #454c58;   /* body text */
@@ -99,6 +102,16 @@ ul,ol{margin:0;padding:0;list-style:none}
 .nav__links{display:flex;gap:26px}
 .nav__links a{font-size:15px;font-weight:500;color:var(--body)}
 .nav__links a:hover{color:var(--ink);text-decoration:none}
+/* language toggle */
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
+.lang button{
+  font-family:inherit;font-size:13px;font-weight:700;color:var(--muted);
+  background:none;border:0;padding:7px 11px;cursor:pointer;line-height:1.4;transition:.14s;
+}
+.lang button+button{border-left:1px solid var(--line)}
+.lang button:hover{color:var(--ink);background:var(--bg-alt)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:#fff}
+
 .nav__phone{
   display:inline-flex;align-items:center;gap:8px;
   font-size:15px;font-weight:700;color:var(--ink);white-space:nowrap;
@@ -431,7 +444,9 @@ ul,ol{margin:0;padding:0;list-style:none}
   .pill{font-size:12.5px;padding:5px 12px}
   .hero__cta .btn{flex:1 1 100%}   /* full-width CTAs are easier to hit */
   .nav__cta{display:none}
-  .nav__phone{display:inline-flex;margin-left:auto}
+  .lang{margin-left:auto}
+  .lang button{padding:6px 9px;font-size:12.5px}
+  .nav__phone{display:inline-flex}
   .nav__phone span{display:inline}   /* number back on, it's the mobile CTA */
   .nav__phone{font-size:14.5px;padding:0}
   .nav__burger{display:block}
