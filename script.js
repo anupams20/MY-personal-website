@@ -1,10 +1,11 @@
 /* Small bits of behaviour. No libraries. */
 
 /* ============================================================
-   >>> THE OFFER — EDIT THESE FOUR LINES AND NOTHING ELSE <<<
+   >>> THE OFFER — EDIT HERE AND NOWHERE ELSE <<<
 
    This text appears in the floating chat bubble and inside the
-   chat panel. Changing it here changes it everywhere.
+   chat panel. Edit both the `en` and `hi` blocks, or a visitor
+   on the other language keeps seeing the old wording.
 
    A note worth reading once: a permanent "50% OFF" sits badly
    next to "Fixed prices, published openly" further up the page.
@@ -20,10 +21,18 @@
                 is still open.'
    ============================================================ */
 var OFFER = {
-  headline: '🎉 50% OFF for you',
-  sub:      'Limited-time deal on your first website. Want to check if you qualify?',
-  panel:    '50% OFF your first website',
-  panelSub: 'A limited-time launch deal. Send me a message and I\'ll confirm whether it applies to your project.'
+  en: {
+    headline: '🎉 50% OFF for you',
+    sub:      'Limited-time deal on your first website. Want to check if you qualify?',
+    panel:    '50% OFF your first website',
+    panelSub: "A limited-time launch deal. Send me a message and I'll confirm whether it applies to your project."
+  },
+  hi: {
+    headline: '🎉 आपके लिए 50% छूट',
+    sub:      'पहली वेबसाइट पर कुछ समय के लिए। देखें कि आपको मिलेगी या नहीं?',
+    panel:    'पहली वेबसाइट पर 50% छूट',
+    panelSub: 'कुछ ही समय के लिए शुरुआती ऑफ़र। मैसेज कीजिए, मैं बता दूँगा कि आपके काम पर ये लागू होता है या नहीं।'
+  }
 };
 
 var DELAY_MS = 7000;   /* how long before the bubble appears */
@@ -69,10 +78,48 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
     return originals.get(el);
   }
 
+  /* Curly vs straight apostrophes are the classic silent miss here:
+     "I don't" in the HTML never matches "I don’t" in the dictionary.
+     Normalise both sides once, and quotes/dashes while we're at it. */
+  function norm(s) {
+    return String(s)
+      .replace(/[‘’]/g, "'")
+      .replace(/[“”]/g, '"')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  var normCache = {};
+  function textMap(lang) {
+    if (normCache[lang]) return normCache[lang];
+    var src = (window.I18N && window.I18N[lang] && window.I18N[lang].TEXT) || {};
+    var out = {};
+    for (var k in src) if (Object.prototype.hasOwnProperty.call(src, k)) out[norm(k)] = src[k];
+    normCache[lang] = out;
+    return out;
+  }
+
+  /* Offer copy in the active language; falls back to English. */
+  function paintOffer(lang) {
+    var o = OFFER[lang] || OFFER.en;
+    var head = document.getElementById('teaserHead');
+    var sub  = document.getElementById('teaserSub');
+    var box  = document.getElementById('chatOffer');
+    if (!head || !sub || !box) return;
+    head.textContent = o.headline;
+    sub.textContent  = o.sub;
+    box.textContent = '';
+    var strong = document.createElement('strong');
+    strong.textContent = o.panel;
+    var span = document.createElement('span');
+    span.textContent = o.panelSub;
+    box.append(strong, span);
+  }
+
   function apply(lang) {
     var pack = (window.I18N && window.I18N[lang]) || null;
     var keys = pack ? pack.KEYS : {};
-    var text = pack ? pack.TEXT : {};
+    var text = textMap(lang);
 
     /* elements tagged in the HTML */
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
@@ -92,10 +139,11 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
       if (el.closest('[data-i18n-html]')) return;     /* already handled above */
       if (el.closest('#lang')) return;                /* the toggle labels never translate */
       var en = keep(el, 'textContent');
-      var hit = text[en.replace(/\s+/g, ' ').trim()];
+      var hit = text[norm(en)];
       el.textContent = hit || en;
     });
 
+    paintOffer(lang);
     document.documentElement.lang = lang;
     document.querySelectorAll('#lang button').forEach(function (b) {
       b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
@@ -168,15 +216,7 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
 
   /* paint the offer text from the block above (textContent, so the copy
      above can contain any characters without breaking the markup) */
-  document.getElementById('teaserHead').textContent = OFFER.headline;
-  document.getElementById('teaserSub').textContent  = OFFER.sub;
-
-  var offerBox = document.getElementById('chatOffer');
-  var strong = document.createElement('strong');
-  strong.textContent = OFFER.panel;
-  var span = document.createElement('span');
-  span.textContent = OFFER.panelSub;
-  offerBox.append(strong, span);
+  paintOffer(current);
 
   /* sessionStorage so a dismissed bubble stays dismissed while browsing,
      but returns on a fresh visit. Wrapped — private mode can throw. */

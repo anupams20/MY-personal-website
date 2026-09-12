@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.png" sizes="64x64">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -54,7 +54,7 @@
 </head>
 
 <body>
-<a href="#main" class="skip">Skip to content</a>
+<a href="#main" class="skip" data-i18n="skip">Skip to content</a>
 
 <!-- ========================= NAV ========================= -->
 <header class="nav" id="nav">
@@ -216,7 +216,7 @@
           <li>WhatsApp + call buttons</li>
           <li>Google Maps and contact form</li>
           <li>Free domain + hosting setup</li>
-          <li><strong>Live in 5–7 days</strong></li>
+          <li data-i18n-html="tier.1.live"><strong>Live in 5–7 days</strong></li>
         </ul>
         <a class="btn btn--ghost btn--block" href="https://wa.me/919670809669?text=Hi%20Anupam%2C%20I%27m%20interested%20in%20the%20Starter%20package%20(%E2%82%B910%2C000)." target="_blank" rel="noopener">Enquire</a>
       </article>
@@ -233,7 +233,7 @@
           <li>On-page SEO for local search</li>
           <li>Custom design, not a template</li>
           <li>Analytics and Search Console</li>
-          <li><strong>Live in 10–14 days</strong></li>
+          <li data-i18n-html="tier.2.live"><strong>Live in 10–14 days</strong></li>
         </ul>
         <a class="btn btn--wa btn--block" href="https://wa.me/919670809669?text=Hi%20Anupam%2C%20I%27m%20interested%20in%20the%20Business%20package%20(%E2%82%B925%2C000)." target="_blank" rel="noopener">Enquire</a>
       </article>
@@ -248,7 +248,7 @@
           <li>Razorpay / UPI payments</li>
           <li>Order and inventory dashboard</li>
           <li>Training so you can run it</li>
-          <li><strong>Live in 3–4 weeks</strong></li>
+          <li data-i18n-html="tier.3.live"><strong>Live in 3–4 weeks</strong></li>
         </ul>
         <a class="btn btn--ghost btn--block" href="https://wa.me/919670809669?text=Hi%20Anupam%2C%20I%27m%20interested%20in%20the%20Online%20Store%20package%20(%E2%82%B945%2C000)." target="_blank" rel="noopener">Enquire</a>
       </article>
@@ -256,13 +256,13 @@
 
     <div class="amc">
       <div>
-        <h3>Care plan — ₹1,500/month <span>(optional)</span></h3>
+        <h3 data-i18n-html="amc.h"><span>Care plan — ₹1,500/month </span><span>(optional)</span></h3>
         <p>Hosting, daily backups, security updates, uptime monitoring and two content changes a month. Most clients take this so they never have to think about the site again.</p>
       </div>
       <a class="btn btn--dark" href="https://wa.me/919670809669?text=Hi%20Anupam%2C%20tell%20me%20about%20the%20care%20plan." target="_blank" rel="noopener">Ask about it</a>
     </div>
 
-    <p class="fineprint">
+    <p class="fineprint" data-i18n-html="fineprint">
       50% to start, 50% when the site goes live. GST not applicable. Domain and hosting are billed
       at actual cost (roughly ₹1,000–2,500/year) and registered in <em>your</em> name — you own everything.
     </p>
@@ -319,7 +319,7 @@
       </article>
     </div>
 
-    <p class="work__note">
+    <p class="work__note" data-i18n-html="work.note">
       These are demonstration sites built to show what each package includes — the businesses are
       illustrative, not clients. <strong>Your site would use your own name, photos and content.</strong>
     </p>
@@ -412,7 +412,7 @@
       </details>
       <details>
         <summary>I'm not in Hyderabad. Can you still build my website?</summary>
-        <p>Yes — I work with clients <strong>anywhere in India</strong>. Everything happens over WhatsApp, email and calls, which is how most of my work runs regardless of city. I'm based in Hyderabad, so if you're local we can meet in person, but it makes no difference to what you get or what you pay.</p>
+        <p data-i18n-html="faq.7a">Yes — I work with clients <strong>anywhere in India</strong>. Everything happens over WhatsApp, email and calls, which is how most of my work runs regardless of city. I'm based in Hyderabad, so if you're local we can meet in person, but it makes no difference to what you get or what you pay.</p>
       </details>
     </div>
   </div>
@@ -422,7 +422,7 @@
 <section id="contact" class="cta">
   <div class="wrap wrap--narrow cta__inner">
     <h2 data-i18n-html="cta.h2">Tell me about <span class="hl-light">your business</span>.</h2>
-    <p>Send one message describing what you do. I'll reply with what I'd build, what it costs, and how long it takes — usually <strong>within a few hours</strong>. If it's not a fit, I'll tell you that too.</p>
+    <p data-i18n-html="cta.body">Send one message describing what you do. I'll reply with what I'd build, what it costs, and how long it takes — usually <strong>within a few hours</strong>. If it's not a fit, I'll tell you that too.</p>
 
     <a class="btn btn--wa btn--lg" href="https://wa.me/919670809669?text=Hi%20Anupam%2C%20I%20need%20a%20website%20for%20my%20business." target="_blank" rel="noopener">
       <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2c-5.5 0-9.97 4.47-9.97 9.97 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.93 9.93 0 0 0 4.84 1.24h.01c5.5 0 9.97-4.47 9.97-9.97 0-2.66-1.04-5.17-2.92-7.05A9.9 9.9 0 0 0 12.04 2Zm0 18.15h-.01a8.27 8.27 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 1 1 7.01 3.86Zm4.54-6.19c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.64.8-.79.97-.14.16-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.02 2.57c.12.16 1.75 2.67 4.25 3.74.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.11-.23-.17-.48-.29Z"/></svg>
@@ -430,7 +430,7 @@
     </a>
 
     <p class="cta__alt">
-      Prefer email? <a href="mailto:anumap07@gmail.com?subject=Website%20enquiry">anumap07@gmail.com</a>
+      <span data-i18n="cta.prefer">Prefer email?</span> <a href="mailto:anumap07@gmail.com?subject=Website%20enquiry">anumap07@gmail.com</a>
     </p>
   </div>
 </section>
@@ -439,7 +439,7 @@
 
 <footer class="foot">
   <div class="wrap foot__inner">
-    <p>&copy; <span id="yr">2026</span> Anupam Singh — Freelance website developer, India.</p>
+    <p>&copy; <span id="yr">2026</span> Anupam Singh — <span data-i18n="foot.role">Freelance website developer, India.</span></p>
     <p class="foot__links">
       <a href="https://www.linkedin.com/in/anupamsingh-iitk" target="_blank" rel="noopener">LinkedIn</a>
       <a href="mailto:anumap07@gmail.com">Email</a>
@@ -470,18 +470,18 @@
       <img src="images/anupam.jpg" alt="" width="40" height="40">
       <div class="chat__who">
         <strong>Anupam Singh</strong>
-        <span><i class="dot"></i> Usually replies within a few hours</span>
+        <span><i class="dot"></i> <span data-i18n="chat.status">Usually replies within a few hours</span></span>
       </div>
       <button class="chat__x chat__x--head" id="chatClose" aria-label="Close chat">&times;</button>
     </header>
 
     <div class="chat__body">
-      <div class="msg">
+      <div class="msg" data-i18n-html="chat.greet">
         Hi! 👋 I'm Anupam — an <strong>IIT Kanpur</strong> engineer building websites
         for businesses across India.
       </div>
       <div class="msg msg--offer" id="chatOffer"></div>
-      <p class="chat__prompt">What can I help you with?</p>
+      <p class="chat__prompt" data-i18n="chat.prompt">What can I help you with?</p>
 
       <div class="chat__quick">
         <a class="qr" target="_blank" rel="noopener"
@@ -522,7 +522,7 @@
   </a>
 </div>
 
-<script src="i18n.js?v=1"></script>
-<script src="script.js?v=5"></script>
+<script src="i18n.js?v=2"></script>
+<script src="script.js?v=6"></script>
 </body>
 </html>
