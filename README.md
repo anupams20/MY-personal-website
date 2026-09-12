@@ -60,25 +60,50 @@ CTA if anyone shares a demo link.
 
 ---
 
-## Deploying it (free, about 5 minutes)
+## Deploying
 
-### Option A — Netlify Drop (easiest, no account setup)
-1. Go to <https://app.netlify.com/drop>
-2. Drag the entire `site` folder onto the page.
-3. It's live. You get a free `something.netlify.app` URL immediately.
-4. Add your own domain later under **Site settings → Domain management**.
+**Recommended: GitHub → Netlify.** Connect once, then every `git push` is a
+deploy. You get version history, one-click rollback to any earlier deploy, and
+free HTTPS. `netlify.toml` in this folder already sets the security headers and
+the caching policy — HTML revalidates on every request so a deploy is visible
+immediately, and assets cache hard.
 
-### Option B — Vercel CLI
+This folder is already a git repo with one commit. To push it:
+
 ```bash
-npm i -g vercel
-cd "C:/Users/Abhinav PC/Desktop/Website_projects/site"
-vercel --prod
+# 1. Create an EMPTY repo on github.com (no README, no .gitignore)
+# 2. Then, from this folder:
+git remote add origin https://github.com/<your-username>/<repo-name>.git
+git push -u origin main
 ```
 
-### Option C — GitHub Pages
-Push this folder to a repo, then **Settings → Pages → Deploy from branch → main / root**.
+Then on Netlify: **Add new site → Import an existing project → GitHub →
+pick the repo → Deploy**. Leave the build command empty; publish directory `.`
+is read from `netlify.toml`.
 
-HTTPS is automatic and free on all three.
+**Note the repo root is `site/`, not `Website_projects/`.** That is deliberate —
+the parent folder holds your resume and LinkedIn PDF, which must not end up in a
+public repo. `.gitignore` blocks `*.pdf` as a second line of defence.
+
+### Alternatives
+- **Netlify Drop** — <https://app.netlify.com/drop>, drag this folder on. Live in
+  30 seconds, no account. Good for a one-off test; no version history.
+- **Cloudflare Pages / Vercel** — equally good, same GitHub flow.
+- **Docker / AWS / a VPS** — don't. See the note in the deployment discussion:
+  you would be running a server to serve 160KB of static files, and taking on
+  uptime responsibility for every client site you host.
+
+## After every change
+
+Bump the `?v=` number on the CSS and JS links in `index.html`:
+
+```html
+<link rel="stylesheet" href="style.css?v=4">
+<script src="script.js?v=4"></script>
+```
+
+Browsers cache aggressively. This one habit prevents the "I fixed it but it
+still looks broken on my phone" problem.
 
 ## Buying a domain
 
