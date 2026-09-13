@@ -220,6 +220,91 @@ ul,ol{margin:0;padding:0;list-style:none}
 .amc p{font-size:15px;margin:0;max-width:62ch}
 .fineprint{font-size:14px;color:var(--muted);margin:22px 0 0;max-width:74ch}
 
+/* --- pricing: trust strip ------------------------------------------------
+   Four short promises sitting directly under the pricing heading. They answer
+   the objections a first-time buyer has *before* they look at a number, which
+   is the moment the price either feels fair or feels like a risk. */
+.ptrust{display:flex;flex-wrap:wrap;gap:8px;margin:-30px 0 34px}
+.ptrust li{
+  font-size:13.5px;font-weight:600;color:var(--ink);margin:0;
+  background:var(--accent-sf);border:1px solid #d6e2ff;
+  padding:6px 13px;border-radius:999px;
+}
+.ptrust li::before{content:"✓";color:var(--accent);font-weight:800;margin-right:7px}
+
+/* The popular tier lifts slightly so the eye lands on it first. Dropped on
+   narrow screens, where the cards stack and a lift just looks like a gap. */
+.tier--pop{transform:translateY(-8px)}
+
+/* --- pricing: capability band --------------------------------------------
+   Sits between the tiers and the care plan on purpose: by this point the
+   visitor knows the price, and this is what they get for it that the next
+   freelancer is not offering.
+
+   Built as an ordered list, not three cards, because these are not three
+   parallel features — they are one lead's journey: it asks, it books, it
+   reaches you. The numerals carry that order without spending a line of
+   copy on it. */
+.feat{
+  position:relative;overflow:hidden;margin-top:26px;
+  background:var(--ink);color:#b4bdcb;
+  border-radius:var(--radius);padding:30px 26px 26px;
+}
+/* One soft glow so the band reads as a lit surface rather than a flat slab. */
+.feat::before{
+  content:"";position:absolute;left:-8%;top:-55%;width:70%;height:330px;
+  background:radial-gradient(closest-side,rgba(26,79,214,.40),transparent 72%);
+  pointer-events:none;
+}
+.feat > *{position:relative}
+
+.feat__eye{
+  display:inline-flex;align-items:center;gap:9px;margin:0 0 10px;
+  font-size:12.5px;font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:#8fb0ff;
+}
+.feat__eye::before{content:"";width:18px;height:2px;background:#8fb0ff;border-radius:2px;flex:none}
+/* The framing line. This is what turns three boxes into a sequence — it does
+   more work than any connector line or arrow could. */
+.feat__h{color:#fff;font-size:21px;font-weight:700;letter-spacing:-.02em;margin:0 0 22px}
+
+.feat__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:18px}
+.feat__card{
+  position:relative;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.11);border-radius:12px;padding:20px 18px 18px;
+}
+/* Step number, set large and very faint: it orders the cards at a glance
+   without adding anything else to read. */
+.feat__n{
+  position:absolute;top:12px;right:15px;line-height:1;
+  font-size:32px;font-weight:800;letter-spacing:-.05em;color:rgba(255,255,255,.10);
+}
+.feat__ico{
+  display:grid;place-items:center;width:40px;height:40px;border-radius:11px;
+  background:rgba(143,176,255,.15);color:#8fb0ff;margin-bottom:13px;
+}
+.feat__ico svg{width:21px;height:21px}
+.feat__ico--wa{background:rgba(37,211,102,.15);color:var(--wa)}
+.feat__card h4{color:#fff;font-size:16.5px;font-weight:700;letter-spacing:-.01em;margin:0 0 7px}
+.feat__card p{font-size:14.5px;line-height:1.6;margin:0;color:#b4bdcb}
+/* Amber, not WhatsApp green. Green on this site means "message me" — spending
+   it on a status pill would blunt the one colour that drives clicks. */
+.feat__tag{
+  display:inline-block;margin-bottom:10px;padding:3px 9px;border-radius:999px;
+  font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  background:rgba(245,183,49,.16);color:#f5c451;border:1px solid rgba(245,183,49,.32);
+}
+
+/* The payoff, given its own surface instead of being left as fine print. */
+.feat__foot{
+  display:flex;align-items:center;gap:12px;margin:18px 0 0;padding:14px 16px;
+  border-radius:12px;background:rgba(37,211,102,.10);
+  border:1px solid rgba(37,211,102,.22);
+  font-size:14.5px;line-height:1.55;color:#cfe9d8;
+}
+.feat__foot svg{width:21px;height:21px;color:var(--wa);flex:none}
+.feat__foot strong{color:#fff}
+
 /* ---------- work ---------- */
 .work{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .work__item{display:block;color:inherit}
@@ -321,11 +406,13 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* ==========================================================================
    Floating chat widget
    ========================================================================== */
-/* Sits 76px up, not 18px: the "Powered by Netlify" badge occupies the
-   bottom-right corner on netlify.app subdomains and would sit on top of
-   the launcher. The badge disappears once a custom domain is attached —
-   this clearance looks fine either way, so it can stay. */
-.chat{position:fixed;right:18px;bottom:76px;z-index:90;
+/* The "Powered by Netlify" badge sits in the bottom-right corner and used to
+   collide with this launcher. A custom domain does NOT remove it (an earlier
+   comment here claimed it did — wrong). It is switched off per-project under
+   Project configuration > General > Powered by Netlify badge, which is done,
+   so the launcher can sit at the normal 18px. If the badge is ever turned
+   back on, bump this back to 76px. */
+.chat{position:fixed;right:18px;bottom:18px;z-index:90;
   display:flex;flex-direction:column;align-items:flex-end;gap:12px}
 
 /* launcher */
@@ -432,6 +519,10 @@ ul,ol{margin:0;padding:0;list-style:none}
   .creds{grid-template-columns:repeat(2,1fr);margin-top:52px}
   .cards,.tiers,.work{grid-template-columns:1fr;gap:18px}
   .tier__for{min-height:0}
+  .tier--pop{transform:none}
+  .feat{padding:24px 20px}
+  .feat__h{font-size:19px}
+  .feat__foot{align-items:flex-start}
   .about{grid-template-columns:1fr;gap:40px}
 }
 
