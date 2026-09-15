@@ -6,34 +6,38 @@
        index the same page twice. -->
   <url>
     <loc>https://anupamwebworks.com/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- The demo pages. Real, working samples of the work, each one a
+  <!-- The demo pages. Listed without .html because Netlify serves each one at
+       both /demos/x and /demos/x.html, and the extensionless form is the one
+       the homepage links to. Sitemap, internal links and canonical tags all
+       name the same URL, which is what stops Google seeing two of each page.
+       Real, working samples of the work, each one a
        different sector - these are what a prospect is sent to. -->
   <url>
-    <loc>https://anupamwebworks.com/demos/school.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <loc>https://anupamwebworks.com/demos/school</loc>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anupamwebworks.com/demos/dental-clinic.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <loc>https://anupamwebworks.com/demos/dental-clinic</loc>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anupamwebworks.com/demos/fitness-studio.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <loc>https://anupamwebworks.com/demos/fitness-studio</loc>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anupamwebworks.com/demos/boutique-store.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <loc>https://anupamwebworks.com/demos/boutique-store</loc>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
