@@ -11,35 +11,21 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- The demo pages. Listed without .html because Netlify serves each one at
-       both /demos/x and /demos/x.html, and the extensionless form is the one
-       the homepage links to. Sitemap, internal links and canonical tags all
-       name the same URL, which is what stops Google seeing two of each page.
-       Real, working samples of the work, each one a
-       different sector - these are what a prospect is sent to. -->
-  <url>
-    <loc>https://anupamwebworks.com/demos/school</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://anupamwebworks.com/demos/dental-clinic</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://anupamwebworks.com/demos/fitness-studio</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://anupamwebworks.com/demos/boutique-store</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <!-- The four demo pages are deliberately NOT listed here.
+
+       Each carries <meta name="robots" content="noindex">, and that is the
+       right call: they present as real businesses - "Aarogya Dental Care,
+       Banjara Hills, Hyderabad" - and every call and WhatsApp button on them
+       points at the real number. Indexed, they would put a dental clinic that
+       does not exist into search results wired to a live phone, and someone
+       looking for a dentist would reach a web developer.
+
+       A sitemap listing noindex pages contradicts itself, and Search Console
+       reports each one as an error for as long as it stays. So the demos stay
+       out of here and stay noindex.
+
+       The traffic those pages were meant to earn belongs on real pages that
+       describe the service - "website design for schools in Hyderabad" - which
+       can link to a demo without pretending to be one. -->
 
 </urlset>
