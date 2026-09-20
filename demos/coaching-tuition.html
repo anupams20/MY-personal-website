@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pragati Tutorials — Classes 6–12, Aliganj, Lucknow</title>
+  <link rel="canonical" href="https://anupamwebworks.com/demos/coaching-tuition">
+<meta name="description" content="Maths, Science and Commerce tuition for Classes 6–12, CBSE and UP Board, in Aliganj, Lucknow. Batches of 15. Live seat availability, transparent fees, first class free.">
+<meta name="theme-color" content="#123524">
+<meta name="robots" content="noindex">
+<style>
+/* =====================================================================
+   Pragati Tutorials — demo by Anupam Singh, anupamwebworks.com
+
+   MOBILE FIRST. Base rules are the phone; desktop is added at min-width.
+
+   A tuition centre loses enquiries to four unanswered questions, asked in
+   this order: which batch, at what time, how much, and are seats left.
+   Every one is answered above the fold or one tap away, and the seat
+   count is the thing no competitor's Instagram page can show.
+   ===================================================================== */
+
+:root{
+  --grn:#123524; --grn-2:#1c5138; --grn-sf:#eaf2ed;
+  --saf:#c2610d; --saf-2:#e0821f; --saf-sf:#fdf1e3;
+  --wa:#25d366;
+  --ink:#131a16; --paper:#fbf8f2; --card:#fff; --card-2:#f4efe5;
+  --line:#e4dccd; --line-2:#d3c8b3;
+  --fg:#131a16; --body:#55605a; --muted:#8a9189;
+  --r:14px; --r-lg:22px; --r-pill:999px;
+  --sh:0 1px 2px rgba(18,53,36,.06), 0 10px 30px rgba(18,53,36,.09);
+  --sh-sm:0 1px 2px rgba(18,53,36,.07), 0 4px 12px rgba(18,53,36,.06);
+  --bar-h:72px;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font-family:var(--font);background:var(--paper);color:var(--fg);
+  font-size:16px;line-height:1.62;padding-bottom:calc(var(--bar-h) + env(safe-area-inset-bottom))}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.015em;line-height:1.18;margin:0}
+p{margin:0}
+.wrap{max-width:1080px;margin-inline:auto;padding-inline:18px}
+.sec{padding-block:52px}
+.sec--tint{background:var(--grn-sf)}
+.sec--paper{background:var(--card-2)}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--saf);margin-bottom:10px}
+.h2{font-size:27px;margin-bottom:10px}
+.lede{color:var(--body);max-width:62ch;margin-bottom:26px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:52px;padding:0 22px;border-radius:var(--r-pill);border:0;cursor:pointer;
+  font:inherit;font-weight:700;font-size:15.5px;text-decoration:none;
+  background:var(--grn);color:#fff;transition:transform .12s ease,filter .12s ease}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:19px;height:19px;fill:currentColor;flex:none}
+.btn--wa{background:var(--wa);color:#052e14}
+.btn--saf{background:var(--saf);color:#fff}
+.btn--o{background:transparent;color:var(--grn);border:1.5px solid var(--line-2)}
+
+/* ---------------------------------------------------------- header */
+.hdr{position:sticky;top:0;z-index:60;background:rgba(251,248,242,.93);
+  backdrop-filter:saturate(1.6) blur(10px);border-bottom:1px solid var(--line)}
+.hdr .wrap{height:62px;display:flex;align-items:center;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
+.logo i{width:36px;height:36px;border-radius:10px;background:var(--grn);color:#fff;
+  display:grid;place-items:center;font-family:var(--serif);font-size:19px;font-style:normal;font-weight:700}
+.logo b{font-family:var(--serif);font-size:18px;letter-spacing:-.01em;display:block;line-height:1.15}
+.logo u{font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;
+  font-weight:700;text-decoration:none;display:block}
+.hdr nav,.hdr .btn,.util{display:none}
+.burger{width:42px;height:42px;border:1.5px solid var(--line-2);background:transparent;
+  border-radius:11px;display:grid;place-items:center;cursor:pointer;padding:0}
+.burger span{display:block;width:17px;height:1.8px;background:var(--fg);border-radius:2px;
+  box-shadow:0 -5.5px 0 var(--fg),0 5.5px 0 var(--fg)}
+.drawer{position:fixed;inset:62px 0 auto;background:var(--paper);z-index:59;
+  border-bottom:1px solid var(--line);padding:10px 18px 18px;display:none}
+.drawer.open{display:block}
+.drawer a{display:block;padding:12px 2px;font-weight:600;text-decoration:none;
+  border-bottom:1px solid var(--line)}
+
+/* ---------------------------------------------------------- hero */
+.hero{padding-block:34px 8px}
+.pill{display:inline-flex;align-items:center;gap:7px;background:var(--saf-sf);
+  color:var(--saf);border:1px solid #f0d9bb;border-radius:var(--r-pill);
+  padding:6px 13px;font-size:12.5px;font-weight:800;margin-bottom:16px}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--saf);font-style:normal;
+  animation:blip 1.8s ease-in-out infinite}
+@keyframes blip{50%{opacity:.35}}
+.hero h1{font-size:34px;margin-bottom:14px}
+.hero h1 em{font-style:normal;color:var(--grn-2);
+  background:linear-gradient(transparent 62%,#f7d9a8 62%)}
+.hero p.sub{color:var(--body);font-size:17px;margin-bottom:22px;max-width:52ch}
+.hcta{display:grid;gap:10px;margin-bottom:26px}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:16px 10px;box-shadow:var(--sh-sm)}
+.trust div{text-align:center;padding-inline:4px}
+.trust strong{display:block;font-family:var(--serif);font-size:23px;color:var(--grn);line-height:1.1}
+.trust span{font-size:11.5px;color:var(--muted);font-weight:600}
+
+/* ---------------------------------------------------------- quick answers */
+.quick{margin-top:18px;display:grid;gap:10px}
+.qa{display:flex;gap:13px;align-items:flex-start;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--r);padding:14px 15px;box-shadow:var(--sh-sm)}
+.qa i{width:34px;height:34px;flex:none;border-radius:9px;background:var(--grn-sf);
+  display:grid;place-items:center;font-style:normal}
+.qa svg{width:17px;height:17px;fill:var(--grn)}
+.qa b{display:block;font-size:14px}
+.qa span{font-size:13.5px;color:var(--body)}
+
+/* ---------------------------------------------------------- batches */
+.batch{display:grid;gap:12px}
+.bt{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:18px;box-shadow:var(--sh-sm)}
+.bt header{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.bt h3{font-size:19px}
+.bt .cls{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--saf);display:block;margin-bottom:3px}
+.bt header>div{flex:1}
+.seats{font-size:12px;font-weight:800;padding:5px 10px;border-radius:var(--r-pill);white-space:nowrap}
+.seats--ok{background:#e6f4ec;color:#146c3f}
+.seats--low{background:#fdecea;color:#b4231a}
+.seats--full{background:#eee;color:#6b7280}
+.bt dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:14.5px}
+.bt dt{color:var(--muted);font-weight:600}
+.bt dd{margin:0;font-weight:600}
+.bt .btn{width:100%;margin-top:14px;min-height:46px;font-size:14.5px}
+.bt--full{opacity:.62}
+
+/* ---------------------------------------------------------- results */
+.res{display:grid;gap:12px}
+.rc{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:18px;text-align:center;box-shadow:var(--sh-sm)}
+.rc b{display:block;font-family:var(--serif);font-size:32px;color:var(--grn);line-height:1}
+.rc span{font-size:13px;color:var(--body)}
+.toppers{display:grid;gap:10px;margin-top:16px}
+.tp{display:flex;align-items:center;gap:13px;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r);padding:12px 14px}
+.tp i{width:40px;height:40px;border-radius:50%;background:var(--grn);color:#fff;flex:none;
+  display:grid;place-items:center;font-family:var(--serif);font-size:15px;font-style:normal;font-weight:700}
+.tp b{display:block;font-size:15px}
+.tp span{font-size:13px;color:var(--body)}
+.tp em{margin-left:auto;font-style:normal;font-family:var(--serif);font-size:20px;
+  color:var(--saf);font-weight:700}
+
+/* ---------------------------------------------------------- fees */
+.feewrap{overflow-x:auto}
+.fee{width:100%;border-collapse:collapse;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.fee th,.fee td{padding:13px 14px;text-align:left;border-bottom:1px solid var(--line);font-size:14.5px}
+.fee th{background:var(--grn);color:#fff;font-size:12px;letter-spacing:.07em;
+  text-transform:uppercase;font-weight:800}
+.fee td:last-child{text-align:right;font-weight:700;white-space:nowrap}
+.fee tr:last-child td{border-bottom:0}
+.note{font-size:13.5px;color:var(--body);margin-top:12px;display:flex;gap:8px;align-items:flex-start}
+.note svg{width:16px;height:16px;fill:var(--saf);flex:none;margin-top:3px}
+
+/* ---------------------------------------------------------- faculty */
+.fac{display:grid;gap:12px}
+.fc{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:18px;box-shadow:var(--sh-sm)}
+.fc i{width:46px;height:46px;border-radius:12px;background:var(--saf-sf);color:var(--saf);
+  display:grid;place-items:center;font-family:var(--serif);font-size:18px;font-style:normal;
+  font-weight:700;margin-bottom:11px}
+.fc b{display:block;font-size:16px}
+.fc .sub{font-size:13px;color:var(--saf);font-weight:700;margin-bottom:7px}
+.fc p{font-size:14px;color:var(--body)}
+
+/* ---------------------------------------------------------- steps */
+.steps{display:grid;gap:12px;counter-reset:s}
+.st{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:16px 16px 16px 58px;position:relative}
+.st::before{counter-increment:s;content:counter(s);position:absolute;left:16px;top:15px;
+  width:28px;height:28px;border-radius:50%;background:var(--grn);color:#fff;
+  display:grid;place-items:center;font-size:14px;font-weight:800}
+.st b{display:block;font-size:15.5px}
+.st span{font-size:14px;color:var(--body)}
+
+/* ---------------------------------------------------------- voices */
+.voice{display:grid;gap:12px}
+.vc{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--saf);
+  border-radius:var(--r);padding:16px 17px}
+.vc p{font-family:var(--serif);font-size:16.5px;line-height:1.55;margin-bottom:10px}
+.vc b{font-size:13.5px}
+.vc span{font-size:13px;color:var(--muted)}
+
+/* ---------------------------------------------------------- gallery + faq */
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.gal div{aspect-ratio:4/3;max-width:100%;border-radius:var(--r);background:var(--card-2);
+  border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);
+  font-size:12px;text-align:center;padding:8px}
+details{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:14px 16px;margin-bottom:9px}
+summary{cursor:pointer;font-weight:700;font-size:15.5px;list-style:none;
+  display:flex;justify-content:space-between;gap:12px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:21px;color:var(--saf);font-weight:400;line-height:1}
+details[open] summary::after{content:"\2212"}
+details p{margin-top:9px;font-size:14.5px;color:var(--body)}
+
+/* ---------------------------------------------------------- form */
+.form{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:20px;box-shadow:var(--sh)}
+.fld{margin-bottom:13px}
+.fld label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
+.fld input,.fld select,.fld textarea{width:100%;font:inherit;font-size:16px;
+  padding:12px 13px;border:1.5px solid var(--line-2);border-radius:11px;
+  background:var(--paper);color:var(--fg)}
+.fld textarea{min-height:76px;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:2px solid var(--grn-2);
+  outline-offset:1px;border-color:transparent}
+.form .btn{width:100%}
+.form .fine{font-size:12.5px;color:var(--muted);text-align:center;margin-top:11px}
+
+/* ---------------------------------------------------------- footer */
+.ftr{background:var(--grn);color:#cfe0d6;padding-block:38px 26px}
+.ftr a{color:#fff;text-decoration:none}
+.ftr h3{color:#fff;font-size:18px;margin-bottom:9px}
+.ftr .cols{display:grid;gap:26px;margin-bottom:24px}
+.ftr .cols>div>p,.ftr .cols>div>a{font-size:14.5px;display:block;margin-bottom:5px}
+.ftr .base{border-top:1px solid rgba(255,255,255,.17);padding-top:16px;font-size:12.5px}
+
+/* ---------------------------------------------------------- fixed furniture */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:58;display:flex;gap:9px;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(251,248,242,.97);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);box-shadow:0 -4px 20px rgba(18,53,36,.09)}
+.bar .btn{flex:1;font-size:14.5px;min-height:50px;padding-inline:12px}
+
+.ribbon{position:fixed;right:10px;bottom:calc(var(--bar-h) + 12px + env(safe-area-inset-bottom));
+  z-index:59;background:var(--ink);color:#fff;border-radius:var(--r-pill);padding:8px 14px;
+  font-size:12px;font-weight:600;box-shadow:var(--sh)}
+.ribbon b{color:#f7d9a8}
+.ribbon a{color:#fff;text-decoration:underline;text-underline-offset:2px}
+
+/* hidden inside the iframe preview on the main site's Work section */
+.embedded body{padding-bottom:0}
+.embedded .bar,.embedded .ribbon{display:none}
+
+@media(min-width:700px){
+  .wrap{padding-inline:28px}
+  .sec{padding-block:72px}
+  .hero{padding-block:52px 12px}
+  .hero h1{font-size:46px}
+  .h2{font-size:33px}
+  .hcta{grid-template-columns:auto auto;justify-content:start}
+  .trust strong{font-size:27px}
+  .quick{grid-template-columns:repeat(3,1fr)}
+  .batch{grid-template-columns:repeat(2,1fr)}
+  .res{grid-template-columns:repeat(3,1fr)}
+  .fac{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .voice{grid-template-columns:repeat(3,1fr)}
+  .gal{grid-template-columns:repeat(4,1fr)}
+  .ftr .cols{grid-template-columns:2fr 1fr 1fr}
+}
+@media(min-width:960px){
+  body{padding-bottom:0}
+  .bar{display:none}
+  .burger,.drawer{display:none}
+  .ribbon{bottom:16px}
+  .hdr nav{display:flex;gap:22px}
+  .hdr nav a{color:var(--body);font-weight:600;font-size:14.5px;text-decoration:none}
+  .hdr nav a:hover{color:var(--grn)}
+  .hdr .btn{display:inline-flex;min-height:44px;font-size:14.5px}
+  .hdr .wrap{height:76px;gap:18px}
+  .hero .wrap{display:grid;grid-template-columns:1.06fr .94fr;gap:50px;align-items:center}
+  .quick{margin-top:0}
+  .batch{grid-template-columns:repeat(3,1fr)}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top"><i>प</i><span><b>Pragati Tutorials</b><u>Aliganj, Lucknow</u></span></a>
+    <nav>
+      <a href="#batches">Batches</a>
+      <a href="#results">Results</a>
+      <a href="#fees">Fees</a>
+      <a href="#faculty">Teachers</a>
+      <a href="#enquire">Enquire</a>
+    </nav>
+    <a class="btn btn--saf" href="#enquire">Book a free class</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+<div class="drawer" id="drawer">
+  <a href="#batches">Batches &amp; timings</a>
+  <a href="#results">Results 2026</a>
+  <a href="#fees">Fees</a>
+  <a href="#faculty">Our teachers</a>
+  <a href="#how">How to join</a>
+  <a href="#faq">Questions</a>
+  <a href="#enquire">Book a free class</a>
+</div>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="pill"><i></i> 2026–27 batches filling · 9 seats left</div>
+      <h1>Small batches. <em>Named teachers.</em> Marks you can check.</h1>
+      <p class="sub">Maths, Science and Commerce for Classes 6–12, CBSE and UP Board.
+        Fifteen students to a batch, never more — so your child is asked a question every day,
+        not once a month.</p>
+      <div class="hcta">
+        <a class="btn btn--saf" href="#enquire">Book a free class</a>
+        <a class="btn btn--o" href="#batches">See batch timings</a>
+      </div>
+      <div class="trust">
+        <div><strong>15</strong><span>max per batch</span></div>
+        <div><strong>94%</strong><span>scored 80%+ in 2026</span></div>
+        <div><strong>11 yrs</strong><span>in Aliganj</span></div>
+      </div>
+    </div>
+
+    <div class="quick">
+      <div class="qa"><i><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 10.6V6h-2v7.4l5 3 1-1.7-4-2.1Z"/></svg></i>
+        <div><b>Morning &amp; evening batches</b><span>6:30–8:00 am and 4:00–8:30 pm, Mon–Sat</span></div></div>
+      <div class="qa"><i><svg viewBox="0 0 24 24"><path d="M11 21V9H5l8-8v12h6l-8 8Z"/></svg></i>
+        <div><b>Fees from ₹1,200/month</b><span>Full table below. No admission fee, no hidden charges.</span></div></div>
+      <div class="qa"><i><svg viewBox="0 0 24 24"><path d="m9 16.2-3.5-3.5L4 14.2 9 19 20 8l-1.5-1.4L9 16.2Z"/></svg></i>
+        <div><b>First class is free</b><span>Sit in, meet the teacher, then decide.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="batches">
+  <div class="wrap">
+    <div class="eyebrow">Batches &amp; timings</div>
+    <h2 class="h2">Which batch fits your child</h2>
+    <p class="lede">Seat counts below are updated every Monday. When a batch fills we do not
+      add a sixteenth chair — we open the next one.</p>
+
+    <div class="batch">
+      <div class="bt">
+        <header><div><span class="cls">Classes 9 &amp; 10</span><h3>Maths + Science</h3></div>
+          <span class="seats seats--low">3 seats left</span></header>
+        <dl>
+          <dt>Days</dt><dd>Mon–Sat</dd>
+          <dt>Time</dt><dd>4:00 – 5:30 pm</dd>
+          <dt>Board</dt><dd>CBSE &amp; UP Board</dd>
+          <dt>Teacher</dt><dd>R. K. Mishra</dd>
+        </dl>
+        <a class="btn btn--wa js-batch" data-batch="Classes 9 & 10 — Maths + Science, 4:00–5:30 pm" href="#enquire">Ask about this batch</a>
+      </div>
+
+      <div class="bt">
+        <header><div><span class="cls">Classes 11 &amp; 12</span><h3>Physics, Chemistry, Maths</h3></div>
+          <span class="seats seats--ok">6 seats left</span></header>
+        <dl>
+          <dt>Days</dt><dd>Mon–Sat</dd>
+          <dt>Time</dt><dd>6:30 – 8:30 pm</dd>
+          <dt>Board</dt><dd>CBSE</dd>
+          <dt>Teacher</dt><dd>S. Awasthi</dd>
+        </dl>
+        <a class="btn btn--wa js-batch" data-batch="Classes 11 & 12 — PCM, 6:30–8:30 pm" href="#enquire">Ask about this batch</a>
+      </div>
+
+      <div class="bt">
+        <header><div><span class="cls">Classes 11 &amp; 12</span><h3>Accounts &amp; Business Studies</h3></div>
+          <span class="seats seats--ok">8 seats left</span></header>
+        <dl>
+          <dt>Days</dt><dd>Mon, Wed, Fri</dd>
+          <dt>Time</dt><dd>5:00 – 6:30 pm</dd>
+          <dt>Board</dt><dd>CBSE &amp; UP Board</dd>
+          <dt>Teacher</dt><dd>N. Srivastava</dd>
+        </dl>
+        <a class="btn btn--wa js-batch" data-batch="Classes 11 & 12 — Accounts & BSt, 5:00–6:30 pm" href="#enquire">Ask about this batch</a>
+      </div>
+
+      <div class="bt">
+        <header><div><span class="cls">Classes 6 – 8</span><h3>All subjects</h3></div>
+          <span class="seats seats--ok">5 seats left</span></header>
+        <dl>
+          <dt>Days</dt><dd>Mon–Fri</dd>
+          <dt>Time</dt><dd>4:00 – 5:15 pm</dd>
+          <dt>Board</dt><dd>CBSE &amp; UP Board</dd>
+          <dt>Teacher</dt><dd>A. Verma</dd>
+        </dl>
+        <a class="btn btn--wa js-batch" data-batch="Classes 6–8 — All subjects, 4:00–5:15 pm" href="#enquire">Ask about this batch</a>
+      </div>
+
+      <div class="bt">
+        <header><div><span class="cls">Class 10</span><h3>Morning revision batch</h3></div>
+          <span class="seats seats--ok">4 seats left</span></header>
+        <dl>
+          <dt>Days</dt><dd>Mon–Sat</dd>
+          <dt>Time</dt><dd>6:30 – 8:00 am</dd>
+          <dt>Board</dt><dd>CBSE &amp; UP Board</dd>
+          <dt>Teacher</dt><dd>R. K. Mishra</dd>
+        </dl>
+        <a class="btn btn--wa js-batch" data-batch="Class 10 — Morning revision, 6:30–8:00 am" href="#enquire">Ask about this batch</a>
+      </div>
+
+      <div class="bt bt--full">
+        <header><div><span class="cls">Class 12</span><h3>Board crash course</h3></div>
+          <span class="seats seats--full">Full</span></header>
+        <dl>
+          <dt>Days</dt><dd>Sunday</dd>
+          <dt>Time</dt><dd>9:00 am – 1:00 pm</dd>
+          <dt>Board</dt><dd>CBSE</dd>
+          <dt>Next batch</dt><dd>November 2026</dd>
+        </dl>
+        <a class="btn btn--o js-batch" data-batch="Class 12 — Board crash course (waiting list)" href="#enquire">Join the waiting list</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--tint" id="results">
+  <div class="wrap">
+    <div class="eyebrow">Results</div>
+    <h2 class="h2">Class X and XII, 2026</h2>
+    <p class="lede">Every number below comes from a marksheet a parent can ask to see.
+      We publish the batch size alongside, because a percentage without it means nothing.</p>
+
+    <div class="res">
+      <div class="rc"><b>94%</b><span>of 64 students scored above 80%</span></div>
+      <div class="rc"><b>17</b><span>students above 90% in Maths</span></div>
+      <div class="rc"><b>100%</b><span>pass, Class X and XII</span></div>
+    </div>
+
+    <div class="toppers">
+      <div class="tp"><i>AS</i><div><b>Aditi Srivastava</b><span>Class XII, CBSE · PCM batch</span></div><em>96.4%</em></div>
+      <div class="tp"><i>MK</i><div><b>Mohd. Kaif</b><span>Class X, UP Board · Maths + Science</span></div><em>95.2%</em></div>
+      <div class="tp"><i>RP</i><div><b>Riya Pandey</b><span>Class XII, CBSE · Accounts &amp; BSt</span></div><em>94.8%</em></div>
+      <div class="tp"><i>HS</i><div><b>Harsh Singh</b><span>Class X, CBSE · Morning batch</span></div><em>93.6%</em></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="fees">
+  <div class="wrap">
+    <div class="eyebrow">Fees</div>
+    <h2 class="h2">What it costs, in full</h2>
+    <p class="lede">Monthly, payable by the 7th. No admission fee, no material charges,
+      no annual charge. Pay for a term upfront and one month is free.</p>
+
+    <div class="feewrap">
+      <table class="fee">
+        <tr><th>Class</th><th>Subjects</th><th>Per month</th></tr>
+        <tr><td>Classes 6 – 8</td><td>All subjects</td><td>₹1,200</td></tr>
+        <tr><td>Classes 9 – 10</td><td>Maths + Science</td><td>₹1,800</td></tr>
+        <tr><td>Classes 9 – 10</td><td>Single subject</td><td>₹1,100</td></tr>
+        <tr><td>Classes 11 – 12</td><td>Physics, Chemistry, Maths</td><td>₹2,800</td></tr>
+        <tr><td>Classes 11 – 12</td><td>Accounts &amp; Business Studies</td><td>₹2,200</td></tr>
+        <tr><td>Class 12</td><td>Board crash course (8 weeks)</td><td>₹6,000 total</td></tr>
+      </table>
+    </div>
+
+    <p class="note"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 15h-2v-6h2v6Zm0-8h-2V7h2v2Z"/></svg>
+      <span>Sibling discount of 15%. For families who genuinely cannot pay, speak to
+      Mr Mishra — four students study free with us this year, and we do not discuss who.</span></p>
+  </div>
+</section>
+
+<section class="sec sec--paper" id="faculty">
+  <div class="wrap">
+    <div class="eyebrow">Teachers</div>
+    <h2 class="h2">Who actually teaches your child</h2>
+    <p class="lede">Not "experienced faculty". These four people, by name, in the room every day.</p>
+    <div class="fac">
+      <div class="fc"><i>RM</i><b>R. K. Mishra</b><div class="sub">Maths · Classes 9–12 · 19 years</div>
+        <p>Founded Pragati in 2015 after fourteen years teaching Maths at a CBSE school in Lucknow.
+           Takes the Class 10 morning batch himself.</p></div>
+      <div class="fc"><i>SA</i><b>S. Awasthi</b><div class="sub">Physics &amp; Chemistry · Classes 11–12 · 8 years</div>
+        <p>M.Sc. Physics, Lucknow University. Runs the PCM evening batch and the Sunday doubt hour.</p></div>
+      <div class="fc"><i>NS</i><b>N. Srivastava</b><div class="sub">Accounts &amp; Business Studies · 11 years</div>
+        <p>B.Com, M.Com. Has taught Accounts to every Commerce batch since 2018.</p></div>
+      <div class="fc"><i>AV</i><b>A. Verma</b><div class="sub">Classes 6–8, all subjects · 6 years</div>
+        <p>Handles the junior batch and speaks to every parent once a month, whether or not
+           there is a problem.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="eyebrow">Joining</div>
+    <h2 class="h2">How to join</h2>
+    <p class="lede">No forms to collect, no registration fee before you have seen a class.</p>
+    <div class="steps">
+      <div class="st"><b>Send an enquiry</b><span>WhatsApp us the class and subject. We reply the same day.</span></div>
+      <div class="st"><b>Sit in on a class, free</b><span>Your child attends one full class. You may sit at the back.</span></div>
+      <div class="st"><b>Meet the teacher</b><span>Ten minutes after the class, with last year's marksheet if you have it.</span></div>
+      <div class="st"><b>Start from the next Monday</b><span>Pay the first month only once you have decided.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--tint">
+  <div class="wrap">
+    <div class="eyebrow">Parents</div>
+    <h2 class="h2">What parents tell us</h2>
+    <div class="voice">
+      <div class="vc"><p>“My son was at a big coaching where ninety children sat in one hall.
+        Here the teacher rang me in the second week about his algebra. That call is the
+        whole difference.”</p><b>Sunita Pandey</b><br><span>Parent, Class X · Aliganj</span></div>
+      <div class="vc"><p>“The fee table on this page is what I actually paid. Nothing extra
+        appeared later. After three years at another place, I did not expect that.”</p>
+        <b>Arun Kumar Tiwari</b><br><span>Parent, Class XII · Jankipuram</span></div>
+      <div class="vc"><p>“I could see how many seats were left before I called. Small thing,
+        but it meant I did not waste a trip.”</p><b>Farah Naaz</b><br><span>Parent, Class IX · Mahanagar</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow">The centre</div>
+    <h2 class="h2">Where your child will sit</h2>
+    <p class="lede">Two floors above Sahu Medical Store, Kapoorthala crossing. Lift, filtered water,
+      generator backup, and a separate waiting area for parents.</p>
+    <div class="gal">
+      <div>Classroom — Batch A</div><div>Doubt corner</div>
+      <div>Library shelf</div><div>Parents' waiting area</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--paper" id="faq">
+  <div class="wrap">
+    <div class="eyebrow">Questions</div>
+    <h2 class="h2">Questions we are asked most</h2>
+
+    <details open><summary>Can my child join in the middle of the session?</summary>
+      <p>Yes, if the batch has a seat. The teacher gives two extra Sunday sessions free
+        to cover what has already been taught.</p></details>
+    <details><summary>Do you teach UP Board as well as CBSE?</summary>
+      <p>Both. The Classes 9–10 and Commerce batches are mixed; the teacher covers the
+        extra CBSE topics in the last twenty minutes.</p></details>
+    <details><summary>What if my child misses a class?</summary>
+      <p>Tell us on WhatsApp the same morning. The notes go to you that evening, and the
+        teacher repeats the topic in the Sunday doubt hour.</p></details>
+    <details><summary>Are there tests?</summary>
+      <p>Every Saturday, and a full paper each month. Marks go to the parent on WhatsApp,
+        not only to the child.</p></details>
+    <details><summary>Is there a demo class fee?</summary>
+      <p>No. The first class is free and you owe nothing if you decide against joining.</p></details>
+  </div>
+</section>
+
+<section class="sec" id="enquire">
+  <div class="wrap">
+    <div class="eyebrow">Enquire</div>
+    <h2 class="h2">Book a free class</h2>
+    <p class="lede">Fill this in and it opens WhatsApp with your details already written,
+      so nobody has to type them twice. We reply the same day.</p>
+
+    <form class="form" id="enqForm">
+      <div class="fld"><label for="pname">Parent's name</label>
+        <input id="pname" name="pname" required autocomplete="name" placeholder="Your name"></div>
+      <div class="fld"><label for="sname">Student's name</label>
+        <input id="sname" name="sname" placeholder="Child's name"></div>
+      <div class="fld"><label for="cls">Class</label>
+        <select id="cls" name="cls">
+          <option>Class 6</option><option>Class 7</option><option>Class 8</option>
+          <option>Class 9</option><option selected>Class 10</option>
+          <option>Class 11</option><option>Class 12</option>
+        </select></div>
+      <div class="fld"><label for="subj">Subject / batch</label>
+        <select id="subj" name="subj">
+          <option>Maths + Science</option><option>Physics, Chemistry, Maths</option>
+          <option>Accounts &amp; Business Studies</option><option>All subjects (6–8)</option>
+          <option>Morning revision batch</option><option>Board crash course</option>
+        </select></div>
+      <div class="fld"><label for="board">Board</label>
+        <select id="board" name="board"><option>CBSE</option><option>UP Board</option><option>ICSE</option></select></div>
+      <div class="fld"><label for="msg">Anything else (optional)</label>
+        <textarea id="msg" name="msg" placeholder="Preferred timing, or a question"></textarea></div>
+      <button class="btn btn--wa" type="submit">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.6 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1a13 13 0 0 1-5.7-4.6c-.5-.7-1.1-1.7-1.1-2.7s.5-1.5.7-1.7c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.5l-.4.5c-.1.2-.3.3-.1.6a9 9 0 0 0 3.8 3.1c.3.2.5.1.6 0l.8-1c.2-.2.4-.1.6 0l1.8.9c.2.1.4.2.4.3v.9Z"/></svg>
+        Send on WhatsApp</button>
+      <p class="fine">Or call <a href="tel:+918655042157" style="color:var(--grn);font-weight:700">+91 86550 42157</a> · Mon–Sat, 9 am – 8 pm</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h3>Pragati Tutorials</h3>
+        <p>2nd floor, above Sahu Medical Store,<br>Kapoorthala crossing, Aliganj,<br>Lucknow 226024</p>
+        <p style="margin-top:9px">Mon–Sat, 6:30 am – 8:30 pm</p>
+      </div>
+      <div><h3>Batches</h3>
+        <a href="#batches">Classes 6–8</a><a href="#batches">Classes 9–10</a>
+        <a href="#batches">Classes 11–12</a><a href="#results">Results 2026</a></div>
+      <div><h3>Contact</h3>
+        <a href="tel:+918655042157">+91 86550 42157</a>
+        <a href="#enquire">Book a free class</a>
+        <a href="#fees">Fee structure</a></div>
+    </div>
+    <div class="base">© 2026 Pragati Tutorials, Aliganj, Lucknow. A demonstration site —
+      this business is not real. Built by <a href="../index.html">Anupam Singh</a>, anupamwebworks.com</div>
+  </div>
+</footer>
+
+<nav class="bar">
+  <a href="tel:+918655042157" class="btn btn--o">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>
+    Call</a>
+  <a href="#enquire" class="btn btn--wa">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.6 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1a13 13 0 0 1-5.7-4.6c-.5-.7-1.1-1.7-1.1-2.7s.5-1.5.7-1.7c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.5l-.4.5c-.1.2-.3.3-.1.6a9 9 0 0 0 3.8 3.1c.3.2.5.1.6 0l.8-1c.2-.2.4-.1.6 0l1.8.9c.2.1.4.2.4.3v.9Z"/></svg>
+    Book a free class</a>
+</nav>
+
+<div class="ribbon"><span><b>Demo</b> by <a href="../index.html">Anupam Singh</a></span></div>
+
+<script>
+(function () {
+  // Inside the iframe preview on the main site, drop the fixed furniture.
+  try { if (window.self !== window.top) document.documentElement.className += " embedded"; }
+  catch (e) { document.documentElement.className += " embedded"; }
+
+  var burger = document.getElementById("burger");
+  var drawer = document.getElementById("drawer");
+  if (burger) burger.addEventListener("click", function () {
+    var open = drawer.classList.toggle("open");
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  if (drawer) drawer.addEventListener("click", function (e) {
+    if (e.target.tagName === "A") {
+      drawer.classList.remove("open");
+      burger.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  // "Ask about this batch" carries the batch name down into the form, so the
+  // enquiry says which batch instead of arriving blank.
+  Array.prototype.forEach.call(document.querySelectorAll(".js-batch"), function (a) {
+    a.addEventListener("click", function () {
+      var box = document.getElementById("msg");
+      if (box && !box.value) box.value = "Enquiring about: " + (a.getAttribute("data-batch") || "");
+    });
+  });
+
+  // The enquiry form hands a filled-in message to WhatsApp, so the centre
+  // receives "Class X, Maths + Science, CBSE" instead of "fees?".
+  var form = document.getElementById("enqForm");
+  if (form) form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var g = function (id) { var n = document.getElementById(id); return n ? n.value.trim() : ""; };
+    var lines = [
+      "Namaste, I would like to book a free class at Pragati Tutorials.",
+      "",
+      "Parent: "  + (g("pname") || "-"),
+      "Student: " + (g("sname") || "-"),
+      "Class: "   + g("cls"),
+      "Subject: " + g("subj"),
+      "Board: "   + g("board")
+    ];
+    if (g("msg")) lines.push("Note: " + g("msg"));
+    lines.push("", "(Sent from the demo site — anupamwebworks.com)");
+    window.open("https://wa.me/918655042157?text=" + encodeURIComponent(lines.join("\n")), "_blank");
+  });
+})();
+</script>
+
+</body>
+</html>
