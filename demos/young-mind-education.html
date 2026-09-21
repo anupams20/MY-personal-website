@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Young Mind Education School and Coaching — Rajapur, Prayagraj</title>
+  <link rel="canonical" href="https://anupamwebworks.com/demos/young-mind-education">
+<meta name="description" content="Play school, English-medium school and coaching at Rajapur, Prayagraj. Activity-based learning, sports and cultural activities. 4.8 stars from 45 parents on Google. Visit us — first visit free.">
+<meta name="theme-color" content="#e05a45">
+<meta name="robots" content="noindex">
+<style>
+/* =====================================================================
+   Young Mind Education School and Coaching — SAMPLE
+   Prepared by Anupam Singh, anupamwebworks.com
+
+   MOBILE FIRST. Base rules are the phone; desktop is added at min-width.
+
+   The buyer is a parent of a 2-11 year old, and their first question is
+   never "what is the syllabus" - it is "will my child be safe and happy
+   there". So safety, age group and how to visit sit above the fold, and
+   the real Google reviews carry the proof.
+   ===================================================================== */
+
+:root{
+  --coral:#e05a45; --coral-2:#c1452f; --coral-sf:#fdeeea;
+  --teal:#15807a; --teal-2:#0f6560; --teal-sf:#e4f3f1;
+  --sun:#eda52c; --sun-sf:#fdf3e0;
+  --wa:#25d366;
+  --paper:#fffdf9; --card:#fff; --card-2:#faf5ec;
+  --line:#eee5d8; --line-2:#ddd0bc;
+  --ink:#231f1c; --fg:#231f1c; --body:#5e574f; --muted:#94897e;
+  --r:16px; --r-lg:26px; --r-pill:999px;
+  --sh:0 1px 2px rgba(60,40,30,.06), 0 12px 30px rgba(60,40,30,.10);
+  --sh-sm:0 1px 2px rgba(60,40,30,.06), 0 5px 14px rgba(60,40,30,.07);
+  --bar-h:72px;
+  --font:ui-rounded,"Segoe UI Variable Display","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font-family:var(--font);background:var(--paper);color:var(--fg);
+  font-size:16px;line-height:1.62;padding-bottom:calc(var(--bar-h) + env(safe-area-inset-bottom))}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-weight:800;letter-spacing:-.02em;line-height:1.16;margin:0}
+p{margin:0}
+.wrap{max-width:1060px;margin-inline:auto;padding-inline:18px}
+.sec{padding-block:50px}
+.sec--coral{background:var(--coral-sf)}
+.sec--teal{background:var(--teal-sf)}
+.sec--paper{background:var(--card-2)}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--coral-2);margin-bottom:10px}
+.h2{font-size:27px;margin-bottom:10px}
+.lede{color:var(--body);max-width:60ch;margin-bottom:26px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:52px;padding:0 22px;border-radius:var(--r-pill);border:0;cursor:pointer;
+  font:inherit;font-weight:800;font-size:15.5px;text-decoration:none;
+  background:var(--coral);color:#fff;transition:transform .12s ease}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:19px;height:19px;fill:currentColor;flex:none}
+.btn--wa{background:var(--wa);color:#04310f}
+.btn--teal{background:var(--teal);color:#fff}
+.btn--o{background:transparent;color:var(--teal-2);border:2px solid var(--line-2)}
+
+/* ------------------------------------------------ sample notice (remove on the real site) */
+.notice{background:var(--ink);color:#fff;font-size:13px;padding:10px 0}
+.notice .wrap{display:flex;gap:10px;align-items:flex-start}
+.notice b{color:var(--sun)}
+.notice a{color:#fff}
+
+/* ---------------------------------------------------------- header */
+.hdr{position:sticky;top:0;z-index:60;background:rgba(255,253,249,.94);
+  backdrop-filter:saturate(1.6) blur(10px);border-bottom:1px solid var(--line)}
+.hdr .wrap{height:64px;display:flex;align-items:center;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
+.logo i{width:38px;height:38px;border-radius:12px;flex:none;
+  background:linear-gradient(135deg,var(--coral),var(--sun));color:#fff;
+  display:grid;place-items:center;font-size:19px;font-style:normal;font-weight:800}
+.logo b{font-size:16px;letter-spacing:-.02em;display:block;line-height:1.12}
+.logo u{font-size:10.5px;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;
+  font-weight:800;text-decoration:none;display:block}
+.hdr nav,.hdr .btn{display:none}
+.burger{width:42px;height:42px;border:2px solid var(--line-2);background:transparent;
+  border-radius:12px;display:grid;place-items:center;cursor:pointer;padding:0;flex:none}
+.burger span{display:block;width:17px;height:2px;background:var(--fg);border-radius:2px;
+  box-shadow:0 -5.5px 0 var(--fg),0 5.5px 0 var(--fg)}
+.drawer{position:fixed;inset:64px 0 auto;background:var(--paper);z-index:59;
+  border-bottom:1px solid var(--line);padding:10px 18px 18px;display:none}
+.drawer.open{display:block}
+.drawer a{display:block;padding:12px 2px;font-weight:700;text-decoration:none;
+  border-bottom:1px solid var(--line)}
+
+/* ---------------------------------------------------------- hero */
+.hero{padding-block:32px 8px}
+.stars{display:inline-flex;align-items:center;gap:8px;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--r-pill);padding:7px 15px;
+  font-size:13px;font-weight:700;margin-bottom:16px;box-shadow:var(--sh-sm)}
+.stars em{font-style:normal;color:var(--sun);letter-spacing:1px}
+.stars span{color:var(--muted);font-weight:600}
+.hero h1{font-size:33px;margin-bottom:14px}
+.hero h1 em{font-style:normal;color:var(--coral-2)}
+.hero p.sub{color:var(--body);font-size:17px;margin-bottom:22px;max-width:50ch}
+.hcta{display:grid;gap:10px;margin-bottom:26px}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:16px 8px;box-shadow:var(--sh-sm)}
+.trust div{text-align:center;padding-inline:3px}
+.trust strong{display:block;font-size:22px;color:var(--teal-2);line-height:1.1}
+.trust span{font-size:11.5px;color:var(--muted);font-weight:700}
+
+.quick{margin-top:18px;display:grid;gap:10px}
+.qa{display:flex;gap:13px;align-items:flex-start;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--r);padding:14px 15px;box-shadow:var(--sh-sm)}
+.qa i{width:36px;height:36px;flex:none;border-radius:11px;background:var(--sun-sf);
+  display:grid;place-items:center;font-style:normal}
+.qa svg{width:18px;height:18px;fill:var(--coral)}
+.qa b{display:block;font-size:14px}
+.qa span{font-size:13.5px;color:var(--body)}
+
+/* ---------------------------------------------------------- programmes */
+.prog{display:grid;gap:12px}
+.pg{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:18px;box-shadow:var(--sh-sm);border-top:5px solid var(--coral)}
+.pg:nth-child(2){border-top-color:var(--sun)}
+.pg:nth-child(3){border-top-color:var(--teal)}
+.pg:nth-child(4){border-top-color:var(--coral-2)}
+.pg:nth-child(5){border-top-color:var(--sun)}
+.pg:nth-child(6){border-top-color:var(--teal-2)}
+.pg .age{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);display:block;margin-bottom:3px}
+.pg h3{font-size:19px;margin-bottom:8px}
+.pg p{font-size:14.5px;color:var(--body)}
+.pg .btn{width:100%;margin-top:14px;min-height:46px;font-size:14.5px}
+
+/* ---------------------------------------------------------- why */
+.why{display:grid;gap:12px}
+.wc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:17px;box-shadow:var(--sh-sm)}
+.wc i{width:44px;height:44px;border-radius:13px;background:var(--teal-sf);color:var(--teal);
+  display:grid;place-items:center;margin-bottom:11px;font-style:normal}
+.wc svg{width:21px;height:21px;fill:var(--teal)}
+.wc b{display:block;font-size:16px;margin-bottom:4px}
+.wc p{font-size:14px;color:var(--body)}
+
+/* ---------------------------------------------------------- day */
+.day{position:relative;padding-left:26px}
+.day::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;
+  background:repeating-linear-gradient(var(--line-2) 0 5px,transparent 5px 10px)}
+.dr{position:relative;padding-block:11px}
+.dr::before{content:"";position:absolute;left:-24px;top:17px;width:12px;height:12px;
+  border-radius:50%;background:var(--coral);border:2.5px solid var(--paper)}
+.dr b{display:block;font-size:15.5px}
+.dr time{font-size:12.5px;font-weight:800;color:var(--teal);letter-spacing:.04em}
+.dr span{font-size:14px;color:var(--body)}
+
+/* ---------------------------------------------------------- reviews */
+.rev{display:grid;gap:12px}
+.rv{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:16px 17px;box-shadow:var(--sh-sm)}
+.rv .s{color:var(--sun);font-size:14px;letter-spacing:2px;margin-bottom:7px}
+.rv p{font-size:15px;line-height:1.55;margin-bottom:10px}
+.rv b{font-size:13.5px}
+.rv span{font-size:12.5px;color:var(--muted);display:block}
+.gbadge{display:flex;align-items:center;gap:14px;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--r-lg);padding:16px 18px;
+  margin-bottom:18px;box-shadow:var(--sh-sm)}
+.gbadge strong{font-size:34px;line-height:1;color:var(--teal-2)}
+.gbadge em{font-style:normal;color:var(--sun);letter-spacing:2px;display:block;font-size:15px}
+.gbadge span{font-size:13.5px;color:var(--body)}
+
+/* ---------------------------------------------------------- gallery */
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.gal div{aspect-ratio:4/3;max-width:100%;border-radius:var(--r);background:var(--card-2);
+  border:2px dashed var(--line-2);display:grid;place-items:center;color:var(--muted);
+  font-size:12px;font-weight:700;text-align:center;padding:8px}
+
+/* ---------------------------------------------------------- steps + fees */
+.steps{display:grid;gap:12px;counter-reset:s}
+.st{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:16px 16px 16px 58px;position:relative}
+.st::before{counter-increment:s;content:counter(s);position:absolute;left:16px;top:15px;
+  width:28px;height:28px;border-radius:50%;background:var(--coral);color:#fff;
+  display:grid;place-items:center;font-size:14px;font-weight:800}
+.st b{display:block;font-size:15.5px}
+.st span{font-size:14px;color:var(--body)}
+
+.feewrap{overflow-x:auto}
+.fee{width:100%;border-collapse:collapse;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.fee th,.fee td{padding:13px 14px;text-align:left;border-bottom:1px solid var(--line);font-size:14.5px}
+.fee th{background:var(--teal);color:#fff;font-size:12px;letter-spacing:.07em;
+  text-transform:uppercase;font-weight:800}
+.fee td:last-child{text-align:right}
+.fee tr:last-child td{border-bottom:0}
+.tbd-inline{color:#9a6612;font-weight:700}
+.tbd{display:inline-block;background:var(--sun-sf);color:#9a6612;border:1px dashed #e0b96a;
+  border-radius:var(--r-pill);padding:3px 11px;font-size:12px;font-weight:800}
+.note{font-size:13.5px;color:var(--body);margin-top:12px;display:flex;gap:8px;align-items:flex-start}
+.note svg{width:16px;height:16px;fill:var(--coral);flex:none;margin-top:3px}
+
+/* ---------------------------------------------------------- faq + form */
+details{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:14px 16px;margin-bottom:9px}
+summary{cursor:pointer;font-weight:700;font-size:15.5px;list-style:none;
+  display:flex;justify-content:space-between;gap:12px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:21px;color:var(--coral);font-weight:400;line-height:1}
+details[open] summary::after{content:"\2212"}
+details p{margin-top:9px;font-size:14.5px;color:var(--body)}
+
+.form{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:20px;box-shadow:var(--sh)}
+.fld{margin-bottom:13px}
+.fld label{display:block;font-size:13px;font-weight:800;margin-bottom:6px}
+.fld input,.fld select,.fld textarea{width:100%;font:inherit;font-size:16px;
+  padding:12px 13px;border:2px solid var(--line-2);border-radius:12px;
+  background:var(--paper);color:var(--fg)}
+.fld textarea{min-height:74px;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:2px solid var(--teal);
+  outline-offset:1px;border-color:transparent}
+.form .btn{width:100%}
+.form .fine{font-size:12.5px;color:var(--muted);text-align:center;margin-top:11px}
+
+/* ---------------------------------------------------------- footer */
+.ftr{background:var(--ink);color:#d6cec6;padding-block:38px 24px}
+.ftr a{color:#fff;text-decoration:none}
+.ftr h3{color:#fff;font-size:17px;margin-bottom:9px}
+.ftr .cols{display:grid;gap:26px;margin-bottom:24px}
+.ftr .cols>div>p,.ftr .cols>div>a{font-size:14.5px;display:block;margin-bottom:5px}
+.ftr .base{border-top:1px solid rgba(255,255,255,.16);padding-top:16px;font-size:12.5px}
+
+/* ---------------------------------------------------------- fixed furniture */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:58;display:flex;gap:9px;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(255,253,249,.97);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);box-shadow:0 -4px 20px rgba(60,40,30,.10)}
+.bar .btn{flex:1;font-size:14.5px;min-height:50px;padding-inline:12px}
+
+.ribbon{position:fixed;right:10px;bottom:calc(var(--bar-h) + 12px + env(safe-area-inset-bottom));
+  z-index:59;background:var(--ink);color:#fff;border-radius:var(--r-pill);padding:8px 14px;
+  font-size:12px;font-weight:700;box-shadow:var(--sh)}
+.ribbon b{color:var(--sun)}
+.ribbon a{color:#fff;text-decoration:underline;text-underline-offset:2px}
+
+.embedded body{padding-bottom:0}
+.embedded .bar,.embedded .ribbon,.embedded .notice{display:none}
+
+@media(min-width:700px){
+  .wrap{padding-inline:28px}
+  .sec{padding-block:68px}
+  .hero{padding-block:48px 12px}
+  .hero h1{font-size:44px}
+  .h2{font-size:32px}
+  .hcta{grid-template-columns:auto auto;justify-content:start}
+  .trust strong{font-size:26px}
+  .quick{grid-template-columns:repeat(3,1fr)}
+  .prog{grid-template-columns:repeat(2,1fr)}
+  .why{grid-template-columns:repeat(2,1fr)}
+  .rev{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .gal{grid-template-columns:repeat(4,1fr)}
+  .ftr .cols{grid-template-columns:2fr 1fr 1fr}
+}
+@media(min-width:960px){
+  body{padding-bottom:0}
+  .bar{display:none}
+  .burger,.drawer{display:none}
+  .ribbon{bottom:16px}
+  .hdr nav{display:flex;gap:22px}
+  .hdr nav a{color:var(--body);font-weight:700;font-size:14.5px;text-decoration:none}
+  .hdr nav a:hover{color:var(--coral-2)}
+  .hdr .btn{display:inline-flex;min-height:44px;font-size:14.5px}
+  .hdr .wrap{height:78px;gap:18px}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .quick{margin-top:0}
+  .prog{grid-template-columns:repeat(3,1fr)}
+  .why{grid-template-columns:repeat(4,1fr)}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="notice">
+  <div class="wrap">
+    <span><b>Sample page</b> &mdash; built for Young Mind Education by Anupam Singh.
+    Photos, fees and timings below are placeholders. Send me yours on WhatsApp and
+    they go in. <a href="../index.html">anupamwebworks.com</a></span>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top"><i>YM</i><span><b>Young Mind Education</b><u>Rajapur, Prayagraj</u></span></a>
+    <nav>
+      <a href="#programmes">Programmes</a>
+      <a href="#why">Why us</a>
+      <a href="#day">A day here</a>
+      <a href="#reviews">Parents</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn" href="#visit">Book a visit</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+<div class="drawer" id="drawer">
+  <a href="#programmes">Programmes &amp; age groups</a>
+  <a href="#why">Why parents choose us</a>
+  <a href="#day">A day at Young Mind</a>
+  <a href="#reviews">What parents say</a>
+  <a href="#fees">Fees</a>
+  <a href="#admission">How to join</a>
+  <a href="#visit">Book a visit</a>
+</div>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="stars"><em>&#9733;&#9733;&#9733;&#9733;&#9733;</em> 4.8 <span>&middot; 45 parents on Google</span></div>
+      <h1>A school your child <em>runs into</em>, not away from.</h1>
+      <p class="sub">Play school, English-medium school and coaching at Rajapur, Prayagraj.
+        Learning through activity, sport and culture &mdash; not through copying from a board.</p>
+      <div class="hcta">
+        <a class="btn" href="#visit">Book a visit</a>
+        <a class="btn btn--o" href="#programmes">See age groups</a>
+      </div>
+      <div class="trust">
+        <div><strong>2&ndash;11</strong><span>years</span></div>
+        <div><strong>4.8&#9733;</strong><span>45 Google reviews</span></div>
+        <div><strong>Free</strong><span>first visit</span></div>
+      </div>
+    </div>
+
+    <div class="quick">
+      <div class="qa"><i><svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.6 3.8 10.7 9 12 5.2-1.3 9-6.4 9-12V5l-9-4Zm0 10.9h7c-.5 4.1-3.2 7.8-7 9V12H5V6.3l7-3.1v8.7Z"/></svg></i>
+        <div><b>Safe, supervised, small groups</b><span>Gated premises, and you are welcome to see it any day</span></div></div>
+      <div class="qa"><i><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 10.6V6h-2v7.4l5 3 1-1.7-4-2.1Z"/></svg></i>
+        <div><b>Timings</b><span class="tbd-inline">To confirm &mdash; send me your timings</span></div></div>
+      <div class="qa"><i><svg viewBox="0 0 24 24"><path d="m9 16.2-3.5-3.5L4 14.2 9 19 20 8l-1.5-1.4L9 16.2Z"/></svg></i>
+        <div><b>First visit is free</b><span>Come see a class, meet the teachers, then decide</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="programmes">
+  <div class="wrap">
+    <div class="eyebrow">Programmes</div>
+    <h2 class="h2">Every age, from first steps to Class V</h2>
+    <p class="lede">Each group has its own room, its own routine and its own teacher.
+      Tell me which of these you actually run and I will correct the list.</p>
+
+    <div class="prog">
+      <div class="pg"><span class="age">2 &ndash; 3 years</span><h3>Playgroup</h3>
+        <p>Half day. Songs, colours, free play and the first hours away from home &mdash;
+          handled gently, with a teacher for every small group.</p>
+        <a class="btn btn--o js-prog" data-prog="Playgroup (2-3 years)" href="#visit">Ask about this</a></div>
+
+      <div class="pg"><span class="age">3 &ndash; 4 years</span><h3>Nursery</h3>
+        <p>Letters, numbers and speech through games. Daily outdoor time, and a routine
+          that makes the school day feel predictable.</p>
+        <a class="btn btn--o js-prog" data-prog="Nursery (3-4 years)" href="#visit">Ask about this</a></div>
+
+      <div class="pg"><span class="age">4 &ndash; 6 years</span><h3>LKG &amp; UKG</h3>
+        <p>Reading, writing and early maths in English medium, with sport, music and
+          craft every week rather than once a term.</p>
+        <a class="btn btn--o js-prog" data-prog="LKG &amp; UKG (4-6 years)" href="#visit">Ask about this</a></div>
+
+      <div class="pg"><span class="age">6 &ndash; 11 years</span><h3>Classes I &ndash; V</h3>
+        <p>English-medium school with special focus on Science and Maths, and teachers
+          who call you before a problem becomes a report card.</p>
+        <a class="btn btn--o js-prog" data-prog="Classes I-V" href="#visit">Ask about this</a></div>
+
+      <div class="pg"><span class="age">After school</span><h3>Coaching &amp; homework help</h3>
+        <p>Supervised study for children from other schools too &mdash; homework finished
+          before they get home, and weak subjects worked on properly.</p>
+        <a class="btn btn--o js-prog" data-prog="After-school coaching" href="#visit">Ask about this</a></div>
+
+      <div class="pg"><span class="age">Every week</span><h3>Sports &amp; cultural activities</h3>
+        <p>Games, dance, drawing and stage practice built into the timetable &mdash; the part
+          parents tell us their children talk about at home.</p>
+        <a class="btn btn--o js-prog" data-prog="Sports &amp; cultural activities" href="#visit">Ask about this</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--teal" id="why">
+  <div class="wrap">
+    <div class="eyebrow">Why parents choose us</div>
+    <h2 class="h2">The four things parents actually ask</h2>
+    <div class="why">
+      <div class="wc"><i><svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.6 3.8 10.7 9 12 5.2-1.3 9-6.4 9-12V5l-9-4Z"/></svg></i>
+        <b>Safety first</b><p>Gated premises, supervised play, and no child leaves with
+          anyone not on your list. Parents may visit unannounced.</p></div>
+      <div class="wc"><i><svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3ZM5 13.2V17c0 1.7 3.1 3 7 3s7-1.3 7-3v-3.8l-7 3.8-7-3.8Z"/></svg></i>
+        <b>Learning by doing</b><p>Activity-based teaching &mdash; skills, sports and culture
+          alongside the syllabus, which is what our parents mention most.</p></div>
+      <div class="wc"><i><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-8 0a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-2.7 0-8 1.3-8 4v3h10v-3c0-1 .4-1.9 1.1-2.6A14 14 0 0 0 8 13Zm8 0c-.6 0-1.3.1-2 .2 1.2.9 2 2 2 3.3V20h8v-3c0-2.7-5.3-4-8-4Z"/></svg></i>
+        <b>Experienced teachers</b><p>Every class has its own teacher, and you meet yours
+          before you enrol &mdash; not after.</p></div>
+      <div class="wc"><i><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Z"/></svg></i>
+        <b>Parents stay informed</b><p>Updates, photos and any concern go straight to you
+          on WhatsApp &mdash; not into a diary you find on Sunday.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="day">
+  <div class="wrap">
+    <div class="eyebrow">A day here</div>
+    <h2 class="h2">What your child's morning looks like</h2>
+    <p class="lede">Indicative &mdash; send me your real routine and this becomes exact.</p>
+    <div class="day">
+      <div class="dr"><time>ARRIVAL</time><b>Welcome and circle time</b>
+        <span>Names, the day, the weather, and a song to settle in.</span></div>
+      <div class="dr"><time>MORNING</time><b>Learning block</b>
+        <span>English, maths and phonics &mdash; short sessions, because small children learn in short sessions.</span></div>
+      <div class="dr"><time>MID&nbsp;MORNING</time><b>Snack and outdoor play</b>
+        <span>Supervised play, running, and the part they tell you about at home.</span></div>
+      <div class="dr"><time>LATER</time><b>Activity &mdash; sport, art or music</b>
+        <span>Rotating through the week so every child finds the thing they are good at.</span></div>
+      <div class="dr"><time>BEFORE&nbsp;HOME</time><b>Story and wind-down</b>
+        <span>Quiet time, a story, and bags packed before the gate opens.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--coral" id="reviews">
+  <div class="wrap">
+    <div class="eyebrow">Parents</div>
+    <h2 class="h2">What parents have written</h2>
+
+    <div class="gbadge">
+      <div><strong>4.8</strong></div>
+      <div><em>&#9733;&#9733;&#9733;&#9733;&#9733;</em>
+        <span>45 reviews on Google &mdash; from parents in Rajapur and around Prayagraj</span></div>
+    </div>
+
+    <div class="rev">
+      <div class="rv"><div class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>“One of the best coaching for the children of every age group.
+          Teachers and very friendly and cooperative.”</p>
+        <b>Tanmay Anant</b><span>Google review</span></div>
+      <div class="rv"><div class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>“School on innovative theme focusing on modern way of education,
+          skills, sports and cultural activities.”</p>
+        <b>Mohd Abdulla</b><span>Google review</span></div>
+      <div class="rv"><div class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>“Best English medium coaching and school ever ever.
+          Special focus on science, math.”</p>
+        <b>Alok Pandey</b><span>Google review</span></div>
+      <div class="rv"><div class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>“This is the best play school and all teachers are very experienced.”</p>
+        <b>Shubham Suyesh</b><span>Google review</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow">Our school</div>
+    <h2 class="h2">Have a look around</h2>
+    <p class="lede">Send me 6&ndash;8 photos on WhatsApp &mdash; classrooms, play area, a activity
+      day, the building from outside &mdash; and they replace these boxes.</p>
+    <div class="gal">
+      <div>Classroom</div><div>Play area</div>
+      <div>Activity / sports day</div><div>The building</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--paper" id="fees">
+  <div class="wrap">
+    <div class="eyebrow">Fees</div>
+    <h2 class="h2">Clear fees, no surprises</h2>
+    <p class="lede">Parents compare two or three schools before calling. Showing the number
+      openly is what gets you the call instead of the other one.</p>
+    <div class="feewrap">
+      <table class="fee">
+        <tr><th>Programme</th><th>Age</th><th>Per month</th></tr>
+        <tr><td>Playgroup</td><td>2&ndash;3 years</td><td><span class="tbd">your fee</span></td></tr>
+        <tr><td>Nursery</td><td>3&ndash;4 years</td><td><span class="tbd">your fee</span></td></tr>
+        <tr><td>LKG &amp; UKG</td><td>4&ndash;6 years</td><td><span class="tbd">your fee</span></td></tr>
+        <tr><td>Classes I&ndash;V</td><td>6&ndash;11 years</td><td><span class="tbd">your fee</span></td></tr>
+        <tr><td>After-school coaching</td><td>All ages</td><td><span class="tbd">your fee</span></td></tr>
+      </table>
+    </div>
+    <p class="note"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 15h-2v-6h2v6Zm0-8h-2V7h2v2Z"/></svg>
+      <span>Send me your fee structure on WhatsApp and this table fills in.</span></p>
+  </div>
+</section>
+
+<section class="sec" id="admission">
+  <div class="wrap">
+    <div class="eyebrow">Admission</div>
+    <h2 class="h2">How to join</h2>
+    <div class="steps">
+      <div class="st"><b>Message us on WhatsApp</b><span>Tell us your child's age. We reply the same day.</span></div>
+      <div class="st"><b>Visit the school &mdash; free</b><span>See the rooms, the play area, and meet the class teacher.</span></div>
+      <div class="st"><b>Try a day</b><span>Your child spends a morning with the group before you decide.</span></div>
+      <div class="st"><b>Complete admission</b><span>Simple form, documents, and a start date that suits you.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--paper">
+  <div class="wrap">
+    <div class="eyebrow">Questions</div>
+    <h2 class="h2">Questions parents ask</h2>
+    <details open><summary>My child has never been to school. Will they settle?</summary>
+      <p>Most do within two weeks. The first few days are short, a parent may wait nearby,
+        and we call you the same afternoon to tell you how it went.</p></details>
+    <details><summary>Can I visit before admission?</summary>
+      <p>Yes, and you should. Come any working day, no appointment needed. The first visit is free
+        and you are welcome to sit in a class.</p></details>
+    <details><summary>Do you take children from other schools for coaching?</summary>
+      <p>Yes. After-school coaching is open to children from any school &mdash; homework support
+        and focused help in weak subjects.</p></details>
+    <details><summary>Is it English medium?</summary>
+      <p>Yes, with special focus on Science and Maths. Teachers speak to the younger children
+        in whichever language helps them settle.</p></details>
+    <details><summary>How do I know what happened during the day?</summary>
+      <p>Updates and photos go to parents on WhatsApp, and any concern is a phone call the
+        same day rather than a note at the end of term.</p></details>
+  </div>
+</section>
+
+<section class="sec" id="visit">
+  <div class="wrap">
+    <div class="eyebrow">Visit us</div>
+    <h2 class="h2">Book a free visit</h2>
+    <p class="lede">Fill this in and it opens WhatsApp with your details already written,
+      so nobody has to type them twice.</p>
+
+    <form class="form" id="enqForm">
+      <div class="fld"><label for="pname">Parent's name</label>
+        <input id="pname" required autocomplete="name" placeholder="Your name"></div>
+      <div class="fld"><label for="sname">Child's name</label>
+        <input id="sname" placeholder="Child's name"></div>
+      <div class="fld"><label for="age">Child's age</label>
+        <select id="age">
+          <option>2 years</option><option>3 years</option><option selected>4 years</option>
+          <option>5 years</option><option>6 years</option><option>7&ndash;8 years</option>
+          <option>9&ndash;11 years</option>
+        </select></div>
+      <div class="fld"><label for="prog">Interested in</label>
+        <select id="prog">
+          <option>Playgroup</option><option>Nursery</option><option>LKG &amp; UKG</option>
+          <option>Classes I&ndash;V</option><option>After-school coaching</option>
+        </select></div>
+      <div class="fld"><label for="msg">Anything else (optional)</label>
+        <textarea id="msg" placeholder="A question, or when you would like to visit"></textarea></div>
+      <button class="btn btn--wa" type="submit">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.6 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1a13 13 0 0 1-5.7-4.6c-.5-.7-1.1-1.7-1.1-2.7s.5-1.5.7-1.7c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.5l-.4.5c-.1.2-.3.3-.1.6a9 9 0 0 0 3.8 3.1c.3.2.5.1.6 0l.8-1c.2-.2.4-.1.6 0l1.8.9c.2.1.4.2.4.3v.9Z"/></svg>
+        Send on WhatsApp</button>
+      <p class="fine">Or call <a href="tel:+919565189232" style="color:var(--coral-2);font-weight:800">+91 95651 89232</a></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h3>Young Mind Education School and Coaching</h3>
+        <p>Rehman Ali Advocate, 97, Rajapur,<br>Prayagraj, Uttar Pradesh 211002</p>
+        <p style="margin-top:9px"><a href="tel:+919565189232">+91 95651 89232</a></p>
+      </div>
+      <div><h3>Programmes</h3>
+        <a href="#programmes">Playgroup &amp; Nursery</a><a href="#programmes">LKG &amp; UKG</a>
+        <a href="#programmes">Classes I&ndash;V</a><a href="#programmes">After-school coaching</a></div>
+      <div><h3>Visit</h3>
+        <a href="#visit">Book a free visit</a><a href="#admission">How to join</a>
+        <a href="#reviews">Parent reviews</a></div>
+    </div>
+    <div class="base">Sample page prepared for Young Mind Education School and Coaching.
+      Not a live website. Built by <a href="../index.html">Anupam Singh</a> &mdash; anupamwebworks.com</div>
+  </div>
+</footer>
+
+<nav class="bar">
+  <a href="tel:+919565189232" class="btn btn--o">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>
+    Call</a>
+  <a href="#visit" class="btn btn--wa">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.6 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1a13 13 0 0 1-5.7-4.6c-.5-.7-1.1-1.7-1.1-2.7s.5-1.5.7-1.7c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.5l-.4.5c-.1.2-.3.3-.1.6a9 9 0 0 0 3.8 3.1c.3.2.5.1.6 0l.8-1c.2-.2.4-.1.6 0l1.8.9c.2.1.4.2.4.3v.9Z"/></svg>
+    Book a visit</a>
+</nav>
+
+<div class="ribbon"><span><b>Sample</b> by <a href="../index.html">Anupam Singh</a></span></div>
+
+<script>
+(function () {
+  try { if (window.self !== window.top) document.documentElement.className += " embedded"; }
+  catch (e) { document.documentElement.className += " embedded"; }
+
+  var burger = document.getElementById("burger");
+  var drawer = document.getElementById("drawer");
+  if (burger) burger.addEventListener("click", function () {
+    var open = drawer.classList.toggle("open");
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  if (drawer) drawer.addEventListener("click", function (e) {
+    if (e.target.tagName === "A") {
+      drawer.classList.remove("open");
+      burger.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  // "Ask about this" carries the programme down into the form, so the enquiry
+  // says which age group instead of arriving blank.
+  Array.prototype.forEach.call(document.querySelectorAll(".js-prog"), function (a) {
+    a.addEventListener("click", function () {
+      var box = document.getElementById("msg");
+      if (box && !box.value) box.value = "Asking about: " + (a.getAttribute("data-prog") || "");
+    });
+  });
+
+  // The form hands a filled-in message to WhatsApp, so the school receives
+  // "4 years, Nursery, wants to visit Saturday" instead of "fees?".
+  var form = document.getElementById("enqForm");
+  if (form) form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var g = function (id) { var n = document.getElementById(id); return n ? n.value.trim() : ""; };
+    var lines = [
+      "Namaste, I would like to book a visit at Young Mind Education.",
+      "",
+      "Parent: " + (g("pname") || "-"),
+      "Child: "  + (g("sname") || "-"),
+      "Age: "    + g("age"),
+      "Interested in: " + g("prog")
+    ];
+    if (g("msg")) lines.push("Note: " + g("msg"));
+    window.open("https://wa.me/919565189232?text=" + encodeURIComponent(lines.join("\n")), "_blank");
+  });
+})();
+</script>
+
+</body>
+</html>
