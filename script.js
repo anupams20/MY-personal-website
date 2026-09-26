@@ -22,16 +22,16 @@
    ============================================================ */
 var OFFER = {
   en: {
-    headline: '🎉 50% OFF for you',
-    sub:      'Limited-time deal on your first website. Want to check if you qualify?',
-    panel:    '50% OFF your first website',
-    panelSub: "A limited-time launch deal. Send me a message and I'll confirm whether it applies to your project."
+    headline: '🎉 Launch offer — 20% off',
+    sub:      'A launch rate for my first few clients. Want to check if it applies to your project?',
+    panel:    '20% off your first website',
+    panelSub: "A launch rate while I take on my first few clients. Send me a message and I'll confirm whether a spot is still open."
   },
   hi: {
-    headline: '🎉 आपके लिए 50% छूट',
-    sub:      'पहली वेबसाइट पर कुछ समय के लिए। देखें कि आपको मिलेगी या नहीं?',
-    panel:    'पहली वेबसाइट पर 50% छूट',
-    panelSub: 'कुछ ही समय के लिए शुरुआती ऑफ़र। मैसेज कीजिए, मैं बता दूँगा कि आपके काम पर ये लागू होता है या नहीं।'
+    headline: '🎉 शुरुआती ऑफ़र — 20% छूट',
+    sub:      'मेरे पहले कुछ क्लाइंट के लिए शुरुआती रेट। देखें कि आपके काम पर लागू होता है या नहीं?',
+    panel:    'पहली वेबसाइट पर 20% छूट',
+    panelSub: 'मेरे पहले कुछ क्लाइंट के लिए शुरुआती रेट। मैसेज कीजिए, मैं बता दूँगा कि स्पॉट अभी बचा है या नहीं।'
   }
 };
 

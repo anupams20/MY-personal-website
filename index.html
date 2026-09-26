@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=8">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.png" sizes="64x64">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -64,6 +64,7 @@
     <nav class="nav__links" id="navLinks" aria-label="Main">
       <a href="#services" data-i18n="nav.services">Services</a>
       <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+      <a href="#why" data-i18n="nav.why">Why me</a>
       <a href="#work" data-i18n="nav.work">Work</a>
       <a href="#about" data-i18n="nav.about">About</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
@@ -107,16 +108,16 @@
       </div>
 
       <h1 data-i18n-html="hero.h1">
-        Websites for businesses <span class="hl">anywhere in India</span> —
-        built by an <span class="hl">IIT Kanpur engineer</span>.
+        Turn Google searches into <span class="hl">paying customers</span> —
+        a website live in <span class="hl">7 days</span>, from ₹10,000.
       </h1>
 
       <p class="lede" data-i18n-html="hero.lede">
-        I'm Anupam. By day I build and run large-scale corporate software — the production
-        systems big companies depend on every day. I build websites <strong>because I genuinely enjoy it</strong>,
-        which is why you get a fast, mobile-first site that actually brings in enquiries:
-        <strong>live within a week</strong>, starting at <strong class="mark">₹10,000</strong>,
-        with the price agreed before we start.
+        I'm Anupam — an <strong>engineer who builds and runs large-scale software</strong>. I make
+        fast, mobile-first websites with a 24/7 AI chatbot for small businesses across India — so
+        customers find you on Google and message you on WhatsApp. Fixed price from
+        <strong class="mark">₹10,000</strong>, agreed before we start, and
+        <strong>you pay half only when it's live</strong>.
       </p>
 
       <div class="hero__cta">
@@ -218,6 +219,7 @@
         <p class="tier__for">For a shop, clinic or studio that needs to exist online.</p>
         <p class="price">₹10,000</p>
         <ul class="ticks">
+          <li data-i18n-html="tier.1.out"><strong>Look professional and take enquiries on WhatsApp.</strong></li>
           <li>Up to 5 pages</li>
           <li>Mobile-first, fast loading</li>
           <li>WhatsApp + call buttons</li>
@@ -234,6 +236,7 @@
         <p class="tier__for">For a business that wants enquiries from Google, not just a link to share.</p>
         <p class="price">₹25,000</p>
         <ul class="ticks">
+          <li data-i18n-html="tier.2.out"><strong>Get found on “near me” searches — never miss a lead.</strong></li>
           <li>Everything in Starter</li>
           <li>Up to 12 pages + blog</li>
           <li>Google Business Profile setup</li>
@@ -251,6 +254,7 @@
         <p class="tier__for">For selling products online with real payments.</p>
         <p class="price">₹45,000</p>
         <ul class="ticks">
+          <li data-i18n-html="tier.3.out"><strong>Sell online and take payments 24/7.</strong></li>
           <li>Everything in Business</li>
           <li>Up to 50 products</li>
           <li>Razorpay / UPI payments</li>
@@ -263,15 +267,16 @@
       </article>
     </div>
 
+    <p class="tiers-guarantee" data-i18n-html="tiers.guarantee"><strong>Every package: you pay half only when it's live — if you're not happy, you don't pay the balance.</strong></p>
+
     <div class="feat">
-      <p class="feat__eye" data-i18n="feat.eye">New — included in every package</p>
+      <p class="feat__eye" data-i18n="feat.eye">Included with your site</p>
       <h3 class="feat__h" data-i18n="feat.h">What happens when a customer finds you at 11pm</h3>
 
       <ol class="feat__grid">
         <li class="feat__card">
           <span class="feat__n" aria-hidden="true">01</span>
           <span class="feat__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 2H4a2 2 0 0 0-2 2v15.5L6.5 16H20a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2ZM7 9h10v2H7V9Zm0-3h10v2H7V6Zm0 6h6v2H7v-2Z"/></svg></span>
-          <span class="feat__tag" data-i18n="feat.tag">Coming soon</span>
           <h4 data-i18n="feat.1.h">AI-powered chatbot</h4>
           <p data-i18n-html="feat.1.p">Answers your customers' questions — day or night.<br><br>An enquiry that lands at 11pm doesn't sit there unanswered. Your chatbot replies, so a potential customer doesn't give up waiting and go to someone else.</p>
         </li>
@@ -304,6 +309,37 @@
       50% to start, 50% when the site goes live. GST not applicable. Domain and hosting are billed
       at actual cost (roughly ₹1,000–2,500/year) and registered in <em>your</em> name — you own everything.
     </p>
+  </div>
+</section>
+
+<!-- ========================= WHY CHOOSE ME ========================= -->
+<section id="why" class="section section--alt">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="sec.why.eye">Why me</p>
+    <h2 class="h2" data-i18n-html="h2.why">Why work with <span class="hl">me</span>, not an agency.</h2>
+
+    <div class="cards cards--4">
+      <article class="card">
+        <div class="card__ico">01</div>
+        <h3 data-i18n="why.1.h">You talk to the engineer</h3>
+        <p data-i18n="why.1.p">Not a salesperson, and not an intern after you've paid. The person who builds your site is the person you message.</p>
+      </article>
+      <article class="card">
+        <div class="card__ico">02</div>
+        <h3 data-i18n="why.2.h">Engineering-grade reliability</h3>
+        <p data-i18n="why.2.p">I run large-scale production software for a living. Your site is built to the same standard — it loads fast, stays up, and gets backed up.</p>
+      </article>
+      <article class="card">
+        <div class="card__ico">03</div>
+        <h3 data-i18n="why.3.h">You own everything</h3>
+        <p data-i18n="why.3.p">Domain, code and logins are in your name from day one. You're never locked in to me.</p>
+      </article>
+      <article class="card">
+        <div class="card__ico">04</div>
+        <h3 data-i18n="why.4.h">Fixed price, zero risk</h3>
+        <p data-i18n="why.4.p">The price is agreed before we start, and you pay half only when the site is live and you're happy.</p>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -371,8 +407,8 @@
     </div>
 
     <p class="work__note" data-i18n-html="work.note">
-      These are demonstration sites built to show what each package includes — the businesses are
-      illustrative, not clients. <strong>Your site would use your own name, photos and content.</strong>
+      Each demo shows the quality and features you get in that package.
+      <strong>Yours would be custom-built with your own name, photos and content.</strong>
     </p>
   </div>
 </section>
@@ -407,13 +443,13 @@
 
       <div class="stats">
         <div><strong>2+ yrs</strong><span>Production engineering</span></div>
-        <div><strong>22</strong><span>Microservices migrated to Kubernetes</span></div>
+        <div><strong>100%</strong><span>You own the domain, code &amp; logins</span></div>
         <div><strong>All India</strong><span>Clients anywhere, fully remote</span></div>
         <div><strong>7 days</strong><span>Typical turnaround</span></div>
       </div>
 
       <p class="about__links">
-        <a href="https://www.linkedin.com/in/anupamsingh-iitk" target="_blank" rel="noopener" data-i18n-html="about.li">LinkedIn&nbsp;↗</a>
+        <a href="https://www.linkedin.com/in/anupamsingh-iitk/" target="_blank" rel="noopener" data-i18n-html="about.li">LinkedIn&nbsp;↗</a>
         <a href="mailto:anupam@anupamwebworks.com">anupam@anupamwebworks.com</a>
       </p>
     </div>
@@ -492,7 +528,7 @@
   <div class="wrap foot__inner">
     <p>&copy; <span id="yr">2026</span> Anupam Singh — <span data-i18n="foot.role">Freelance website developer, India.</span></p>
     <p class="foot__links">
-      <a href="https://www.linkedin.com/in/anupamsingh-iitk" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/anupamsingh-iitk/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="mailto:anupam@anupamwebworks.com">Email</a>
       <a href="tel:+919670809669">+91 96708 09669</a>
     </p>
@@ -573,7 +609,7 @@
   </a>
 </div>
 
-<script src="i18n.js?v=5"></script>
-<script src="script.js?v=6"></script>
+<script src="i18n.js?v=7"></script>
+<script src="script.js?v=7"></script>
 </body>
 </html>

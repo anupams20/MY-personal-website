@@ -184,6 +184,14 @@ ul,ol{margin:0;padding:0;list-style:none}
 .card h3{font-size:20px;font-weight:700;margin-bottom:10px}
 .card p{font-size:15.5px;margin-bottom:18px}
 
+/* four-up card grid — the "Why choose me" section (steps down in the responsive block) */
+.cards--4{grid-template-columns:repeat(4,1fr)}
+.cards--4 .card p{margin-bottom:0}   /* these cards are pure copy, no CTA button below */
+
+/* guarantee line under the pricing tiers — centred so it reads as a promise, not fine print */
+.tiers-guarantee{text-align:center;max-width:72ch;margin:22px auto 0;font-size:15.5px;color:var(--body)}
+.tiers-guarantee strong{color:var(--ink);font-weight:700}
+
 .ticks li{position:relative;padding-left:26px;font-size:15px;margin-bottom:9px;color:var(--body)}
 .ticks li::before{
   content:"";position:absolute;left:0;top:8px;width:14px;height:8px;
@@ -501,8 +509,10 @@ ul,ol{margin:0;padding:0;list-style:none}
    ========================================================================== */
 @media (max-width:1040px){
   .nav__inner{gap:20px}
+  .nav__links{gap:18px}            /* tighten so all six links fit */
   .nav__phone span{display:none}   /* icon-only phone once space is tight */
   .nav__phone{padding:8px}
+  .nav__cta{display:none}          /* free ~140px; the phone icon + floating WhatsApp still convert */
 }
 
 @media (max-width:940px){
@@ -568,6 +578,11 @@ ul,ol{margin:0;padding:0;list-style:none}
   .hero h1{font-size:26px}
   .hero__photo img{width:150px;height:150px}
 }
+
+/* "Why choose me" grid: 4 across on desktop → 2 on tablet → 1 on phone.
+   Declared here, after the generic .cards rule above, so it wins the cascade. */
+@media (max-width:940px){.cards--4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.cards--4{grid-template-columns:1fr}}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
