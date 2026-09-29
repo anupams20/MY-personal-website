@@ -613,11 +613,13 @@
 <script src="script.js?v=7"></script>
 <script>
 /* anonymous visit counter, feeds the team tracker. Counts nothing for
-   owner previews (?t=1) or local file opens. No cookies, no personal data. */
+   owner previews (?t=1), anyone who unlocked /admin in this tab session,
+   or local file opens. No cookies, no personal data. */
 (function(){
 try{
   if(location.protocol==='file:')return;
   if(/[?&]t=1(&|$)/.test(location.search))return;
+  try{if(sessionStorage.getItem('aww_team_gate_v1'))return;}catch(e){}
   var B='https://anupam-samples-default-rtdb.firebaseio.com/hits/_site_main.json';
   function send(o){o.last={'.sv':'timestamp'};
     try{fetch(B,{method:'PATCH',body:JSON.stringify(o)}).catch(function(){});}catch(e){}}

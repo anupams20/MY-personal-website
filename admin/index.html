@@ -1,0 +1,124 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<script>
+/* Same team gate as the boards on anupam-samples.web.app: the password is
+   never stored, only its SHA-256. Client-side JS, not real security — keeps
+   casual visitors out, nothing more. Change the password in team_gate.py
+   and mirror the new hash here. */
+(function(){
+var H="2210faf30051bd4544f76c3d062f6a6cd8dbe4cc0119041597c78239b5d533e3",K="aww_team_gate_v1";
+function ok(){try{return sessionStorage.getItem(K)===H}catch(e){return false}}
+if(ok())return;
+var css='body>*:not(#gate-ov){visibility:hidden!important}'+
+'#gate-ov{visibility:visible;position:fixed;inset:0;z-index:2147483647;background:#0f1115;display:flex;align-items:center;justify-content:center;font-family:system-ui,Segoe UI,Arial,sans-serif}'+
+'#gate-ov .gbox{background:#fff;border-radius:14px;padding:30px 26px;width:min(370px,90vw);text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.55)}'+
+'#gate-ov .glock{width:46px;height:46px;border-radius:12px;background:#e9fbf0;color:#128a43;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:22px}'+
+'#gate-ov h2{margin:0 0 6px;font-size:19px;color:#0f1115}'+
+'#gate-ov p{margin:0 0 16px;color:#6b7280;font-size:13.5px;line-height:1.5}'+
+'#gate-ov input{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:9px;font-size:15px;text-align:center;box-sizing:border-box;outline:none}'+
+'#gate-ov input:focus{border-color:#25D366;box-shadow:0 0 0 3px rgba(37,211,102,.2)}'+
+'#gate-ov button{margin-top:12px;width:100%;padding:12px;border:0;border-radius:9px;background:#25D366;color:#06301a;font-weight:700;font-size:15px;cursor:pointer}'+
+'#gate-ov button:hover{filter:brightness(.95)}'+
+'#gate-ov .gerr{color:#dc2626;font-size:13px;min-height:18px;margin-top:9px;font-weight:600}';
+var st=document.createElement("style");st.textContent=css;
+(document.head||document.documentElement).appendChild(st);
+function sha(s){return crypto.subtle.digest("SHA-256",new TextEncoder().encode(s)).then(function(b){
+  return Array.prototype.map.call(new Uint8Array(b),function(x){return ("0"+x.toString(16)).slice(-2)}).join("")})}
+function build(){
+  var ov=document.createElement("div");ov.id="gate-ov";
+  ov.innerHTML='<div class="gbox"><div class="glock">&#128274;</div><h2>Admin access only</h2>'+
+   '<p>This page is private to Anupam Web Works.<br>Enter the team password to continue.</p>'+
+   '<input id="gate-pw" type="password" placeholder="Team password" autocomplete="off">'+
+   '<button id="gate-go" type="button">Unlock</button><div class="gerr" id="gate-err"></div></div>';
+  document.body.appendChild(ov);
+  var pw=document.getElementById("gate-pw"),err=document.getElementById("gate-err");
+  function go(){
+    if(!(window.crypto&&crypto.subtle)){err.textContent="Open this page over https:// to unlock.";return;}
+    sha(pw.value||"").then(function(h){
+      if(h===H){try{sessionStorage.setItem(K,H)}catch(e){}ov.remove();st.remove();}
+      else{err.textContent="Wrong password — ask Anupam.";pw.value="";pw.focus();}
+    });
+  }
+  document.getElementById("gate-go").addEventListener("click",go);
+  pw.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();go();}});
+  setTimeout(function(){pw.focus()},60);
+}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",build);else build();
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin — Anupam Web Works</title>
+<style>
+ *{box-sizing:border-box}
+ body{font-family:system-ui,Segoe UI,Arial;margin:0;background:#f6f7f9;color:#0f1115}
+ .top{padding:18px 20px;background:#0f1115;color:#fff}
+ .top h1{margin:0 0 3px;font-size:20px}
+ .top p{margin:0;color:#9ca3af;font-size:13px}
+ .wrap{max-width:860px;margin:0 auto;padding:18px 20px 60px}
+ h2{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;margin:22px 0 10px}
+ .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+ a.card{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;
+   padding:14px 16px;text-decoration:none;color:#0f1115;transition:box-shadow .12s,border-color .12s}
+ a.card:hover{border-color:#c7d2fe;box-shadow:0 6px 18px rgba(15,17,21,.07)}
+ a.card b{display:block;font-size:14.5px}
+ a.card small{color:#6b7280;font-size:12px}
+ .ic{flex:0 0 40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+   font-weight:800;font-size:15px;background:#eef2ff;color:#3730a3}
+ a.card.hero{grid-column:1/-1;border-color:#bfdbfe;background:#f0f7ff}
+ a.card.hero .ic{background:#2563eb;color:#fff;font-size:18px}
+ .arrow{margin-left:auto;color:#9ca3af;font-weight:700}
+ .foot{margin-top:26px;color:#9ca3af;font-size:12px}
+ .foot a{color:#6b7280}
+</style></head><body>
+<div class="top">
+  <h1>Anupam Web Works — admin</h1>
+  <p>Private links for the team. Same password as the boards.</p>
+</div>
+<div class="wrap">
+
+  <h2>Dashboard</h2>
+  <div class="grid">
+    <a class="card hero" href="https://anupam-samples.web.app/team/tracker" target="_blank" rel="noopener">
+      <span class="ic">📊</span>
+      <span><b>Demo engagement tracker</b>
+      <small>Team performance, HOT follow-ups, main-site visitors</small></span>
+      <span class="arrow">↗</span>
+    </a>
+  </div>
+
+  <h2>Team lead boards</h2>
+  <div class="grid">
+    <a class="card" href="https://anupam-samples.web.app/team/leads_Anupam" target="_blank" rel="noopener">
+      <span class="ic">AN</span><span><b>Anupam</b><small>WhatsApp lead board</small></span><span class="arrow">↗</span></a>
+    <a class="card" href="https://anupam-samples.web.app/team/leads_Manvendra" target="_blank" rel="noopener">
+      <span class="ic">MA</span><span><b>Manvendra</b><small>WhatsApp lead board</small></span><span class="arrow">↗</span></a>
+    <a class="card" href="https://anupam-samples.web.app/team/leads_Divyanshu" target="_blank" rel="noopener">
+      <span class="ic">DI</span><span><b>Divyanshu</b><small>WhatsApp lead board</small></span><span class="arrow">↗</span></a>
+    <a class="card" href="https://anupam-samples.web.app/team/leads_Aman" target="_blank" rel="noopener">
+      <span class="ic">AM</span><span><b>Aman</b><small>WhatsApp lead board</small></span><span class="arrow">↗</span></a>
+    <a class="card" href="https://anupam-samples.web.app/team/leads_Ansh" target="_blank" rel="noopener">
+      <span class="ic">AS</span><span><b>Ansh</b><small>WhatsApp lead board</small></span><span class="arrow">↗</span></a>
+    <a class="card" href="https://anupam-samples.web.app/team/leads_Shambhavi" target="_blank" rel="noopener">
+      <span class="ic">SH</span><span><b>Shambhavi</b><small>WhatsApp lead board</small></span><span class="arrow">↗</span></a>
+  </div>
+
+  <h2>Other boards</h2>
+  <div class="grid">
+    <a class="card" href="https://anupam-samples.web.app/team/emails" target="_blank" rel="noopener">
+      <span class="ic">✉️</span><span><b>Email board</b><small>Compose-in-Gmail outreach list</small></span><span class="arrow">↗</span></a>
+    <a class="card" href="https://anupam-samples.web.app/team/partners" target="_blank" rel="noopener">
+      <span class="ic">🤝</span><span><b>Partners board</b><small>Partner prospects</small></span><span class="arrow">↗</span></a>
+  </div>
+
+  <h2>Demo sites</h2>
+  <div class="grid">
+    <a class="card" href="https://anupam-samples.web.app/" target="_blank" rel="noopener">
+      <span class="ic">🧪</span><span><b>Sample sites hub</b><small>anupam-samples.web.app — 720 Noida demos</small></span><span class="arrow">↗</span></a>
+    <a class="card" href="https://anupam-sample.web.app/" target="_blank" rel="noopener">
+      <span class="ic">🍛</span><span><b>Bati Boti restaurant demo</b><small>anupam-sample.web.app</small></span><span class="arrow">↗</span></a>
+  </div>
+
+  <div class="foot">Unlock lasts one browser tab session. While unlocked in this tab, your own visits to
+    <a href="/">anupamwebworks.com</a> are not counted in the tracker.</div>
+</div>
+</body></html>
