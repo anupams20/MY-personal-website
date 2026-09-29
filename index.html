@@ -611,5 +611,36 @@
 
 <script src="i18n.js?v=7"></script>
 <script src="script.js?v=7"></script>
+<script>
+/* anonymous visit counter, feeds the team tracker. Counts nothing for
+   owner previews (?t=1) or local file opens. No cookies, no personal data. */
+(function(){
+try{
+  if(location.protocol==='file:')return;
+  if(/[?&]t=1(&|$)/.test(location.search))return;
+  var B='https://anupam-samples-default-rtdb.firebaseio.com/hits/_site_main.json';
+  function send(o){o.last={'.sv':'timestamp'};
+    try{fetch(B,{method:'PATCH',body:JSON.stringify(o)}).catch(function(){});}catch(e){}}
+  function ev(k){var o={};o[k]={'.sv':{increment:1}};send(o);}
+  var d=new Date(),day=d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2);
+  var o={count:{'.sv':{increment:1}}};
+  o['days/'+day]={'.sv':{increment:1}};
+  try{var K='aww_seen_site_main';
+    if(!localStorage.getItem(K)){localStorage.setItem(K,'1');o.uniques={'.sv':{increment:1}};}}catch(e){}
+  try{if(document.referrer){var h=new URL(document.referrer).hostname;
+    if(h&&h!==location.hostname)o['ref/'+h.replace(/[.#$\[\]\/]/g,'_')]={'.sv':{increment:1}};}}catch(e){}
+  send(o);
+  document.addEventListener('click',function(e){
+    var a=e.target;while(a&&a.tagName!=='A')a=a.parentNode;
+    if(!a||!a.href)return;
+    if(a.href.indexOf('tel:')===0)ev('call');
+    else if(a.href.indexOf('wa.me/')>-1)ev('wa');
+    else if(a.href.indexOf('mailto:')===0)ev('email');
+  },true);
+  var f=document.querySelector('form');
+  if(f)f.addEventListener('submit',function(){ev('form');});
+}catch(e){}
+})();
+</script>
 </body>
 </html>
