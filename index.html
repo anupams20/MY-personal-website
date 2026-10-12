@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.png" sizes="64x64">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -347,11 +347,42 @@
 <section id="work" class="section">
   <div class="wrap">
     <p class="eyebrow" data-i18n="sec.work.eye">Recent work</p>
-    <h2 class="h2" data-i18n-html="h2.work">Sample <span class="hl">builds</span>.</h2>
-    <p class="sub" data-i18n-html="sub.work">Demonstration sites showing what each package looks like in practice.</p>
+    <h2 class="h2" data-i18n-html="h2.work">Real clients. <span class="hl">Live right now.</span></h2>
+    <p class="sub" data-i18n-html="sub.work">Not mockups — these are <strong>real businesses running on sites I built</strong>. Open them, scroll them, order from them.</p>
 
-    <!-- Previews are live scaled iframes of the real demo pages, so they can
+    <!-- Previews are live scaled iframes of the real client sites, so they can
          never go out of date. Click through opens the full site in a new tab. -->
+    <div class="work work--clients">
+      <article class="work__item">
+        <a class="work__thumb" href="https://little-heart-child-care.web.app/" target="_blank" rel="noopener" aria-label="Open Little Heart Child Care Centre — live client website">
+          <iframe src="https://little-heart-child-care.web.app/" title="Live preview of Little Heart Child Care Centre, Bareilly" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+          <span class="work__open">Open live client site ↗</span>
+        </a>
+        <span class="work__badge">✓ Live client project</span>
+        <h3>Little Heart Child Care Centre — Bareilly</h3>
+        <p>Dr. Umesh Chandra Gupta's pediatric clinic (MBBS, DCH). A full clinic website with WhatsApp bookings — plus <strong>custom OPD software</strong> running at the front desk: patient records, visit history, printed ℞ prescriptions and one-click backups.</p>
+        <div class="work__meta">
+          <span class="work__tag">Client — Website + OPD software</span>
+          <a href="https://little-heart-child-care.web.app/" target="_blank" rel="noopener">Visit site ↗</a>
+        </div>
+      </article>
+
+      <article class="work__item">
+        <a class="work__thumb" href="https://anupam-sample.web.app/" target="_blank" rel="noopener" aria-label="Open Bati Boti — live client online-ordering website">
+          <iframe src="https://anupam-sample.web.app/" title="Live preview of Bati Boti cloud kitchen, Lucknow" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+          <span class="work__open">Open live client site ↗</span>
+        </a>
+        <span class="work__badge">✓ Live client project</span>
+        <h3>Bati Boti — Cloud Kitchen, Lucknow</h3>
+        <p>Deoria-style handi chicken, mutton and desi-ghee bati, ordered online. Full e-commerce build: menu with a working cart, coupon codes, checkout, and a <strong>live order dashboard</strong> the kitchen runs itself.</p>
+        <div class="work__meta">
+          <span class="work__tag">Client — Online ordering</span>
+          <a href="https://anupam-sample.web.app/" target="_blank" rel="noopener">Visit site ↗</a>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="work__subhead" data-i18n="work.demos.h">Concept demos — what each package looks like</h3>
     <div class="work">
       <article class="work__item">
         <a class="work__thumb" href="demos/dental-clinic.html" target="_blank" rel="noopener" aria-label="Open the dental clinic demo site">
@@ -363,19 +394,6 @@
         <div class="work__meta">
           <span class="work__tag">Starter — ₹10,000</span>
           <a href="demos/dental-clinic.html" target="_blank" rel="noopener">View site ↗</a>
-        </div>
-      </article>
-
-      <article class="work__item">
-        <a class="work__thumb" href="demos/fitness-studio.html" target="_blank" rel="noopener" aria-label="Open the fitness studio demo site">
-          <iframe src="demos/fitness-studio.html" title="Preview of the fitness studio demo site" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
-          <span class="work__open">Open live demo ↗</span>
-        </a>
-        <h3>Iron Hive Fitness</h3>
-        <p>Interactive class timetable, coach profiles, three membership tiers and a free-trial CTA.</p>
-        <div class="work__meta">
-          <span class="work__tag">Business — ₹25,000</span>
-          <a href="demos/fitness-studio.html" target="_blank" rel="noopener">View site ↗</a>
         </div>
       </article>
 
@@ -407,9 +425,30 @@
     </div>
 
     <p class="work__note" data-i18n-html="work.note">
-      Each demo shows the quality and features you get in that package.
-      <strong>Yours would be custom-built with your own name, photos and content.</strong>
+      The two client projects above are <strong>real businesses, live right now</strong> — open them yourself.
+      The demos show what each package includes; yours is custom-built with your own name, photos and content.
     </p>
+  </div>
+</section>
+
+<!-- ========================= TESTIMONIALS =========================
+     Hidden until the client video arrives. To publish: remove the `hidden`
+     attribute from the <section> tag below, set the video src, and paste the
+     exact quote. Do NOT publish invented quotes. -->
+<section id="testimonials" class="section section--alt" hidden>
+  <div class="wrap">
+    <p class="eyebrow">What clients say</p>
+    <h2 class="h2">Real words from <span class="hl">real clients</span>.</h2>
+    <div class="testi">
+      <figure class="testi__video">
+        <video controls preload="metadata" src="" poster=""></video>
+        <figcaption>Dr. Umesh Chandra Gupta — Little Heart Child Care Centre, Bareilly</figcaption>
+      </figure>
+      <blockquote class="testi__quote">
+        <p>“PASTE-THE-EXACT-QUOTE-FROM-THE-VIDEO-HERE.”</p>
+        <cite>Dr. Umesh Chandra Gupta (MBBS, DCH)<br>Little Heart Child Care Centre, Bareilly</cite>
+      </blockquote>
+    </div>
   </div>
 </section>
 
@@ -466,8 +505,44 @@
   </div>
 </section>
 
+<!-- ========================= PROOF / VERIFY ========================= -->
+<section id="proof" class="section">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="sec.proof.eye">Verify me</p>
+    <h2 class="h2" data-i18n-html="h2.proof">Don't take my word for it. <span class="hl">Check.</span></h2>
+    <p class="sub" data-i18n-html="sub.proof">Anyone can type "IIT engineer" on a website. Here are four ways to verify I'm a real person doing real work — <strong>before you pay a single rupee</strong>.</p>
+
+    <div class="cards cards--4">
+      <article class="card">
+        <div class="card__ico">in</div>
+        <h3 data-i18n="proof.1.h">My LinkedIn is public</h3>
+        <p data-i18n-html="proof.1.p">Name, photo, <strong>B.Tech from IIT Kanpur</strong>, work history — all checkable in 30 seconds.</p>
+        <p class="card__link"><a href="https://www.linkedin.com/in/anupamsingh-iitk/" target="_blank" rel="noopener">linkedin.com/in/anupamsingh-iitk ↗</a></p>
+      </article>
+      <article class="card">
+        <div class="card__ico">🌐</div>
+        <h3 data-i18n="proof.2.h">Client sites are live</h3>
+        <p data-i18n-html="proof.2.p">Open them right now — a real clinic in Bareilly and a real kitchen in Lucknow run their business on my work.</p>
+        <p class="card__link"><a href="#work">See the client projects ↑</a></p>
+      </article>
+      <article class="card">
+        <div class="card__ico">📞</div>
+        <h3 data-i18n="proof.3.h">Call me — today</h3>
+        <p data-i18n-html="proof.3.p">A real phone number a real person answers. Ask me anything technical — <strong>that's the fastest way to spot a fake</strong>.</p>
+        <p class="card__link"><a href="tel:+919670809669">+91 96708 09669</a></p>
+      </article>
+      <article class="card">
+        <div class="card__ico">½</div>
+        <h3 data-i18n="proof.4.h">You risk nothing</h3>
+        <p data-i18n-html="proof.4.p">You see the <strong>finished, working site before the second payment</strong>. If I'm not who I say I am, you'll know before your money is gone.</p>
+        <p class="card__link"><a href="#pricing">How payment works ↑</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ========================= FAQ ========================= -->
-<section id="faq" class="section">
+<section id="faq" class="section section--alt">
   <div class="wrap wrap--narrow">
     <p class="eyebrow" data-i18n="sec.faq.eye">Questions</p>
     <h2 class="h2" data-i18n-html="h2.faq">The things <span class="hl">everyone asks</span>.</h2>
@@ -609,20 +684,20 @@
   </a>
 </div>
 
-<script src="i18n.js?v=7"></script>
+<script src="i18n.js?v=8"></script>
 <script src="script.js?v=7"></script>
 <script>
-/* anonymous visit counter, feeds the team tracker. Counts nothing for
-   owner previews (?t=1), anyone who unlocked /admin in this tab session,
-   or local file opens. No cookies, no personal data. */
+/* anonymous visit counter + time-on-page, feeds the admin dashboard.
+   Counts nothing for owner previews (?t=1), anyone who unlocked /admin in
+   this tab session, or local file opens. No cookies, no personal data. */
 (function(){
 try{
   if(location.protocol==='file:')return;
   if(/[?&]t=1(&|$)/.test(location.search))return;
   try{if(sessionStorage.getItem('aww_team_gate_v1'))return;}catch(e){}
-  var B='https://anupam-samples-default-rtdb.firebaseio.com/hits/_site_main.json';
+  var B='https://anupam-samples-default-rtdb.firebaseio.com/hits/_site_main';
   function send(o){o.last={'.sv':'timestamp'};
-    try{fetch(B,{method:'PATCH',body:JSON.stringify(o)}).catch(function(){});}catch(e){}}
+    try{fetch(B+'.json',{method:'PATCH',body:JSON.stringify(o)}).catch(function(){});}catch(e){}}
   function ev(k){var o={};o[k]={'.sv':{increment:1}};send(o);}
   var d=new Date(),day=d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2);
   var o={count:{'.sv':{increment:1}}};
@@ -638,9 +713,36 @@ try{
     if(a.href.indexOf('tel:')===0)ev('call');
     else if(a.href.indexOf('wa.me/')>-1)ev('wa');
     else if(a.href.indexOf('mailto:')===0)ev('email');
+    else if(a.href.indexOf('little-heart-child-care.web.app')>-1||a.href.indexOf('anupam-sample.web.app')>-1)ev('client');
+    else if(a.href.indexOf('/demos/')>-1||a.href.indexOf('demos/')===0)ev('demo');
   },true);
   var f=document.querySelector('form');
   if(f)f.addEventListener('submit',function(){ev('form');});
+
+  /* time on page + which sections they actually read (1s sampler of the
+     section at viewport centre), sent once when the tab is hidden/closed */
+  var start=Date.now(),maxS=0,SECS={},SELS=[],sdone=false;
+  (function(){var h=document.querySelector('.hero');if(h)SELS.push(['hero',h]);
+    var ss=document.querySelectorAll('section[id]');
+    for(var i=0;i<ss.length;i++){if(!ss[i].hidden)SELS.push([ss[i].id,ss[i]]);}})();
+  addEventListener('scroll',function(){var e2=document.documentElement,
+    p=Math.round(e2.scrollTop/((e2.scrollHeight-e2.clientHeight)||1)*100);if(p>maxS)maxS=p;},{passive:true});
+  setInterval(function(){if(document.visibilityState!=='visible')return;
+    var mid=innerHeight/2,best=null,bd=1e9;
+    for(var j=0;j<SELS.length;j++){var r=SELS[j][1].getBoundingClientRect();
+      if(r.bottom<0||r.top>innerHeight)continue;
+      var d2;if(r.top<=mid&&r.bottom>=mid)d2=0;else d2=Math.min(Math.abs(r.top-mid),Math.abs(r.bottom-mid));
+      if(d2<bd){bd=d2;best=SELS[j][0];}}
+    if(best)SECS[best]=(SECS[best]||0)+1;},1000);
+  function fin(){if(sdone)return;sdone=true;
+    var sec=Math.round((Date.now()-start)/1000);if(sec<3)return;
+    var s2={},any=false;for(var k in SECS){if(SECS[k]>0){s2[k]=SECS[k];any=true;}}
+    var p={sec:sec,scroll:maxS,ts:{'.sv':'timestamp'}};if(any)p.secs=s2;
+    try{if(document.referrer){var h2=new URL(document.referrer).hostname;
+      if(h2&&h2!==location.hostname)p.ref=h2;}}catch(e){}
+    try{fetch(B+'/sessions.json',{method:'POST',body:JSON.stringify(p),keepalive:true}).catch(function(){});}catch(e){}}
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')fin();});
+  addEventListener('pagehide',fin);
 }catch(e){}
 })();
 </script>

@@ -355,6 +355,40 @@ ul,ol{margin:0;padding:0;list-style:none}
 }
 .work__note strong{color:var(--ink)}
 
+/* ---------- real client work ---------- */
+.work--clients{grid-template-columns:repeat(2,1fr);margin-bottom:38px}
+.work--clients .work__item h3{font-size:19px}
+.work__badge{
+  display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
+  color:#128a43;background:#e9fbf0;border:1px solid rgba(18,138,67,.25);
+  border-radius:999px;padding:4px 12px;margin-bottom:10px;
+}
+.work__subhead{
+  font-size:13.5px;font-weight:700;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.05em;margin:6px 0 18px;
+}
+
+/* ---------- testimonials (video) ---------- */
+.testi{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.testi__video{margin:0}
+.testi__video video{
+  width:100%;aspect-ratio:16/9;border-radius:var(--radius);
+  border:1px solid var(--line);background:#000;display:block;
+}
+.testi__video figcaption{margin-top:10px;font-size:14px;color:var(--muted)}
+.testi__quote{margin:0}
+.testi__quote p{font-size:19px;line-height:1.65;font-weight:500}
+.testi__quote cite{display:block;margin-top:14px;font-style:normal;font-size:14.5px;color:var(--muted)}
+
+/* ---------- proof / verify ---------- */
+.card__link{margin-top:10px;font-size:14px;font-weight:700}
+.card__link a{word-break:break-all}
+
+@media (max-width:880px){
+  .work--clients{grid-template-columns:1fr}
+  .testi{grid-template-columns:1fr;gap:22px}
+}
+
 /* ---------- about ---------- */
 .about{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:start}
 .about__text p{font-size:17px}

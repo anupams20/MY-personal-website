@@ -69,12 +69,34 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
  .arrow{margin-left:auto;color:#9ca3af;font-weight:700}
  .foot{margin-top:26px;color:#9ca3af;font-size:12px}
  .foot a{color:#6b7280}
+ .statgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+ .stat{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px 14px}
+ .stat b{display:block;font-size:22px;line-height:1.1}
+ .stat small{color:#6b7280;font-size:11.5px}
+ .sessbox{background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow-x:auto}
+ #sesstab{width:100%;border-collapse:collapse;font-size:13px}
+ #sesstab th,#sesstab td{text-align:left;padding:9px 12px;border-bottom:1px solid #f1f3f5;white-space:nowrap}
+ #sesstab th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#6b7280}
+ .statfoot{color:#6b7280;font-size:12.5px;margin-top:10px}
 </style></head><body>
 <div class="top">
   <h1>Anupam Web Works — admin</h1>
   <p>Private links for the team. Same password as the boards.</p>
 </div>
 <div class="wrap">
+
+  <h2>Main site — visitors &amp; time spent</h2>
+  <div class="statgrid" id="statgrid"><div class="stat"><b>…</b><small>loading</small></div></div>
+  <div id="sesswrap" hidden>
+    <h2>Recent visits — how long &amp; what they read</h2>
+    <div class="sessbox">
+      <table id="sesstab">
+        <thead><tr><th>When</th><th>Time</th><th>Scroll</th><th>Read most</th><th>From</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="statfoot" id="secagg"></p>
+  </div>
 
   <h2>Dashboard</h2>
   <div class="grid">
@@ -123,4 +145,53 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
   <div class="foot">Unlock lasts one browser tab session. While unlocked in this tab, your own visits to
     <a href="/">anupamwebworks.com</a> are not counted in the tracker.</div>
 </div>
+<script>
+/* Main-site visitor stats, read live from the hit counter + session log. */
+(function(){
+var B='https://anupam-samples-default-rtdb.firebaseio.com/hits/_site_main.json';
+var LBL={hero:'Top / intro',services:'Services',pricing:'Pricing',why:'Why me',
+  work:'Client work',proof:'Verify me',about:'About',faq:'FAQ',contact:'Contact',testimonials:'Testimonials'};
+function mmss(s){if(!s)return'—';return s<60?s+'s':Math.floor(s/60)+'m '+(s%60)+'s';}
+function rel(ts){if(!ts)return'—';var s=(Date.now()-ts)/1000;
+  if(s<3600)return Math.round(s/60)+'m ago';if(s<86400)return Math.round(s/3600)+'h ago';
+  return Math.round(s/86400)+'d ago';}
+function stat(n,l){return '<div class="stat"><b>'+n+'</b><small>'+l+'</small></div>';}
+fetch(B).then(function(r){return r.json()}).then(function(d){
+  d=d||{};
+  var day=new Date(),p=function(x){return('0'+x).slice(-2)};
+  var today=day.getFullYear()+'-'+p(day.getMonth()+1)+'-'+p(day.getDate());
+  var days=d.days||{},wk=0,ks=Object.keys(days).sort().slice(-7);
+  for(var i=0;i<ks.length;i++)wk+=days[ks[i]];
+  var ses=d.sessions?Object.keys(d.sessions).map(function(k){return d.sessions[k]}):[];
+  ses.sort(function(a,b){return (b.ts||0)-(a.ts||0)});
+  var avg=ses.length?Math.round(ses.reduce(function(q,x){return q+(x.sec||0)},0)/ses.length):0;
+  document.getElementById('statgrid').innerHTML=
+    stat(days[today]||0,'visits today')+stat(wk,'last 7 days')+
+    stat(d.count||0,'total visits')+stat(d.uniques||0,'unique visitors')+
+    stat(ses.length?mmss(avg):'—','avg time on site')+
+    stat(d.wa||0,'WhatsApp taps')+stat(d.call||0,'calls')+stat(d.email||0,'emails')+
+    stat(d.client||0,'client-site opens')+stat(d.demo||0,'demo opens');
+  if(ses.length){
+    document.getElementById('sesswrap').hidden=false;
+    var agg={};
+    document.querySelector('#sesstab tbody').innerHTML=ses.slice(0,15).map(function(s){
+      var tops='—';
+      if(s.secs){var e=Object.keys(s.secs).map(function(k){return[k,s.secs[k]]})
+        .sort(function(a,b){return b[1]-a[1]});
+        e.forEach(function(x){agg[x[0]]=(agg[x[0]]||0)+x[1]});
+        tops=e.slice(0,2).map(function(x){return (LBL[x[0]]||x[0])+' '+mmss(x[1])}).join(' · ');}
+      return '<tr><td>'+rel(s.ts)+'</td><td>'+mmss(s.sec)+'</td><td>'+
+        (s.scroll?s.scroll+'%':'—')+'</td><td>'+tops+'</td><td>'+(s.ref||'direct')+'</td></tr>';
+    }).join('');
+    ses.forEach(function(s){if(s.secs)Object.keys(s.secs).forEach(function(k){/* counted above for shown rows only */});});
+    var ae=Object.keys(agg).map(function(k){return[k,agg[k]]}).sort(function(a,b){return b[1]-a[1]});
+    if(ae.length)document.getElementById('secagg').textContent=
+      'Most-read sections (recent visits): '+ae.slice(0,4).map(function(x){
+        return (LBL[x[0]]||x[0])+' '+mmss(x[1])}).join(' · ');
+  }
+}).catch(function(){
+  document.getElementById('statgrid').innerHTML=stat('!','could not load stats');
+});
+})();
+</script>
 </body></html>
