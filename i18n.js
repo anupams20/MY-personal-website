@@ -1,274 +1,226 @@
 /* ============================================================
-   Hindi translations.
+   Hindi translations — clinic-focused rewrite (v9).
 
-   ------------------------------------------------------------
-   THE RULE, and it matters more than the grammar:
-   ------------------------------------------------------------
-   These things stay in ENGLISH, always:
-
-     • Qualifications and institutions — B.Tech, IIT Kanpur
-     • Brand and product names — WhatsApp, Google, Razorpay, UPI,
-       Razorpay, Search Console, Analytics, Kubernetes, LinkedIn
-     • Your own package names — Starter, Business, Online store
+   THE RULE: these stay in ENGLISH, always:
+     • Qualifications and institutions — B.Tech, IIT Kanpur, NMC
+     • Brand/product names — WhatsApp, Google, OPD, UPI, LinkedIn
+     • Package names — Clinic Starter, Clinic Growth, Hospital Pro
      • Numbers, prices, dates, phone numbers
 
-   Nobody says "बी.टेक" out loud. Writing it that way makes the
-   credential look smaller, not more local. Same for package
-   names: "शुरुआती" is not a product, "Starter" is — and a
-   customer who reads the Hindi page still has to say the package
-   name back to you on the phone.
+   Anything with no entry below simply stays in English (the
+   script falls back to the English original by design).
 
-   Anything with no entry below simply stays in English. That is
-   how the English terms above are handled — by omission, not by
-   copying them into this file.
-
-   ------------------------------------------------------------
-   THE REGISTER:
-   ------------------------------------------------------------
-   Everyday spoken Hindi, the way a shopkeeper actually talks.
-   Not शुद्ध हिंदी, and never word-for-word from the English —
-   each line was written to make sense on its own in Hindi, then
-   checked that it still makes the same promise as the English.
+   REGISTER: everyday spoken Hindi, the way a doctor's reception
+   actually talks. Not शुद्ध हिंदी, never word-for-word.
    ============================================================ */
 
 window.I18N = {
   hi: {
 
     KEYS: {
-      /* nav — note: no key for the quote button's brand words */
-      'nav.services': 'सेवाएँ',
-      'nav.pricing' : 'कीमत',
-      'nav.work'    : 'काम',
-      'nav.about'   : 'परिचय',
+      /* nav */
+      'skip'        : 'सीधे कंटेंट पर जाएँ',
+      'nav.problems': 'समस्याएँ',
+      'nav.services': 'क्या मिलेगा',
+      'nav.pricing' : 'पैकेज',
+      'nav.work'    : 'लाइव काम',
+      'nav.about'   : 'मेरे बारे में',
       'nav.faq'     : 'सवाल-जवाब',
-      'nav.why'     : 'क्यों चुनें',
-      'nav.quote'   : 'फ्री कोटेशन लें',
+      'nav.quote'   : 'फ़्री डेमो पाएँ',
 
-      /* hero — hero.pill1 is deliberately absent: "B.Tech, IIT Kanpur"
-         stays exactly as it is in English */
-      'hero.pill2'  : 'नए प्रोजेक्ट के लिए उपलब्ध',
-      'hero.h1'     : 'Google सर्च को <span class="hl">ग्राहकों</span> में बदलिए — <span class="hl">7 दिन</span> में तैयार वेबसाइट, ₹10,000 से।',
-      'hero.lede'   : 'मैं अनुपम हूँ — <strong>बड़े प्रोडक्शन सॉफ़्टवेयर बनाने और चलाने वाला इंजीनियर</strong>। मैं छोटे बिज़नेस के लिए तेज़, मोबाइल-फ़र्स्ट वेबसाइट बनाता हूँ — 24/7 AI चैटबॉट के साथ — ताकि ग्राहक आपको Google पर ढूँढें और WhatsApp पर मैसेज करें। कीमत <strong class="mark">₹10,000</strong> से, शुरू करने से पहले तय, और <strong>आधा पैसा तभी, जब साइट लाइव हो</strong>।',
-      'hero.cta1'   : 'WhatsApp पर मैसेज करें',
-      'hero.cta2'   : 'कीमत और पैकेज देखें',
-      'hero.note'   : 'फ्री 15 मिनट की बात। न कोई दबाव, न मुश्किल शब्द, न "प्रपोज़ल भेजते हैं" वाला चक्कर।',
-      'hero.replies': 'कुछ घंटों में जवाब',
+      /* hero */
+      'hero.pill1'  : 'B.Tech, IIT Kanpur',
+      'hero.pill2'  : 'सिर्फ़ healthcare वेबसाइटें',
+      'hero.h1'     : 'आपके मरीज़ क्लिनिक आने से पहले <span class="hl">Google</span> देखते हैं। वहाँ <span class="hl">आप</span> दिखने चाहिए.',
+      'hero.lede'   : 'मैं अनुपम हूँ — एक इंजीनियर जो क्लिनिक को ऑनलाइन बढ़ाने का <strong>पूरा सिस्टम</strong> बनाता है: प्रोफ़ेशनल वेबसाइट, रिसेप्शन के लिए OPD सॉफ़्टवेयर, <strong>WhatsApp</strong> पर appointment booking, और Google पर रैंक करती प्रोफ़ाइल। दाम पहले से तय, <strong class="mark">₹4,999</strong> से शुरू — और <strong>वेबसाइट देखकर ही पैसा दीजिए</strong>.',
+      'hero.cta1'   : 'WhatsApp करें — फ़्री क्लिनिक डेमो',
+      'hero.cta2'   : 'पैकेज और दाम देखें',
+      'hero.note'   : '15 मिनट की फ़्री कॉल। एक रुपया खर्च करने से पहले मैं आपके क्लिनिक की चलती-फिरती डेमो वेबसाइट दिखाऊँगा।',
+      'hero.replies': 'कुछ ही घंटों में जवाब',
 
-      /* credentials strip — cred.1a/1b absent on purpose:
-         "IIT Kanpur" and "B.Tech, 2024" stay in English */
-      'cred.2a': '2+ साल',        'cred.2b': 'सॉफ़्टवेयर इंजीनियरिंग',
-      'cred.3a': 'पूरे भारत में',  'cred.3b': 'ऑनलाइन · हैदराबाद से',
-      'cred.4a': '7 दिन',         'cred.4b': 'आम तौर पर डिलीवरी',
-      'cred.5a': 'तय कीमत',       'cred.5b': 'शुरू करने से पहले तय',
+      /* credibility strip */
+      'cred.1a': '600+',        'cred.1b': 'क्लिनिक व हॉस्पिटल साइटें बनाईं',
+      'cred.2a': '2 क्लिनिक',   'cred.2b': 'रोज़ मेरे OPD सॉफ़्टवेयर पर चलते हैं',
+      'cred.3a': '16 शहर',      'cred.3b': 'पूरे UP में मैप किए',
+      'cred.4a': 'IIT Kanpur',  'cred.4b': 'B.Tech, 2024',
+      'cred.5a': 'दाम फ़िक्स',   'cred.5b': 'शुरू करने से पहले तय',
 
-      /* section headings */
-      'sec.services.eye': 'मैं क्या बनाता हूँ',
-      'sec.pricing.eye' : 'कीमत',
-      'sec.work.eye'    : 'हाल का काम',
-      'sec.about.eye'   : 'मेरे बारे में',
-      'sec.faq.eye'     : 'सवाल',
-
-      'h2.services': 'तीन तरह के डिजिटल काम, <span class="hl">एक ही मकसद</span> — आपके बिज़नेस को बेहतर बनाना।',
-      'h2.pricing' : 'दाम पहले से साफ़। <span class="hl">कोई छुपी बात नहीं।</span>',
-      'h2.work'    : 'असली क्लाइंट। <span class="hl">अभी लाइव।</span>',
-      'h2.proof'   : 'मेरी बात पर भरोसा मत कीजिए। <span class="hl">खुद जाँचिए।</span>',
-      'h2.about'   : 'मैं <span class="hl">अकेला इंजीनियर</span> हूँ। कोई एजेंसी नहीं।',
-      'h2.faq'     : 'जो <span class="hl">हर कोई पूछता है</span>।',
-      'cta.h2'     : 'अपने <span class="hl-light">बिज़नेस</span> के बारे में बताइए।',
-
-      /* why choose me */
-      'sec.why.eye' : 'मुझे क्यों चुनें',
-      'h2.why'      : 'एजेंसी नहीं — <span class="hl">मुझसे</span> क्यों बनवाएँ।',
-      'why.1.h'     : 'सीधे इंजीनियर से बात',
-      'why.1.p'     : 'न कोई सेल्समैन, न पैसे लेने के बाद कोई इंटर्न। जो आपकी साइट बनाएगा, आप उसी से बात करते हैं।',
-      'why.2.h'     : 'भरोसेमंद, टिकाऊ साइट',
-      'why.2.p'     : 'मैं रोज़ बड़े प्रोडक्शन सॉफ़्टवेयर संभालता हूँ। आपकी साइट भी उसी स्तर पर बनती है — तेज़ चले, बंद न पड़े, बैकअप रहे।',
-      'why.3.h'     : 'मालिक आप हैं',
-      'why.3.p'     : 'डोमेन, कोड और लॉगिन पहले दिन से आपके नाम पर। आप कहीं बंधे नहीं रहते।',
-      'why.4.h'     : 'तय कीमत, कोई जोखिम नहीं',
-      'why.4.p'     : 'कीमत शुरू करने से पहले तय, और आधा पैसा तभी जब साइट लाइव हो और आप खुश हों।',
-
-      'sub.services': 'मैं सब कुछ नहीं करता। मैं वही करता हूँ जिसकी बिज़नेस को सच में ज़रूरत है — <strong>लोगों तक पहुँचना</strong> और <strong>कॉल आना</strong>।',
-      'sub.pricing' : 'आपको <strong>फ़ोन करने से पहले ही</strong> पता होगा कि वेबसाइट की कीमत कितनी है। न “काम देखकर बताएँगे”, न बाद में कोई सरप्राइज़ चार्ज।',
-      'sub.work'    : 'ये मॉकअप नहीं हैं — <strong>असली बिज़नेस मेरी बनाई साइटों पर चल रहे हैं</strong>। खोलिए, स्क्रॉल कीजिए, ऑर्डर करके देखिए।',
-      'work.demos.h': 'कॉन्सेप्ट डेमो — हर पैकेज ऐसा दिखता है',
-      'sec.proof.eye': 'खुद जाँचिए',
-      'sub.proof'   : 'वेबसाइट पर "IIT engineer" कोई भी लिख सकता है। ये चार तरीके हैं यह जाँचने के कि मैं असली इंसान हूँ और असली काम करता हूँ — <strong>एक रुपया देने से पहले</strong>।',
-      'proof.1.h'   : 'मेरा LinkedIn पब्लिक है',
-      'proof.1.p'   : 'नाम, फ़ोटो, <strong>IIT Kanpur से B.Tech</strong>, काम का इतिहास — 30 सेकंड में जाँच लीजिए।',
-      'proof.2.h'   : 'क्लाइंट साइटें लाइव हैं',
-      'proof.2.p'   : 'अभी खोलकर देखिए — बरेली का असली क्लिनिक और लखनऊ का असली किचन मेरे बनाए सिस्टम पर चल रहे हैं।',
-      'proof.3.h'   : 'मुझे कॉल कीजिए — आज ही',
-      'proof.3.p'   : 'असली नंबर, असली इंसान जवाब देता है। कोई भी टेक्निकल सवाल पूछिए — <strong>नकली को पकड़ने का सबसे तेज़ तरीका यही है</strong>।',
-      'proof.4.h'   : 'आपका कोई जोखिम नहीं',
-      'proof.4.p'   : 'दूसरी पेमेंट से पहले आप <strong>पूरी बनी हुई, चलती हुई साइट</strong> देखते हैं। अगर मैं वो नहीं जो कह रहा हूँ, तो आपका पैसा जाने से पहले ही पता चल जाएगा।',
+      /* pain section */
+      'sec.pain.eye': 'जाना-पहचाना लगेगा?',
+      'h2.pain'     : 'चार दिक्कतें जो चुपचाप <span class="hl">क्लिनिक के मरीज़ कम</span> करती हैं.',
+      'sub.pain'    : 'मैंने UP के <strong>हज़ारों क्लिनिक</strong> देखे और मैप किए हैं। हर जगह यही चार दिक्कतें मिलती हैं — और चारों ठीक हो सकती हैं।',
+      'pain.1.h'    : 'मरीज़ आपको ढूँढ नहीं पाते',
+      'pain.1.p'    : 'कोई रात में "doctor near me" खोजता है। आपका competitor फ़ोटो, reviews और वेबसाइट के साथ दिखता है। आप नक्शे पर एक खाली pin हैं — या हैं ही नहीं।',
+      'pain.2.h'    : 'छूटी कॉल = गया मरीज़',
+      'pain.2.p'    : 'OPD के समय फ़ोन कोई नहीं उठा पाता। मरीज़ दोबारा कॉल नहीं करता — list में अगला क्लिनिक बुक कर लेता है। आपको पता भी नहीं चलता।',
+      'pain.3.h'    : 'सब कुछ रजिस्टरों में',
+      'pain.3.p'    : 'मरीज़ों का रिकॉर्ड कॉपियों में, पर्चे दो-दो बार लिखे जाते हैं, पुराना visit ढूँढना नामुमकिन। आपकी रिसेप्शन मेहनत बहुत करती है — उन कामों पर जो सॉफ़्टवेयर सालों पहले हल कर चुका।',
+      'pain.4.h'    : 'आपकी साख ऑनलाइन काम नहीं कर रही',
+      'pain.4.p'    : 'सालों के खुश मरीज़, पर Google पर सिर्फ़ 12 reviews। नया मरीज़ वही देखता है जो ऑनलाइन दिखता है — और अभी वहाँ कुछ खास दिखता नहीं।',
 
       /* services */
-      'svc.1.h': 'बिज़नेस वेबसाइट',
-      'svc.1.p': 'साफ़-सुथरी, तेज़ वेबसाइट जो फ़ोन पर तुरंत खुले। आपकी सेवाएँ, आपकी फ़ोटो, मैप पर आपकी लोकेशन, और एक WhatsApp बटन जो ग्राहक को <strong>सीधे आपकी चैट में</strong> ले आए।',
-      'svc.2.h': 'ऑनलाइन दुकान',
-      'svc.2.p': 'Razorpay के ज़रिए UPI, कार्ड और नेट बैंकिंग से अपना सामान ऑनलाइन बेचिए। ऑर्डर और स्टॉक खुद संभालिए — हर बार कीमत बदलने पर मुझे फ़ोन करने की ज़रूरत नहीं।',
-      'svc.3.h': 'Google पर दिखिए',
-      'svc.3.p': 'जो वेबसाइट किसी को मिलती ही नहीं, वो बंद कमरे में लगे पोस्टर जैसी है। मैं आपकी <strong>Google Business Profile</strong> ठीक से बनाता हूँ, ताकि आस-पास कोई ढूँढे तो आप मैप पर दिखें।',
+      'sec.services.eye': 'क्या मिलेगा',
+      'h2.services' : 'क्लिनिक को जो चाहिए, सब। <span class="hl">फ़ालतू कुछ नहीं.</span>',
+      'sub.services': 'मैं सिर्फ़ healthcare का काम करता हूँ। इसलिए हर फ़ीचर इसलिए है क्योंकि <strong>किसी असली क्लिनिक को उसकी ज़रूरत पड़ी</strong> — इसलिए नहीं कि agency को bill बढ़ाना था।',
+      'svc.1.h': 'क्लिनिक वेबसाइट',
+      'svc.1.p': 'तेज़, mobile-first और मरीज़ों के लिए लिखी हुई: आपके डॉक्टर, department, समय, फ़ोटो — और <strong>हर जगह booking के बटन</strong>.',
+      'svc.2.h': 'OPD सॉफ़्टवेयर',
+      'svc.2.p': 'रजिस्टर की छुट्टी: मरीज़ का रिकॉर्ड, पुराने visit और <strong>प्रिंटेड पर्चा</strong> — इतना आसान कि रिसेप्शन एक दोपहर में सीख जाए।',
+      'svc.3.h': 'Google से मरीज़',
+      'svc.3.p': 'आपकी <strong>Google Business Profile</strong> ठीक से बनी हुई — फ़ोटो, सेवाएँ, समय, review link — और SEO ताकि आपकी specialty खोजने वाले को आप मिलें।',
+      'svc.4.h': 'WhatsApp पर booking और reminder',
+      'svc.4.p': 'Appointment की request मरीज़ के नाम, नंबर और department के साथ <strong>सीधे आपके WhatsApp</strong> पर आती है। Reminder no-show घटाने में मदद करते हैं।',
+      'spec.h'  : 'हर तरह की practice के लिए:',
+      'spec.note': '<strong>मानसिक स्वास्थ्य (psychiatrist/psychologist) के लिए:</strong> privacy-first वेबसाइटें — discreet appointment request, कोई patient testimonial नहीं (medical ethics के अनुसार), और teleconsultation link उन मरीज़ों के लिए जो क्लिनिक आने से झिझकते हैं। Stigma की वजह से लोग किसी से पूछने से पहले ऑनलाइन खोजते हैं — आपकी वेबसाइट अक्सर उनका पहला कदम होती है।',
+
+      /* pricing */
+      'sec.pricing.eye': 'पैकेज',
+      'h2.pricing'  : 'दाम फ़िक्स। <span class="hl">खुलेआम लिखे हुए.</span>',
+      'sub.pricing' : 'मैसेज करने से <strong>पहले</strong> ही आपको दाम पता होगा। कोई "requirements पर depend करता है" नहीं, कोई बीच में दुगना होता quote नहीं।',
+      'ptrust.1': 'पैसा देने से पहले चलती हुई डेमो देखिए',
+      'ptrust.2': 'दाम पहले से तय, बाद में नहीं बदलता',
+      'ptrust.3': 'Domain और code आपके नाम पर',
+      'ptrust.4': 'Renewal आपकी मर्ज़ी, कभी ज़बरदस्ती नहीं',
+      'tier.1.h': 'Clinic Starter',
+      'tier.1.for': 'अकेले practice करने वाले डॉक्टर के लिए — ऑनलाइन ठीक से मौजूद होने का पहला कदम।',
+      'tier.1.note': 'एक बार का दाम · पहले साल की hosting शामिल',
+      'tier.1.out': '<strong>मरीज़ आपको ढूँढें और WhatsApp पर book करें.</strong>',
+      'tier.1.live': '<strong>3–5 दिन में live</strong>',
+      'tier.pop': 'सबसे ज़्यादा चुना गया',
+      'tier.2.h': 'Clinic Growth',
+      'tier.2.for': 'उस क्लिनिक के लिए जिसे Google से नए मरीज़ भी चाहिए और आधुनिक रिसेप्शन भी।',
+      'tier.2.note': 'पहला साल · फिर ₹4,999/साल',
+      'tier.2.out': '<strong>"near me" खोज में दिखिए — और OPD बिना रजिस्टर चलाइए.</strong>',
+      'tier.2.live': '<strong>7–10 दिन में live</strong>',
+      'tier.3.h': 'Hospital Pro',
+      'tier.3.for': 'कई डॉक्टरों वाले क्लिनिक, nursing home और हॉस्पिटल के लिए।',
+      'tier.3.note': 'एक बार का दाम · दूसरे साल से ₹6,999/साल',
+      'tier.3.out': '<strong>ऑनलाइन उतने ही professional दिखिए जितनी बड़ी hospital chains.</strong>',
+      'tier.3.live': '<strong>10–14 दिन में live</strong>',
+      'tier.enq': 'पूछताछ करें', 'tier.enq2': 'पूछताछ करें', 'tier.enq3': 'पूछताछ करें',
+      'tiers.guarantee': '<strong>हर पैकेज में: पैसा देने से पहले आप अपने ही क्लिनिक की चलती हुई डेमो वेबसाइट देखते हैं.</strong>',
+      'addons.eye': 'ज़रूरत पड़े तो add-on',
+      'addon.1': '🎨 Poster pack — हर महीने 8 त्योहार/health-day पोस्टर · ₹999/महीना',
+      'addon.2': '⏰ WhatsApp appointment reminder · ₹1,499 setup',
+      'addon.3': '💻 Teleconsultation setup (video link + payment) · ₹1,999',
+      'addon.4': '🌐 वेबसाइट का हिंदी version · ₹1,499',
+      'fineprint': 'डेमो पसंद आने के बाद UPI या bank transfer से payment। Domain <em>आपके</em> नाम पर रजिस्टर होता है — सब कुछ आपका। Renewal में hosting, backup, security updates और छोटे बदलाव शामिल हैं।',
+
+      /* work */
+      'sec.work.eye': 'लाइव काम',
+      'h2.work' : 'असली क्लिनिक। <span class="hl">अभी live.</span>',
+      'sub.work': 'Mockup नहीं — ये <strong>असली practices हैं जो मेरे काम पर चल रही हैं</strong>। खोलिए, scroll कीजिए, book करके देखिए।',
+      'work.note': 'पहली दो <strong>असली क्लिनिक हैं, अभी live</strong> — खुद खोलकर देखिए। आपकी साइट भी इसी तरह बनेगी — आपके डॉक्टरों, फ़ोटो और जानकारी के साथ।',
 
       /* about */
-      'about.p1': 'मैंने 2024 में <strong class="mark">IIT Kanpur</strong> से पढ़ाई पूरी की। तब से असली सॉफ़्टवेयर सिस्टम चलाने का काम कर रहा हूँ — पहले BeeHyv Software Solutions में DevOps इंजीनियर के तौर पर, और अब बड़े कॉर्पोरेट सॉफ़्टवेयर पर, जहाँ मैं वो सिस्टम संभालता हूँ जिन्हें हज़ारों लोग रोज़ इस्तेमाल करते हैं।',
-      'about.p2': 'वेबसाइट बनाने वाले के लिए ये बैकग्राउंड थोड़ा अलग है — और यही वजह है कि मुझे चुनना चाहिए। इतने बड़े सिस्टम एक घंटा भी धीमे या बंद हो जाएँ तो बड़ी बात हो जाती है। वही तरीका मैं पाँच पेज की छोटी वेबसाइट पर भी लगाता हूँ: <strong>तेज़ चलती है, हर फ़ोन पर चलती है, बैकअप रहता है, और बंद नहीं पड़ती।</strong>',
-      'about.p3': 'मैं हैदराबाद में रहता हूँ और <strong>पूरे भारत</strong> के क्लाइंट के साथ काम करता हूँ — ज़्यादातर बात WhatsApp और कॉल पर हो जाती है, तो आपका शहर कोई फ़र्क नहीं डालता। और जब आप मैसेज करेंगे, तो सीधे उसी से बात होगी जो आपकी वेबसाइट बनाएगा। न कोई सेल्समैन, न अकाउंट मैनेजर, न पैसे लेने के बाद किसी और को काम सौंपना।',
+      'sec.about.eye': 'मेरे बारे में',
+      'h2.about': 'मैं <span class="hl">एक इंजीनियर</span> हूँ। कोई agency नहीं.',
+      'about.p1': 'मैंने 2024 में <strong class="mark">IIT Kanpur</strong> से B.Tech किया और तब से बड़े corporate सिस्टम चलाता आया हूँ — जिन्हें रोज़ हज़ारों लोग इस्तेमाल करते हैं। वही standard क्लिनिक की वेबसाइट में लाता हूँ: <strong>तेज़, भरोसेमंद, backup के साथ.</strong>',
+      'about.p2': 'क्लिनिक ही क्यों? क्योंकि मैंने यह कमी पास से देखी है। बीस डॉक्टरों वाले हॉस्पिटल बिना वेबसाइट के। हज़ार मरीज़ों का हिसाब कागज़ के रजिस्टरों में। काबिल डॉक्टर Google पर गायब, जबकि औसत chain पहले नंबर पर। <strong>अच्छी engineering और ईमानदार दाम से यह कमी भरी जा सकती है</strong> — इसलिए अब मैं यही करता हूँ।',
+      'about.p3': 'मैं Hyderabad में रहता हूँ और <strong>पूरे भारत</strong> के क्लिनिक के साथ काम करता हूँ — ज़्यादातर काम WhatsApp और कॉल पर होता है। आप जिसे मैसेज करते हैं, वही आपकी वेबसाइट और सॉफ़्टवेयर बनाता है। कोई salesperson नहीं, कोई intern को handover नहीं।',
+      'about.li': 'LinkedIn&nbsp;↗',
       'about.how': 'काम कैसे होता है',
-
-      /* how it works */
-      'step.1a': 'बात — 15 मिनट',
-      'step.1b': 'WhatsApp या कॉल। आप अपने बिज़नेस के बारे में बताइए, मैं कीमत बता दूँगा। बस इतना।',
-      'step.2a': 'मैं पहला ड्राफ़्ट बनाता हूँ',
-      'step.2b': 'कुछ ही दिनों में आपको चलती-फिरती असली वेबसाइट दिखेगी — कोई PDF डिज़ाइन नहीं।',
+      'step.1a': 'बात करते हैं — 15 मिनट',
+      'step.1b': 'WhatsApp या कॉल। आप क्लिनिक के बारे में बताइए, मैं दाम बता दूँगा। बस।',
+      'step.2a': 'पहले आपकी डेमो बनाता हूँ',
+      'step.2b': 'आप अपने क्लिनिक की असली, चलती हुई वेबसाइट देखते हैं — PDF mockup नहीं — पैसा देने से पहले।',
       'step.3a': 'दो बार बदलाव',
-      'step.3b': 'आप बताइए क्या ठीक करना है, मैं कर दूँगा। न बहस, न कोई फ़ॉर्म भरना।',
-      'step.4a': 'वेबसाइट लाइव',
-      'step.4b': 'आपके अपने डोमेन पर, आपके नाम से। हर पासवर्ड आपको सौंप दूँगा।',
+      'step.3b': 'आप बताइए क्या ठीक करना है, मैं कर दूँगा। कोई बहस नहीं, कोई form नहीं।',
+      'step.4a': 'साइट live हो जाती है',
+      'step.4b': 'आपके अपने domain पर, आपके नाम से। हर login आपको सौंपता हूँ — और OPD सॉफ़्टवेयर की training रिसेप्शन को देता हूँ।',
 
-      /* compound elements (they wrap inline <strong>) */
-      'skip'        : 'सीधे कंटेंट पर जाएँ',
-      'tier.1.live' : '<strong>5–7 दिन में तैयार</strong>',
-      'tier.2.live' : '<strong>10–14 दिन में तैयार</strong>',
-      'tier.3.live' : '<strong>3–4 हफ़्ते में तैयार</strong>',
-      'amc.h'       : '<span>देखभाल प्लान — ₹1,500/महीना </span><span>(ज़रूरी नहीं)</span>',
+      /* proof */
+      'sec.proof.eye': 'जाँच लीजिए',
+      'h2.proof': 'मेरी बात पर मत जाइए। <span class="hl">खुद जाँचिए.</span>',
+      'sub.proof': 'वेबसाइट पर "IIT engineer" कोई भी लिख सकता है। ये चार तरीके हैं यह जाँचने के कि मैं असली इंसान हूँ और काम असली है — <strong>एक रुपया देने से पहले</strong>।',
+      'proof.1.h': 'मेरा LinkedIn public है',
+      'proof.1.p': 'नाम, फ़ोटो, <strong>IIT Kanpur से B.Tech</strong>, काम का इतिहास — 30 सेकंड में जाँच लीजिए।',
+      'proof.2.h': 'क्लाइंट क्लिनिक live हैं',
+      'proof.2.p': 'अभी खोलकर देखिए — Bareilly की एक children क्लिनिक और Agra की एक eye क्लिनिक <strong>आज</strong> मेरे काम पर चल रही हैं।',
+      'proof.3.h': 'आज ही कॉल कीजिए',
+      'proof.3.p': 'असली नंबर, असली इंसान उठाता है। कोई भी technical सवाल पूछिए — <strong>नकली पकड़ने का सबसे तेज़ तरीका यही है</strong>।',
+      'proof.4.h': 'पैसे से पहले डेमो',
+      'proof.4.p': 'आप <strong>अपने क्लिनिक की चलती हुई वेबसाइट पहले देखते हैं</strong>। अगर मैं वह नहीं जो कह रहा हूँ, तो आपको पैसे जाने से पहले पता चल जाएगा।',
 
-      /* pricing trust strip */
-      'ptrust.1'    : 'कीमत पहले से तय, लिखित में',
-      'ptrust.2'    : 'आधा पैसा तभी, जब साइट लाइव हो',
-      'ptrust.3'    : 'डोमेन और कोड आपका अपना',
-      'ptrust.4'    : 'देखभाल प्लान ज़रूरी नहीं',
+      /* faq + cta */
+      'sec.faq.eye': 'सवाल',
+      'h2.faq': 'जो <span class="hl">हर डॉक्टर पूछता है</span>.',
+      'faq.7a': 'जी — मैं <strong>पूरे भारत</strong> के क्लिनिक के साथ काम करता हूँ। सब कुछ WhatsApp, email और कॉल पर होता है। मेरे अभी के ज़्यादातर क्लाइंट उन शहरों में हैं जहाँ मैं कभी गया नहीं — नतीजे में कोई फ़र्क नहीं पड़ता।',
+      'cta.h2': 'अपने <span class="hl-light">क्लिनिक</span> के बारे में बताइए.',
+      'cta.body': 'बस एक मैसेज: क्लिनिक का नाम और शहर। जवाब में मिलेगा — आपकी <strong>वेबसाइट की चलती हुई डेमो</strong>, पक्का दाम, और कितने दिन लगेंगे। आमतौर पर एक दिन के अंदर। काम का न हुआ तो वह भी साफ़ बता दूँगा।',
+      'cta.prefer': 'Email बेहतर लगे?',
+      'foot.role': 'क्लिनिक के लिए वेबसाइट और सॉफ़्टवेयर, भारत।',
 
-      /* the two new ticks that make Business and Online store worth the jump */
-      'tier.2.chat' : '<strong>AI चैटबॉट</strong> — ग्राहकों को 24/7 जवाब',
-      'tier.3.book' : 'ग्राहक रजिस्ट्रेशन और बुकिंग',
-
-      /* pricing outcome lines + guarantee */
-      'tier.1.out'  : '<strong>प्रोफेशनल दिखें और WhatsApp पर पूछताछ पाएँ।</strong>',
-      'tier.2.out'  : '<strong>“near me” सर्च में दिखें — कोई लीड न छूटे।</strong>',
-      'tier.3.out'  : '<strong>ऑनलाइन बेचें और 24/7 पेमेंट लें।</strong>',
-      'tiers.guarantee' : '<strong>हर पैकेज में: आधा पैसा तभी जब साइट लाइव हो — पसंद न आए तो बाक़ी पैसे मत दीजिए।</strong>',
-
-      /* capability band. AI, WhatsApp, email stay English — nobody says them
-         any other way on the phone. */
-      'feat.eye'    : 'आपकी साइट के साथ',
-      'feat.h'      : 'रात 11 बजे कोई ग्राहक आपकी साइट पर आए, तो क्या होता है',
-      'feat.1.h'    : 'AI चैटबॉट',
-      'feat.1.p'    : 'ग्राहकों के सवालों के जवाब — दिन हो या रात।<br><br>रात 11 बजे आई पूछताछ भी बिना जवाब के नहीं रहती। आपका चैटबॉट ग्राहकों के सवालों का जवाब देता है, ताकि कोई संभावित ग्राहक इंतज़ार करते-करते चला न जाए।',
-      'feat.2.h'    : 'रजिस्ट्रेशन और बुकिंग',
-      'feat.2.p'    : 'ग्राहक साइट पर ही रजिस्टर कर लेता है या अपॉइंटमेंट बुक कर लेता है — सुबह आपको फ़ोन करने का इंतज़ार नहीं करता।',
-      'feat.3.h'    : 'सीधा WhatsApp कनेक्ट',
-      'feat.3.p'    : 'पूछताछ भेजते ही सीधे आपके WhatsApp पर पहुँच जाती है। किसी ऐसे इनबॉक्स में पड़ी नहीं रहती जिसे देखना आप भूल जाएँ।',
-      'feat.foot'   : 'चैटबॉट आपके <strong>बिज़नेस WhatsApp या email</strong> से जुड़ जाता है — ग्राहक आप तक पहुँचता है, चाहे आप कहीं भी हों।',
-      'fineprint'   : '50% काम शुरू करते समय, 50% वेबसाइट लाइव होने पर। GST लागू नहीं। डोमेन और होस्टिंग का सिर्फ़ असली खर्च लगेगा (करीब ₹1,000–2,500 साल का) और वो आपके ही नाम पर रहेंगे — मालिक आप हैं।',
-      'work.note'   : 'ऊपर के दोनों प्रोजेक्ट <strong>असली बिज़नेस हैं, अभी लाइव</strong> — खुद खोलकर देखिए। डेमो दिखाते हैं कि हर पैकेज में क्या मिलता है; आपकी साइट आपके नाम, फ़ोटो और जानकारी के साथ कस्टम बनेगी।',
-      'faq.7a'      : 'हाँ — मैं <strong>पूरे भारत</strong> में क्लाइंट के साथ काम करता हूँ। सारा काम WhatsApp, ईमेल और कॉल पर होता है, जैसे वैसे भी ज़्यादातर होता ही है। मैं हैदराबाद में हूँ, तो आप यहीं के हैं तो मिल भी सकते हैं — पर इससे आपको मिलने वाली चीज़ या कीमत में कोई फ़र्क नहीं पड़ता।',
-      'cta.body'    : 'बस एक मैसेज भेजिए कि आप क्या काम करते हैं। मैं बता दूँगा कि क्या बनाऊँगा, कितना खर्च आएगा और कितना समय लगेगा — <strong>आम तौर पर कुछ ही घंटों में</strong>। अगर बात नहीं बनती, तो वो भी साफ़ कह दूँगा।',
-
-      /* chat + footer */
-      'chat.greet' : 'नमस्ते! 👋 मैं अनुपम — <strong>IIT Kanpur</strong> से इंजीनियर, और पूरे भारत के बिज़नेस के लिए वेबसाइट बनाता हूँ।',
-      'chat.prompt': 'मैं आपकी क्या मदद करूँ?',
-      'chat.status': 'आम तौर पर कुछ घंटों में जवाब',
-      'cta.prefer' : 'ईमेल बेहतर लगे?',
-      'foot.role'  : 'फ्रीलांस वेबसाइट डेवलपर, भारत।'
+      /* chat widget */
+      'chat.status': 'आमतौर पर कुछ घंटों में जवाब',
+      'chat.greet' : 'नमस्ते! 👋 मैं अनुपम — <strong>IIT Kanpur</strong> का इंजीनियर। पूरे भारत के क्लिनिक के लिए वेबसाइट और OPD सॉफ़्टवेयर बनाता हूँ।',
+      'chat.prompt': 'बताइए, क्या मदद करूँ?'
     },
 
+    /* Untagged leaf strings, matched on exact English text. */
     TEXT: {
-      /* ---- service bullets ---- */
-      'Mobile-first — most of your visitors are on 4G': 'मोबाइल पहले — ज़्यादातर लोग फ़ोन से ही आते हैं',
-      'Click-to-call and WhatsApp enquiry': 'एक टैप में कॉल या WhatsApp',
-      'Google Maps and business hours': 'Google Maps और खुलने का समय',
-      'Photo gallery for your work': 'आपके काम की फ़ोटो गैलरी',
-      'Payments via Razorpay (UPI included)': 'Razorpay से पेमेंट — UPI भी',
-      'Inventory you can update yourself': 'स्टॉक आप खुद अपडेट करें',
-      'Order notifications on WhatsApp': 'हर ऑर्डर की जानकारी WhatsApp पर',
-      'Delivery and pickup options': 'डिलीवरी और पिकअप, दोनों',
-      'On-page SEO for local search': 'लोकल सर्च के लिए SEO',
-      'Review collection link for customers': 'ग्राहकों से रिव्यू माँगने का लिंक',
-
-      /* ---- pricing ----
-         "Starter", "Business", "Online store", "Analytics and Search
-         Console" and "Google Business Profile setup" are absent on
-         purpose — they stay in English. */
-      'For a shop, clinic or studio that needs to exist online.': 'दुकान, क्लिनिक या स्टूडियो — जिन्हें बस ऑनलाइन दिखना है।',
-      'Up to 5 pages': '5 पेज तक',
-      'Mobile-first, fast loading': 'फ़ोन पर तेज़ी से खुलने वाली',
-      'WhatsApp + call buttons': 'WhatsApp और कॉल बटन',
-      'Google Maps and contact form': 'Google Maps और संपर्क फ़ॉर्म',
-      'Free domain + hosting setup': 'डोमेन और होस्टिंग सेटअप — फ्री',
-      'Live in 5–7 days': '5–7 दिन में तैयार',
-      'For a business that wants enquiries from Google, not just a link to share.': 'उस बिज़नेस के लिए जिसे Google से ग्राहक चाहिए — सिर्फ़ शेयर करने को एक लिंक नहीं।',
-      'Everything in Starter': 'Starter वाला सब कुछ',
-      'Up to 12 pages + blog': '12 पेज तक और ब्लॉग',
-      'Custom design, not a template': 'आपके लिए बना डिज़ाइन — कोई रेडीमेड टेम्पलेट नहीं',
-      'Live in 10–14 days': '10–14 दिन में तैयार',
-      'For selling products online with real payments.': 'असली पेमेंट लेकर ऑनलाइन सामान बेचने के लिए।',
-      'Everything in Business': 'Business वाला सब कुछ',
-      'Up to 50 products': '50 प्रोडक्ट तक',
-      'Razorpay / UPI payments': 'Razorpay और UPI पेमेंट',
-      'Order and inventory dashboard': 'ऑर्डर और स्टॉक का डैशबोर्ड',
-      'Training so you can run it': 'ट्रेनिंग, ताकि आप खुद चला सकें',
-      'Live in 3–4 weeks': '3–4 हफ़्ते में तैयार',
-      'Most chosen': 'सबसे ज़्यादा पसंद',
-      'Enquire': 'पूछताछ करें',
-      'Ask about it': 'इसके बारे में पूछिए',
-      'Care plan — ₹1,500/month (optional)': 'देखभाल प्लान — ₹1,500/महीना (ज़रूरी नहीं)',
-      'Hosting, daily backups, security updates, uptime monitoring and two content changes a month. Most clients take this so they never have to think about the site again.': 'होस्टिंग, रोज़ का बैकअप, सिक्योरिटी अपडेट, साइट चालू है या नहीं इसकी निगरानी, और महीने में दो बार कंटेंट में बदलाव। ज़्यादातर क्लाइंट यही लेते हैं, ताकि वेबसाइट की चिंता ही न रहे।',
-      '50% to start, 50% when the site goes live. GST not applicable. Domain and hosting are billed at actual cost (roughly ₹1,000–2,500/year) and registered in your name — you own everything.': '50% काम शुरू करते समय, 50% वेबसाइट लाइव होने पर। GST लागू नहीं। डोमेन और होस्टिंग का सिर्फ़ असली खर्च लगेगा (करीब ₹1,000–2,500 साल का) और वो आपके ही नाम पर रहेंगे — मालिक आप हैं।',
-
-      /* ---- work ---- */
-      'Treatment pricing, doctor profiles, clinic timings and an appointment request form.': 'इलाज की कीमत, डॉक्टरों का परिचय, क्लिनिक का समय और अपॉइंटमेंट का फ़ॉर्म।',
-      'Interactive class timetable, coach profiles, three membership tiers and a free-trial CTA.': 'क्लास की टाइम-टेबल, कोच का परिचय, तीन मेंबरशिप प्लान और फ्री ट्रायल का बटन।',
-      'Product catalogue with a working cart, UPI/Razorpay checkout messaging and delivery info.': 'चलता हुआ कार्ट, UPI/Razorpay चेकआउट और डिलीवरी की जानकारी के साथ पूरा प्रोडक्ट कैटलॉग।',
-      'View site ↗': 'वेबसाइट देखें ↗',
-      'Open live demo ↗': 'डेमो खोलें ↗',
-      'These are demonstration sites built to show what each package includes — the businesses are illustrative, not clients. Your site would use your own name, photos and content.': 'ये सिर्फ़ नमूने हैं, ये दिखाने के लिए कि हर पैकेज में क्या-क्या मिलता है। इनमें दिखाए गए बिज़नेस असली क्लाइंट नहीं, बस उदाहरण हैं। आपकी वेबसाइट में आपका अपना नाम, अपनी फ़ोटो और अपनी जानकारी होगी।',
-
-      /* ---- about stats ---- */
-      '2+ yrs': '2+ साल',
-      'Production engineering': 'सॉफ़्टवेयर इंजीनियरिंग',
-      'You own the domain, code & logins': 'डोमेन, कोड और लॉगिन — सब आपका',
-      'All India': 'पूरे भारत में',
-      'Clients anywhere, fully remote': 'कहीं भी क्लाइंट, पूरा काम ऑनलाइन',
-      '7 days': '7 दिन',
-      'Typical turnaround': 'आम तौर पर लगने वाला समय',
-      'How it works': 'काम कैसे होता है',
-
-      /* ---- FAQ ---- */
-      'I don’t have any content or photos. Is that a problem?': 'मेरे पास कंटेंट या फ़ोटो नहीं हैं। क्या दिक्कत होगी?',
-      'I don\'t have any content or photos. Is that a problem?': 'मेरे पास कंटेंट या फ़ोटो नहीं हैं। क्या दिक्कत होगी?',
-      'No, and it’s the normal situation. I’ll write the text for you based on a short conversation about your business, and I can use good stock photography until you have your own. If you can send me 10 photos from your phone, even better — real photos of your actual shop always convert better than stock.': 'नहीं, और यही सबसे आम बात है। आपके बिज़नेस के बारे में थोड़ी बात करके लिखना मैं खुद कर दूँगा, और जब तक आपकी अपनी फ़ोटो न हों, तब तक अच्छी स्टॉक फ़ोटो लगा देंगे। अगर आप फ़ोन से 10 फ़ोटो भेज दें तो और भी अच्छा — अपनी असली दुकान की फ़ोटो हमेशा ज़्यादा असर करती है।',
-
-      'Why are you cheaper than the agencies quoting ₹80,000?': 'एजेंसी ₹80,000 माँगती है, आप इतने कम में कैसे?',
-      'Because there’s no office rent, no sales team, and no project manager forwarding your emails. You’re paying one engineer for the hours he works. I also reuse a solid foundation across projects instead of rebuilding the basics every time, which cuts the work substantially without cutting quality.': 'क्योंकि न ऑफ़िस का किराया है, न सेल्स टीम, न कोई मैनेजर जो आपकी ईमेल इधर-उधर भेजता रहे। आप सीधे एक इंजीनियर को उसके काम के पैसे दे रहे हैं। इसके अलावा हर बार शून्य से शुरू करने की जगह मैं एक तैयार, मज़बूत बुनियाद दोबारा इस्तेमाल करता हूँ — इससे काम काफ़ी कम हो जाता है, पर क्वालिटी वही रहती है।',
-
-      'Can I update the website myself later?': 'क्या मैं बाद में वेबसाइट खुद अपडेट कर सकता हूँ?',
-      'Yes. For text and photo changes I’ll set you up so you can edit without touching code, and I’ll walk you through it once. If you’d rather not deal with it at all, the ₹1,500/month care plan includes two changes a month.': 'हाँ। टेक्स्ट और फ़ोटो बदलने के लिए मैं ऐसा सेटअप कर दूँगा कि कोड छूने की ज़रूरत ही न पड़े, और एक बार आपको सिखा भी दूँगा। अगर आप ये झंझट बिल्कुल नहीं चाहते, तो ₹1,500/महीना वाले देखभाल प्लान में महीने के दो बदलाव शामिल हैं।',
-
-      'Who owns the domain and hosting?': 'डोमेन और होस्टिंग किसके नाम पर रहेंगे?',
-      'You do. I register everything in your name with your email and card where possible, and I hand over every username and password when the site goes live. Some developers keep this in their own name so you can’t leave. I think that’s a bad way to do business.': 'आपके नाम पर। जहाँ तक हो सके मैं सब कुछ आपके नाम, आपकी ईमेल और आपके कार्ड से रजिस्टर करता हूँ, और वेबसाइट लाइव होते ही हर यूज़रनेम-पासवर्ड आपको दे देता हूँ। कुछ डेवलपर ये अपने नाम पर रखते हैं ताकि आप उन्हें छोड़ न सकें। मुझे ये तरीका ग़लत लगता है।',
-
-      'Do you build mobile apps?': 'क्या आप मोबाइल ऐप बनाते हैं?',
-      'Usually I’ll talk you out of it. An app on the Play Store means a yearly fee, store approvals and constant updates — a lot of cost for a local business. What most people actually want is a website that installs to the home screen and opens like an app. That’s included in every package, at no extra cost.': 'आम तौर पर मैं आपको मना ही करूँगा। Play Store पर ऐप का मतलब है सालाना फ़ीस, स्टोर की मंज़ूरी और लगातार अपडेट — एक छोटे बिज़नेस के लिए बहुत खर्च। ज़्यादातर लोगों को असल में ऐसी वेबसाइट चाहिए जो होम स्क्रीन पर लग जाए और ऐप की तरह खुले। वो हर पैकेज में शामिल है, बिना अलग पैसे के।',
-
-      'How do payments work?': 'पेमेंट कैसे होता है?',
-      '50% to begin and 50% when the site goes live, by UPI or bank transfer. You see the full working site before the second payment — if you’re not happy with it, you don’t pay the balance.': '50% शुरू करते समय और 50% वेबसाइट लाइव होने पर, UPI या बैंक ट्रांसफ़र से। दूसरी पेमेंट से पहले आप पूरी चलती हुई वेबसाइट देख लेते हैं — पसंद न आए तो बाक़ी पैसे मत दीजिए।',
-
-      'I’m not in Hyderabad. Can you still build my website?': 'मैं हैदराबाद में नहीं हूँ। क्या फिर भी वेबसाइट बना सकते हैं?',
-      'I\'m not in Hyderabad. Can you still build my website?': 'मैं हैदराबाद में नहीं हूँ। क्या फिर भी वेबसाइट बना सकते हैं?',
-      'Yes — I work with clients anywhere in India. Everything happens over WhatsApp, email and calls, which is how most of my work runs regardless of city. I’m based in Hyderabad, so if you’re local we can meet in person, but it makes no difference to what you get or what you pay.': 'हाँ — मैं पूरे भारत में क्लाइंट के साथ काम करता हूँ। सारा काम WhatsApp, ईमेल और कॉल पर होता है, जैसे वैसे भी ज़्यादातर होता ही है। मैं हैदराबाद में हूँ, तो आप यहीं के हैं तो मिल भी सकते हैं — पर इससे आपको मिलने वाली चीज़ या कीमत में कोई फ़र्क नहीं पड़ता।',
-
-      /* ---- closing CTA ---- */
-      'Send one message describing what you do. I’ll reply with what I’d build, what it costs, and how long it takes — usually within a few hours. If it’s not a fit, I’ll tell you that too.': 'बस एक मैसेज भेजिए कि आप क्या काम करते हैं। मैं बता दूँगा कि क्या बनाऊँगा, कितना खर्च आएगा और कितना समय लगेगा — आम तौर पर कुछ ही घंटों में। अगर बात नहीं बनती, तो वो भी साफ़ कह दूँगा।',
-
-      /* ---- chat ---- */
-      'I need a website for my business': 'मुझे अपने बिज़नेस के लिए वेबसाइट चाहिए',
-      'Tell me about the offer': 'ऑफ़र के बारे में बताइए',
+      'Doctor profiles & department pages': 'डॉक्टर प्रोफ़ाइल और department पेज',
+      'WhatsApp & click-to-call booking': 'WhatsApp और click-to-call booking',
+      'Google Maps, timings, gallery': 'Google Maps, समय, गैलरी',
+      'Loads fast on 4G phones': '4G फ़ोन पर भी फटाफट खुले',
+      'Patient records & visit history': 'मरीज़ों का रिकॉर्ड और visit history',
+      'Printed ℞ prescriptions': 'प्रिंटेड पर्चे',
+      'One-click daily backup': 'एक-क्लिक daily backup',
+      'Works offline at the desk': 'desk पर offline भी चले',
+      'Google Business Profile optimization': 'Google Business Profile optimization',
+      'Local SEO for your specialty + city': 'आपकी specialty + शहर का local SEO',
+      'Review collection link & QR': 'Review link और QR code',
+      'Search Console tracking': 'Search Console tracking',
+      'Booking form → your WhatsApp': 'Booking form → सीधे आपका WhatsApp',
+      'Department-wise booking': 'Department के हिसाब से booking',
+      'Appointment reminders (add-on)': 'Appointment reminder (add-on)',
+      'No app for patients to install': 'मरीज़ को कोई app install नहीं करना',
+      '🤰 Gynaecology & maternity': '🤰 Gynae और maternity',
+      '🦷 Dental': '🦷 Dental',
+      '👁️ Eye care': '👁️ आँखों का इलाज',
+      '🧸 Pediatrics': '🧸 बच्चों के डॉक्टर',
+      '💆 Skin & hair': '💆 Skin और hair',
+      '🦴 Orthopaedics': '🦴 हड्डी रोग',
+      '🏥 Multi-specialty hospitals': '🏥 Multi-specialty हॉस्पिटल',
+      '🧠 Psychiatry & mental health': '🧠 Psychiatry और mental health',
+      'Clinic website with your services & timings': 'आपकी सेवाओं और समय के साथ क्लिनिक वेबसाइट',
+      'WhatsApp + click-to-call booking': 'WhatsApp + click-to-call booking',
+      'Google Maps & photo gallery': 'Google Maps और फ़ोटो गैलरी',
+      'Google Business Profile basics': 'Google Business Profile की बुनियादी setting',
+      'Everything in Clinic Starter': 'Clinic Starter का सब कुछ',
+      'OPD software: records, history, printed ℞': 'OPD सॉफ़्टवेयर: रिकॉर्ड, history, प्रिंटेड पर्चा',
+      'Review collection link & QR code': 'Review link और QR code',
+      'Everything in Clinic Growth': 'Clinic Growth का सब कुछ',
+      'Department pages with details & booking': 'हर department का पेज — जानकारी और booking के साथ',
+      'Doctor profiles & health check-up packages': 'डॉक्टर प्रोफ़ाइल और health check-up पैकेज',
+      "Your hospital's real photos on-site": 'आपके हॉस्पिटल की असली फ़ोटो साइट पर',
+      'All content written for you — NMC-compliant': 'पूरा content मैं लिखूँगा — NMC नियमों के अनुसार',
+      '1 year of support & updates': '1 साल का support और updates',
+      'I run a clinic — show me a demo': 'मेरा क्लिनिक है — डेमो दिखाइए',
+      'Tell me about the OPD software': 'OPD सॉफ़्टवेयर के बारे में बताइए',
       'How much will it cost?': 'कितना खर्च आएगा?',
-      'How long does it take?': 'कितना समय लगेगा?',
+      "I'm a mental-health professional": 'मैं mental-health professional हूँ',
+      'Chat now →': 'अभी बात करें →',
       '📞 Call instead': '📞 कॉल करें',
-      '✉️ Email me': '✉️ ईमेल करें'
+      '✉️ Email me': '✉️ Email करें',
+      'Built for every kind of practice:': 'हर तरह की practice के लिए:',
+      'Open live client site ↗': 'Live क्लाइंट साइट खोलें ↗',
+      'Open live demo ↗': 'Live डेमो खोलें ↗',
+      '✓ Live client project': '✓ Live क्लाइंट प्रोजेक्ट',
+      'Visit site ↗': 'साइट देखें ↗',
+      'View demo ↗': 'डेमो देखें ↗',
+      'See the client projects ↑': 'क्लाइंट प्रोजेक्ट देखें ↑',
+      'How it works ↑': 'कैसे काम करता है ↑',
+      'LinkedIn': 'LinkedIn',
+      'Email': 'Email',
+      "I don't have content or photos. Is that a problem?": 'मेरे पास content या फ़ोटो नहीं हैं। कोई दिक्कत?',
+      "I'm already on Practo/Justdial. Why do I need my own website?": 'मैं पहले से Practo/Justdial पर हूँ। अपनी वेबसाइट क्यों चाहिए?',
+      'Can my receptionist really use the OPD software?': 'क्या मेरी रिसेप्शनिस्ट सच में OPD सॉफ़्टवेयर चला पाएगी?',
+      'Is this allowed under medical advertising rules?': 'क्या यह medical advertising के नियमों में allowed है?',
+      'Why are you cheaper than agencies quoting ₹80,000?': '₹80,000 माँगने वाली agencies से आप सस्ते क्यों हैं?',
+      'Who owns the domain and the data?': 'Domain और data किसके नाम पर रहेगा?',
+      'How do payments work?': 'Payment कैसे होता है?',
+      "My clinic isn't in UP or Hyderabad. Can you still help?": 'मेरा क्लिनिक UP या Hyderabad में नहीं है। फिर भी बनेगा?'
     }
   }
 };

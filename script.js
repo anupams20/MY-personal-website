@@ -22,16 +22,16 @@
    ============================================================ */
 var OFFER = {
   en: {
-    headline: '🎉 Launch offer — 20% off',
-    sub:      'A launch rate for my first few clients. Want to check if it applies to your project?',
-    panel:    '20% off your first website',
-    panelSub: "A launch rate while I take on my first few clients. Send me a message and I'll confirm whether a spot is still open."
+    headline: '🩺 Free demo of YOUR clinic\'s website',
+    sub:      'Send your clinic\'s name and city — I\'ll build a working demo you can see before paying anything.',
+    panel:    'Free working demo for your clinic',
+    panelSub: 'Tell me your clinic\'s name and city. I\'ll send a live demo website for your own clinic — you decide after seeing it, not before.'
   },
   hi: {
-    headline: '🎉 शुरुआती ऑफ़र — 20% छूट',
-    sub:      'मेरे पहले कुछ क्लाइंट के लिए शुरुआती रेट। देखें कि आपके काम पर लागू होता है या नहीं?',
-    panel:    'पहली वेबसाइट पर 20% छूट',
-    panelSub: 'मेरे पहले कुछ क्लाइंट के लिए शुरुआती रेट। मैसेज कीजिए, मैं बता दूँगा कि स्पॉट अभी बचा है या नहीं।'
+    headline: '🩺 आपके क्लिनिक की वेबसाइट का फ़्री डेमो',
+    sub:      'क्लिनिक का नाम और शहर भेजिए — बिना पैसा दिए चलती हुई डेमो देखिए।',
+    panel:    'आपके क्लिनिक के लिए फ़्री डेमो',
+    panelSub: 'क्लिनिक का नाम और शहर बताइए। मैं आपके क्लिनिक की live डेमो वेबसाइट भेजूँगा — देखकर फ़ैसला कीजिए, पहले नहीं।'
   }
 };
 
