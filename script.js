@@ -287,3 +287,236 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
     }, DELAY_MS);
   }
 })();
+
+
+/* ============================================================
+   v11 — scroll rhythm + gamification. No libraries.
+   Leads save to Firebase RTDB (/aww/leads) and ping ntfy.sh for
+   an instant phone notification (topic below — subscribe in the
+   ntfy app). Honest note: client-side only, no secrets involved.
+   ============================================================ */
+(function () {
+  'use strict';
+  var LEADS_DB = 'https://anupam-sample-default-rtdb.asia-southeast1.firebasedatabase.app/aww/leads.json';
+  var NTFY = 'https://ntfy.sh/aww-leads-x7k2m9qp';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function saveLead(o) {
+    o.ts = Date.now(); o.page = location.pathname;
+    try { fetch(LEADS_DB, { method: 'POST', body: JSON.stringify(o), keepalive: true }); } catch (e) {}
+    try {
+      fetch(NTFY, { method: 'POST', body: '🩺 New lead: ' + (o.name || '?') + ' · ' + (o.phone || '') +
+        (o.clinic ? ' · ' + o.clinic : '') + (o.score != null ? ' · score ' + o.score : '') +
+        ' · via ' + (o.type || 'site'), headers: { Title: 'anupamwebworks.com lead' } });
+    } catch (e) {}
+  }
+
+  /* ---------- scroll progress ---------- */
+  var fill = document.getElementById('sprogFill');
+  if (fill) {
+    addEventListener('scroll', function () {
+      var e = document.documentElement;
+      fill.style.width = Math.min(100, (e.scrollTop / ((e.scrollHeight - e.clientHeight) || 1)) * 100) + '%';
+    }, { passive: true });
+  }
+
+  /* ---------- reveal + counters ---------- */
+  var toReveal = document.querySelectorAll('.card,.tier,.sstat,.step,.work__item,.pkg,.fac');
+  toReveal.forEach(function (el) { el.classList.add('reveal'); });
+  function countUp(el) {
+    var to = +el.dataset.to, t0 = null, dur = 1500;
+    if (reduced) { el.textContent = to; return; }
+    function tick(t) {
+      if (!t0) t0 = t;
+      var p = Math.min(1, (t - t0) / dur);
+      el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));   /* ease-out, like a breath */
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  var seen = new WeakSet();
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      e.target.querySelectorAll('.cnt[data-to]').forEach(function (c) {
+        if (!seen.has(c)) { seen.add(c); countUp(c); }
+      });
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal,.statstrip__grid').forEach(function (el) { io.observe(el); });
+
+  /* ---------- sticky mobile CTA: appears after the pain section ---------- */
+  var mcta = document.getElementById('mcta'), pain = document.getElementById('pain');
+  if (mcta && pain) {
+    mcta.hidden = false;
+    var mio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.boundingClientRect.bottom < 0) mcta.classList.add('show');
+        else if (e.isIntersecting && e.boundingClientRect.top > 0) mcta.classList.remove('show');
+      });
+    }, { threshold: 0 });
+    mio.observe(pain);
+  }
+
+  /* ---------- iframe facades: load live preview on tap ---------- */
+  document.querySelectorAll('.lazyfr').forEach(function (f) {
+    function load() {
+      if (f.querySelector('iframe')) return;
+      var i = document.createElement('iframe');
+      i.src = f.dataset.src; i.title = f.dataset.title || 'Live preview';
+      i.setAttribute('scrolling', 'no'); i.setAttribute('tabindex', '-1');
+      f.appendChild(i);
+      var b = f.querySelector('.lazyfr__btn'); if (b) b.remove();
+    }
+    f.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); load(); });
+    f.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); load(); } });
+  });
+
+  /* ---------- no-show calculator ---------- */
+  var ap = document.getElementById('c_ap');
+  if (ap) {
+    var fee = document.getElementById('c_fee'), ns = document.getElementById('c_ns');
+    var fmt = function (n) { return n.toLocaleString('en-IN'); };
+    function recalc() {
+      var a = +ap.value, f = +fee.value, p = +ns.value;
+      document.getElementById('o_ap').textContent = a;
+      document.getElementById('o_fee').textContent = fmt(f);
+      document.getElementById('o_ns').textContent = p;
+      var month = Math.round(a * 26 * (p / 100) * f);
+      document.getElementById('r_month').textContent = fmt(month);
+      document.getElementById('r_year').textContent = fmt(month * 12);
+      document.getElementById('r_half').textContent = fmt(Math.round(month * 12 / 2));
+      var cta = document.getElementById('calcCta');
+      if (cta) cta.href = 'https://wa.me/919670809669?text=' + encodeURIComponent(
+        'Hi Anupam, your calculator says no-shows may be costing my clinic about ₹' + fmt(month) +
+        '/month. Tell me how reminders + booking would work for us.');
+    }
+    [ap, fee, ns].forEach(function (el) { el.addEventListener('input', recalc); });
+    recalc();
+  }
+
+  /* ---------- Clinic Growth Score quiz ---------- */
+  var qzBody = document.getElementById('qzBody');
+  if (!qzBody) return;
+  var Q = [
+    { q: 'Who runs the practice?', score: false,
+      o: ['Just me (solo practitioner)', '2–5 doctors', '6+ doctors / nursing home / hospital'] },
+    { q: 'Does your clinic have its own website?',
+      o: ['No', 'Only a Facebook / Instagram page', 'Yes, our own website'] },
+    { q: 'Your Google listing — does it have photos and 20+ reviews?',
+      o: ['No, or not sure', 'Partly (few photos or reviews)', 'Yes, both'] },
+    { q: 'How do new patients book an appointment?',
+      o: ['Walk-in or phone call only', 'WhatsApp, informally', 'Online form / booking link'] },
+    { q: 'Do patients get appointment reminders?',
+      o: ['No reminders', 'Staff calls or messages manually', 'Automatic reminders'] },
+    { q: 'Where do patient records live?',
+      o: ['Paper registers', 'Excel / files on a computer', 'Proper software'] },
+    { q: 'Do you know how many patients found you on Google last month?',
+      o: ['No idea', 'A rough sense', 'Yes — we track it'] }
+  ];
+  var CHECKLIST = [
+    'Claim and complete your Google Business Profile — photos, services, timings, correct phone.',
+    'Get your clinic its own website — social pages rent visibility; a website you own builds it.',
+    'Put a one-tap WhatsApp booking button everywhere patients see you.',
+    'Set a weekly review habit: a polite ask + QR card at reception (never pay or incentivise — NMC rules).',
+    'Send a day-before WhatsApp reminder for every appointment — the cheapest no-show fix there is.',
+    'Move patient records off paper into simple OPD software your receptionist can run.',
+    'Check your Google Business insights once a month — know your numbers like you know your OPD register.'
+  ];
+  var step = 0, answers = [];
+  function render() {
+    var item = Q[step];
+    document.getElementById('qzFill').style.width = ((step) / Q.length * 100) + '%';
+    document.getElementById('qzStep').textContent = 'Question ' + (step + 1) + ' of ' + Q.length;
+    var h = '<div class="qz__q">' + item.q + '</div><div class="qz__opts">';
+    item.o.forEach(function (o, i) {
+      h += '<button type="button" class="qz__opt" data-i="' + i + '">' + o + '</button>';
+    });
+    qzBody.innerHTML = h + '</div>';
+    document.getElementById('qzBack').hidden = step === 0;
+    qzBody.querySelectorAll('.qz__opt').forEach(function (b) {
+      b.addEventListener('click', function () {
+        answers[step] = +b.dataset.i;
+        step++;
+        if (step < Q.length) render(); else finish();
+      });
+    });
+  }
+  window.qzStart = function () {
+    step = 0; answers = [];
+    document.getElementById('qzResult').hidden = true;
+    document.getElementById('qz').hidden = false;
+    document.getElementById('checklist').hidden = true;
+    document.getElementById('unlock').style.display = '';
+    render();
+  };
+  document.getElementById('qzBack').addEventListener('click', function () {
+    if (step > 0) { step--; render(); }
+  });
+  var lastScore = 0, lastBand = '';
+  function finish() {
+    var score = 4;
+    for (var i = 1; i < Q.length; i++) score += (answers[i] || 0) * 8;
+    lastScore = score;
+    document.getElementById('qz').hidden = true;
+    var res = document.getElementById('qzResult');
+    res.hidden = false;
+    var title, msg;
+    if (score <= 40) { title = 'Invisible online — but that\'s fixable fast.'; lastBand = 'low';
+      msg = 'Patients in your city are searching right now and finding your competitors. The good news: starting from zero means every fix shows results quickly.'; }
+    else if (score <= 70) { title = 'Halfway there — with leaks to plug.'; lastBand = 'mid';
+      msg = 'You have pieces of an online presence, but patients fall through the gaps between them — missed bookings, no reminders, no tracking.'; }
+    else { title = 'Strong base — time to compound it.'; lastBand = 'high';
+      msg = 'Better than most clinics. The next wins are in automation and measurement, so growth stops depending on memory and effort.'; }
+    document.getElementById('scoreTitle').textContent = title;
+    document.getElementById('scoreMsg').textContent = msg;
+    var rec = answers[0] === 0 ? 'Recommended for you: Clinic Starter (₹4,999)'
+            : answers[0] === 1 ? 'Recommended for you: Clinic Growth (₹9,999 — most chosen)'
+            : 'Recommended for you: Hospital Pro (₹34,999)';
+    document.getElementById('scoreRec').innerHTML = rec + ' · <a href="#pricing">see package ↓</a>';
+    var n = document.getElementById('scoreNum'), ring = document.getElementById('ringVal');
+    if (reduced) { n.textContent = score; ring.style.strokeDashoffset = 327 - (327 * score / 100); }
+    else {
+      n.textContent = '0';
+      setTimeout(function () {
+        ring.style.strokeDashoffset = 327 - (327 * score / 100);
+        var t0 = null;
+        requestAnimationFrame(function tick(t) {
+          if (!t0) t0 = t;
+          var p = Math.min(1, (t - t0) / 1400);
+          n.textContent = Math.round(score * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(tick);
+        });
+      }, 120);
+    }
+    res.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+    try { fetch('https://anupam-samples-default-rtdb.firebaseio.com/hits/_site_main.json',
+      { method: 'PATCH', body: JSON.stringify({ quiz_done: { '.sv': { increment: 1 } } }) }); } catch (e) {}
+  }
+  window.qzLead = function (e) {
+    e.preventDefault();
+    var sb = e.target.querySelector('button'); if (sb) { if (sb.disabled) return false; sb.disabled = true; }
+    saveLead({ type: 'quiz', name: document.getElementById('ql_n').value,
+      phone: document.getElementById('ql_p').value, clinic: document.getElementById('ql_c').value,
+      score: lastScore, band: lastBand, answers: answers.join(',') });
+    document.getElementById('unlock').style.display = 'none';
+    var cl = document.getElementById('checklist');
+    /* weakest answers first — their personal priorities */
+    var order = [];
+    for (var i = 1; i < Q.length; i++) order.push([i, answers[i] || 0]);
+    order.sort(function (a, b) { return a[1] - b[1]; });
+    var prio = order.slice(0, 2).map(function (x) { return x[0] - 1; });
+    var h = '<h4>Your 7-point Clinic Growth Checklist</h4><ul>';
+    CHECKLIST.forEach(function (c, i) {
+      h += '<li class="' + (prio.indexOf(i) > -1 ? 'prio' : '') + '">' + c + '</li>';
+    });
+    cl.innerHTML = h + '</ul><p class="cl-note">★ = your two biggest priorities, based on your answers. Screenshot this — or message me and I\'ll walk you through it free.</p>';
+    cl.hidden = false;
+    cl.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+    return false;
+  };
+  qzStart();
+})();
+

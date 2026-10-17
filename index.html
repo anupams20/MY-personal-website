@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="style.css?v=11">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.png" sizes="64x64">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -55,6 +55,7 @@
 
 <body>
 <a href="#main" class="skip" data-i18n="skip">Skip to content</a>
+<div class="sprog" aria-hidden="true"><div id="sprogFill"></div></div>
 
 <!-- ========================= NAV ========================= -->
 <header class="nav" id="nav">
@@ -149,46 +150,59 @@
   </div>
 </section>
 
-<!-- ========================= PAIN POINTS ========================= -->
-<section id="pain" class="section">
+<!-- ========================= PAIN POINTS (dark band · milestone 1) ========================= -->
+<section id="pain" class="section section--dark">
   <div class="wrap">
-    <p class="eyebrow" data-i18n="sec.pain.eye">Sound familiar?</p>
-    <h2 class="h2" data-i18n-html="h2.pain">The four problems that quietly <span class="hl">cost clinics patients</span>.</h2>
-    <p class="sub" data-i18n-html="sub.pain">I've visited and mapped <strong>thousands of clinics across UP</strong>. The same four problems come up everywhere — and every one of them is fixable.</p>
+    <p class="mile"><span class="mile__n">1</span><span data-i18n="mile.1">The problem</span></p>
+    <p class="eyebrow eyebrow--light" data-i18n="sec.pain.eye">Sound familiar?</p>
+    <h2 class="h2" data-i18n-html="h2.pain">The four problems that quietly <span class="hl-light">cost clinics patients</span>.</h2>
+    <p class="sub sub--light" data-i18n-html="sub.pain">I've visited and mapped <strong>thousands of clinics across UP</strong>. The same four problems come up everywhere — and every one of them is fixable.</p>
 
     <div class="cards cards--4">
-      <article class="card">
+      <article class="card card--dark reveal">
         <div class="card__ico">🔍</div>
         <h3 data-i18n="pain.1.h">Patients can't find you</h3>
         <p data-i18n="pain.1.p">Someone searches "doctor near me" tonight. Your competitor shows up with photos, reviews and a website. You're a bare pin on the map — or not there at all.</p>
       </article>
-      <article class="card">
+      <article class="card card--dark reveal">
         <div class="card__ico">📵</div>
         <h3 data-i18n="pain.2.h">Missed calls = lost patients</h3>
         <p data-i18n="pain.2.p">During OPD hours, nobody picks up the phone. The patient doesn't call back — they book the next clinic on the list. You'll never know it happened.</p>
       </article>
-      <article class="card">
+      <article class="card card--dark reveal">
         <div class="card__ico">📒</div>
         <h3 data-i18n="pain.3.h">Everything lives in registers</h3>
         <p data-i18n="pain.3.p">Patient records in notebooks, prescriptions written twice, old visits impossible to look up. Your front desk works hard — on problems software solved years ago.</p>
       </article>
-      <article class="card">
+      <article class="card card--dark reveal">
         <div class="card__ico">⭐</div>
         <h3 data-i18n="pain.4.h">Your reputation isn't working for you</h3>
         <p data-i18n="pain.4.p">Years of happy patients, but 12 Google reviews. New patients judge you by what they can see online — and right now, they can't see much.</p>
       </article>
     </div>
+    <p class="pain__loss reveal" data-i18n-html="pain.loss">Want a number instead of a feeling? <a href="#calc"><strong>Calculate what no-shows cost your clinic ↓</strong></a></p>
   </div>
 </section>
+
+<!-- ========================= STAT COUNTER STRIP ========================= -->
+<div class="statstrip" aria-label="Track record">
+  <div class="wrap statstrip__grid">
+    <div class="sstat"><strong><span class="cnt" data-to="600">0</span>+</strong><span data-i18n="st.1">clinic &amp; hospital sites built</span></div>
+    <div class="sstat"><strong><span class="cnt" data-to="16">0</span></strong><span data-i18n="st.2">UP cities mapped</span></div>
+    <div class="sstat"><strong><span class="cnt" data-to="2">0</span></strong><span data-i18n="st.3">clinics live on my OPD software</span></div>
+    <div class="sstat"><strong><span class="cnt" data-to="870">0</span></strong><span data-i18n="st.4">mental-health leads researched</span></div>
+  </div>
+</div>
 
 <!-- ========================= SERVICES ========================= -->
 <section id="services" class="section section--alt">
   <div class="wrap">
+    <p class="mile"><span class="mile__n">2</span><span data-i18n="mile.2">The solution</span></p>
     <p class="eyebrow" data-i18n="sec.services.eye">What you get</p>
     <h2 class="h2" data-i18n-html="h2.services">Everything a clinic needs. <span class="hl">Nothing it doesn't.</span></h2>
-    <p class="sub" data-i18n-html="sub.services">I only work with healthcare. That means every feature exists because a <strong>real clinic needed it</strong> — not because an agency wanted to bill for it.</p>
+    <p class="sub" data-i18n-html="sub.services">I only work with healthcare. That means every feature exists because a <strong>real clinic needed it</strong> — not because an agency wanted to bill for it. <span class="swipe-hint" aria-hidden="true">swipe →</span></p>
 
-    <div class="cards cards--4">
+    <div class="cards cards--4 cards--swipe">
       <article class="card">
         <div class="card__ico">01</div>
         <h3 data-i18n="svc.1.h">Clinic website</h3>
@@ -256,12 +270,75 @@
   </div>
 </section>
 
-<!-- ========================= PRICING ========================= -->
-<section id="pricing" class="section">
+<!-- ========================= QUIZ: CLINIC GROWTH SCORE ========================= -->
+<section id="quiz" class="section section--quiz">
+  <div class="wrap wrap--narrow">
+    <p class="eyebrow" data-i18n="sec.quiz.eye">60-second check</p>
+    <h2 class="h2" data-i18n-html="h2.quiz">What's your <span class="hl">Clinic Growth Score</span>?</h2>
+    <p class="sub" data-i18n="sub.quiz">7 quick questions. No email needed to see your score — and an honest read on where your clinic stands online.</p>
+
+    <div class="qz" id="qz">
+      <div class="qz__bar"><div class="qz__fill" id="qzFill"></div></div>
+      <div class="qz__step" id="qzStep"></div>
+      <div class="qz__body" id="qzBody"></div>
+      <div class="qz__nav"><button class="btn btn--ghost" id="qzBack" type="button" hidden>← Back</button></div>
+    </div>
+
+    <div class="qz__result" id="qzResult" hidden>
+      <div class="scorering"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-val" id="ringVal" cx="60" cy="60" r="52"/></svg><div class="score__n"><span id="scoreNum">0</span><small>/100</small></div></div>
+      <h3 id="scoreTitle"></h3>
+      <p id="scoreMsg" class="score__msg"></p>
+      <p class="score__rec" id="scoreRec"></p>
+      <div class="unlock" id="unlock">
+        <p><strong data-i18n="qz.unlock.h">🎁 Unlock your 7-point Clinic Growth Checklist</strong><br><span data-i18n="qz.unlock.p">A practical to-do list matched to your answers — free, on this page, right now.</span></p>
+        <form class="unlock__form" onsubmit="return qzLead(event)">
+          <input id="ql_n" placeholder="Your name*" required>
+          <input id="ql_p" placeholder="WhatsApp number*" required pattern="[0-9+ ]{10,14}">
+          <input id="ql_c" placeholder="Clinic name & city (optional)">
+          <button class="btn btn--wa" type="submit" data-i18n="qz.unlock.btn">Show my checklist</button>
+        </form>
+        <p class="unlock__priv" data-i18n="qz.unlock.priv">Used only to send you the checklist and (if you want) your free audit. No spam, ever.</p>
+      </div>
+      <div class="checklist" id="checklist" hidden></div>
+      <button class="btn btn--ghost" id="qzRetake" type="button" onclick="qzStart()" data-i18n="qz.retake">↺ Retake the check</button>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= NO-SHOW CALCULATOR ========================= -->
+<section id="calc" class="section">
+  <div class="wrap wrap--narrow">
+    <p class="eyebrow" data-i18n="sec.calc.eye">Do the maths</p>
+    <h2 class="h2" data-i18n-html="h2.calc">What do no-shows <span class="hl">cost your clinic</span>?</h2>
+    <p class="sub" data-i18n="sub.calc">Rough estimate with your own numbers — move the sliders. Nothing is sent anywhere.</p>
+
+    <div class="calc">
+      <div class="calc__inputs">
+        <label>Appointments per day <output id="o_ap">20</output>
+          <input type="range" id="c_ap" min="5" max="80" value="20" step="1"></label>
+        <label>Average fee per visit <output>₹<span id="o_fee">400</span></output>
+          <input type="range" id="c_fee" min="100" max="2500" value="400" step="50"></label>
+        <label>Patients who don't turn up <output><span id="o_ns">15</span>%</output>
+          <input type="range" id="c_ns" min="5" max="40" value="15" step="1"></label>
+      </div>
+      <div class="calc__out">
+        <div class="calc__big"><span data-i18n="calc.lost">Lost every month</span><strong>₹<span id="r_month">0</span></strong></div>
+        <div class="calc__row"><span data-i18n="calc.year">That's per year</span><strong>₹<span id="r_year">0</span></strong></div>
+        <div class="calc__row calc__row--good"><span data-i18n="calc.half">If WhatsApp reminders recover even half*</span><strong>₹<span id="r_half">0</span>/yr</strong></div>
+        <a class="btn btn--wa btn--block" id="calcCta" href="#" target="_blank" rel="noopener" data-i18n="calc.cta">🟢 Ask me how to plug this leak</a>
+        <p class="calc__note" data-i18n="calc.note">*Estimate only — based on your inputs, not a guarantee. Reminder studies show meaningful but varying recovery rates.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= PRICING (dark · milestone 3) ========================= -->
+<section id="pricing" class="section section--dark section--pricing">
   <div class="wrap">
-    <p class="eyebrow" data-i18n="sec.pricing.eye">Packages</p>
-    <h2 class="h2" data-i18n-html="h2.pricing">Fixed prices. <span class="hl">Published openly.</span></h2>
-    <p class="sub" data-i18n-html="sub.pricing">You'll know the cost <strong>before</strong> you message me. No "depends on requirements", no quote that doubles halfway through.</p>
+    <p class="mile mile--light"><span class="mile__n">3</span><span data-i18n="mile.3">The plan</span></p>
+    <p class="eyebrow eyebrow--light" data-i18n="sec.pricing.eye">Packages</p>
+    <h2 class="h2" data-i18n-html="h2.pricing">Fixed prices. <span class="hl-light">Published openly.</span></h2>
+    <p class="sub sub--light" data-i18n-html="sub.pricing">You'll know the cost <strong>before</strong> you message me. No "depends on requirements", no quote that doubles halfway through.</p>
 
     <ul class="ptrust">
       <li data-i18n="ptrust.1">You see a working demo before paying</li>
@@ -347,6 +424,7 @@
 <!-- ========================= WORK ========================= -->
 <section id="work" class="section section--alt">
   <div class="wrap">
+    <p class="mile"><span class="mile__n">4</span><span data-i18n="mile.4">The proof</span></p>
     <p class="eyebrow" data-i18n="sec.work.eye">Live work</p>
     <h2 class="h2" data-i18n-html="h2.work">Real clinics. <span class="hl">Live right now.</span></h2>
     <p class="sub" data-i18n-html="sub.work">Not mockups — these are <strong>real medical practices running on my work</strong>. Open them, scroll them, book from them.</p>
@@ -354,7 +432,7 @@
     <div class="work work--clients">
       <article class="work__item">
         <a class="work__thumb" href="https://little-heart-child-care.web.app/" target="_blank" rel="noopener" aria-label="Open Little Heart Child Care Centre — live client website">
-          <iframe src="https://little-heart-child-care.web.app/" title="Live preview of Little Heart Child Care Centre, Bareilly" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+          <div class="lazyfr" data-src="https://little-heart-child-care.web.app/" data-title="Live preview of Little Heart Child Care Centre, Bareilly" role="button" tabindex="0"><span class="lazyfr__btn">â–¶ <span>Tap to preview the live site</span></span></div>
           <span class="work__open">Open live client site ↗</span>
         </a>
         <span class="work__badge">✓ Live client project</span>
@@ -368,7 +446,7 @@
 
       <article class="work__item">
         <a class="work__thumb" href="https://mohan-eye-health-clinic.web.app/" target="_blank" rel="noopener" aria-label="Open Mohan Eye and Health Clinic — live client website">
-          <iframe src="https://mohan-eye-health-clinic.web.app/" title="Live preview of Mohan Eye &amp; Health Clinic, Agra" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+          <div class="lazyfr" data-src="https://mohan-eye-health-clinic.web.app/" data-title="Live preview of Mohan Eye &amp; Health Clinic, Agra" role="button" tabindex="0"><span class="lazyfr__btn">â–¶ <span>Tap to preview the live site</span></span></div>
           <span class="work__open">Open live client site ↗</span>
         </a>
         <span class="work__badge">✓ Live client project</span>
@@ -382,7 +460,7 @@
 
       <article class="work__item">
         <a class="work__thumb" href="https://up-hospitals.web.app/demo?via=team" target="_blank" rel="noopener" aria-label="Open the multispeciality hospital demo website">
-          <iframe src="https://up-hospitals.web.app/demo?via=team" title="Preview of the multispeciality hospital demo website" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+          <div class="lazyfr" data-src="https://up-hospitals.web.app/demo?via=team" data-title="Preview of the multispeciality hospital demo website" role="button" tabindex="0"><span class="lazyfr__btn">â–¶ <span>Tap to preview the live site</span></span></div>
           <span class="work__open">Open live demo ↗</span>
         </a>
         <span class="work__badge work__badge--demo">Hospital Pro demo</span>
@@ -413,7 +491,7 @@
         <figcaption>Dr. Umesh Chandra Gupta — Little Heart Child Care Centre, Bareilly</figcaption>
       </figure>
       <blockquote class="testi__quote">
-        <p>“PASTE-THE-EXACT-QUOTE-FROM-THE-VIDEO-HERE.”</p>
+        <p>"PASTE-THE-EXACT-QUOTE-FROM-THE-VIDEO-HERE."</p>
         <cite>Dr. Umesh Chandra Gupta (MBBS, DCH)<br>Little Heart Child Care Centre, Bareilly</cite>
       </blockquote>
     </div>
@@ -478,7 +556,7 @@
     <h2 class="h2" data-i18n-html="h2.proof">Don't take my word for it. <span class="hl">Check.</span></h2>
     <p class="sub" data-i18n-html="sub.proof">Anyone can type "IIT engineer" on a website. Here are four ways to verify I'm a real person doing real work — <strong>before you pay a single rupee</strong>.</p>
 
-    <div class="cards cards--4">
+    <div class="cards cards--4 cards--swipe">
       <article class="card">
         <div class="card__ico">in</div>
         <h3 data-i18n="proof.1.h">My LinkedIn is public</h3>
@@ -553,6 +631,7 @@
 <!-- ========================= CONTACT ========================= -->
 <section id="contact" class="cta">
   <div class="wrap wrap--narrow cta__inner">
+    <p class="mile mile--light mile--center"><span class="mile__n">5</span><span data-i18n="mile.5">Start</span></p>
     <h2 data-i18n-html="cta.h2">Tell me about <span class="hl-light">your clinic</span>.</h2>
     <p data-i18n-html="cta.body">One message: your clinic's name and city. I'll reply with a <strong>working demo of your website</strong>, the exact price, and how long it takes — usually within a day. If it's not a fit, I'll tell you that too.</p>
 
@@ -579,6 +658,13 @@
     </p>
   </div>
 </footer>
+
+<!-- Sticky mobile CTA bar: appears after the pain section -->
+<div class="mcta" id="mcta" hidden>
+  <a href="tel:+919670809669"><span class="e">📞</span><span data-i18n="mcta.call">Call</span></a>
+  <a href="https://wa.me/919670809669?text=Hi%20Anupam%2C%20I%20run%20a%20clinic%20and%20want%20to%20take%20it%20online." target="_blank" rel="noopener"><span class="e">🟢</span>WhatsApp</a>
+  <a href="#quiz" class="p"><span class="e">✦</span><span data-i18n="mcta.audit">Free 60-sec check</span></a>
+</div>
 
 <!-- Floating chat widget (WhatsApp-routed; offer copy lives in script.js) -->
 <div class="chat" id="chat">
@@ -643,7 +729,7 @@
 </div>
 
 <script src="i18n.js?v=9"></script>
-<script src="script.js?v=8"></script>
+<script src="script.js?v=9"></script>
 <script>
 /* anonymous visit counter + time-on-page, feeds the admin dashboard.
    Counts nothing for owner previews (?t=1), anyone who unlocked /admin in

@@ -151,6 +151,40 @@ window.I18N = {
       'cta.prefer': 'Email बेहतर लगे?',
       'foot.role': 'क्लिनिक के लिए वेबसाइट और सॉफ़्टवेयर, भारत।',
 
+      /* journey milestones */
+      'mile.1': 'समस्या', 'mile.2': 'समाधान', 'mile.3': 'प्लान', 'mile.4': 'सबूत', 'mile.5': 'शुरुआत',
+      'pain.loss': 'एहसास की जगह आँकड़ा चाहिए? <a href="#calc"><strong>हिसाब लगाइए — no-show से कितना नुकसान हो रहा है ↓</strong></a>',
+
+      /* stat strip */
+      'st.1': 'क्लिनिक व हॉस्पिटल साइटें बनाईं',
+      'st.2': 'UP के शहर मैप किए',
+      'st.3': 'क्लिनिक मेरे OPD सॉफ़्टवेयर पर live',
+      'st.4': 'mental-health leads पर रिसर्च',
+
+      /* quiz */
+      'sec.quiz.eye': '60 सेकंड की जाँच',
+      'h2.quiz': 'आपका <span class="hl">Clinic Growth Score</span> कितना है?',
+      'sub.quiz': '7 छोटे सवाल। score देखने के लिए email नहीं चाहिए — और आपके क्लिनिक की ऑनलाइन हालत की सीधी-सच्ची तस्वीर।',
+      'qz.unlock.h': '🎁 अपनी 7-point Clinic Growth Checklist खोलिए',
+      'qz.unlock.p': 'आपके जवाबों के हिसाब से बनी practical to-do list — मुफ़्त, इसी पेज पर, अभी।',
+      'qz.unlock.btn': 'मेरी checklist दिखाओ',
+      'qz.unlock.priv': 'सिर्फ़ checklist aur (चाहें toh) free audit bhejne ke liye. Spam kabhi nahi.',
+      'qz.retake': '↺ दोबारा जाँच करें',
+
+      /* calculator */
+      'sec.calc.eye': 'हिसाब कीजिए',
+      'h2.calc': 'No-show आपके क्लिनिक को <span class="hl">कितना महँगा पड़ता है</span>?',
+      'sub.calc': 'अपने आँकड़ों से मोटा अनुमान — slider चलाइए। कुछ भी कहीं नहीं भेजा जाता।',
+      'calc.lost': 'हर महीने का नुकसान',
+      'calc.year': 'यानी साल भर में',
+      'calc.half': 'अगर WhatsApp reminder आधा भी बचा लें*',
+      'calc.cta': '🟢 पूछिए — यह नुकसान कैसे रुकेगा',
+      'calc.note': '*सिर्फ़ अनुमान — आपके आँकड़ों पर आधारित, कोई guarantee नहीं।',
+
+      /* sticky bar */
+      'mcta.call': 'कॉल',
+      'mcta.audit': 'फ़्री 60-sec जाँच',
+
       /* chat widget */
       'chat.status': 'आमतौर पर कुछ घंटों में जवाब',
       'chat.greet' : 'नमस्ते! 👋 मैं अनुपम — <strong>IIT Kanpur</strong> का इंजीनियर। पूरे भारत के क्लिनिक के लिए वेबसाइट और OPD सॉफ़्टवेयर बनाता हूँ।',

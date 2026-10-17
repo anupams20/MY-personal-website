@@ -1,0 +1,121 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<script>
+/* Same team gate as admin/index.html — SHA-256 of the team password.
+   Client-side JS, not real security — keeps casual visitors out. */
+(function(){
+var H="2210faf30051bd4544f76c3d062f6a6cd8dbe4cc0119041597c78239b5d533e3",K="aww_team_gate_v1";
+function ok(){try{return sessionStorage.getItem(K)===H}catch(e){return false}}
+if(ok())return;
+var css='body>*:not(#gate-ov){visibility:hidden!important}'+
+'#gate-ov{visibility:visible;position:fixed;inset:0;z-index:2147483647;background:#0f1115;display:flex;align-items:center;justify-content:center;font-family:system-ui,Segoe UI,Arial,sans-serif}'+
+'#gate-ov .gbox{background:#fff;border-radius:14px;padding:30px 26px;width:min(370px,90vw);text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.55)}'+
+'#gate-ov h2{margin:0 0 6px;font-size:19px;color:#0f1115}'+
+'#gate-ov p{margin:0 0 16px;color:#6b7280;font-size:13.5px}'+
+'#gate-ov input{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:9px;font-size:15px;text-align:center;box-sizing:border-box}'+
+'#gate-ov button{margin-top:12px;width:100%;padding:12px;border:0;border-radius:9px;background:#25D366;color:#06301a;font-weight:700;font-size:15px;cursor:pointer}'+
+'#gate-ov .gerr{color:#dc2626;font-size:13px;min-height:18px;margin-top:9px;font-weight:600}';
+var st=document.createElement("style");st.textContent=css;
+(document.head||document.documentElement).appendChild(st);
+function sha(s){return crypto.subtle.digest("SHA-256",new TextEncoder().encode(s)).then(function(b){
+  return Array.prototype.map.call(new Uint8Array(b),function(x){return ("0"+x.toString(16)).slice(-2)}).join("")})}
+function build(){
+  var ov=document.createElement("div");ov.id="gate-ov";
+  ov.innerHTML='<div class="gbox"><h2>🔒 Admin access only</h2><p>Enter the team password.</p>'+
+   '<input id="gate-pw" type="password" placeholder="Team password" autocomplete="off">'+
+   '<button id="gate-go" type="button">Unlock</button><div class="gerr" id="gate-err"></div></div>';
+  document.body.appendChild(ov);
+  var pw=document.getElementById("gate-pw"),err=document.getElementById("gate-err");
+  function go(){if(!(window.crypto&&crypto.subtle)){err.textContent="Open over https:// to unlock.";return;}
+    sha(pw.value||"").then(function(h){
+      if(h===H){try{sessionStorage.setItem(K,H)}catch(e){}ov.remove();st.remove();if(window.loadLeads)loadLeads();}
+      else{err.textContent="Wrong password.";pw.value="";pw.focus();}});}
+  document.getElementById("gate-go").addEventListener("click",go);
+  pw.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();go();}});
+  setTimeout(function(){pw.focus()},60);
+}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",build);else build();
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Leads — Anupam Web Works</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:system-ui,Segoe UI,Arial;margin:0;background:#f6f7f9;color:#0f1115}
+.top{padding:18px 20px;background:#0f1115;color:#fff;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.top h1{margin:0;font-size:19px;flex:1}
+.top a{color:#9ca3af;font-size:13px;text-decoration:none}
+.wrap{max-width:1020px;margin:0 auto;padding:18px 20px 60px}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+#q{flex:1;min-width:200px;padding:10px 13px;border:1px solid #d1d5db;border-radius:9px;font-size:14px}
+.bar button{padding:10px 16px;border:0;border-radius:9px;font-weight:700;font-size:13px;cursor:pointer;background:#e5e7eb}
+.bar button.pri{background:#0e7490;color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-bottom:16px}
+.kpi{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px 14px}
+.kpi b{display:block;font-size:22px}.kpi small{color:#6b7280;font-size:11.5px}
+.tbl{background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid #f1f3f5;white-space:nowrap}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#6b7280;position:sticky;top:0;background:#fff}
+td a{color:#0e7490;text-decoration:none;font-weight:600}
+select.st{padding:5px 8px;border-radius:7px;border:1px solid #d1d5db;font-size:12px;font-weight:700}
+select.st.new{background:#eef2ff;color:#3730a3}select.st.contacted{background:#fef3c7;color:#92400e}
+select.st.won{background:#dcfce7;color:#166534}select.st.lost{background:#fee2e2;color:#991b1b}
+.score{font-weight:800}
+.note{color:#6b7280;font-size:12px;margin-top:12px}
+</style></head><body>
+<div class="top"><h1>📥 Leads</h1><a href="index.html">← Admin home</a></div>
+<div class="wrap">
+<div class="kpis">
+<div class="kpi"><b id="k_tot">–</b><small>Total leads</small></div>
+<div class="kpi"><b id="k_new">–</b><small>New (uncontacted)</small></div>
+<div class="kpi"><b id="k_won">–</b><small>Won</small></div>
+<div class="kpi"><b id="k_quiz">–</b><small>From quiz</small></div>
+</div>
+<div class="bar">
+<input id="q" placeholder="🔍 Search name / phone / clinic…" oninput="render()">
+<button class="pri" onclick="loadLeads()">🔄 Refresh</button>
+<button onclick="exportCsv()">⬇ Export CSV</button>
+</div>
+<div class="tbl"><table><thead><tr>
+<th>When</th><th>Name</th><th>Phone</th><th>Clinic</th><th>Source</th><th>Score</th><th>Status</th>
+</tr></thead><tbody id="tb"></tbody></table></div>
+<p class="note">Leads come from the quiz and site forms on anupamwebworks.com, stored in Firebase (/aww/leads).
+New-lead phone alerts: install the <b>ntfy</b> app and subscribe to topic <b>aww-leads-x7k2m9qp</b>.</p>
+</div>
+<script>
+const DB="https://anupam-sample-default-rtdb.asia-southeast1.firebasedatabase.app/aww/leads";
+let DATA={};
+function loadLeads(){fetch(DB+".json").then(r=>r.json()).then(d=>{DATA=d||{};render();}).catch(()=>{});}
+function esc(s){return (s||'').toString().replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
+function setSt(k,v,el){fetch(DB+"/"+k+".json",{method:"PATCH",body:JSON.stringify({status:v})});DATA[k].status=v;el.className="st "+v;}
+function render(){
+const q=(document.getElementById('q').value||'').toLowerCase();
+const rows=Object.entries(DATA).map(([k,v])=>({k,...v})).sort((a,b)=>(b.ts||0)-(a.ts||0));
+let nnew=0,won=0,quiz=0;
+rows.forEach(r=>{const s=r.status||'new';if(s==='new')nnew++;if(s==='won')won++;if(r.type==='quiz')quiz++;});
+document.getElementById('k_tot').textContent=rows.length;
+document.getElementById('k_new').textContent=nnew;
+document.getElementById('k_won').textContent=won;
+document.getElementById('k_quiz').textContent=quiz;
+document.getElementById('tb').innerHTML=rows.filter(r=>
+!q||((r.name||'')+' '+(r.phone||'')+' '+(r.clinic||'')).toLowerCase().includes(q)
+).map(r=>{const s=r.status||'new';const d=r.ts?new Date(r.ts).toLocaleString('en-IN',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}):'—';
+const pd=(r.phone||'').replace(/\D/g,'');
+return `<tr><td>${d}</td><td>${esc(r.name)}</td>
+<td>${r.phone?`<a href="tel:+91${pd}">${esc(r.phone)}</a> · <a href="https://wa.me/91${pd}" target="_blank">WA</a>`:'—'}</td>
+<td>${esc(r.clinic||'—')}</td><td>${esc(r.type||'site')}</td>
+<td class="score">${r.score!=null?r.score+'/100':'—'}</td>
+<td><select class="st ${s}" onchange="setSt('${r.k}',this.value,this)">
+${['new','contacted','won','lost'].map(x=>`<option ${x===s?'selected':''}>${x}</option>`).join('')}</select></td></tr>`}).join('')
+||'<tr><td colspan="7" style="color:#9ca3af">No leads yet — they\'ll appear here the moment someone completes the quiz.</td></tr>';
+}
+function exportCsv(){
+const rows=Object.values(DATA);
+const cols=['ts','name','phone','clinic','type','score','band','status','answers'];
+let csv=cols.join(',')+'\n';
+rows.forEach(r=>{csv+=cols.map(c=>'"'+String(r[c]??'').replace(/"/g,'""')+'"').join(',')+'\n';});
+const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+a.download='aww_leads.csv';a.click();}
+loadLeads();setInterval(loadLeads,60000);
+</script></body></html>
