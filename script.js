@@ -401,20 +401,20 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
   var qzBody = document.getElementById('qzBody');
   if (!qzBody) return;
   var Q = [
-    { q: 'Who runs the practice?', score: false,
-      o: ['Just me (solo practitioner)', '2–5 doctors', '6+ doctors / nursing home / hospital'] },
-    { q: 'Does your clinic have its own website?',
-      o: ['No', 'Only a Facebook / Instagram page', 'Yes, our own website'] },
-    { q: 'Your Google listing — does it have photos and 20+ reviews?',
-      o: ['No, or not sure', 'Partly (few photos or reviews)', 'Yes, both'] },
-    { q: 'How do new patients book an appointment?',
-      o: ['Walk-in or phone call only', 'WhatsApp, informally', 'Online form / booking link'] },
-    { q: 'Do patients get appointment reminders?',
-      o: ['No reminders', 'Staff calls or messages manually', 'Automatic reminders'] },
-    { q: 'Where do patient records live?',
-      o: ['Paper registers', 'Excel / files on a computer', 'Proper software'] },
-    { q: 'Do you know how many patients found you on Google last month?',
-      o: ['No idea', 'A rough sense', 'Yes — we track it'] }
+    { q: 'Your practice is…', score: false,
+      o: ['🧑‍⚕️ Just me', '👥 2–5 doctors', '🏥 6+ / hospital'] },
+    { q: 'Own website?',
+      o: ['❌ No', '📘 Only Facebook / Insta', '✅ Yes'] },
+    { q: 'Google listing: photos + 20 reviews?',
+      o: ['🤷 Not sure', '🌓 Partly', '⭐ Yes, both'] },
+    { q: 'How do patients book?',
+      o: ['📞 Call / walk-in only', '💬 WhatsApp, informally', '🗓️ Online booking'] },
+    { q: 'Appointment reminders?',
+      o: ['❌ None', '🗣️ Staff calls manually', '🤖 Automatic'] },
+    { q: 'Patient records live in…',
+      o: ['📒 Paper registers', '🖥️ Excel / files', '⚙️ Proper software'] },
+    { q: 'Patients from Google last month?',
+      o: ['🤷 No idea', '🌓 Rough sense', '📊 Tracked'] }
   ];
   var CHECKLIST = [
     'Claim and complete your Google Business Profile — photos, services, timings, correct phone.',
@@ -429,7 +429,9 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
   function render() {
     var item = Q[step];
     document.getElementById('qzFill').style.width = ((step) / Q.length * 100) + '%';
-    document.getElementById('qzStep').textContent = 'Question ' + (step + 1) + ' of ' + Q.length;
+    var dots = '';
+    for (var di = 0; di < Q.length; di++) dots += '<i class="' + (di < step ? 'done' : di === step ? 'now' : '') + '"></i>';
+    document.getElementById('qzStep').innerHTML = dots + '<span>' + (step + 1) + '/' + Q.length + '</span>';
     var h = '<div class="qz__q">' + item.q + '</div><div class="qz__opts">';
     item.o.forEach(function (o, i) {
       h += '<button type="button" class="qz__opt" data-i="' + i + '">' + o + '</button>';
@@ -464,11 +466,12 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
     var res = document.getElementById('qzResult');
     res.hidden = false;
     var title, msg;
-    if (score <= 40) { title = 'Invisible online — but that\'s fixable fast.'; lastBand = 'low';
+    var ring = document.getElementById('ringVal');
+    if (score <= 40) { title = '🌱 Invisible online — fixable fast.'; lastBand = 'low'; ring.style.stroke = '#d97706';
       msg = 'Patients in your city are searching right now and finding your competitors. The good news: starting from zero means every fix shows results quickly.'; }
-    else if (score <= 70) { title = 'Halfway there — with leaks to plug.'; lastBand = 'mid';
+    else if (score <= 70) { title = '🚀 Halfway there — leaks to plug.'; lastBand = 'mid'; ring.style.stroke = '#0e7490';
       msg = 'You have pieces of an online presence, but patients fall through the gaps between them — missed bookings, no reminders, no tracking.'; }
-    else { title = 'Strong base — time to compound it.'; lastBand = 'high';
+    else { title = '⭐ Strong base — time to compound.'; lastBand = 'high'; ring.style.stroke = '#15803d';
       msg = 'Better than most clinics. The next wins are in automation and measurement, so growth stops depending on memory and effort.'; }
     document.getElementById('scoreTitle').textContent = title;
     document.getElementById('scoreMsg').textContent = msg;
@@ -476,7 +479,7 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
             : answers[0] === 1 ? 'Recommended for you: Clinic Growth (₹9,999 — most chosen)'
             : 'Recommended for you: Hospital Pro (₹34,999)';
     document.getElementById('scoreRec').innerHTML = rec + ' · <a href="#pricing">see package ↓</a>';
-    var n = document.getElementById('scoreNum'), ring = document.getElementById('ringVal');
+    var n = document.getElementById('scoreNum');
     if (reduced) { n.textContent = score; ring.style.strokeDashoffset = 327 - (327 * score / 100); }
     else {
       n.textContent = '0';

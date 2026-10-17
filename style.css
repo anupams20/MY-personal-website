@@ -803,3 +803,37 @@ ul,ol{margin:0;padding:0;list-style:none}
 .lang button{padding:10px 14px;min-width:34px}
 /* long-page layout cost: skip rendering below-fold sections until needed */
 section.section,.statstrip{content-visibility:auto;contain-intrinsic-size:auto 640px}
+
+/* ==========================================================================
+   v12 — swipe-grid fix, quiz polish, scan-first tweaks
+   ========================================================================== */
+
+/* FIX: base .cards template column was squeezing the FIRST swipe card.
+   In swipe mode the implicit 82% columns must be the only sizing. */
+@media(max-width:720px){
+  .cards--swipe{grid-template-columns:none;grid-auto-columns:78%}
+  .cards--swipe .card{min-height:100%}
+}
+
+/* quiz: bigger, friendlier */
+.qz__opt{padding:16px 18px;font-size:16px;border-radius:14px}
+.qz__step{display:flex;align-items:center;gap:6px}
+.qz__step i{width:8px;height:8px;border-radius:50%;background:var(--line);display:inline-block;transition:background .2s,transform .2s}
+.qz__step i.done{background:var(--accent)}
+.qz__step i.now{background:var(--accent);transform:scale(1.45)}
+.qz__step span{margin-left:auto;color:var(--muted)}
+.qz__q{font-size:20px}
+
+/* "full details" link under services */
+.seemore{margin-top:26px;text-align:center}
+.seemore a{font-weight:700;font-size:14.5px}
+
+/* tighter section padding on phones — less scrolling between beats */
+@media(max-width:720px){
+  .section{padding:56px 0}
+  .sub{margin-bottom:28px;font-size:16px}
+  .h2{font-size:clamp(25px,6.4vw,34px)}
+}
+
+/* the hidden attribute must always win, even over .btn display */
+[hidden]{display:none!important}

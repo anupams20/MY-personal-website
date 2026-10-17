@@ -32,10 +32,10 @@ window.I18N = {
       'hero.pill1'  : 'B.Tech, IIT Kanpur',
       'hero.pill2'  : 'सिर्फ़ healthcare वेबसाइटें',
       'hero.h1'     : 'आपके मरीज़ क्लिनिक आने से पहले <span class="hl">Google</span> देखते हैं। वहाँ <span class="hl">आप</span> दिखने चाहिए.',
-      'hero.lede'   : 'मैं अनुपम हूँ — एक इंजीनियर जो क्लिनिक को ऑनलाइन बढ़ाने का <strong>पूरा सिस्टम</strong> बनाता है: प्रोफ़ेशनल वेबसाइट, रिसेप्शन के लिए OPD सॉफ़्टवेयर, <strong>WhatsApp</strong> पर appointment booking, और Google पर रैंक करती प्रोफ़ाइल। दाम पहले से तय, <strong class="mark">₹4,999</strong> से शुरू — और <strong>वेबसाइट देखकर ही पैसा दीजिए</strong>.',
+      'hero.lede'   : 'पूरा सिस्टम एक जगह: <strong>वेबसाइट + OPD सॉफ़्टवेयर + WhatsApp booking + Google ranking</strong>। दाम फ़िक्स, <strong class="mark">₹4,999</strong> से — और <strong>वेबसाइट देखकर ही पैसा दीजिए</strong>.',
       'hero.cta1'   : 'WhatsApp करें — फ़्री क्लिनिक डेमो',
-      'hero.cta2'   : 'पैकेज और दाम देखें',
-      'hero.note'   : '15 मिनट की फ़्री कॉल। एक रुपया खर्च करने से पहले मैं आपके क्लिनिक की चलती-फिरती डेमो वेबसाइट दिखाऊँगा।',
+      'hero.cta2'   : '▶ 60-सेकंड की जाँच कीजिए',
+      'hero.note'   : 'पैसा देने से पहले — आपके अपने क्लिनिक की फ़्री डेमो वेबसाइट।',
       'hero.replies': 'कुछ ही घंटों में जवाब',
 
       /* credibility strip */
@@ -48,35 +48,35 @@ window.I18N = {
       /* pain section */
       'sec.pain.eye': 'जाना-पहचाना लगेगा?',
       'h2.pain'     : 'चार दिक्कतें जो चुपचाप <span class="hl">क्लिनिक के मरीज़ कम</span> करती हैं.',
-      'sub.pain'    : 'मैंने UP के <strong>हज़ारों क्लिनिक</strong> देखे और मैप किए हैं। हर जगह यही चार दिक्कतें मिलती हैं — और चारों ठीक हो सकती हैं।',
+      'sub.pain'    : '<strong>हज़ारों UP क्लिनिक</strong> मैप किए — हर जगह यही चार दिक्कतें। चारों ठीक हो सकती हैं।',
       'pain.1.h'    : 'मरीज़ आपको ढूँढ नहीं पाते',
-      'pain.1.p'    : 'कोई रात में "doctor near me" खोजता है। आपका competitor फ़ोटो, reviews और वेबसाइट के साथ दिखता है। आप नक्शे पर एक खाली pin हैं — या हैं ही नहीं।',
+      'pain.1.p'    : 'कोई "doctor near me" खोजता है। Competitor दिखता है। आप नहीं।',
       'pain.2.h'    : 'छूटी कॉल = गया मरीज़',
-      'pain.2.p'    : 'OPD के समय फ़ोन कोई नहीं उठा पाता। मरीज़ दोबारा कॉल नहीं करता — list में अगला क्लिनिक बुक कर लेता है। आपको पता भी नहीं चलता।',
+      'pain.2.p'    : 'OPD में फ़ोन busy। मरीज़ list का अगला क्लिनिक बुक कर लेता है।',
       'pain.3.h'    : 'सब कुछ रजिस्टरों में',
-      'pain.3.p'    : 'मरीज़ों का रिकॉर्ड कॉपियों में, पर्चे दो-दो बार लिखे जाते हैं, पुराना visit ढूँढना नामुमकिन। आपकी रिसेप्शन मेहनत बहुत करती है — उन कामों पर जो सॉफ़्टवेयर सालों पहले हल कर चुका।',
+      'pain.3.p'    : 'रिकॉर्ड कॉपियों में। पर्चे दो बार। पुराने visit — गायब।',
       'pain.4.h'    : 'आपकी साख ऑनलाइन काम नहीं कर रही',
-      'pain.4.p'    : 'सालों के खुश मरीज़, पर Google पर सिर्फ़ 12 reviews। नया मरीज़ वही देखता है जो ऑनलाइन दिखता है — और अभी वहाँ कुछ खास दिखता नहीं।',
+      'pain.4.p'    : 'सालों के खुश मरीज़ — 12 reviews। नया मरीज़ सिर्फ़ 12 देखता है।',
 
       /* services */
       'sec.services.eye': 'क्या मिलेगा',
       'h2.services' : 'क्लिनिक को जो चाहिए, सब। <span class="hl">फ़ालतू कुछ नहीं.</span>',
-      'sub.services': 'मैं सिर्फ़ healthcare का काम करता हूँ। इसलिए हर फ़ीचर इसलिए है क्योंकि <strong>किसी असली क्लिनिक को उसकी ज़रूरत पड़ी</strong> — इसलिए नहीं कि agency को bill बढ़ाना था।',
+      'sub.services': 'सिर्फ़ healthcare — हर फ़ीचर इसलिए है क्योंकि <strong>किसी असली क्लिनिक को ज़रूरत पड़ी</strong>।',
       'svc.1.h': 'क्लिनिक वेबसाइट',
-      'svc.1.p': 'तेज़, mobile-first और मरीज़ों के लिए लिखी हुई: आपके डॉक्टर, department, समय, फ़ोटो — और <strong>हर जगह booking के बटन</strong>.',
+      'svc.1.p': 'आपके डॉक्टर, समय, फ़ोटो — और <strong>हर जगह booking बटन</strong>.',
       'svc.2.h': 'OPD सॉफ़्टवेयर',
-      'svc.2.p': 'रजिस्टर की छुट्टी: मरीज़ का रिकॉर्ड, पुराने visit और <strong>प्रिंटेड पर्चा</strong> — इतना आसान कि रिसेप्शन एक दोपहर में सीख जाए।',
+      'svc.2.p': 'रजिस्टर की छुट्टी — रिकॉर्ड, history, <strong>प्रिंटेड पर्चा</strong>.',
       'svc.3.h': 'Google से मरीज़',
-      'svc.3.p': 'आपकी <strong>Google Business Profile</strong> ठीक से बनी हुई — फ़ोटो, सेवाएँ, समय, review link — और SEO ताकि आपकी specialty खोजने वाले को आप मिलें।',
+      'svc.3.p': 'आपकी specialty खोजने वाले को <strong>आप मिलें</strong> — Google पर।',
       'svc.4.h': 'WhatsApp पर booking और reminder',
-      'svc.4.p': 'Appointment की request मरीज़ के नाम, नंबर और department के साथ <strong>सीधे आपके WhatsApp</strong> पर आती है। Reminder no-show घटाने में मदद करते हैं।',
+      'svc.4.p': 'Request <strong>सीधे आपके WhatsApp</strong> पर — नाम, नंबर, department.',
       'spec.h'  : 'हर तरह की practice के लिए:',
-      'spec.note': '<strong>मानसिक स्वास्थ्य (psychiatrist/psychologist) के लिए:</strong> privacy-first वेबसाइटें — discreet appointment request, कोई patient testimonial नहीं (medical ethics के अनुसार), और teleconsultation link उन मरीज़ों के लिए जो क्लिनिक आने से झिझकते हैं। Stigma की वजह से लोग किसी से पूछने से पहले ऑनलाइन खोजते हैं — आपकी वेबसाइट अक्सर उनका पहला कदम होती है।',
+      'spec.note': '<strong>Mental-health professionals:</strong> privacy-first साइटें — discreet booking, teleconsult, NMC-compliant. <a href="details.html#mental">और जानिए →</a>',
 
       /* pricing */
       'sec.pricing.eye': 'पैकेज',
       'h2.pricing'  : 'दाम फ़िक्स। <span class="hl">खुलेआम लिखे हुए.</span>',
-      'sub.pricing' : 'मैसेज करने से <strong>पहले</strong> ही आपको दाम पता होगा। कोई "requirements पर depend करता है" नहीं, कोई बीच में दुगना होता quote नहीं।',
+      'sub.pricing' : 'मैसेज करने से <strong>पहले</strong> ही दाम पता।',
       'ptrust.1': 'पैसा देने से पहले चलती हुई डेमो देखिए',
       'ptrust.2': 'दाम पहले से तय, बाद में नहीं बदलता',
       'ptrust.3': 'Domain और code आपके नाम पर',
@@ -109,15 +109,15 @@ window.I18N = {
       /* work */
       'sec.work.eye': 'लाइव काम',
       'h2.work' : 'असली क्लिनिक। <span class="hl">अभी live.</span>',
-      'sub.work': 'Mockup नहीं — ये <strong>असली practices हैं जो मेरे काम पर चल रही हैं</strong>। खोलिए, scroll कीजिए, book करके देखिए।',
-      'work.note': 'पहली दो <strong>असली क्लिनिक हैं, अभी live</strong> — खुद खोलकर देखिए। आपकी साइट भी इसी तरह बनेगी — आपके डॉक्टरों, फ़ोटो और जानकारी के साथ।',
+      'sub.work': 'असली practices, अभी live — <strong>खोलकर देखिए</strong>।',
+      'work.note': 'आपकी साइट भी ऐसे ही बनेगी — आपके डॉक्टर, आपकी फ़ोटो।',
 
       /* about */
       'sec.about.eye': 'मेरे बारे में',
       'h2.about': 'मैं <span class="hl">एक इंजीनियर</span> हूँ। कोई agency नहीं.',
-      'about.p1': 'मैंने 2024 में <strong class="mark">IIT Kanpur</strong> से B.Tech किया और तब से बड़े corporate सिस्टम चलाता आया हूँ — जिन्हें रोज़ हज़ारों लोग इस्तेमाल करते हैं। वही standard क्लिनिक की वेबसाइट में लाता हूँ: <strong>तेज़, भरोसेमंद, backup के साथ.</strong>',
-      'about.p2': 'क्लिनिक ही क्यों? क्योंकि मैंने यह कमी पास से देखी है। बीस डॉक्टरों वाले हॉस्पिटल बिना वेबसाइट के। हज़ार मरीज़ों का हिसाब कागज़ के रजिस्टरों में। काबिल डॉक्टर Google पर गायब, जबकि औसत chain पहले नंबर पर। <strong>अच्छी engineering और ईमानदार दाम से यह कमी भरी जा सकती है</strong> — इसलिए अब मैं यही करता हूँ।',
-      'about.p3': 'मैं Hyderabad में रहता हूँ और <strong>पूरे भारत</strong> के क्लिनिक के साथ काम करता हूँ — ज़्यादातर काम WhatsApp और कॉल पर होता है। आप जिसे मैसेज करते हैं, वही आपकी वेबसाइट और सॉफ़्टवेयर बनाता है। कोई salesperson नहीं, कोई intern को handover नहीं।',
+      'about.p1': '<strong class="mark">IIT Kanpur</strong>, 2024। बड़े corporate सिस्टम चलाता हूँ — वही standard आपकी वेबसाइट में: <strong>तेज़, भरोसेमंद, backup के साथ.</strong>',
+      'about.p2': 'क्लिनिक ही क्यों? बीस डॉक्टरों वाले हॉस्पिटल बिना वेबसाइट, रिसेप्शन रजिस्टरों में डूबी। <strong>ईमानदार दाम पर fixable</strong> — इसलिए यही करता हूँ। <a href="details.html#about">पूरी कहानी →</a>',
+      'about.p3': 'Hyderabad में, क्लिनिक <strong>पूरे भारत में</strong>। जो बनाता है, उसी से बात होती है।',
       'about.li': 'LinkedIn&nbsp;↗',
       'about.how': 'काम कैसे होता है',
       'step.1a': 'बात करते हैं — 15 मिनट',
@@ -132,22 +132,22 @@ window.I18N = {
       /* proof */
       'sec.proof.eye': 'जाँच लीजिए',
       'h2.proof': 'मेरी बात पर मत जाइए। <span class="hl">खुद जाँचिए.</span>',
-      'sub.proof': 'वेबसाइट पर "IIT engineer" कोई भी लिख सकता है। ये चार तरीके हैं यह जाँचने के कि मैं असली इंसान हूँ और काम असली है — <strong>एक रुपया देने से पहले</strong>।',
+      'sub.proof': 'जाँचने के चार तरीके — <strong>एक रुपया देने से पहले</strong>।',
       'proof.1.h': 'मेरा LinkedIn public है',
-      'proof.1.p': 'नाम, फ़ोटो, <strong>IIT Kanpur से B.Tech</strong>, काम का इतिहास — 30 सेकंड में जाँच लीजिए।',
+      'proof.1.p': 'नाम, फ़ोटो, <strong>IIT Kanpur B.Tech</strong> — 30 सेकंड में जाँचिए।',
       'proof.2.h': 'क्लाइंट क्लिनिक live हैं',
-      'proof.2.p': 'अभी खोलकर देखिए — Bareilly की एक children क्लिनिक और Agra की एक eye क्लिनिक <strong>आज</strong> मेरे काम पर चल रही हैं।',
+      'proof.2.p': 'Bareilly और Agra की क्लिनिक <strong>आज</strong> मेरे काम पर चल रही हैं।',
       'proof.3.h': 'आज ही कॉल कीजिए',
-      'proof.3.p': 'असली नंबर, असली इंसान उठाता है। कोई भी technical सवाल पूछिए — <strong>नकली पकड़ने का सबसे तेज़ तरीका यही है</strong>।',
+      'proof.3.p': 'असली नंबर, असली इंसान। कुछ भी technical पूछिए।',
       'proof.4.h': 'पैसे से पहले डेमो',
-      'proof.4.p': 'आप <strong>अपने क्लिनिक की चलती हुई वेबसाइट पहले देखते हैं</strong>। अगर मैं वह नहीं जो कह रहा हूँ, तो आपको पैसे जाने से पहले पता चल जाएगा।',
+      'proof.4.p': 'पहले <strong>अपनी चलती हुई वेबसाइट</strong> देखिए। फिर फ़ैसला कीजिए।',
 
       /* faq + cta */
       'sec.faq.eye': 'सवाल',
       'h2.faq': 'जो <span class="hl">हर डॉक्टर पूछता है</span>.',
       'faq.7a': 'जी — मैं <strong>पूरे भारत</strong> के क्लिनिक के साथ काम करता हूँ। सब कुछ WhatsApp, email और कॉल पर होता है। मेरे अभी के ज़्यादातर क्लाइंट उन शहरों में हैं जहाँ मैं कभी गया नहीं — नतीजे में कोई फ़र्क नहीं पड़ता।',
       'cta.h2': 'अपने <span class="hl-light">क्लिनिक</span> के बारे में बताइए.',
-      'cta.body': 'बस एक मैसेज: क्लिनिक का नाम और शहर। जवाब में मिलेगा — आपकी <strong>वेबसाइट की चलती हुई डेमो</strong>, पक्का दाम, और कितने दिन लगेंगे। आमतौर पर एक दिन के अंदर। काम का न हुआ तो वह भी साफ़ बता दूँगा।',
+      'cta.body': 'एक मैसेज: क्लिनिक का नाम + शहर। मिलेगा — <strong>चलती हुई डेमो</strong>, पक्का दाम, timeline। आमतौर पर उसी दिन।',
       'cta.prefer': 'Email बेहतर लगे?',
       'foot.role': 'क्लिनिक के लिए वेबसाइट और सॉफ़्टवेयर, भारत।',
 
@@ -164,7 +164,7 @@ window.I18N = {
       /* quiz */
       'sec.quiz.eye': '60 सेकंड की जाँच',
       'h2.quiz': 'आपका <span class="hl">Clinic Growth Score</span> कितना है?',
-      'sub.quiz': '7 छोटे सवाल। score देखने के लिए email नहीं चाहिए — और आपके क्लिनिक की ऑनलाइन हालत की सीधी-सच्ची तस्वीर।',
+      'sub.quiz': '7 tap। कोई email नहीं। सीधा-सच्चा score।',
       'qz.unlock.h': '🎁 अपनी 7-point Clinic Growth Checklist खोलिए',
       'qz.unlock.p': 'आपके जवाबों के हिसाब से बनी practical to-do list — मुफ़्त, इसी पेज पर, अभी।',
       'qz.unlock.btn': 'मेरी checklist दिखाओ',
@@ -174,7 +174,7 @@ window.I18N = {
       /* calculator */
       'sec.calc.eye': 'हिसाब कीजिए',
       'h2.calc': 'No-show आपके क्लिनिक को <span class="hl">कितना महँगा पड़ता है</span>?',
-      'sub.calc': 'अपने आँकड़ों से मोटा अनुमान — slider चलाइए। कुछ भी कहीं नहीं भेजा जाता।',
+      'sub.calc': 'आपके आँकड़े, मोटा अनुमान — कहीं कुछ नहीं भेजा जाता।',
       'calc.lost': 'हर महीने का नुकसान',
       'calc.year': 'यानी साल भर में',
       'calc.half': 'अगर WhatsApp reminder आधा भी बचा लें*',
@@ -184,6 +184,8 @@ window.I18N = {
       /* sticky bar */
       'mcta.call': 'कॉल',
       'mcta.audit': 'फ़्री 60-sec जाँच',
+
+      'seemore': 'पूरी जानकारी चाहिए? सब यहाँ है →',
 
       /* chat widget */
       'chat.status': 'आमतौर पर कुछ घंटों में जवाब',
