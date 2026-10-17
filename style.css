@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    Anupam Singh — website development, Hyderabad
    Hand-written CSS. No framework, no build step.
    Edit colours in one place: the :root block below.
@@ -11,7 +11,7 @@ html[lang="hi"] h1,html[lang="hi"] h2,html[lang="hi"] h3{line-height:1.32}
   /* Calm, credible healthcare palette: one teal primary, warm neutrals. */
   --ink:      #0b2b31;   /* headings, dark surfaces — deep sea-teal */
   --body:     #44555b;   /* body text */
-  --muted:    #71848a;   /* captions, fine print */
+  --muted:    #5d6e74;   /* captions, fine print */
   --line:     #e2e9ea;   /* borders */
   --bg:       #ffffff;
   --bg-alt:   #f4f9f8;   /* soft mint-white for alternating sections */
@@ -798,3 +798,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* nav fix: longer brand name must shrink, never push the burger off-screen */
 .nav__logo{min-width:0;flex:0 1 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 @media(max-width:480px){.nav__logo{font-size:14.5px}.nav__inner{gap:14px}}
+
+/* a11y + perf (Lighthouse round 1) */
+.lang button{padding:10px 14px;min-width:34px}
+/* long-page layout cost: skip rendering below-fold sections until needed */
+section.section,.statstrip{content-visibility:auto;contain-intrinsic-size:auto 640px}
