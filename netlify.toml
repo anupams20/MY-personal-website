@@ -2,6 +2,22 @@
 [build]
   publish = "."
 
+# ---- internal folders: never serve in production ----
+[[redirects]]
+  from = "/_review/*"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/scripts/*"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/shots/*"
+  to = "/404.html"
+  status = 404
+
 # ---- security headers ----
 [[headers]]
   for = "/*"
@@ -11,17 +27,11 @@
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
     # SAMEORIGIN, not DENY: the Work section previews the demo pages in iframes.
     X-Frame-Options = "SAMEORIGIN"
-
-# ---- caching ----
-# HTML revalidates every time, so a deploy is visible immediately.
-# This is what prevents the stale-script problem we hit in local testing.
-[[headers]]
-  for = "/*.html"
-  [headers.values]
+    # HTML (including extensionless pretty URLs like /about) revalidates every
+    # time, so a deploy is visible immediately. Asset rules below override this.
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# CSS and JS are versioned in the markup (style.css?v=3), so they can be
-# cached hard — bump the ?v= number when you change them.
+# ---- caching: versioned assets cache hard (bump ?v= on change) ----
 [[headers]]
   for = "/style.css"
   [headers.values]
@@ -33,6 +43,21 @@
     Cache-Control = "public, max-age=604800"
 
 [[headers]]
+  for = "/i18n.js"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

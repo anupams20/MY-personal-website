@@ -1,5 +1,5 @@
 # ROUND 4 TODO(Anupam) — decisions only you can make
-(a) SHOW_EMPLOYER: stays FALSE until you check ICICI outside-work policy (data/facts.js)
+(a) SHOW_EMPLOYER: stays FALSE until you check my employer outside-work policy (data/facts.js)
 (b) Support hours + honest availability line (evenings/weekends?) — About shows only current truth
 (c) Confirm \'B.Tech\' wording (LinkedIn shows institute+years only — site says \'IIT Kanpur, 2024 batch\')
 (d) UP roots line — add \'UP se hi padha hoon\'? (currently only \'IIT Kanpur\')
