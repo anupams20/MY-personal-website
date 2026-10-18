@@ -1,31 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- The home page. Listed without index.html so there is one canonical
-       address for it; both resolve, and naming both would ask Google to
-       index the same page twice. -->
-  <url>
-    <loc>https://anupamwebworks.com/</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <!-- The four demo pages are deliberately NOT listed here.
-
-       Each carries <meta name="robots" content="noindex">, and that is the
-       right call: they present as real businesses - "Aarogya Dental Care,
-       Banjara Hills, Hyderabad" - and every call and WhatsApp button on them
-       points at the real number. Indexed, they would put a dental clinic that
-       does not exist into search results wired to a live phone, and someone
-       looking for a dentist would reach a web developer.
-
-       A sitemap listing noindex pages contradicts itself, and Search Console
-       reports each one as an error for as long as it stays. So the demos stay
-       out of here and stay noindex.
-
-       The traffic those pages were meant to earn belongs on real pages that
-       describe the service - "website design for schools in Hyderabad" - which
-       can link to a demo without pretending to be one. -->
-
+  <url><loc>https://anupamwebworks.com/</loc></url>
+  <url><loc>https://anupamwebworks.com/details</loc></url>
+  <url><loc>https://anupamwebworks.com/how-it-works</loc></url>
+  <url><loc>https://anupamwebworks.com/opd-software</loc></url>
+  <url><loc>https://anupamwebworks.com/whatsapp-booking</loc></url>
+  <url><loc>https://anupamwebworks.com/google-maps</loc></url>
+  <url><loc>https://anupamwebworks.com/nmc-rules</loc></url>
+  <url><loc>https://anupamwebworks.com/pricing</loc></url>
+  <url><loc>https://anupamwebworks.com/about</loc></url>
+  <url><loc>https://anupamwebworks.com/faq</loc></url>
+  <url><loc>https://anupamwebworks.com/mental-health</loc></url>
+  <url><loc>https://anupamwebworks.com/specialties</loc></url>
 </urlset>

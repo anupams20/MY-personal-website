@@ -79,12 +79,12 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
   }
 
   /* Curly vs straight apostrophes are the classic silent miss here:
-     "I don't" in the HTML never matches "I don’t" in the dictionary.
+     "I don't" in the HTML never matches "I don't" in the dictionary.
      Normalise both sides once, and quotes/dashes while we're at it. */
   function norm(s) {
     return String(s)
-      .replace(/[‘’]/g, "'")
-      .replace(/[“”]/g, '"')
+      .replace(/['']/g, "'")
+      .replace(/[""]/g, '"')
       .replace(/\s+/g, ' ')
       .trim();
   }
@@ -348,7 +348,7 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
   document.querySelectorAll('.reveal,.statstrip__grid').forEach(function (el) { io.observe(el); });
 
   /* ---------- sticky mobile CTA: appears after the pain section ---------- */
-  var mcta = document.getElementById('mcta'), pain = document.getElementById('pain');
+  var mcta = document.getElementById('mcta'), pain = document.getElementById('problems') || document.getElementById('pain');
   if (mcta && pain) {
     mcta.hidden = false;
     var mio = new IntersectionObserver(function (es) {
@@ -388,6 +388,8 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
       document.getElementById('r_month').textContent = fmt(month);
       document.getElementById('r_year').textContent = fmt(month * 12);
       document.getElementById('r_half').textContent = fmt(Math.round(month * 12 / 2));
+      var jar = document.getElementById('jar');
+      if (jar) jar.dataset.rate = month > 120000 ? 'fast' : month > 50000 ? 'med' : 'slow';
       var cta = document.getElementById('calcCta');
       if (cta) cta.href = 'https://wa.me/919670809669?text=' + encodeURIComponent(
         'Hi Anupam, your calculator says no-shows may be costing my clinic about ₹' + fmt(month) +

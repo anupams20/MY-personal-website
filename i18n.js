@@ -30,24 +30,24 @@ window.I18N = {
 
       /* hero */
       'hero.pill1'  : 'B.Tech, IIT Kanpur',
-      'hero.pill2'  : 'सिर्फ़ healthcare वेबसाइटें',
-      'hero.h1'     : 'आपके मरीज़ क्लिनिक आने से पहले <span class="hl">Google</span> देखते हैं। वहाँ <span class="hl">आप</span> दिखने चाहिए.',
-      'hero.lede'   : 'पूरा सिस्टम एक जगह: <strong>वेबसाइट + OPD सॉफ़्टवेयर + WhatsApp booking + Google ranking</strong>। दाम फ़िक्स, <strong class="mark">₹4,999</strong> से — और <strong>वेबसाइट देखकर ही पैसा दीजिए</strong>.',
+      'hero.pill2'  : 'सिर्फ़ क्लिनिक — पूरा भारत, remote',
+      'hero.h1'     : 'मरीज़ पहले <span class="hl">Google</span> देखते हैं। क्या वो <span class="hl">आपको</span> ढूंढ पाते हैं?',
+      'hero.lede'   : '<strong>वेबसाइट। OPD सॉफ़्टवेयर। WhatsApp appointments.</strong> दाम फ़िक्स, <strong class="mark">₹4,999</strong> से.',
       'hero.cta1'   : 'WhatsApp करें — फ़्री क्लिनिक डेमो',
       'hero.cta2'   : '▶ 60-सेकंड की जाँच कीजिए',
-      'hero.note'   : 'पैसा देने से पहले — आपके अपने क्लिनिक की फ़्री डेमो वेबसाइट।',
+      'hero.note'   : 'पहले अपनी वेबसाइट देखिए। पसंद आए तभी पैसा दीजिए।',
       'hero.replies': 'कुछ ही घंटों में जवाब',
 
       /* credibility strip */
-      'cred.1a': '600+',        'cred.1b': 'क्लिनिक व हॉस्पिटल साइटें बनाईं',
-      'cred.2a': '2 क्लिनिक',   'cred.2b': 'रोज़ मेरे OPD सॉफ़्टवेयर पर चलते हैं',
+      'cred.1a': '600+',        'cred.1b': 'क्लिनिक वेबसाइटें बनीं (demo + client)',
+      'cred.2a': '2 क्लिनिक',   'cred.2b': 'रोज़ाना मेरे OPD सॉफ़्टवेयर पर',
       'cred.3a': '16 शहर',      'cred.3b': 'पूरे UP में मैप किए',
       'cred.4a': 'IIT Kanpur',  'cred.4b': 'B.Tech, 2024',
-      'cred.5a': 'दाम फ़िक्स',   'cred.5b': 'शुरू करने से पहले तय',
+      'cred.5a': 'पहले डेमो',   'cred.5b': 'approve करने के बाद ही payment',
 
       /* pain section */
       'sec.pain.eye': 'जाना-पहचाना लगेगा?',
-      'h2.pain'     : 'चार दिक्कतें जो चुपचाप <span class="hl">क्लिनिक के मरीज़ कम</span> करती हैं.',
+      'h2.pain'     : 'क्लिनिक <span class="hl-light">मरीज़ कैसे खोते हैं</span> — देखिए:',
       'sub.pain'    : '<strong>हज़ारों UP क्लिनिक</strong> मैप किए — हर जगह यही चार दिक्कतें। चारों ठीक हो सकती हैं।',
       'pain.1.h'    : 'मरीज़ आपको ढूँढ नहीं पाते',
       'pain.1.p'    : 'कोई "doctor near me" खोजता है। Competitor दिखता है। आप नहीं।',
@@ -60,7 +60,7 @@ window.I18N = {
 
       /* services */
       'sec.services.eye': 'क्या मिलेगा',
-      'h2.services' : 'क्लिनिक को जो चाहिए, सब। <span class="hl">फ़ालतू कुछ नहीं.</span>',
+      'h2.services' : 'इलाज, <span class="hl">4 तस्वीरों में</span>.',
       'sub.services': 'सिर्फ़ healthcare — हर फ़ीचर इसलिए है क्योंकि <strong>किसी असली क्लिनिक को ज़रूरत पड़ी</strong>।',
       'svc.1.h': 'क्लिनिक वेबसाइट',
       'svc.1.p': 'आपके डॉक्टर, समय, फ़ोटो — और <strong>हर जगह booking बटन</strong>.',
@@ -75,7 +75,7 @@ window.I18N = {
 
       /* pricing */
       'sec.pricing.eye': 'पैकेज',
-      'h2.pricing'  : 'दाम फ़िक्स। <span class="hl">खुलेआम लिखे हुए.</span>',
+      'h2.pricing'  : 'दाम फ़िक्स। <span class="hl-light">कोई surprise नहीं.</span>',
       'sub.pricing' : 'मैसेज करने से <strong>पहले</strong> ही दाम पता।',
       'ptrust.1': 'पैसा देने से पहले चलती हुई डेमो देखिए',
       'ptrust.2': 'दाम पहले से तय, बाद में नहीं बदलता',
@@ -83,22 +83,22 @@ window.I18N = {
       'ptrust.4': 'Renewal आपकी मर्ज़ी, कभी ज़बरदस्ती नहीं',
       'tier.1.h': 'Clinic Starter',
       'tier.1.for': 'अकेले practice करने वाले डॉक्टर के लिए — ऑनलाइन ठीक से मौजूद होने का पहला कदम।',
-      'tier.1.note': 'एक बार का दाम · पहले साल की hosting शामिल',
+      'tier.1.note': '📅 3–5 दिन में तैयार',
       'tier.1.out': '<strong>मरीज़ आपको ढूँढें और WhatsApp पर book करें.</strong>',
       'tier.1.live': '<strong>3–5 दिन में live</strong>',
       'tier.pop': 'सबसे ज़्यादा चुना गया',
       'tier.2.h': 'Clinic Growth',
       'tier.2.for': 'उस क्लिनिक के लिए जिसे Google से नए मरीज़ भी चाहिए और आधुनिक रिसेप्शन भी।',
-      'tier.2.note': 'पहला साल · फिर ₹4,999/साल',
+      'tier.2.note': '📅 7–10 दिन में तैयार · फिर ₹4,999/साल',
       'tier.2.out': '<strong>"near me" खोज में दिखिए — और OPD बिना रजिस्टर चलाइए.</strong>',
       'tier.2.live': '<strong>7–10 दिन में live</strong>',
       'tier.3.h': 'Hospital Pro',
       'tier.3.for': 'कई डॉक्टरों वाले क्लिनिक, nursing home और हॉस्पिटल के लिए।',
-      'tier.3.note': 'एक बार का दाम · दूसरे साल से ₹6,999/साल',
+      'tier.3.note': '📅 10–14 दिन में तैयार · फिर ₹6,999/साल',
       'tier.3.out': '<strong>ऑनलाइन उतने ही professional दिखिए जितनी बड़ी hospital chains.</strong>',
       'tier.3.live': '<strong>10–14 दिन में live</strong>',
       'tier.enq': 'पूछताछ करें', 'tier.enq2': 'पूछताछ करें', 'tier.enq3': 'पूछताछ करें',
-      'tiers.guarantee': '<strong>हर पैकेज में: पैसा देने से पहले आप अपने ही क्लिनिक की चलती हुई डेमो वेबसाइट देखते हैं.</strong>',
+      'tiers.guarantee': '<strong>पहले डेमो। Payment सिर्फ़ approve करने के बाद.</strong>',
       'addons.eye': 'ज़रूरत पड़े तो add-on',
       'addon.1': '🎨 Poster pack — हर महीने 8 त्योहार/health-day पोस्टर · ₹999/महीना',
       'addon.2': '⏰ WhatsApp appointment reminder · ₹1,499 setup',
@@ -108,7 +108,7 @@ window.I18N = {
 
       /* work */
       'sec.work.eye': 'लाइव काम',
-      'h2.work' : 'असली क्लिनिक। <span class="hl">अभी live.</span>',
+      'h2.work' : 'असली क्लिनिक। <span class="hl">खोलकर देखिए.</span>',
       'sub.work': 'असली practices, अभी live — <strong>खोलकर देखिए</strong>।',
       'work.note': 'आपकी साइट भी ऐसे ही बनेगी — आपके डॉक्टर, आपकी फ़ोटो।',
 
@@ -144,10 +144,10 @@ window.I18N = {
 
       /* faq + cta */
       'sec.faq.eye': 'सवाल',
-      'h2.faq': 'जो <span class="hl">हर डॉक्टर पूछता है</span>.',
+      'h2.faq': 'तीन सवाल जो <span class="hl">हर doctor पूछता है</span>.',
       'faq.7a': 'जी — मैं <strong>पूरे भारत</strong> के क्लिनिक के साथ काम करता हूँ। सब कुछ WhatsApp, email और कॉल पर होता है। मेरे अभी के ज़्यादातर क्लाइंट उन शहरों में हैं जहाँ मैं कभी गया नहीं — नतीजे में कोई फ़र्क नहीं पड़ता।',
-      'cta.h2': 'अपने <span class="hl-light">क्लिनिक</span> के बारे में बताइए.',
-      'cta.body': 'एक मैसेज: क्लिनिक का नाम + शहर। मिलेगा — <strong>चलती हुई डेमो</strong>, पक्का दाम, timeline। आमतौर पर उसी दिन।',
+      'cta.h2': 'क्लिनिक का <span class="hl-light">नाम भेजिए</span>। डेमो पाइए.',
+      'cta.body': 'एक मैसेज। मिलेगा — <strong>चलती हुई डेमो</strong>, पक्का दाम, timeline। आमतौर पर उसी दिन।',
       'cta.prefer': 'Email बेहतर लगे?',
       'foot.role': 'क्लिनिक के लिए वेबसाइट और सॉफ़्टवेयर, भारत।',
 
@@ -173,12 +173,12 @@ window.I18N = {
 
       /* calculator */
       'sec.calc.eye': 'हिसाब कीजिए',
-      'h2.calc': 'No-show आपके क्लिनिक को <span class="hl">कितना महँगा पड़ता है</span>?',
+      'h2.calc': 'जो book करके <span class="hl">नहीं आते</span> — खर्च कितना?',
       'sub.calc': 'आपके आँकड़े, मोटा अनुमान — कहीं कुछ नहीं भेजा जाता।',
       'calc.lost': 'हर महीने का नुकसान',
       'calc.year': 'यानी साल भर में',
-      'calc.half': 'अगर WhatsApp reminder आधा भी बचा लें*',
-      'calc.cta': '🟢 पूछिए — यह नुकसान कैसे रुकेगा',
+      'calc.half': 'Reminder आधा भी बचा लें तो*',
+      'calc.cta': '🟢 पूछिए — यह कैसे रुकेगा',
       'calc.note': '*सिर्फ़ अनुमान — आपके आँकड़ों पर आधारित, कोई guarantee नहीं।',
 
       /* sticky bar */
@@ -186,6 +186,32 @@ window.I18N = {
       'mcta.audit': 'फ़्री 60-sec जाँच',
 
       'seemore': 'पूरी जानकारी चाहिए? सब यहाँ है →',
+
+      /* v14: visual home + shared pages */
+      'nav.home': 'होम',
+      'pain.you': 'आप', 'pain.comp': 'Competitor',
+      'pain.loss2': 'देखिए — इसका खर्च कितना है ↓',
+      'svc.1.cap': '🌐 आपका क्लिनिक। आपकी timing। WhatsApp पर booking. <a href="specialties.html">देखें →</a>',
+      'svc.2.cap': '🖥️ Patient खोजिए। Visit जोड़िए। पर्चा print कीजिए. <a href="opd-software.html">देखें →</a>',
+      'svc.3.cap': '🗺️ पास में खोजने वाले मरीज़ों को दिखिए. <a href="google-maps.html">देखें →</a>',
+      'svc.4.cap': '💬 Booking आपके phone पर। Reminder patient को. <a href="whatsapp-booking.html">देखें →</a>',
+      'nmcline': '🛡️ NMC नियमों के अनुसार — आपका registration सुरक्षित →',
+      'faq.1': 'Practo पर आपके बगल में competitor दिखता है। अपनी वेबसाइट पर सिर्फ़ आप — और patient सीधे आपके WhatsApp पर।',
+      'faq.2': 'हाँ। कोई testimonial नहीं, कोई "best doctor" नहीं, कोई discount नहीं। सिर्फ़ qualification, timing, services, fees. <a href="nmc-rules.html">पूरे नियम →</a>',
+      'faq.3': 'कोई office नहीं, कोई sales team नहीं। एक engineer बनाता है। इसीलिए सस्ता है।',
+      'faq.more': 'सारे सवाल-जवाब →',
+      'price.more': 'पूरी तुलना और add-ons →',
+      'verify.link': 'पहले मुझे जाँचिए →',
+      'ba.before': 'पहले: रजिस्टर', 'ba.after': 'अब: कोई भी patient 2 सेकंड में',
+      'ba.b1': '📒 रजिस्टर', 'ba.b2': '🖥️ Screen',
+      'calc.leak': 'fees बह रही है…',
+      't1a': 'वेबसाइट + WhatsApp booking', 't1b': 'Google Maps ठीक से set', 't1c': 'आपकी timing, फ़ोटो, सेवाएँ',
+      't2a': 'Starter का सब कुछ', 't2b': 'OPD सॉफ़्टवेयर — record + printed ℞', 't2c': 'Reception के लिए review QR',
+      't3a': 'Growth का सब कुछ', 't3b': 'Department पेज + doctor profile', 't3c': 'पूरा content मैं लिखूँगा',
+      'work.1.p': 'बच्चों की क्लिनिक। वेबसाइट + OPD सॉफ़्टवेयर, रोज़ाना use.',
+      'work.2.p': 'आँखों की क्लिनिक। वेबसाइट + eye-OPD सॉफ़्टवेयर.',
+      'work.3.p': '₹34,999 वाला पैकेज, live. Department, booking, packages.',
+      'tap.preview': 'Live साइट देखें', 'tap.preview2': 'Live साइट देखें', 'tap.preview3': 'Live डेमो देखें',
 
       /* chat widget */
       'chat.status': 'आमतौर पर कुछ घंटों में जवाब',

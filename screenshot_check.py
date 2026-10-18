@@ -1,47 +1,58 @@
 import os
 from playwright.sync_api import sync_playwright
 
-URL = "file:///C:/Users/Abhinav PC/Desktop/Website_projects/site/index.html"
+BASE = "file:///C:/Users/Abhinav PC/Desktop/Website_projects/site/"
 OUT = r"C:\Users\Abhinav PC\Desktop\Website_projects\site\shots"
 os.makedirs(OUT, exist_ok=True)
+PAGES = ["index.html", "how-it-works.html", "opd-software.html", "whatsapp-booking.html",
+         "google-maps.html", "nmc-rules.html", "pricing.html", "about.html",
+         "faq.html", "mental-health.html", "specialties.html", "details.html"]
 
-widths = [(375, 812), (414, 896), (768, 1024), (1440, 900)]
 with sync_playwright() as pw:
     b = pw.chromium.launch()
-    for w, h in widths:
+    # home at 4 widths
+    for w, h in [(360, 740), (390, 844), (768, 1024), (1440, 900)]:
         pg = b.new_page(viewport={"width": w, "height": h})
         errors = []
         pg.on("console", lambda m: errors.append(m.text) if m.type == "error" else None)
         pg.on("pageerror", lambda e: errors.append(str(e)))
-        pg.goto(URL, wait_until="networkidle", timeout=60000)
-        pg.wait_for_timeout(1200)
-        pg.screenshot(path=rf"{OUT}\full_{w}.png", full_page=True)
-        broken = pg.evaluate("() => [...document.images].filter(i => !i.complete || i.naturalWidth === 0).map(i => i.src)")
+        pg.goto(BASE + "index.html", wait_until="networkidle", timeout=60000)
+        pg.wait_for_timeout(1000)
+        pg.screenshot(path=rf"{OUT}\home_{w}.png", full_page=True)
         overflow = pg.evaluate("() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1")
-        print(f"{w}px: console_errors={len(errors)} broken_imgs={len(broken)} h_overflow={overflow}")
-        for e in errors[:4]: print("   ERR:", e[:160])
+        broken = pg.evaluate("() => [...document.images].filter(i => !i.complete || i.naturalWidth === 0).length")
+        print(f"home {w}px: err={len(errors)} broken_img={broken} overflow={overflow}")
+        for e in errors[:3]: print("  ERR:", e[:140])
         pg.close()
-
-    # functional test: quiz end-to-end + calculator on mobile viewport
-    pg = b.new_page(viewport={"width": 375, "height": 812})
+    # all subpages at 360
+    for p in PAGES[1:]:
+        pg = b.new_page(viewport={"width": 360, "height": 740})
+        errors = []
+        pg.on("pageerror", lambda e: errors.append(str(e)))
+        pg.goto(BASE + p, wait_until="networkidle", timeout=60000)
+        pg.wait_for_timeout(600)
+        overflow = pg.evaluate("() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1")
+        print(f"{p}: err={len(errors)} overflow={overflow}")
+        for e in errors[:2]: print("  ERR:", e[:140])
+        pg.close()
+    # functional: quiz + calc + opd mock + before/after
+    pg = b.new_page(viewport={"width": 390, "height": 844})
     errs = []
     pg.on("pageerror", lambda e: errs.append(str(e)))
-    pg.goto(URL, wait_until="networkidle")
+    pg.goto(BASE + "index.html", wait_until="networkidle")
     for _ in range(7):
-        pg.locator(".qz__opt").nth(1).click()
-        pg.wait_for_timeout(120)
-    visible = pg.locator("#qzResult").is_visible()
-    pg.wait_for_timeout(1600)
-    score = pg.locator("#scoreNum").inner_text()
-    pg.fill("#ql_n", "Playwright Test")
-    pg.fill("#ql_p", "9000000001")
-    pg.locator(".unlock__form button").click()
-    pg.wait_for_timeout(900)
-    checklist = pg.locator("#checklist").is_visible()
-    pg.locator("#c_ns").evaluate("el => { el.value = 25; el.dispatchEvent(new Event('input')) }")
-    loss = pg.locator("#r_month").inner_text()
-    print(f"QUIZ: result_visible={visible} score={score} checklist={checklist} calc_loss_Rs={loss} js_errors={len(errs)}")
-    pg.screenshot(path=rf"{OUT}\quiz_result_375.png", full_page=False)
+        pg.locator(".qz__opt").nth(1).click(); pg.wait_for_timeout(100)
+    ok_quiz = pg.locator("#qzResult").is_visible()
+    pg.locator("#c_ns").evaluate("el => { el.value = 35; el.dispatchEvent(new Event('input')) }")
+    jar = pg.locator("#jar").get_attribute("data-rate")
+    pg.locator("#baA").click(); flipped = "flip" in (pg.locator("#ba").get_attribute("class") or "")
+    print(f"FUNC: quiz={ok_quiz} jar_rate={jar} ba_flip={flipped} js_errors={len(errs)}")
+    pg.close()
+    pg = b.new_page(viewport={"width": 390, "height": 844})
+    pg.goto(BASE + "opd-software.html", wait_until="networkidle")
+    pg.locator('#opdmock .steps button[data-s="2"]').click(); pg.wait_for_timeout(200)
+    print("OPD mock step3 shows Rx:", "letterhead" in pg.locator("#opdBody").inner_text())
+    pg.screenshot(path=rf"{OUT}\opd_360.png", full_page=True)
     pg.close()
     b.close()
 print("done")
