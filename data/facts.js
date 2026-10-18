@@ -6,7 +6,9 @@
 window.FACTS = {
   /* TODO(Anupam): check your employment contract / outside-work policy
      before setting SHOW_EMPLOYER to true, and before running this
-     business publicly under your own name. Default: false. */
+     business publicly under your own name. Default: false.
+     NOTE: the employer's NAME is deliberately NOT in this public file.
+     After the policy check, fill the shown_* lines yourself. */
   SHOW_EMPLOYER: false,
 
   name: "Anupam Singh",
@@ -18,12 +20,12 @@ window.FACTS = {
   wa: "919670809669",
 
   /* Employer line variants — swapped at runtime by SHOW_EMPLOYER.
-     Source: LinkedIn (Manager 1, Tech Operations & Platform Strategy,
-     ICICI Bank, Hyderabad, since Oct 2025; before that DevOps at BeeHyv). */
+     Source: LinkedIn (manager role at a large private bank, Hyderabad,
+     since Oct 2025; before that DevOps at BeeHyv). */
   workline: {
     hidden_en: "I work on live production systems where downtime is not allowed.",
     hidden_hi: "मैं ऐसे लाइव सिस्टम पर काम करता हूँ जो रुक नहीं सकते।",
-    shown_en: "I work on live loan-platform systems at ICICI Bank, Hyderabad.",
-    shown_hi: "मैं ICICI Bank, Hyderabad में लाइव loan-platform सिस्टम पर काम करता हूँ।"
+    shown_en: "", /* TODO(Anupam): after policy check, write the employer line here */
+    shown_hi: ""
   }
 };
