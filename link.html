@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Link builder (private) — Anupam Web Works</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="style.css?v=13">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+.lb{max-width:520px;margin:30px auto 80px;padding:0 22px}
+.lb label{display:block;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:14px}
+.lb input,.lb select{display:block;width:100%;margin-top:5px;border:1.5px solid var(--line);border-radius:10px;padding:12px;font-size:16px;font-family:inherit}
+.lb output{display:block;background:var(--bg-alt);border:1px dashed var(--line);border-radius:10px;padding:12px;font-size:13px;word-break:break-all;margin:14px 0;font-family:monospace}
+</style>
+</head>
+<body>
+<div class="phero"><h1>🔗 Personalised link builder</h1><p>For Anupam only — not linked anywhere on the site.</p></div>
+<div class="lb">
+  <label>Doctor / clinic name <input id="b_name" maxlength="40" placeholder="Dr. Sharma"></label>
+  <label>City <input id="b_city" maxlength="30" placeholder="Kanpur"></label>
+  <label>Specialty <select id="b_spec">
+    <option value="">(none)</option><option value="general">General</option><option value="gynae">Gynae</option>
+    <option value="dental">Dental</option><option value="eye">Eye</option><option value="pediatrics">Pediatrics</option>
+    <option value="skin">Skin</option><option value="ortho">Ortho</option><option value="psychiatry">Psychiatry</option>
+    <option value="hospital">Hospital</option></select></label>
+  <output id="b_out">—</output>
+  <button class="btn btn--dark btn--block" id="b_copy" type="button">📋 Copy link</button>
+  <a class="btn btn--wa btn--block" id="b_wa" style="margin-top:10px" target="_blank" rel="noopener">🟢 Send this link on WhatsApp</a>
+  <p style="font-size:12px;color:var(--muted);margin-top:12px">The link uses this site's own address — on the preview it makes preview links, on the real site it makes real links.</p>
+</div>
+<script>
+(function(){
+function build(){
+  var p=new URLSearchParams();
+  var n=document.getElementById('b_name').value.trim(),
+      c=document.getElementById('b_city').value.trim(),
+      s=document.getElementById('b_spec').value;
+  if(n)p.set('name',n); if(c)p.set('city',c); if(s)p.set('spec',s);
+  var base=location.origin&&location.origin!=='null'?location.origin+'/':'https://anupamwebworks.com/';
+  var url=base+(p.toString()?'?'+p.toString():'');
+  document.getElementById('b_out').textContent=url;
+  document.getElementById('b_wa').href='https://wa.me/?text='+encodeURIComponent(
+    'Namaste'+(n?' '+n:'')+' 🙏 '+(c?c+' mein ':'')+'aapke clinic ki website kaisi dikh sakti hai — 10 second mein dekhiye: '+url);
+  return url;
+}
+['b_name','b_city','b_spec'].forEach(function(id){
+  document.getElementById(id).addEventListener('input',build);
+  document.getElementById(id).addEventListener('change',build);
+});
+document.getElementById('b_copy').addEventListener('click',function(){
+  navigator.clipboard.writeText(build()).then(()=>{this.textContent='✅ Copied';setTimeout(()=>this.textContent='📋 Copy link',1400)});
+}.bind(document.getElementById('b_copy')));
+build();
+})();
+</script>
+</body>
+</html>

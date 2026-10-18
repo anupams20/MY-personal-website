@@ -9,10 +9,10 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Anupam Web Works — Websites & Software for Clinics">
 <meta property="og:description" content="Website, OPD software and WhatsApp appointments for clinics. From ₹4,999. Demo first, pay later.">
-<meta property="og:image" content="https://anupamwebworks.com/images/og-cover.jpg">
+<meta property="og:image" content="https://anupamwebworks.com/images/og/og-home.jpg">
 <meta property="og:url" content="https://anupamwebworks.com/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://anupamwebworks.com/images/og-cover.jpg">
+<meta name="twitter:image" content="https://anupamwebworks.com/images/og/og-home.jpg">
 <meta name="theme-color" content="#0b3b3c">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,7 @@
   "@type": "ProfessionalService",
   "name": "Anupam Web Works — Websites & Software for Clinics",
   "description": "Websites, OPD software and WhatsApp appointment booking for clinics and hospitals in India.",
-  "image": "https://anupamwebworks.com/images/og-cover.jpg",
+  "image": "https://anupamwebworks.com/images/og/og-home.jpg",
   "url": "https://anupamwebworks.com/",
   "telephone": "+91-9670809669",
   "email": "anupam@anupamwebworks.com",
@@ -90,6 +90,11 @@
         <a class="btn btn--ghost btn--lg" href="#quiz" data-i18n="hero.cta2">▶ 60-second check</a>
       </div>
       <p class="hero__note" data-i18n="hero.note">See your clinic's website first. Pay only if you like it.</p>
+      <div class="nextsteps" aria-label="What happens next">
+  <span>1️⃣ <b data-i18n="ns.1">Send name + city</b></span><span class="ns-arr">→</span>
+  <span>2️⃣ <b data-i18n="ns.2">Demo, usually same day</b></span><span class="ns-arr">→</span>
+  <span>3️⃣ <b data-i18n="ns.3">Pay only after approving</b></span>
+</div>
     </div>
     <div class="hero__photo reveal in" style="justify-self:center">
       <div class="hphone" role="img" aria-label="A patient searches 'doctor near me' on Google and your clinic appears first with a Book button">
@@ -113,6 +118,12 @@
       <li><strong data-i18n="cred.4a">IIT Kanpur</strong><span data-i18n="cred.4b">B.Tech, 2024</span></li>
       <li><strong data-i18n="cred.5a">Demo first</strong><span data-i18n="cred.5b">payment only after you approve</span></li>
     </ul>
+    <!-- TODO(Anupam): record and add /media/intro-hi.mp3 (30-40 sec, Hindi/Hinglish) -->
+    <div class="audiocard">
+      <img src="images/anupam.jpg" alt="Anupam Singh" width="46" height="46">
+      <div><b data-i18n="au.h">🎙️ Anupam ki baat — 30 seconds</b><br><span data-i18n="au.s">Hindi mein suniye: kaun hoon, kya banata hoon.</span></div>
+      <audio controls preload="none" src="media/intro-hi.mp3" aria-label="Intro audio in Hindi"></audio>
+    </div>
   </div>
 </section>
 
@@ -146,6 +157,48 @@
   </div>
 </section>
 
+
+<!-- ============ SCREEN 2.5 · APNA CLINIC PREVIEW (personalisation hook) ============ -->
+<section id="preview" class="section section--alt">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="pv.eye">Apna clinic, abhi dekhiye</p>
+    <h2 class="h2" data-i18n-html="pv.h2">Type your clinic's name. <span class="hl">Watch it appear.</span></h2>
+    <p class="sub" data-i18n="pv.sub">Nothing is sent anywhere until you tap WhatsApp.</p>
+    <div class="pv">
+      <div class="pv__form">
+        <label data-i18n="pv.l1">Clinic / doctor name
+          <input id="pv_name" maxlength="40" placeholder="Dr. Sharma Clinic" autocomplete="off"></label>
+        <label data-i18n="pv.l2">City
+          <input id="pv_city" maxlength="30" placeholder="Kanpur" autocomplete="off"></label>
+        <label data-i18n="pv.l3">Specialty
+          <select id="pv_spec">
+            <option value="general">🩺 General physician</option>
+            <option value="gynae">🤰 Gynae &amp; maternity</option>
+            <option value="dental">🦷 Dental</option>
+            <option value="eye">👁️ Eye</option>
+            <option value="pediatrics">🧸 Child specialist</option>
+            <option value="skin">💆 Skin &amp; hair</option>
+            <option value="ortho">🦴 Orthopaedics</option>
+            <option value="psychiatry">🧠 Psychiatry / counselling</option>
+            <option value="hospital">🏥 Hospital / multi-specialty</option>
+          </select></label>
+        <a class="btn btn--wa btn--block" id="pvWa" href="https://wa.me/919670809669?text=Hi%20Anupam%2C%20please%20send%20my%20clinic%27s%20free%20demo." target="_blank" rel="noopener" data-i18n="pv.wa">Yeh mera demo chahiye → WhatsApp</a>
+        <a class="btn btn--ghost btn--block" id="pvGoogle" href="https://www.google.com/maps/search/doctor+near+me" target="_blank" rel="noopener" data-i18n="pv.g">🔍 Check your clinic on Google</a>
+        <p class="pv__note" data-i18n="pv.note">"Check on Google" shows who patients see before you.</p>
+      </div>
+      <div class="hphone hphone--pv" aria-hidden="true">
+        <div class="scr">
+          <div class="pvhead"><span id="pvSpecIco">🩺</span> <b id="pvName">Your Clinic</b></div>
+          <div class="pvsub"><span id="pvSpecLine">General physician</span> · <span id="pvCity">Your city</span></div>
+          <div class="pvchips" id="pvChips"></div>
+          <div class="pvtime">🕐 Mon–Sat · 10–2, 5–8 <span class="pvmut">(your timings)</span></div>
+          <div class="pvbook">🟢 Book on WhatsApp</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ SCREEN 3 · THE SOLUTION IN 4 PICTURES ============ -->
 <section id="solutions" class="section">
   <div class="wrap">
@@ -169,7 +222,7 @@
         <p class="cap" data-i18n-html="svc.4.cap">💬 Booking on your phone. Reminder to patient. <a href="whatsapp-booking.html">Dekhein →</a></p>
       </article>
     </div>
-    <p class="seemore"><a href="nmc-rules.html" data-i18n="nmcline">🛡️ Follows NMC rules — your registration stays safe →</a></p>
+    <p class="seemore"><a href="nmc-rules.html" data-i18n="nmcline">🛡️ Built to follow NMC rules — see what's allowed →</a></p>
   </div>
 </section>
 
@@ -323,6 +376,7 @@
       </article>
     </div>
     <p class="tiers-guarantee" data-i18n-html="tiers.guarantee"><strong>Demo first. Payment only after you approve it.</strong></p>
+    <p class="feeeq" data-i18n-html="feeeq">₹4,999 ≈ <b id="feeEq">13</b> patients' fees (at the ₹<span id="feeEqFee">400</span>/visit you set above) — simple arithmetic, not a promise.</p>
     <p class="seemore"><a href="pricing.html" style="color:#8fd0c9" data-i18n="price.more">Full comparison &amp; add-ons →</a></p>
   </div>
 </section>
@@ -349,7 +403,12 @@
       <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2c-5.5 0-9.97 4.47-9.97 9.97 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.93 9.93 0 0 0 4.84 1.24h.01c5.5 0 9.97-4.47 9.97-9.97 0-2.66-1.04-5.17-2.92-7.05A9.9 9.9 0 0 0 12.04 2Zm0 18.15h-.01a8.27 8.27 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 1 1 7.01 3.86Zm4.54-6.19c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.64.8-.79.97-.14.16-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.02 2.57c.12.16 1.75 2.67 4.25 3.74.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.11-.23-.17-.48-.29Z"/></svg>
       WhatsApp +91 96708 09669
     </a>
-    <p class="cta__alt"><a href="tel:+919670809669" style="color:#8fb4ff">📞 Or call directly</a> · <a href="about.html" style="color:#8fb4ff" data-i18n="verify.link">Verify me first →</a></p>
+    <div class="nextsteps nextsteps--dark" aria-label="What happens next">
+  <span>1️⃣ <b data-i18n="ns.1">Send name + city</b></span><span class="ns-arr">→</span>
+  <span>2️⃣ <b data-i18n="ns.2">Demo, usually same day</b></span><span class="ns-arr">→</span>
+  <span>3️⃣ <b data-i18n="ns.3">Pay only after approving</b></span>
+</div>
+    <p class="cta__alt"><a href="tel:+919670809669" style="color:#8fb4ff">📞 Or call directly</a> · <a href="about.html" style="color:#8fb4ff" data-i18n="verify.link">Verify me first →</a> · <a href="#" class="shareFwd" style="color:#8fb4ff" data-i18n="fwd.btn">📤 Forward to a colleague</a></p>
   </div>
 </section>
 
@@ -358,7 +417,7 @@
 <footer class="foot">
   <div class="wrap foot__inner">
     <p>&copy; <span id="yr">2026</span> Anupam Web Works — <span data-i18n="foot.role">Websites &amp; software for clinics, India.</span></p>
-    <p class="foot__links">
+    <p class="foot__links"><a href="privacy.html">Privacy</a>
       <a href="about.html">About</a>
       <a href="pricing.html">Packages</a>
       <a href="mental-health.html">Mental health</a>

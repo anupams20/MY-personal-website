@@ -1,4 +1,5 @@
 /* Small bits of behaviour. No libraries. */
+document.documentElement.classList.add('js'); /* no-JS fallback: reveal styles only apply when JS runs */
 
 /* ============================================================
    >>> THE OFFER — EDIT HERE AND NOWHERE ELSE <<<
@@ -132,7 +133,7 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
     });
 
     /* everything else, matched on its exact English text */
-    var sel = 'li,summary,h3,h4,p,a,span,button,strong';
+    var sel = 'li,summary,h3,h4,p,a,span,button,strong,td,th,label,option,output,b,small,i';
     document.querySelectorAll(sel).forEach(function (el) {
       if (el.hasAttribute('data-i18n') || el.hasAttribute('data-i18n-html')) return;
       if (el.querySelector('*')) return;              /* leaf nodes only */
@@ -429,7 +430,8 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
   ];
   var step = 0, answers = [];
   function render() {
-    var item = Q[step];
+    var HIQ = (document.documentElement.lang === 'hi' && window.I18N && window.I18N.hi && window.I18N.hi.QUIZ) || null;
+    var item = (HIQ || Q)[step];
     document.getElementById('qzFill').style.width = ((step) / Q.length * 100) + '%';
     var dots = '';
     for (var di = 0; di < Q.length; di++) dots += '<i class="' + (di < step ? 'done' : di === step ? 'now' : '') + '"></i>';
@@ -525,3 +527,82 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
   qzStart();
 })();
 
+
+
+/* ============================================================
+   v15 — "apna clinic" personalisation, URL params, Google check,
+   fee-equivalence, forward buttons. All client-side; nothing is
+   sent anywhere until the user taps WhatsApp.
+   ============================================================ */
+(function () {
+  'use strict';
+  var SPEC = {
+    general:   { ico: '🩺', line: 'General physician',        q: 'doctor',            chips: ['Fever & BP', 'Diabetes', 'Full check-up'] },
+    gynae:     { ico: '🤰', line: 'Gynae & maternity',        q: 'gynecologist',      chips: ['Pregnancy care', 'Delivery', 'PCOS'] },
+    dental:    { ico: '🦷', line: 'Dental clinic',            q: 'dentist',           chips: ['RCT', 'Braces', 'Implants'] },
+    eye:       { ico: '👁️', line: 'Eye clinic',               q: 'eye specialist',    chips: ['Cataract', 'Eye test', 'Specs removal'] },
+    pediatrics:{ ico: '🧸', line: 'Child specialist',         q: 'child specialist',  chips: ['Vaccination', 'Fever', 'Growth'] },
+    skin:      { ico: '💆', line: 'Skin & hair clinic',       q: 'skin specialist',   chips: ['Acne', 'Hair fall', 'Laser'] },
+    ortho:     { ico: '🦴', line: 'Orthopaedic clinic',       q: 'orthopedic doctor', chips: ['Joint pain', 'Fracture', 'Spine'] },
+    psychiatry:{ ico: '🧠', line: 'Mental health clinic',     q: 'psychiatrist',      chips: ['Confidential', 'Video consult', 'Counselling'] },
+    hospital:  { ico: '🏥', line: 'Multi-specialty hospital', q: 'hospital',          chips: ['24×7 Emergency', 'All departments', 'Health packages'] }
+  };
+  function clean(v, n) { return (v || '').replace(/[^\w .,()\-\u0900-\u097F]/g, ' ').replace(/\s+/g, ' ').slice(0, n).trim(); }
+
+  var nameI = document.getElementById('pv_name');
+  if (nameI) {
+    var cityI = document.getElementById('pv_city'), specI = document.getElementById('pv_spec');
+    function paint() {
+      var n = clean(nameI.value, 40), c = clean(cityI.value, 30), sp = SPEC[specI.value] || SPEC.general;
+      document.getElementById('pvName').textContent = n || 'Your Clinic';
+      document.getElementById('pvCity').textContent = c || 'Your city';
+      document.getElementById('pvSpecIco').textContent = sp.ico;
+      document.getElementById('pvSpecLine').textContent = sp.line;
+      var ch = document.getElementById('pvChips'); ch.textContent = '';
+      sp.chips.forEach(function (t) { var s = document.createElement('span'); s.textContent = t; ch.appendChild(s); });
+      var msg = 'Hi Anupam, I am ' + (n || 'a doctor') + (c ? ' from ' + c : '') + ' (' + sp.line + '). Please send my clinic\'s free demo.';
+      document.getElementById('pvWa').href = 'https://wa.me/919670809669?text=' + encodeURIComponent(msg);
+      document.getElementById('pvGoogle').href = 'https://www.google.com/maps/search/' +
+        encodeURIComponent(sp.q + (c ? ' near ' + c : ' near me'));
+    }
+    [nameI, cityI, specI].forEach(function (el) { el.addEventListener('input', paint); el.addEventListener('change', paint); });
+
+    /* URL personalisation: ?name=Dr.%20Sharma&city=Kanpur&spec=dental */
+    try {
+      var q = new URLSearchParams(location.search);
+      var pn = clean(q.get('name'), 40), pc = clean(q.get('city'), 30), ps = (q.get('spec') || '').toLowerCase();
+      if (pn) nameI.value = pn;
+      if (pc) cityI.value = pc;
+      if (SPEC[ps]) specI.value = ps;
+      if (pn) {
+        var h1 = document.querySelector('.hero h1');
+        var specWord = SPEC[ps] ? SPEC[ps].line.toLowerCase() : 'clinic';
+        h1.textContent = pn + ', here is how your ' + (pc ? pc + ' ' : '') + specWord + ' looks on Google.';
+        var pvSec = document.getElementById('preview');
+        setTimeout(function () { if (pvSec) pvSec.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 900);
+      }
+    } catch (e) {}
+    paint();
+  }
+
+  /* fee-equivalence: ₹4,999 as N patients' fees (plain arithmetic) */
+  var feeEq = document.getElementById('feeEq'), feeIn = document.getElementById('c_fee');
+  if (feeEq && feeIn) {
+    function eq() {
+      var f = +feeIn.value || 400;
+      feeEq.textContent = Math.max(2, Math.round(4999 / f));
+      document.getElementById('feeEqFee').textContent = f.toLocaleString('en-IN');
+    }
+    feeIn.addEventListener('input', eq); eq();
+  }
+
+  /* forward-to-colleague buttons */
+  document.querySelectorAll('.shareFwd').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var msg = 'Dekho — clinic website + OPD software, ₹4,999 se. Demo pehle dikhate hain, payment baad mein.\n' +
+                (location.origin && location.origin !== 'null' ? location.origin + location.pathname : 'https://anupamwebworks.com/');
+      window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+    });
+  });
+})();
