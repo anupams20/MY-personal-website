@@ -613,3 +613,52 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
     });
   });
 })();
+
+
+/* ===== r4: trust chip bottom sheet ===== */
+(function () {
+  'use strict';
+  var chip = document.getElementById('trustChip'), sh = document.getElementById('tsheet');
+  if (!chip || !sh) return;
+  var card = document.getElementById('tsheetCard'), prevFocus = null;
+  function track(k) {
+    try { fetch('https://anupam-samples-default-rtdb.firebaseio.com/hits/_site_main.json',
+      { method: 'PATCH', body: JSON.stringify((function(){var o={};o[k]={'.sv':{increment:1}};return o;})()) }); } catch (e) {}
+  }
+  function open() {
+    prevFocus = document.activeElement;
+    sh.hidden = false;
+    requestAnimationFrame(function () { sh.classList.add('open'); });
+    document.body.style.overflow = 'hidden';
+    document.getElementById('tsheetX').focus();
+    track('trust_sheet');
+  }
+  function close() {
+    sh.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(function () { sh.hidden = true; }, 220);
+    if (prevFocus) prevFocus.focus();
+  }
+  chip.addEventListener('click', function () { track('trust_chip'); open(); });
+  document.getElementById('tsheetX').addEventListener('click', close);
+  document.getElementById('tsheetBg').addEventListener('click', close);
+  document.addEventListener('keydown', function (e) {
+    if (sh.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'Tab') { /* simple trap */
+      var f = card.querySelectorAll('a,button');
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  var y0 = null;
+  card.addEventListener('touchstart', function (e) { y0 = e.touches[0].clientY; }, { passive: true });
+  card.addEventListener('touchend', function (e) {
+    if (y0 !== null && e.changedTouches[0].clientY - y0 > 70) close();
+    y0 = null;
+  }, { passive: true });
+  [['tsLinked', 'v_linkedin'], ['tsVideo', 'v_videocall'], ['tsMore', 'about_cta']].forEach(function (p) {
+    var el = document.getElementById(p[0]); if (el) el.addEventListener('click', function () { track(p[1]); });
+  });
+})();

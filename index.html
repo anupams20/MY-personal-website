@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-<link rel="stylesheet" href="style.css?v=14">
+<link rel="stylesheet" href="style.css?v=15">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.png" sizes="64x64">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -52,7 +52,7 @@
       <a href="#solutions" data-i18n="nav.services">What you get</a>
       <a href="pricing.html" data-i18n="nav.pricing">Packages</a>
       <a href="how-it-works.html">How it works</a>
-      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="about.html" data-i18n="nav.about">Anupam kaun hai?</a>
       <a href="faq.html" data-i18n="nav.faq">FAQ</a>
     </nav>
     <div class="lang" id="lang" role="group" aria-label="Language">
@@ -77,7 +77,10 @@
   <div class="wrap hero__grid">
     <div class="hero__copy">
       <div class="pills">
-        <span class="pill pill--iit"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3 1 8.5 12 14l9-4.5V16h2V8.5L12 3ZM5 12.28V16.5c0 1.93 3.13 3.5 7 3.5s7-1.57 7-3.5v-4.22l-7 3.5-7-3.5Z"/></svg><span data-i18n="hero.pill1">B.Tech, IIT&nbsp;Kanpur</span></span>
+        <button type="button" class="pill pill--iit trustchip" id="trustChip" aria-haspopup="dialog">
+          <img src="images/anupam.jpg" alt="" width="22" height="22">
+          <span><b>Anupam Singh</b> · IIT Kanpur 2024 · <u data-i18n="tc.q">Kaun hai? →</u></span>
+        </button>
         <span class="pill"><span class="dot"></span> <span data-i18n="hero.pill2">Clinics only — all India, remote</span></span>
       </div>
       <h1 data-i18n-html="hero.h1">Patients check <span class="hl">Google</span> before they visit. Do they find <span class="hl">you</span>?</h1>
@@ -369,6 +372,28 @@
   <a href="check.html" class="p"><span class="e">✦</span><span data-i18n="mcta.audit">60-sec check</span></a>
 </div>
 
+<!-- trust bottom sheet -->
+<div class="tsheet" id="tsheet" role="dialog" aria-modal="true" aria-label="Anupam kaun hai?" hidden>
+  <div class="tsheet__bg" id="tsheetBg"></div>
+  <div class="tsheet__card" id="tsheetCard">
+    <button class="tsheet__x" id="tsheetX" aria-label="Close">✕</button>
+    <div class="tsheet__head">
+      <img src="images/anupam.jpg" alt="Anupam Singh" width="56" height="56">
+      <div><b>Anupam Singh</b><br><span data-i18n="ts.one">Websites &amp; OPD software for clinics — one engineer, direct baat.</span></div>
+    </div>
+    <ul class="tsheet__facts">
+      <li>🎓 <span data-i18n="ts.f1">IIT Kanpur, 2024 batch</span></li>
+      <li>🖥️ <span data-i18n="ts.f2">Works on live systems that can't go down</span></li>
+      <li>👀 <span data-i18n="ts.f3">Demo pehle — payment approve ke baad</span></li>
+    </ul>
+    <div class="tsheet__btns">
+      <a class="btn btn--ghost" href="https://www.linkedin.com/in/anupamsingh-iitk/" target="_blank" rel="noopener" id="tsLinked">in LinkedIn</a>
+      <a class="btn btn--ghost" href="https://wa.me/919670809669?text=Namaste%20Anupam%20ji%2C%205%20minute%20video%20call%20par%20baat%20karni%20hai." target="_blank" rel="noopener" id="tsVideo">🎥 <span data-i18n="ts.v">Video call</span></a>
+      <a class="btn btn--wa" href="about.html" id="tsMore"><span data-i18n="ts.more">Poora page dekhein →</span></a>
+    </div>
+  </div>
+</div>
+
 <!-- Floating chat widget (WhatsApp-routed; offer copy lives in script.js) -->
 <div class="chat" id="chat">
   <div class="chat__teaser" id="chatTeaser" hidden>
@@ -406,8 +431,8 @@
   </a>
 </div>
 
-<script src="i18n.js?v=11"></script>
-<script src="script.js?v=12"></script>
+<script src="i18n.js?v=12"></script>
+<script src="script.js?v=13"></script>
 <script>
 /* before/after toggle */
 (function(){

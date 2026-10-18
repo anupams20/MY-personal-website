@@ -1,3 +1,13 @@
+# ROUND 4 TODO(Anupam) — decisions only you can make
+(a) SHOW_EMPLOYER: stays FALSE until you check ICICI outside-work policy (data/facts.js)
+(b) Support hours + honest availability line (evenings/weekends?) — About shows only current truth
+(c) Confirm \'B.Tech\' wording (LinkedIn shows institute+years only — site says \'IIT Kanpur, 2024 batch\')
+(d) UP roots line — add \'UP se hi padha hoon\'? (currently only \'IIT Kanpur\')
+(e) Client-consent: Little Heart + Mohan Eye written/WhatsApp consent BEFORE sharing contacts
+(f) Apply LINKEDIN-UPDATE.md (after employer-policy check)
+(g) Optional: better photo / 30-sec face video (media/intro-hi.mp4 slot reserved)
+(h) Confirm the \'Meri kahani\' story wording is yours
+
 # Review file — ROUND 3 ADDENDUM
 
 ## TODO(Anupam) — consolidated (round 3)
