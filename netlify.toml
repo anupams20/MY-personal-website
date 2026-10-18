@@ -7,16 +7,19 @@
   from = "/_review/*"
   to = "/404.html"
   status = 404
+  force = true
 
 [[redirects]]
   from = "/scripts/*"
   to = "/404.html"
   status = 404
+  force = true
 
 [[redirects]]
   from = "/shots/*"
   to = "/404.html"
   status = 404
+  force = true
 
 # ---- security headers ----
 [[headers]]
