@@ -586,6 +586,8 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
   }
 
   /* fee-equivalence: ₹4,999 as N patients' fees (plain arithmetic) */
+  var feeEq2 = document.getElementById('feeEq2');
+  if (feeEq2) { feeEq2.textContent = Math.round(4999 / 400); }
   var feeEq = document.getElementById('feeEq'), feeIn = document.getElementById('c_fee');
   if (feeEq && feeIn) {
     function eq() {
@@ -595,6 +597,11 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
     }
     feeIn.addEventListener('input', eq); eq();
   }
+
+  /* audio: hide the card politely if the file is missing */
+  document.querySelectorAll('.audiocard audio').forEach(function (au) {
+    au.addEventListener('error', function () { var c = au.closest('.audiocard'); if (c) c.style.display = 'none'; });
+  });
 
   /* forward-to-colleague buttons */
   document.querySelectorAll('.shareFwd').forEach(function (a) {

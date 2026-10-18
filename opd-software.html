@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-<link rel="stylesheet" href="style.css?v=13">
+<link rel="stylesheet" href="style.css?v=14">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -57,6 +57,21 @@
     <button type="button" data-s="2">3 · Print ℞</button>
   </div>
 </div>
+<div class="ba" id="ba">
+  <div class="baview" aria-live="polite">
+    <div class="v before">📒<small data-i18n="ba.before">Before: the register</small></div>
+    <div class="v after">🖥️<small data-i18n="ba.after">After: any patient found in 2 seconds</small></div>
+  </div>
+  <div class="baswitch" role="group" aria-label="Before and after">
+    <button type="button" class="on" id="baB" data-i18n="ba.b1">📒 Register</button>
+    <button type="button" id="baA" data-i18n="ba.b2">🖥️ Screen</button>
+  </div>
+</div>
+<script>
+(function(){var ba=document.getElementById('ba');if(!ba)return;
+document.getElementById('baB').addEventListener('click',function(){ba.classList.remove('flip');this.classList.add('on');document.getElementById('baA').classList.remove('on');});
+document.getElementById('baA').addEventListener('click',function(){ba.classList.add('flip');this.classList.add('on');document.getElementById('baB').classList.remove('on');});})();
+</script>
 <h2>🔒 Your data stays with you</h2>
 <ul class="ticks" style="max-width:420px">
   <li>Works offline — no internet needed in OPD</li>
@@ -85,8 +100,8 @@
   <a href="tel:+919670809669"><span class="e">📞</span><span data-i18n="mcta.call">Call</span></a>
 </div>
 
-<script src="i18n.js?v=10"></script>
-<script src="script.js?v=11"></script>
+<script src="i18n.js?v=11"></script>
+<script src="script.js?v=12"></script>
 <script>
 (function(){
 var steps=[

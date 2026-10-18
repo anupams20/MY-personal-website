@@ -1,0 +1,35 @@
+{
+  "phone_display": "+91 96708 09669",
+  "wa_number": "919670809669",
+  "prices": {
+    "starter": "4,999",
+    "growth": "9,999",
+    "hospital": "34,999",
+    "renew_growth": "4,999",
+    "renew_hospital": "6,999",
+    "addon_posters": "999",
+    "addon_reminders": "1,499",
+    "addon_video": "1,999",
+    "addon_hindi": "1,499"
+  },
+  "delivery": {
+    "starter": "3–5 days",
+    "growth": "7–10 days",
+    "hospital": "10–14 days"
+  },
+  "claims": {
+    "sites_built": "600+ (demos + clients) — TODO(Anupam) confirm",
+    "opd_clinics": "2 clinics — TODO(Anupam) confirm"
+  },
+  "calculator_allowed_amounts": [
+    "100",
+    "400",
+    "2500",
+    "31,200",
+    "3,74,400",
+    "80,000"
+  ],
+  "market_reference_amounts": [
+    "80,000"
+  ]
+}

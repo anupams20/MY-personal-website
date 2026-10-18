@@ -1112,3 +1112,62 @@ html:not(.js) .tline .fillbar{height:calc(100% - 12px)}
 .p-diwali{background:linear-gradient(160deg,#5b21b6,#d97706)}
 .p-heart{background:linear-gradient(160deg,#9f1239,#ef4444)}
 .p-eye{background:linear-gradient(160deg,#0e7490,#0b2b31)}
+
+/* r3: calc jar must not overlap the big number (user-reported) */
+.jar{margin-bottom:44px}
+/* r3: problems fit one phone screen — 2x2 compact minis */
+@media(max-width:720px){
+  .cards--pain{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .cards--pain .card{padding:12px}
+  .cards--pain .pmini{height:76px;font-size:24px;margin-bottom:8px}
+  .cards--pain p{font-size:12.5px;line-height:1.45}
+  .cards--pain .pm-rev{font-size:11px}
+}
+/* r3: tool chips row */
+.chips--tools{justify-content:center}
+.chips--tools li{padding:0;background:#fff}
+.chips--tools a{display:block;padding:10px 16px;text-decoration:none;color:var(--ink);font-weight:700}
+/* r3: sticky bar respects iPhone home indicator */
+.mcta{padding-bottom:env(safe-area-inset-bottom)}
+/* r3: Devanagari readability */
+html[lang="hi"] body{letter-spacing:0}
+
+/* r3 diet: proof + pricing swipe on phones; smaller hero phone */
+@media(max-width:720px){
+  .work--clients.cards--swipe{display:grid;grid-auto-flow:column;grid-auto-columns:84%;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:-24px;padding-inline:24px;padding-bottom:10px;scrollbar-width:none}
+  .work--clients.cards--swipe::-webkit-scrollbar{display:none}
+  .work--clients.cards--swipe .work__item{scroll-snap-align:center}
+  .tiers--swipe{display:grid;grid-auto-flow:column;grid-auto-columns:84%;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:-24px;padding-inline:24px;padding-bottom:10px;scrollbar-width:none}
+  .tiers--swipe::-webkit-scrollbar{display:none}
+  .tiers--swipe .tier{scroll-snap-align:center;margin:0}
+  .hphone{width:min(190px,52vw)}
+  .hphone .scr{height:280px}
+  .hero{padding-top:40px}
+}
+
+/* r3 final compaction: every section earns its pixels on a phone */
+@media(max-width:720px){
+  .section{padding:34px 0}
+  .hero{padding:28px 0 0}
+  .hero h1{font-size:clamp(26px,7vw,32px);margin-bottom:12px}
+  .lede{font-size:16px;margin-bottom:18px}
+  .hero__grid{gap:20px}
+  .hero__cta{margin-bottom:10px}
+  .creds{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-block:14px}
+  .creds li{padding:0}
+  .creds strong{font-size:16px}
+  .creds span{font-size:11px}
+  h2.sec,.h2{margin-bottom:8px}
+  .sub{margin-bottom:18px}
+  .pv{gap:16px}
+  .pv__form label{margin-bottom:8px;font-size:13px}
+  .pv__form input,.pv__form select{padding:10px 12px}
+  .hphone--pv{width:min(210px,58vw);margin:0 auto}
+  #tools{padding:22px 0}
+  .chips--tools{gap:8px}
+  .chips--tools a{padding:8px 13px;font-size:13px}
+  .faq details{margin-bottom:0}
+  #faq .h2{font-size:22px}
+  .cta{padding:44px 0}
+  .audiocard{padding:10px 12px;margin-top:12px}
+}

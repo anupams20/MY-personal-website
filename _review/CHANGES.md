@@ -1,3 +1,15 @@
+# Review file — ROUND 3 ADDENDUM
+
+## TODO(Anupam) — consolidated (round 3)
+1. Confirm: 600+ sites built · 2 clinics on OPD software (same as before)
+2. Starter renewal price (still ''Ask me'')
+3. DECIDE: WhatsApp reminders — include in Growth package, or keep ₹1,499 add-on? (site currently says add-on everywhere)
+4. Confirm the OPD mock's 3 steps match your real OPD app screens
+5. Test by hand on YOUR phone, inside WhatsApp in-app browser: open preview link from a WhatsApp chat, tap wa.me + tel links, use back button (cannot be emulated here)
+6. Audio is LIVE (your 31-sec recording converted to media/intro-hi.mp3) — listen once on the preview and approve
+7. Production release steps (when you say go): merge redesign-visual -> main, push; add the cache-control header block to netlify.toml; keep canonical/OG on anupamwebworks.com (already set)
+
+(Original round-1/2 file continues below)
 # Review file — branch `redesign-visual` (NOT pushed) · Round 2
 
 ## ⚠️ ALL TODO(Anupam) — things only you can decide/provide

@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-<link rel="stylesheet" href="style.css?v=13">
+<link rel="stylesheet" href="style.css?v=14">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.png" sizes="64x64">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -87,14 +87,10 @@
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2c-5.5 0-9.97 4.47-9.97 9.97 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.93 9.93 0 0 0 4.84 1.24h.01c5.5 0 9.97-4.47 9.97-9.97 0-2.66-1.04-5.17-2.92-7.05A9.9 9.9 0 0 0 12.04 2Zm0 18.15h-.01a8.27 8.27 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 1 1 7.01 3.86Zm4.54-6.19c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.64.8-.79.97-.14.16-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.02 2.57c.12.16 1.75 2.67 4.25 3.74.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.11-.23-.17-.48-.29Z"/></svg>
           <span data-i18n="hero.cta1">WhatsApp karein — free demo</span>
         </a>
-        <a class="btn btn--ghost btn--lg" href="#quiz" data-i18n="hero.cta2">▶ 60-second check</a>
+        <a class="btn btn--ghost btn--lg" href="check.html" data-i18n="hero.cta2">▶ 60-second check</a>
       </div>
       <p class="hero__note" data-i18n="hero.note">See your clinic's website first. Pay only if you like it.</p>
-      <div class="nextsteps" aria-label="What happens next">
-  <span>1️⃣ <b data-i18n="ns.1">Send name + city</b></span><span class="ns-arr">→</span>
-  <span>2️⃣ <b data-i18n="ns.2">Demo, usually same day</b></span><span class="ns-arr">→</span>
-  <span>3️⃣ <b data-i18n="ns.3">Pay only after approving</b></span>
-</div>
+      
     </div>
     <div class="hero__photo reveal in" style="justify-self:center">
       <div class="hphone" role="img" aria-label="A patient searches 'doctor near me' on Google and your clinic appears first with a Book button">
@@ -118,45 +114,9 @@
       <li><strong data-i18n="cred.4a">IIT Kanpur</strong><span data-i18n="cred.4b">B.Tech, 2024</span></li>
       <li><strong data-i18n="cred.5a">Demo first</strong><span data-i18n="cred.5b">payment only after you approve</span></li>
     </ul>
-    <!-- TODO(Anupam): record and add /media/intro-hi.mp3 (30-40 sec, Hindi/Hinglish) -->
-    <div class="audiocard">
-      <img src="images/anupam.jpg" alt="Anupam Singh" width="46" height="46">
-      <div><b data-i18n="au.h">🎙️ Anupam ki baat — 30 seconds</b><br><span data-i18n="au.s">Hindi mein suniye: kaun hoon, kya banata hoon.</span></div>
-      <audio controls preload="none" src="media/intro-hi.mp3" aria-label="Intro audio in Hindi"></audio>
-    </div>
+    
   </div>
 </section>
-
-<!-- ============ SCREEN 2 · THE 4 PROBLEMS (watch them) ============ -->
-<section id="problems" class="section section--dark">
-  <div class="wrap">
-    <p class="mile"><span class="mile__n">1</span><span data-i18n="mile.1">The problem</span></p>
-    <h2 class="h2" data-i18n-html="h2.pain">Four ways clinics <span class="hl-light">lose patients</span>. Watch:</h2>
-    <div class="cards cards--4">
-      <article class="card card--dark reveal">
-        <div class="pmini pm-find"><span class="lens">🔍</span><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span></div>
-        <p data-i18n="pain.1.p">Patient searches. Competitor shows up.</p>
-      </article>
-      <article class="card card--dark reveal">
-        <div class="pmini pm-call"><span class="ph">📞</span><span class="badge">✗ missed</span><span class="walk">🚶</span></div>
-        <p data-i18n="pain.2.p">OPD busy. Call missed. Patient gone.</p>
-      </article>
-      <article class="card card--dark reveal">
-        <div class="pmini pm-reg"><div class="book"><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div></div>
-        <p data-i18n="pain.3.p">Old patient files lost in registers.</p>
-      </article>
-      <article class="card card--dark reveal">
-        <div class="pmini pm-rev">
-          <div class="row you"><small data-i18n="pain.you">You</small><span class="s"><i>★</i><i>★</i></span> 12</div>
-          <div class="row comp"><small data-i18n="pain.comp">Competitor</small><span class="s"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span> 214</div>
-        </div>
-        <p data-i18n="pain.4.p">Years of good work. Only 12 reviews.</p>
-      </article>
-    </div>
-    <p class="pain__loss reveal"><a href="#calc"><strong data-i18n="pain.loss2">See what this costs your clinic ↓</strong></a></p>
-  </div>
-</section>
-
 
 <!-- ============ SCREEN 2.5 · APNA CLINIC PREVIEW (personalisation hook) ============ -->
 <section id="preview" class="section section--alt">
@@ -199,6 +159,39 @@
   </div>
 </section>
 
+<!-- ============ SCREEN 2 · THE 4 PROBLEMS (watch them) ============ -->
+<section id="problems" class="section section--dark">
+  <div class="wrap">
+    <p class="mile"><span class="mile__n">1</span><span data-i18n="mile.1">The problem</span></p>
+    <h2 class="h2" data-i18n-html="h2.pain">Four ways clinics <span class="hl-light">lose patients</span>:</h2>
+    <div class="cards cards--4 cards--pain">
+      <article class="card card--dark reveal">
+        <div class="pmini pm-find"><span class="lens">🔍</span><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span></div>
+        <p data-i18n="pain.1.p">Patient searches. Competitor shows.</p>
+      </article>
+      <article class="card card--dark reveal">
+        <div class="pmini pm-call"><span class="ph">📞</span><span class="badge">✗ missed</span><span class="walk">🚶</span></div>
+        <p data-i18n="pain.2.p">Call missed. Patient gone.</p>
+      </article>
+      <article class="card card--dark reveal">
+        <div class="pmini pm-reg"><div class="book"><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div></div>
+        <p data-i18n="pain.3.p">Files lost in registers.</p>
+      </article>
+      <article class="card card--dark reveal">
+        <div class="pmini pm-rev">
+          <div class="row you"><small data-i18n="pain.you">You</small><span class="s"><i>★</i><i>★</i></span> 12</div>
+          <div class="row comp"><small data-i18n="pain.comp">Competitor</small><span class="s"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span> 214</div>
+        </div>
+        <p data-i18n="pain.4.p">Only 12 reviews online.</p>
+      </article>
+    </div>
+    <p class="pain__loss reveal"><a href="#calc"><strong data-i18n="pain.loss2">See what this costs your clinic ↓</strong></a></p>
+  </div>
+</section>
+
+
+
+
 <!-- ============ SCREEN 3 · THE SOLUTION IN 4 PICTURES ============ -->
 <section id="solutions" class="section">
   <div class="wrap">
@@ -219,78 +212,33 @@
       </article>
       <article class="scene reveal">
         <div class="smini sm-wa"><div class="bub in1 b1">Book please 🙏</div><div class="bub out1 b2">📥 Ramesh · 98xxx · 11am</div><div class="bub in1 b3">⏰ Reminder: kal 11 baje</div></div>
-        <p class="cap" data-i18n-html="svc.4.cap">💬 Booking on your phone. Reminder to patient. <a href="whatsapp-booking.html">Dekhein →</a></p>
+        <p class="cap" data-i18n-html="svc.4.cap">💬 Booking arrives on your WhatsApp. <a href="whatsapp-booking.html">Dekhein →</a></p>
       </article>
     </div>
     <p class="seemore"><a href="nmc-rules.html" data-i18n="nmcline">🛡️ Built to follow NMC rules — see what's allowed →</a></p>
   </div>
 </section>
 
-<!-- ============ SCREEN 3.5 · QUIZ (kept, compact) ============ -->
-<section id="quiz" class="section section--quiz">
-  <div class="wrap wrap--narrow">
-    <p class="eyebrow" data-i18n="sec.quiz.eye">60-second check</p>
-    <h2 class="h2" data-i18n-html="h2.quiz">What's your <span class="hl">Clinic Growth Score</span>?</h2>
-    <p class="sub" data-i18n="sub.quiz">7 taps. No email. An honest score.</p>
-    <div class="qz" id="qz">
-      <div class="qz__bar"><div class="qz__fill" id="qzFill"></div></div>
-      <div class="qz__step" id="qzStep"></div>
-      <div class="qz__body" id="qzBody"></div>
-      <div class="qz__nav"><button class="btn btn--ghost" id="qzBack" type="button" hidden>← Back</button></div>
-    </div>
-    <div class="qz__result" id="qzResult" hidden>
-      <div class="scorering"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-val" id="ringVal" cx="60" cy="60" r="52"/></svg><div class="score__n"><span id="scoreNum">0</span><small>/100</small></div></div>
-      <h3 id="scoreTitle"></h3>
-      <p id="scoreMsg" class="score__msg"></p>
-      <p class="score__rec" id="scoreRec"></p>
-      <div class="unlock" id="unlock">
-        <p><strong data-i18n="qz.unlock.h">🎁 Unlock your 7-point Clinic Growth Checklist</strong><br><span data-i18n="qz.unlock.p">A to-do list matched to your answers — free, right now.</span></p>
-        <form class="unlock__form" onsubmit="return qzLead(event)">
-          <input id="ql_n" placeholder="Your name*" required>
-          <input id="ql_p" placeholder="WhatsApp number*" required pattern="[0-9+ ]{10,14}">
-          <input id="ql_c" placeholder="Clinic name & city (optional)">
-          <button class="btn btn--wa" type="submit" data-i18n="qz.unlock.btn">Show my checklist</button>
-        </form>
-        <p class="unlock__priv" data-i18n="qz.unlock.priv">Used only to send your checklist. No spam, ever.</p>
-      </div>
-      <div class="checklist" id="checklist" hidden></div>
-      <button class="btn btn--ghost" id="qzRetake" type="button" onclick="qzStart()" data-i18n="qz.retake">↺ Retake the check</button>
-    </div>
+<!-- quiz + calculator moved to /check and /calculator (40-second plan) -->
+<section class="section section--alt" id="tools" style="padding:34px 0">
+  <div class="wrap">
+    <ul class="chips chips--tools">
+      <li><a href="check.html" data-i18n="chip.check">✦ 60-second clinic check</a></li>
+      <li><a href="calculator.html" data-i18n="chip.calc">🧮 Missed-patient calculator</a></li>
+      <li><a href="nmc-rules.html" data-i18n="chip.nmc">🛡️ NMC rules</a></li>
+      <li><a href="mental-health.html" data-i18n="chip.mh">🧠 Mental health</a></li>
+      <li><a href="specialties.html" data-i18n="chip.spec">🧩 Your specialty</a></li>
+    </ul>
   </div>
 </section>
 
-<!-- ============ SCREEN 3.6 · CALCULATOR (kept + money jar) ============ -->
-<section id="calc" class="section">
-  <div class="wrap wrap--narrow">
-    <p class="eyebrow" data-i18n="sec.calc.eye">Do the maths</p>
-    <h2 class="h2" data-i18n-html="h2.calc">Patients who book but <span class="hl">don't come</span> — the cost?</h2>
-    <div class="calc">
-      <div class="calc__inputs">
-        <label>Appointments per day <output id="o_ap">20</output>
-          <input type="range" id="c_ap" min="5" max="80" value="20" step="1"></label>
-        <label>Average fees per visit <output>₹<span id="o_fee">400</span></output>
-          <input type="range" id="c_fee" min="100" max="2500" value="400" step="50"></label>
-        <label>Booked but didn't come <output><span id="o_ns">15</span>%</output>
-          <input type="range" id="c_ns" min="5" max="40" value="15" step="1"></label>
-      </div>
-      <div class="calc__out">
-        <div class="jar" id="jar" data-rate="slow" aria-hidden="true"><div class="lid"></div><div class="glass"></div><span class="coin c1"></span><span class="coin c2"></span><span class="coin c3"></span><span class="leaklabel" data-i18n="calc.leak">fees leaking away…</span></div>
-        <div class="calc__big"><span data-i18n="calc.lost">Lost every month</span><strong>₹<span id="r_month">0</span></strong></div>
-        <div class="calc__row"><span data-i18n="calc.year">Per year</span><strong>₹<span id="r_year">0</span></strong></div>
-        <div class="calc__row calc__row--good"><span data-i18n="calc.half">If reminders save even half*</span><strong>₹<span id="r_half">0</span>/yr</strong></div>
-        <a class="btn btn--wa btn--block" id="calcCta" href="#" target="_blank" rel="noopener" data-i18n="calc.cta">🟢 Ask me how to stop this</a>
-        <p class="calc__note" data-i18n="calc.note">*Estimate from your inputs — not a guarantee.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ============ SCREEN 4 · PROOF ============ -->
 <section id="work" class="section section--alt">
   <div class="wrap">
     <p class="mile"><span class="mile__n">3</span><span data-i18n="mile.4">The proof</span></p>
     <h2 class="h2" data-i18n-html="h2.work">Real clinics. <span class="hl">Open them.</span></h2>
-    <div class="work work--clients">
+    <div class="work work--clients cards--swipe">
       <article class="work__item">
         <a class="work__thumb" href="https://little-heart-child-care.web.app/" target="_blank" rel="noopener" aria-label="Open Little Heart Child Care Centre — live client website">
           <div class="lazyfr" data-src="https://little-heart-child-care.web.app/" data-title="Live preview of Little Heart Child Care Centre, Bareilly" role="button" tabindex="0"><span class="lazyfr__btn">▶ <span>Tap to preview</span></span></div>
@@ -309,44 +257,30 @@
         <h3>Mohan Eye &amp; Health Clinic — Agra</h3>
         <p data-i18n="work.2.p">Eye clinic. Website + eye-OPD software.</p>
       </article>
-      <article class="work__item">
-        <a class="work__thumb" href="https://up-hospitals.web.app/demo?via=team" target="_blank" rel="noopener" aria-label="Open the multispeciality hospital demo website">
-          <div class="lazyfr" data-src="https://up-hospitals.web.app/demo?via=team" data-title="Preview of the multispeciality hospital demo website" role="button" tabindex="0"><span class="lazyfr__btn">▶ <span>Tap to preview</span></span></div>
-          <span class="work__open">Open ↗</span>
-        </a>
-        <span class="work__badge work__badge--demo">Hospital demo</span>
-        <h3>Multispeciality Hospital — demo</h3>
-        <p data-i18n="work.3.p">The ₹34,999 package, live. Departments, booking, packages.</p>
-      </article>
+      
     </div>
 
-    <!-- register vs screen -->
-    <div class="ba" id="ba">
-      <div class="baview" aria-live="polite">
-        <div class="v before">📒<small data-i18n="ba.before">Before: the register</small></div>
-        <div class="v after">🖥️<small data-i18n="ba.after">After: any patient found in 2 seconds</small></div>
-      </div>
-      <div class="baswitch" role="group" aria-label="Before and after">
-        <button type="button" class="on" id="baB" data-i18n="ba.b1">📒 Register</button>
-        <button type="button" id="baA" data-i18n="ba.b2">🖥️ Screen</button>
-      </div>
+    <div class="audiocard">
+      <img src="images/anupam.jpg" alt="Anupam Singh" width="46" height="46">
+      <div><b data-i18n="au.h">🎙️ Anupam ki baat — 30 seconds</b><br><span data-i18n="au.s">Hindi mein suniye: kaun hoon, kya banata hoon.</span></div>
+      <audio controls preload="none" src="media/intro-hi.mp3" aria-label="Intro audio in Hindi"></audio>
     </div>
-  </div>
-</section>
+
+    </section>
 
 <!-- ============ SCREEN 5 · PRICE ============ -->
 <section id="pricing" class="section section--dark section--pricing">
   <div class="wrap">
     <p class="mile mile--light"><span class="mile__n">4</span><span data-i18n="mile.3">The plan</span></p>
     <h2 class="h2" data-i18n-html="h2.pricing">Fixed prices. <span class="hl-light">No surprises.</span></h2>
-    <div class="tiers">
+    <div class="tiers tiers--swipe">
       <article class="tier reveal">
         <h3 data-i18n="tier.1.h">🌱 Clinic Starter</h3>
         <p class="price">₹4,999</p>
         <p class="price__note" data-i18n="tier.1.note">📅 ready in 3–5 days</p>
         <ul class="ticks">
           <li data-i18n="t1a">Website + WhatsApp booking</li>
-          <li data-i18n="t1b">Google Maps set up properly</li>
+          <li data-i18n="t1b">Google Maps profile set up</li>
           <li data-i18n="t1c">Your timings, photos, services</li>
         </ul>
         <a class="btn btn--ghost btn--block" href="https://wa.me/919670809669?text=Hi%20Anupam%2C%20Clinic%20Starter%20(%E2%82%B94%2C999)%20—%20show%20me%20my%20demo." target="_blank" rel="noopener" data-i18n="tier.enq">Enquire</a>
@@ -359,7 +293,7 @@
         <ul class="ticks">
           <li data-i18n="t2a">Everything in Starter</li>
           <li data-i18n="t2b">OPD software — records + printed ℞</li>
-          <li data-i18n="t2c">Review QR for reception</li>
+          <li data-i18n="t2c">Maps profile + review QR</li>
         </ul>
         <a class="btn btn--wa btn--block" href="https://wa.me/919670809669?text=Hi%20Anupam%2C%20Clinic%20Growth%20(%E2%82%B99%2C999)%20—%20show%20me%20my%20demo." target="_blank" rel="noopener" data-i18n="tier.enq2">Enquire</a>
       </article>
@@ -376,7 +310,7 @@
       </article>
     </div>
     <p class="tiers-guarantee" data-i18n-html="tiers.guarantee"><strong>Demo first. Payment only after you approve it.</strong></p>
-    <p class="feeeq" data-i18n-html="feeeq">₹4,999 ≈ <b id="feeEq">13</b> patients' fees (at the ₹<span id="feeEqFee">400</span>/visit you set above) — simple arithmetic, not a promise.</p>
+    <p class="feeeq" data-i18n-html="feeeq">₹4,999 ≈ <b id="feeEq2">13</b> patients' fees (at ₹400/visit) — simple arithmetic, not a promise.</p>
     <p class="seemore"><a href="pricing.html" style="color:#8fd0c9" data-i18n="price.more">Full comparison &amp; add-ons →</a></p>
   </div>
 </section>
@@ -386,7 +320,7 @@
   <div class="wrap wrap--narrow">
     <h2 class="h2" data-i18n-html="h2.faq">Three things <span class="hl">every doctor asks</span>.</h2>
     <div class="faq">
-      <details open><summary>🆚 I'm on Practo/Justdial. Why my own website?</summary><p data-i18n="faq.1">Practo shows your competitor next to you. Your own website shows only you — and patients come to your WhatsApp.</p></details>
+      <details><summary>🆚 I'm on Practo/Justdial. Why my own website?</summary><p data-i18n="faq.1">Practo shows your competitor next to you. Your own website shows only you — and patients come to your WhatsApp.</p></details>
       <details><summary>🛡️ Is this allowed under NMC rules?</summary><p data-i18n-html="faq.2">Yes. No testimonials, no "best doctor", no discounts. Only qualifications, timings, services, fees. <a href="nmc-rules.html">Full rules →</a></p></details>
       <details><summary>💰 Why so much cheaper than agencies?</summary><p data-i18n="faq.3">No office, no sales team. One engineer builds it. That is why it is cheaper.</p></details>
     </div>
@@ -432,7 +366,7 @@
 <div class="mcta" id="mcta" hidden>
   <a href="https://wa.me/919670809669?text=Hi%20Anupam%2C%20I%20run%20a%20clinic.%20Please%20send%20my%20free%20demo." target="_blank" rel="noopener"><span class="e">🟢</span>WhatsApp</a>
   <a href="tel:+919670809669"><span class="e">📞</span><span data-i18n="mcta.call">Call</span></a>
-  <a href="#quiz" class="p"><span class="e">✦</span><span data-i18n="mcta.audit">60-sec check</span></a>
+  <a href="check.html" class="p"><span class="e">✦</span><span data-i18n="mcta.audit">60-sec check</span></a>
 </div>
 
 <!-- Floating chat widget (WhatsApp-routed; offer copy lives in script.js) -->
@@ -472,8 +406,8 @@
   </a>
 </div>
 
-<script src="i18n.js?v=10"></script>
-<script src="script.js?v=11"></script>
+<script src="i18n.js?v=11"></script>
+<script src="script.js?v=12"></script>
 <script>
 /* before/after toggle */
 (function(){
@@ -502,15 +436,26 @@ try{
   try{if(document.referrer){var h=new URL(document.referrer).hostname;
     if(h&&h!==location.hostname)o['ref/'+h.replace(/[.#$\[\]\/]/g,'_')]={'.sv':{increment:1}};}}catch(e){}
   send(o);
+  var t0c=Date.now(),ftap=false;
   document.addEventListener('click',function(e){
     var a=e.target;while(a&&a.tagName!=='A')a=a.parentNode;
     if(!a||!a.href)return;
+    if(!ftap&&(a.href.indexOf('wa.me/')>-1||a.href.indexOf('tel:')===0)){ftap=true;
+      var b=Math.min(120,Math.round((Date.now()-t0c)/1000));var o2={};o2['ttft/'+(b<=10?'0_10s':b<=20?'10_20s':b<=40?'20_40s':'40s_plus')]={'.sv':{increment:1}};send(o2);}
+    if(a.href.indexOf('wa.me/')>-1){var sec=a.closest('section,header,div.mcta');var sid=(sec&&(sec.id||sec.className.split(' ')[0]))||'other';
+      var o3={};o3['wa_sec/'+String(sid).replace(/[.#$\[\]\/]/g,'_').slice(0,24)]={'.sv':{increment:1}};send(o3);}
     if(a.href.indexOf('tel:')===0)ev('call');
     else if(a.href.indexOf('wa.me/')>-1)ev('wa');
     else if(a.href.indexOf('mailto:')===0)ev('email');
     else if(a.href.indexOf('little-heart-child-care.web.app')>-1||a.href.indexOf('mohan-eye-health-clinic.web.app')>-1)ev('client');
     else if(a.href.indexOf('up-hospitals.web.app')>-1)ev('demo');
   },true);
+  var marks={25:0,50:0,75:0,100:0};
+  addEventListener('scroll',function(){var e=document.documentElement;var p=Math.round(e.scrollTop/((e.scrollHeight-e.clientHeight)||1)*100);
+    [25,50,75,100].forEach(function(m){if(p>=m&&!marks[m]){marks[m]=1;var o={};o['depth/d'+m]={'.sv':{increment:1}};send(o);}});},{passive:true});
+  try{var lg=localStorage.getItem('lang')||'en';var ol={};ol['lang/'+lg]={'.sv':{increment:1}};send(ol);}catch(e){}
+  var pvN=document.getElementById('pv_name');
+  if(pvN){var pvUsed=false;pvN.addEventListener('input',function(){if(pvUsed)return;pvUsed=true;ev('pv_used');});}
   var t0=Date.now(),sent=false;
   function dur(){if(sent)return;sent=true;
     var s=Math.round((Date.now()-t0)/1000);if(s<2)return;
