@@ -1228,8 +1228,8 @@ html[lang="hi"] body{letter-spacing:0}
    ========================================================================== */
 
 /* credibility strip: icon + fact reads faster than a grey box of text */
-.creds li{flex-direction:row;align-items:center;gap:12px}
-.creds .cico{flex:none;width:38px;height:38px;border-radius:10px;background:var(--accent-sf);color:var(--accent);display:grid;place-items:center}
+.creds li{flex-direction:row;align-items:flex-start;gap:12px}
+.creds .cico{flex:none;width:38px;height:38px;border-radius:10px;background:var(--accent-sf);color:var(--accent);display:grid;place-items:center;margin-top:1px}
 .creds .cico svg{width:20px;height:20px}
 .creds li>div{display:flex;flex-direction:column;gap:3px;min-width:0}
 @media(max-width:720px){
@@ -1268,6 +1268,9 @@ html[lang="hi"] body{letter-spacing:0}
 }
 @media(min-width:861px) and (max-width:1150px){
   .nav__phone span{display:none}  /* icon stays, number returns on wider screens */
+}
+@media(min-width:1000px){
+  .nav__logo{flex-shrink:0}  /* room exists here — never ellipsize the brand name */
 }
 
 /* brand illustrations */
