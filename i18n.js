@@ -242,6 +242,12 @@ window.I18N = {
       'ns.1': 'नाम + शहर भेजिए', 'ns.2': 'डेमो, आमतौर पर उसी दिन', 'ns.3': 'पसंद आए तभी payment',
       'au.h': '🎙️ Anupam ki baat — 30 seconds',
       'au.s': 'हिंदी में सुनिए: कौन हूँ, क्या बनाता हूँ।',
+
+      /* demo video (proof section + opd + how-it-works) */
+      'vd.h'   : '🎥 चलते हुए देखिए — 5 मिनट',
+      'vd.btn' : '▶ डेमो चलाइए',
+      'vd.cap' : 'क्लिनिक वेबसाइट + OPD सॉफ़्टवेयर — पूरा walkthrough, 5 मिनट में।',
+      'chip.video': '🎥 डेमो वीडियो — 5 min',
       'fwd.btn': '📤 Colleague ko forward karein',
       'feeeq': '₹4,999 ≈ <b id="feeEq">13</b> मरीज़ों की fees (ऊपर सेट ₹<span id="feeEqFee">400</span>/visit पर) — सिर्फ़ हिसाब, कोई वादा नहीं।',
 

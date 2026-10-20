@@ -368,6 +368,7 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
       var i = document.createElement('iframe');
       i.src = f.dataset.src; i.title = f.dataset.title || 'Live preview';
       i.setAttribute('scrolling', 'no'); i.setAttribute('tabindex', '-1');
+      if (f.dataset.allow) { i.setAttribute('allow', f.dataset.allow); i.setAttribute('allowfullscreen', ''); }
       f.appendChild(i);
       var b = f.querySelector('.lazyfr__btn'); if (b) b.remove();
     }
