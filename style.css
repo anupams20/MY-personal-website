@@ -1222,3 +1222,68 @@ html[lang="hi"] body{letter-spacing:0}
 .abtech li::before{content:"·";position:absolute;left:6px;color:var(--accent);font-weight:800}
 .smallprint{font-size:11px;color:var(--muted);text-align:center;margin-top:30px}
 .sb .tile{text-align:left}
+
+/* ==========================================================================
+   r4 · UAT visual enhancement
+   ========================================================================== */
+
+/* credibility strip: icon + fact reads faster than a grey box of text */
+.creds li{flex-direction:row;align-items:center;gap:12px}
+.creds .cico{flex:none;width:38px;height:38px;border-radius:10px;background:var(--accent-sf);color:var(--accent);display:grid;place-items:center}
+.creds .cico svg{width:20px;height:20px}
+.creds li>div{display:flex;flex-direction:column;gap:3px;min-width:0}
+@media(max-width:720px){
+  .creds li{padding:9px 10px;gap:9px}
+  .creds .cico{width:30px;height:30px;border-radius:8px}
+  .creds .cico svg{width:16px;height:16px}
+}
+
+/* proof facades: show the real client site, not an empty box */
+.lazyfr--shot{background-size:cover;background-position:top center}
+.lazyfr--shot::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,43,49,0) 42%,rgba(11,43,49,.45))}
+.lazyfr--shot .lazyfr__btn{position:relative}
+
+/* pricing: headroom so the "Most chosen" tag never clips; teaser steps aside */
+.tiers{padding-top:16px}
+.chat--quiet .chat__teaser{display:none}
+
+/* chat badge: dot text drawn in CSS so the visible label can't fight the aria-label */
+.chat__badge::after{content:"1"}
+
+/* contrast fixes (Lighthouse): dark-section milestones, footer, captions */
+.section--dark .mile{color:#9fc1c9}
+.section--dark .mile::after{background:rgba(255,255,255,.22)}
+.foot{color:#9fadb9}
+.foot__links a{color:#c2cbd8}
+.audiocard span{color:var(--body)}
+.pvmut{color:#5d7a74}
+
+/* nav: fit one line on laptop widths (burger takes over below 861px) */
+@media(min-width:861px) and (max-width:1380px){
+  .nav__inner{gap:16px}
+  .nav__links{gap:15px}
+  .nav__links a{font-size:13.5px;white-space:nowrap}
+  .nav__logo{font-size:15px}
+  .nav__phone{font-size:13.5px}
+}
+@media(min-width:861px) and (max-width:1150px){
+  .nav__phone span{display:none}  /* icon stays, number returns on wider screens */
+}
+
+/* brand illustrations */
+.illus{margin:0}
+.illus img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--line);box-shadow:var(--shadow)}
+.illus figcaption{font-size:13px;color:var(--muted);margin-top:8px;text-align:center}
+.storygrid{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center;margin:10px 0 6px}
+@media(max-width:720px){.storygrid{grid-template-columns:1fr;gap:14px}}
+.mh-illus{max-width:640px;margin:0 auto 26px}
+
+/* OPD before/after: the toggle now flips two real scenes */
+.ba--art{max-width:560px}
+.ba--art .baview{height:auto;aspect-ratio:3/2}
+.ba--art .v img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba--art .v small{
+  position:absolute;left:50%;transform:translateX(-50%);bottom:12px;margin:0;z-index:2;
+  background:rgba(255,255,255,.94);color:var(--ink);padding:6px 14px;border-radius:999px;
+  box-shadow:0 4px 14px rgba(11,43,49,.2);white-space:nowrap;
+}

@@ -376,6 +376,30 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
     f.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); load(); } });
   });
 
+  /* ---------- clinic preview: placeholder types a sample name until the doctor starts ---------- */
+  var pvName = document.getElementById('pv_name');
+  if (pvName && !reduced) {
+    var pvTxt = pvName.placeholder || 'Dr. Sharma Clinic', pvI = 0, pvTimer = null, pvStop = false;
+    function pvTick() {
+      if (pvStop || pvName.value || document.activeElement === pvName) { pvName.placeholder = pvTxt; return; }
+      pvI++; if (pvI > pvTxt.length + 16) pvI = 0;      /* hold at the end, then start over */
+      pvName.placeholder = pvTxt.slice(0, Math.min(pvI, pvTxt.length));
+      pvTimer = setTimeout(pvTick, pvI < pvTxt.length ? 110 : 150);
+    }
+    new IntersectionObserver(function (es, ob) {
+      es.forEach(function (e) { if (e.isIntersecting) { ob.disconnect(); pvTick(); } });
+    }, { threshold: 0.4 }).observe(pvName);
+    pvName.addEventListener('focus', function () { pvStop = true; clearTimeout(pvTimer); pvName.placeholder = pvTxt; });
+  }
+
+  /* ---------- keep the chat teaser from covering the pricing cards ---------- */
+  var chatBox = document.getElementById('chat'), pricingSec = document.getElementById('pricing');
+  if (chatBox && pricingSec) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) { chatBox.classList.toggle('chat--quiet', e.isIntersecting); });
+    }, { threshold: 0.05 }).observe(pricingSec);
+  }
+
   /* ---------- no-show calculator ---------- */
   var ap = document.getElementById('c_ap');
   if (ap) {

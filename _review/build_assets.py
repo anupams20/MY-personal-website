@@ -33,9 +33,8 @@ p{font-size:28px;color:#bcd7d4;margin:0;font-weight:500}
 .row{display:flex;gap:16px;justify-content:center;margin-top:44px}
 .chip{border:1.5px solid rgba(255,255,255,.25);border-radius:999px;padding:10px 22px;font-size:21px;color:#e3f3f6;font-weight:700}
 </style></head><body><div class="card">
-<div class="k"><span class="tri"></span> 5-minute demo</div>
 <h1>Website + <b>OPD software</b></h1>
-<p>Dekhiye — chalta hua, aapke clinic jaisa</p>
+<p>Dekhiye — chalta hua, aapke clinic jaisa · 5 minute</p>
 <div class="row"><span class="chip">🌐 Clinic website</span><span class="chip">🖥️ OPD + printed ℞</span><span class="chip">💬 WhatsApp booking</span></div>
 </div></body></html>
 """

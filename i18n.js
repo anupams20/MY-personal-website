@@ -262,6 +262,7 @@ window.I18N = {
       'pg.google-maps.sub': 'आपका क्लिनिक Google Maps पर — ठीक से set, बढ़ते reviews के साथ।',
       'pg.nmc-rules.h1': 'NMC guidelines के अनुसार बनी.',
       'pg.nmc-rules.sub': 'NMC नियम (2026) — website पर क्या हो सकता है, क्या नहीं।',
+      'nmc.src': 'Source: National Medical Commission के professional-conduct नियम — खुद पढ़िए:',
       'pg.pricing.h1': 'दाम फ़िक्स। कोई surprise नहीं.',
       'pg.pricing.sub': 'पहले demo। Approve करने के बाद ही payment।',
       'pg.about.h1': 'एक engineer। कोई agency नहीं.',

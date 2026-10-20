@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-<link rel="stylesheet" href="style.css?v=16">
+<link rel="stylesheet" href="style.css?v=17">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.png" sizes="64x64">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -111,11 +111,23 @@
 
   <!-- honest, defendable numbers only -->
   <div class="wrap">
-    <ul class="creds">
-      <li><strong data-i18n="cred.1a">600+</strong><span data-i18n="cred.1b">clinic websites built (demos + clients)</span></li><!-- TODO(Anupam): confirm this number -->
-      <li><strong data-i18n="cred.2a">2 clinics</strong><span data-i18n="cred.2b">run daily OPD on my software</span></li><!-- TODO(Anupam): confirm this number -->
-      <li><strong data-i18n="cred.4a">IIT Kanpur</strong><span data-i18n="cred.4b">B.Tech, 2024</span></li>
-      <li><strong data-i18n="cred.5a">Demo first</strong><span data-i18n="cred.5b">payment only after you approve</span></li>
+    <ul class="creds reveal">
+      <li>
+        <span class="cico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V7l6-4v18M9 21V9l6 3v9M15 21v-7l6-2v9M3 21h18"/></svg></span>
+        <div><strong data-i18n="cred.1a"><span class="cnt" data-to="600">600</span>+</strong><span data-i18n="cred.1b">clinic websites built (demos + clients)</span></div>
+      </li><!-- TODO(Anupam): confirm this number -->
+      <li>
+        <span class="cico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M7 10h3l1.5-2.5 2 5L15 10h2"/></svg></span>
+        <div><strong data-i18n="cred.2a">2 clinics</strong><span data-i18n="cred.2b">run daily OPD on my software</span></div>
+      </li><!-- TODO(Anupam): confirm this number -->
+      <li>
+        <span class="cico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M6 11.5V16c0 1.6 2.7 3 6 3s6-1.4 6-3v-4.5M22 9v5"/></svg></span>
+        <div><strong data-i18n="cred.4a">IIT Kanpur</strong><span data-i18n="cred.4b">B.Tech, 2024</span></div>
+      </li>
+      <li>
+        <span class="cico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <div><strong data-i18n="cred.5a">Demo first</strong><span data-i18n="cred.5b">payment only after you approve</span></div>
+      </li>
     </ul>
     
   </div>
@@ -245,7 +257,7 @@
     <div class="work work--clients cards--swipe">
       <article class="work__item">
         <a class="work__thumb" href="https://little-heart-child-care.web.app/" target="_blank" rel="noopener" aria-label="Open Little Heart Child Care Centre — live client website">
-          <div class="lazyfr" data-src="https://little-heart-child-care.web.app/" data-title="Live preview of Little Heart Child Care Centre, Bareilly" role="button" tabindex="0"><span class="lazyfr__btn">▶ <span>Tap to preview</span></span></div>
+          <div class="lazyfr lazyfr--shot" data-src="https://little-heart-child-care.web.app/" data-title="Live preview of Little Heart Child Care Centre, Bareilly" role="button" tabindex="0" style="background-image:url('images/clients/little-heart.webp')"><span class="lazyfr__btn">▶ <span>Tap to preview</span></span></div>
           <span class="work__open">Open ↗</span>
         </a>
         <span class="work__badge">✓ Live client</span>
@@ -254,7 +266,7 @@
       </article>
       <article class="work__item">
         <a class="work__thumb" href="https://mohan-eye-health-clinic.web.app/" target="_blank" rel="noopener" aria-label="Open Mohan Eye and Health Clinic — live client website">
-          <div class="lazyfr" data-src="https://mohan-eye-health-clinic.web.app/" data-title="Live preview of Mohan Eye and Health Clinic, Agra" role="button" tabindex="0"><span class="lazyfr__btn">▶ <span>Tap to preview</span></span></div>
+          <div class="lazyfr lazyfr--shot" data-src="https://mohan-eye-health-clinic.web.app/" data-title="Live preview of Mohan Eye and Health Clinic, Agra" role="button" tabindex="0" style="background-image:url('images/clients/mohan-eye.webp')"><span class="lazyfr__btn">▶ <span>Tap to preview</span></span></div>
           <span class="work__open">Open ↗</span>
         </a>
         <span class="work__badge">✓ Live client</span>
@@ -266,7 +278,7 @@
 
     <div class="vdemo reveal" id="demo-video">
       <h3 data-i18n="vd.h">🎥 Watch it working — 5 minutes</h3>
-      <div class="vdemo__frame lazyfr" id="vdemoFr" data-src="https://www.youtube-nocookie.com/embed/mFNITlD9FJs?autoplay=1&amp;rel=0" data-allow="autoplay; encrypted-media; picture-in-picture" data-title="Anupam Web Works — clinic website and OPD software demo" role="button" tabindex="0" aria-label="Play the demo video" style="background-image:url('images/demo-poster.jpg')">
+      <div class="vdemo__frame lazyfr" id="vdemoFr" data-src="https://www.youtube-nocookie.com/embed/mFNITlD9FJs?autoplay=1&amp;rel=0" data-allow="autoplay; encrypted-media; picture-in-picture" data-title="Anupam Web Works — clinic website and OPD software demo" role="button" tabindex="0" aria-label="Play the demo video" style="background-image:url('images/video-card.jpg')">
         <span class="lazyfr__btn">▶ <span data-i18n="vd.btn">Play the demo</span></span>
       </div>
       <p class="vdemo__cap" data-i18n="vd.cap">The clinic website + OPD software — full walkthrough in 5 minutes.</p>
@@ -436,12 +448,12 @@
   <a class="chat__fab" id="chatFab" aria-label="Chat with Anupam" href="https://wa.me/919670809669?text=Hi%20Anupam%2C%20I%20run%20a%20clinic.%20Please%20send%20my%20free%20demo." target="_blank" rel="noopener">
     <svg class="chat__i-chat" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3C6.9 3 2.8 6.5 2.8 10.9c0 2.3 1.1 4.3 2.9 5.7-.1 1-.6 2.4-1.6 3.5 0 0 2.6-.3 4.6-1.8 1 .3 2.1.5 3.3.5 5.1 0 9.2-3.5 9.2-7.9S17.1 3 12 3Z"/></svg>
     <svg class="chat__i-close" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12 19 6.4Z"/></svg>
-    <span class="chat__badge" id="chatBadge" aria-hidden="true">1</span>
+    <span class="chat__badge" id="chatBadge" aria-hidden="true"></span>
   </a>
 </div>
 
-<script src="i18n.js?v=13"></script>
-<script src="script.js?v=14"></script>
+<script src="i18n.js?v=14"></script>
+<script src="script.js?v=15"></script>
 <script>
 /* before/after toggle */
 (function(){
