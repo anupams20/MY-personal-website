@@ -524,7 +524,9 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
       }, 120);
     }
     res.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
-    try { fetch('https://anupam-samples-default-rtdb.firebaseio.com/hits/_site_main.json',
+    /* hostname guard: only count on the real domain (matches the index.html tracker) */
+    try { if (/(^|\.)anupamwebworks\.com$/.test(location.hostname))
+      fetch('https://anupam-samples-default-rtdb.firebaseio.com/hits/_site_main.json',
       { method: 'PATCH', body: JSON.stringify({ quiz_done: { '.sv': { increment: 1 } } }) }); } catch (e) {}
   }
   window.qzLead = function (e) {
@@ -647,7 +649,9 @@ var DELAY_MS = 7000;   /* how long before the bubble appears */
   if (!chip || !sh) return;
   var card = document.getElementById('tsheetCard'), prevFocus = null;
   function track(k) {
-    try { fetch('https://anupam-samples-default-rtdb.firebaseio.com/hits/_site_main.json',
+    /* hostname guard: only count on the real domain (matches the index.html tracker) */
+    try { if (/(^|\.)anupamwebworks\.com$/.test(location.hostname))
+      fetch('https://anupam-samples-default-rtdb.firebaseio.com/hits/_site_main.json',
       { method: 'PATCH', body: JSON.stringify((function(){var o={};o[k]={'.sv':{increment:1}};return o;})()) }); } catch (e) {}
   }
   function open() {
