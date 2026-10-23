@@ -265,13 +265,13 @@
         <p data-i18n="work.1.p">Children's clinic. Website + OPD software, used daily.</p>
       </article>
       <article class="work__item">
-        <a class="work__thumb" href="https://mohan-eye-health-clinic.web.app/" target="_blank" rel="noopener" aria-label="Open Mohan Eye and Health Clinic — live client website">
-          <div class="lazyfr lazyfr--shot" data-src="https://mohan-eye-health-clinic.web.app/" data-title="Live preview of Mohan Eye and Health Clinic, Agra" role="button" tabindex="0" style="background-image:url('images/clients/mohan-eye.webp')"><span class="lazyfr__btn">▶ <span>Tap to preview</span></span></div>
+        <a class="work__thumb" href="https://dr-deepika-rawat.web.app/" target="_blank" rel="noopener" aria-label="Open Dr. Deepika Rawat — live client website">
+          <div class="lazyfr lazyfr--shot" data-src="https://dr-deepika-rawat.web.app/" data-title="Live preview of Dr. Deepika Rawat — gynecologist, Mira Road, Mumbai" role="button" tabindex="0" style="background-image:url('images/clients/dr-deepika.webp')"><span class="lazyfr__btn">▶ <span>Tap to preview</span></span></div>
           <span class="work__open">Open ↗</span>
         </a>
         <span class="work__badge">✓ Live client</span>
-        <h3>Mohan Eye &amp; Health Clinic — Agra</h3>
-        <p data-i18n="work.2.p">Eye clinic. Website + eye-OPD software.</p>
+        <h3>Dr. Deepika Rawat — Gynecologist, Mumbai</h3>
+        <p data-i18n="work.2.p">Gynaecology clinic. Website with Google reviews + WhatsApp booking.</p>
       </article>
       
     </div>
@@ -452,7 +452,7 @@
   </a>
 </div>
 
-<script src="i18n.js?v=14"></script>
+<script src="i18n.js?v=15"></script>
 <script src="script.js?v=15"></script>
 <script>
 /* before/after toggle */
@@ -468,6 +468,9 @@ document.getElementById('baA').addEventListener('click',function(){ba.classList.
 (function(){
 try{
   if(location.protocol==='file:')return;
+  /* only count the real domain — UAT (aww-preview.web.app), netlify previews
+     and localhost must not pollute the prod stats */
+  if(!/(^|\.)anupamwebworks\.com$/.test(location.hostname))return;
   if(/[?&]t=1(&|$)/.test(location.search))return;
   try{if(sessionStorage.getItem('aww_team_gate_v1'))return;}catch(e){}
   var B='https://anupam-samples-default-rtdb.firebaseio.com/hits/_site_main';
@@ -493,12 +496,36 @@ try{
     if(a.href.indexOf('tel:')===0)ev('call');
     else if(a.href.indexOf('wa.me/')>-1)ev('wa');
     else if(a.href.indexOf('mailto:')===0)ev('email');
-    else if(a.href.indexOf('little-heart-child-care.web.app')>-1||a.href.indexOf('mohan-eye-health-clinic.web.app')>-1)ev('client');
+    else if(a.href.indexOf('little-heart-child-care.web.app')>-1||a.href.indexOf('dr-deepika-rawat.web.app')>-1)ev('client');
     else if(a.href.indexOf('up-hospitals.web.app')>-1)ev('demo');
   },true);
-  var marks={25:0,50:0,75:0,100:0};
+  var marks={25:0,50:0,75:0,100:0},maxS=0;
   addEventListener('scroll',function(){var e=document.documentElement;var p=Math.round(e.scrollTop/((e.scrollHeight-e.clientHeight)||1)*100);
+    if(p>maxS)maxS=p;
     [25,50,75,100].forEach(function(m){if(p>=m&&!marks[m]){marks[m]=1;var o={};o['depth/d'+m]={'.sv':{increment:1}};send(o);}});},{passive:true});
+  /* per-visit session log (time, scroll, which sections were actually read) —
+     feeds the "Recent visits" table on /admin. Lost in the r3/r4 rewrite; restored. */
+  var SECS={},SELS=[],sStart=Date.now();
+  (function(){var h=document.querySelector('.hero,header.hero,#top');if(h)SELS.push(['hero',h]);
+    var ss=document.querySelectorAll('section[id]');
+    for(var i=0;i<ss.length;i++){if(!ss[i].hidden)SELS.push([ss[i].id,ss[i]]);}})();
+  setInterval(function(){if(document.visibilityState!=='visible')return;
+    var mid=innerHeight/2,best=null,bd=1e9;
+    for(var j=0;j<SELS.length;j++){var r=SELS[j][1].getBoundingClientRect();
+      if(r.bottom<0||r.top>innerHeight)continue;
+      var d2;if(r.top<=mid&&r.bottom>=mid)d2=0;else d2=Math.min(Math.abs(r.top-mid),Math.abs(r.bottom-mid));
+      if(d2<bd){bd=d2;best=SELS[j][0];}}
+    if(best)SECS[best]=(SECS[best]||0)+1;},1000);
+  var sfin=false;
+  function finSession(){if(sfin)return;sfin=true;
+    var sec=Math.round((Date.now()-sStart)/1000);if(sec<3)return;
+    var s2={},any=false;for(var k in SECS){if(SECS[k]>0){s2[k]=SECS[k];any=true;}}
+    var p2={sec:sec,scroll:maxS,ts:{'.sv':'timestamp'}};if(any)p2.secs=s2;
+    try{if(document.referrer){var h2=new URL(document.referrer).hostname;
+      if(h2&&h2!==location.hostname)p2.ref=h2;}}catch(e){}
+    try{fetch(B+'/sessions.json',{method:'POST',body:JSON.stringify(p2),keepalive:true}).catch(function(){});}catch(e){}}
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')finSession();});
+  window.addEventListener('pagehide',finSession);
   try{var lg=localStorage.getItem('lang')||'en';var ol={};ol['lang/'+lg]={'.sv':{increment:1}};send(ol);}catch(e){}
   var pvN=document.getElementById('pv_name');
   if(pvN){var pvUsed=false;pvN.addEventListener('input',function(){if(pvUsed)return;pvUsed=true;ev('pv_used');});}
