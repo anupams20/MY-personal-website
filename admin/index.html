@@ -179,6 +179,15 @@ fetch(B).then(function(r){return r.json()}).then(function(d){
     stat(d.client||0,'client-site opens')+stat(d.demo||0,'demo opens');
   if(ses.length){
     document.getElementById('sesswrap').hidden=false;
+    /* make a stale per-visit log obvious: counters update independently of this table */
+    var newest=ses[0].ts||0,ageH=(Date.now()-newest)/36e5;
+    if(ageH>24){
+      var warn=document.createElement('p');warn.className='statfoot';
+      warn.innerHTML='⚠️ Newest per-visit entry is <b>'+rel(newest)+'</b> while visit counters are current — '+
+        'the session logger on the live site is outdated. Deploy the latest site code to resume per-visit logging.';
+      warn.style.color='#b45309';
+      document.getElementById('sesswrap').insertBefore(warn,document.querySelector('.sessbox'));
+    }
     var agg={};
     document.querySelector('#sesstab tbody').innerHTML=ses.slice(0,15).map(function(s){
       var tops='—';
