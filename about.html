@@ -69,9 +69,11 @@
   <p data-i18n="ab.story.p" style="margin:0">I saw hospitals with no website and reception tables full of registers. That is fixable, at an honest price. So I only do clinics.</p><!-- TODO(Anupam): confirm this story in your own words -->
 </div>
 
-<!-- 3b · campus photo — TODO(Anupam): add images/anupam-iitk.jpg (you at IIT Kanpur); placeholder shows until then -->
-<figure class="illus photoslot" style="max-width:640px;margin:14px auto 0">
-  <img src="images/anupam-iitk.jpg" alt="Anupam Singh at the IIT Kanpur campus" width="1280" height="854" loading="lazy" onerror="this.closest('figure').classList.add('missing')">
+<!-- 3b · campus photo — TODO(Anupam): add images/anupam-iitk.jpg (you at IIT Kanpur),
+     then replace this placeholder figure's "missing" class and uncomment the img.
+     The img is commented out (not onerror-hidden) so the page never 404s in prod. -->
+<figure class="illus photoslot missing" style="max-width:640px;margin:14px auto 0">
+  <!-- <img src="images/anupam-iitk.jpg" alt="Anupam Singh at the IIT Kanpur campus" width="1280" height="854" loading="lazy"> -->
   <figcaption data-i18n="ab.photo.cap">IIT Kanpur campus — jahan se main 2024 mein pass hua.</figcaption>
 </figure>
 

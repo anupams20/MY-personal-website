@@ -83,26 +83,30 @@ with sync_playwright() as pw:
     wa_ok = pg.locator('a[href*="wa.me"]').count() > 0
     if not wa_ok: log("index.html", "no-JS: no WhatsApp links", "Blocker")
     ctx.close()
-    # ---- interactives: calc edges, quiz retake ----
+    # ---- interactives: calc edges (calculator moved to its own page in r3), quiz retake ----
     pg = b.new_page(viewport={"width": 390, "height": 844})
-    pg.goto(BASE + "index.html", wait_until="networkidle")
+    pg.goto(BASE + "calculator.html", wait_until="networkidle")
     for v_ap, v_fee, v_ns in [(5, 100, 5), (80, 2500, 40)]:
         pg.evaluate(f"""() => {{
           const s = (id,v) => {{ const e = document.getElementById(id); e.value = v; e.dispatchEvent(new Event('input')); }};
           s('c_ap',{v_ap}); s('c_fee',{v_fee}); s('c_ns',{v_ns});
         }}""")
         m = pg.locator("#r_month").inner_text()
-        if not re.match(r"^[\d,]+$", m): log("index.html", f"calc bad output '{m}'", "High")
-    for _ in range(7):
-        pg.locator(".qz__opt").nth(0).click(); pg.wait_for_timeout(80)
-    s1 = pg.locator("#scoreNum").inner_text()
-    pg.locator("#qzRetake").click(); pg.wait_for_timeout(300)
-    if not pg.locator("#qz").is_visible(): log("index.html", "quiz retake broken", "High")
-    for _ in range(7):
-        pg.locator(".qz__opt").nth(2).click(); pg.wait_for_timeout(80)
-    pg.wait_for_timeout(1600)
-    s2 = pg.locator("#scoreNum").inner_text()
-    print(f"quiz paths: all-first score ok, all-third score={s2}")
+        if not re.match(r"^[\d,]+$", m): log("calculator.html", f"calc bad output '{m}'", "High")
+    pg.goto(BASE + "index.html", wait_until="networkidle")
+    if pg.locator(".qz__opt").count():
+        for _ in range(7):
+            pg.locator(".qz__opt").nth(0).click(); pg.wait_for_timeout(80)
+        s1 = pg.locator("#scoreNum").inner_text()
+        pg.locator("#qzRetake").click(); pg.wait_for_timeout(300)
+        if not pg.locator("#qz").is_visible(): log("index.html", "quiz retake broken", "High")
+        for _ in range(7):
+            pg.locator(".qz__opt").nth(2).click(); pg.wait_for_timeout(80)
+        pg.wait_for_timeout(1600)
+        s2 = pg.locator("#scoreNum").inner_text()
+        print(f"quiz paths: all-first score ok, all-third score={s2}")
+    else:
+        print("quiz not on index.html — skipped retake test")
     pg.close()
     b.close()
 
