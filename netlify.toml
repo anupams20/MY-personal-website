@@ -54,6 +54,8 @@
   for = "/data/*"
   [headers.values]
     Cache-Control = "public, max-age=86400"
+    # cert-data.js carries the watermarked certificate copy — never index
+    X-Robots-Tag = "noindex, nofollow"
 
 [[headers]]
   for = "/images/*"

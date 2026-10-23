@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Anupam kaun hai? — the person behind Anupam Web Works</title>
-<meta name="description" content="Anupam Singh, IIT Kanpur 2024. Websites and OPD software for clinics. Check him in 60 seconds: LinkedIn, call, live clinics, demo first.">
+<meta name="description" content="Anupam Singh, B.Tech IIT Kanpur 2024. Websites and OPD software for clinics. Verify him in 60 seconds: LinkedIn, degree certificate, call, live clinics, demo first.">
 <link rel="canonical" href="https://anupamwebworks.com/about">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Anupam kaun hai? — IIT Kanpur engineer for clinics">
@@ -15,11 +15,14 @@
 <meta name="theme-color" content="#0b3b3c">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-<link rel="stylesheet" href="style.css?v=19">
+<link rel="stylesheet" href="style.css?v=20">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Anupam Singh",
- "alumniOf":{"@type":"CollegeOrUniversity","name":"Indian Institute of Technology Kanpur"},
+ "jobTitle":"Software Engineer",
+ "alumniOf":{"@type":"CollegeOrUniversity","name":"Indian Institute of Technology Kanpur","sameAs":"https://www.iitk.ac.in/"},
+ "hasCredential":{"@type":"EducationalOccupationalCredential","credentialCategory":"degree",
+   "name":"Bachelor of Technology, Indian Institute of Technology Kanpur (2024)"},
  "sameAs":["https://www.linkedin.com/in/anupamsingh-iitk/"],
  "url":"https://anupamwebworks.com/about",
  "image":"https://anupamwebworks.com/images/anupam.jpg",
@@ -66,6 +69,12 @@
   <p data-i18n="ab.story.p" style="margin:0">I saw hospitals with no website and reception tables full of registers. That is fixable, at an honest price. So I only do clinics.</p><!-- TODO(Anupam): confirm this story in your own words -->
 </div>
 
+<!-- 3b · campus photo — TODO(Anupam): add images/anupam-iitk.jpg (you at IIT Kanpur); placeholder shows until then -->
+<figure class="illus photoslot" style="max-width:640px;margin:14px auto 0">
+  <img src="images/anupam-iitk.jpg" alt="Anupam Singh at the IIT Kanpur campus" width="1280" height="854" loading="lazy" onerror="this.closest('figure').classList.add('missing')">
+  <figcaption data-i18n="ab.photo.cap">IIT Kanpur campus — jahan se main 2024 mein pass hua.</figcaption>
+</figure>
+
 <details class="abtech"><summary data-i18n="ab.more1">Aur dekhein — main kya hoon, kya nahi</summary>
 <!-- 4 · kya hoon / kya nahi -->
 <div class="nmcgrid">
@@ -98,9 +107,56 @@
   <a class="vcard" id="vDemo" href="https://wa.me/919670809669?text=Namaste%20Anupam%20ji%2C%20pehle%20mera%20demo%20dikhaiye.%20Pasand%20aaya%20to%20hi%20baat%20aage." target="_blank" rel="noopener">
     <span class="big">👀</span><b data-i18n="v.4">Demo pehle dekhein</b><small data-i18n="v.4s">pasand na aaye to ek rupaya nahi</small>
   </a>
+  <button class="vcard" id="vCert" type="button">
+    <span class="big">🎓</span><b data-i18n="v.5">Degree certificate dekhein</b><small data-i18n="v.5s">view-only, watermark ke saath — 20 sec</small>
+  </button>
 </div>
 <p class="abnote" data-i18n="ab.client">Mere client se baat karni ho? WhatsApp par poochhiye — unki permission se hi number share hota hai.</p><!-- TODO(Anupam): get written/WhatsApp consent from Little Heart + Dr. Deepika before ever sharing contacts -->
 <p class="abnote" style="margin-top:4px"><a href="https://dr-deepika-rawat.web.app/" target="_blank" rel="noopener" data-i18n="ab.live2">Dusri live clinic: Dr. Deepika Rawat — Gynecologist, Mumbai ↗</a></p>
+
+<details class="abtech"><summary data-i18n="ab.ver.h">Degree ko independently verify karna ho?</summary>
+<ul>
+  <li data-i18n="ab.ver.1">LinkedIn par education aur work history dono public hain — upar wala card kholiye.</li>
+  <li data-i18n="ab.ver.2">IIT Kanpur se seedha: institute ka DOAA office written request par third-party degree verification karta hai (processing fee lagti hai, ~5 working days). Zaroorat ho to main authorization turant sign kar dunga.</li>
+  <li data-i18n="ab.ver.3">Video call par original certificate live dikha deta hoon — 2 minute ka kaam.</li>
+</ul>
+<p class="abnote"><a href="https://www.iitk.ac.in/doaa/transcripts-and-certificates" target="_blank" rel="noopener">IIT Kanpur DOAA — official verification process ↗</a></p>
+</details>
+
+<!-- 5b · work record (employer name intentionally not published — see data/facts.js SHOW_EMPLOYER) -->
+<h2 data-i18n="ab.work.h">Kaam ka record</h2>
+<div class="icongrid">
+  <div class="tile"><span class="big">🏦</span><b data-i18n="ab.work.now">Software engineer — ek badi private bank</b><small data-i18n="ab.work.nows">Hyderabad, Oct 2025 se. Naam LinkedIn par hai — call par bhi bata deta hoon.</small></div><!-- source: facts.js workline comment (LinkedIn) -->
+  <div class="tile"><span class="big">⚙️</span><b data-i18n="ab.work.prev">Pehle: DevOps engineer, BeeHyv Software Solutions</b><small data-i18n="ab.work.prevs">Deployments, uptime, production systems ka kaam.</small></div>
+  <div class="tile"><span class="big">🎓</span><b data-i18n="ab.work.deg">B.Tech — IIT Kanpur, 2024</b><small data-i18n="ab.work.degs">Certificate upar "60-second check" mein khud dekh lijiye.</small></div>
+</div>
+
+<!-- 5c · data promise for doctors -->
+<h2 data-i18n="ab.data.h">Aapka data — saaf baat</h2>
+<div class="nmcgrid">
+  <div class="nmccol ok"><h3 data-i18n="ab.data.ok.h">✅ Jo pakka hai</h3><ul>
+    <li data-i18n="ab.data.ok.1">Domain aur website aapke naam par — ownership aapki, saare logins aapko milte hain</li>
+    <li data-i18n="ab.data.ok.2">Website ke liye mujhe patient data ki zaroorat hi nahi — enquiry seedha aapke WhatsApp/phone par jaati hai</li>
+    <li data-i18n="ab.data.ok.3">OPD software ka patient data aapke clinic ke computer mein rehta hai — mere paas nahi</li>
+  </ul></div>
+  <div class="nmccol no"><h3 data-i18n="ab.data.no.h">❌ Jo main kabhi nahi karta</h3><ul>
+    <li data-i18n="ab.data.no.1">Patient ya clinic ka data kisi ko share ya sell — kabhi nahi</li>
+    <li data-i18n="ab.data.no.2">Fake reviews ya testimonials aapki site par — NMC rules ke khilaaf hai</li>
+    <li data-i18n="ab.data.no.3">Hidden charges ya lock-in — jab chahein, sab kuch le kar ja sakte hain</li>
+  </ul></div>
+</div>
+
+<!-- 5d · how we work + fixed pricing (amounts/days from data/facts.json) -->
+<h2 data-i18n="ab.how.h">Kaam kaise hota hai</h2>
+<div class="nextsteps" style="justify-content:center">
+  <span>1️⃣ <b data-i18n="ab.how.1">Free demo pehle</b></span><span class="ns-arr">→</span>
+  <span>2️⃣ <b data-i18n="ab.how.2">Pasand aaye to details</b></span><span class="ns-arr">→</span>
+  <span>3️⃣ <b data-i18n="ab.how.3">Site live — Starter 3–5 days, Growth 7–10 days</b></span><span class="ns-arr">→</span>
+  <span>4️⃣ <b data-i18n="ab.how.4">Payment live hone ke baad</b></span>
+</div>
+<p class="abnote" data-i18n-html="ab.how.p">Fixed pricing: Clinic Starter ₹4,999 · Clinic Growth ₹9,999 — poora breakup <a href="/pricing">pricing page</a> par. Koi hidden charge nahi.</p>
+<!-- TODO(Anupam): revision/refund policy is not published anywhere on the site yet — write the exact terms you honour (e.g. how many free changes, refund if never approved) and I'll add them here and on /pricing -->
+
 
 <!-- 6 · safe to start -->
 <div class="nextsteps" style="justify-content:center;margin:18px 0 6px">
@@ -145,6 +201,21 @@
 <p class="smallprint" data-i18n="ab.fine">Anupam Web Works is an independent business. It is not affiliated with, or endorsed by, IIT Kanpur or any employer.</p>
 </main>
 
+<!-- certificate viewer: canvas render (no image URL), watermarked + redacted copy only.
+     Honest limit: screenshots CANNOT be technically prevented in a browser — the
+     watermark + low resolution + redactions make a capture useless for misuse. -->
+<div class="certmodal" id="certModal" hidden role="dialog" aria-modal="true" aria-labelledby="certTitle">
+  <div class="certmodal__bar">
+    <span id="certTitle" data-i18n="cert.title">🎓 B.Tech degree — IIT Kanpur (view-only)</span>
+    <button class="certmodal__x" id="certClose" type="button" aria-label="Close certificate viewer">✕</button>
+  </div>
+  <div class="certmodal__body" id="certBody">
+    <p class="certmodal__load" id="certLoad" data-i18n="cert.load">Certificate khul raha hai…</p>
+    <canvas id="certCanvas" role="img" aria-label="IIT Kanpur B.Tech degree certificate of Anupam Singh (2024), watermarked copy; roll number and signatures hidden for safety" hidden></canvas>
+  </div>
+  <p class="certmodal__note" data-i18n="cert.note">Low-resolution, watermarked copy — sirf verification ke liye. Roll no. aur signatures privacy ke liye hide hain. Screenshot rokna browser mein possible nahi hota — isliye watermark hai.</p>
+</div>
+
 <div class="mcta show">
   <a href="https://wa.me/919670809669?text=Namaste%20Anupam%20ji%2C%20mujhe%20apne%20clinic%20ka%20demo%20dekhna%20hai." target="_blank" rel="noopener"><span class="e">🟢</span>WhatsApp</a>
   <a href="tel:+919670809669"><span class="e">📞</span><span data-i18n="mcta.call">Call</span></a>
@@ -168,9 +239,75 @@ try{
   function ev(k){var o={};o[k]={'.sv':{increment:1}};o.last={'.sv':'timestamp'};
     try{fetch(B+'.json',{method:'PATCH',body:JSON.stringify(o)}).catch(function(){})}catch(e){}}
   ev('about_view');
-  [['vLinked','v_linkedin'],['vCall','v_videocall'],['vLive','v_liveclinic'],['vDemo','v_demo']].forEach(function(p){
+  [['vLinked','v_linkedin'],['vCall','v_videocall'],['vLive','v_liveclinic'],['vDemo','v_demo'],['vCert','v_cert']].forEach(function(p){
     var el=document.getElementById(p[0]); if(el)el.addEventListener('click',function(){ev(p[1])});});
 }catch(e){}
+})();
+
+/* ---- view-only certificate viewer ----
+   The image ships base64-inside data/cert-data.js (lazy-loaded on first open,
+   so no <img> URL and no cost on page load) and is drawn on a canvas.
+   Deterrence only: right-click/drag/select/print/save blocked, blur on tab
+   switch, live timestamp drawn over the baked watermark. Screenshots cannot
+   be prevented — the copy is low-res, redacted and watermarked instead. */
+(function(){
+  var modal=document.getElementById('certModal'), openBtn=document.getElementById('vCert'),
+      closeBtn=document.getElementById('certClose'), canvas=document.getElementById('certCanvas'),
+      loadMsg=document.getElementById('certLoad'), loaded=false, lastFocus=null;
+  if(!modal||!openBtn)return;
+
+  function draw(){
+    var d=window.CERT_DATA; if(!d)return;
+    var img=new Image();
+    img.onload=function(){
+      canvas.width=d.w; canvas.height=d.h;
+      var cx=canvas.getContext('2d');
+      cx.drawImage(img,0,0);
+      /* live timestamp over the baked watermark — a screenshot carries WHEN it was taken */
+      cx.save();
+      cx.translate(d.w/2,d.h/2); cx.rotate(-27*Math.PI/180);
+      cx.font='600 15px Inter,system-ui,sans-serif'; cx.fillStyle='rgba(11,59,60,.30)'; cx.textAlign='center';
+      var stamp='Viewed '+new Date().toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'});
+      for(var y=-d.h;y<=d.h;y+=240) cx.fillText(stamp,0,y);
+      cx.restore();
+      loadMsg.hidden=true; canvas.hidden=false;
+    };
+    img.src=d.src;
+  }
+  function open(){
+    lastFocus=document.activeElement;
+    modal.hidden=false; document.body.style.overflow='hidden';
+    closeBtn.focus();
+    if(loaded){return}
+    loaded=true;
+    var s=document.createElement('script');
+    s.src='data/cert-data.js'; s.onload=draw;
+    s.onerror=function(){loadMsg.textContent='Certificate load nahi hua — network check karke dobara try kijiye.'};
+    document.body.appendChild(s);
+  }
+  function close(){
+    modal.hidden=true; document.body.style.overflow='';
+    if(lastFocus)lastFocus.focus();
+  }
+  openBtn.addEventListener('click',open);
+  closeBtn.addEventListener('click',close);
+  modal.addEventListener('click',function(e){if(e.target===modal)close()});
+  /* focus trap (close button is the only focusable control) + ESC + shortcut blocks */
+  document.addEventListener('keydown',function(e){
+    if(modal.hidden)return;
+    if(e.key==='Escape'){close();return}
+    if(e.key==='Tab'){e.preventDefault();closeBtn.focus();return}
+    if((e.ctrlKey||e.metaKey)&&['s','p','c'].indexOf(e.key.toLowerCase())>-1)e.preventDefault();
+  });
+  ['contextmenu','dragstart','selectstart'].forEach(function(t){
+    modal.addEventListener(t,function(e){e.preventDefault()});
+  });
+  /* light screen-capture deterrent: blur when the tab/window loses focus */
+  document.addEventListener('visibilitychange',function(){
+    modal.classList.toggle('obscured',document.hidden);
+  });
+  window.addEventListener('blur',function(){if(!modal.hidden)modal.classList.add('obscured')});
+  window.addEventListener('focus',function(){modal.classList.remove('obscured')});
 })();
 </script>
 </body>
