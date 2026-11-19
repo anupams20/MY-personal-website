@@ -49,7 +49,7 @@ window.I18N = {
 
       /* hero */
       'hero.pill1'  : 'B.Tech, IIT Kanpur',
-      'hero.pill2'  : 'सिर्फ़ क्लिनिक — पूरा भारत, remote',
+      'hero.pill2'  : 'सिर्फ़ क्लिनिक के लिए technology partner — पूरा भारत, remote',
       'hero.h1'     : 'मरीज़ पहले <span class="hl">Google</span> देखते हैं। क्या वो <span class="hl">आपको</span> ढूंढ पाते हैं?',
       'hero.lede'   : '<strong>वेबसाइट। OPD सॉफ़्टवेयर। WhatsApp appointments.</strong> दाम फ़िक्स, <strong class="mark">₹4,999</strong> से.',
       'hero.cta1'   : 'WhatsApp करें — फ़्री क्लिनिक डेमो',
@@ -57,8 +57,23 @@ window.I18N = {
       'hero.note'   : 'पहले अपनी वेबसाइट देखिए। पसंद आए तभी पैसा दीजिए।',
       'hero.replies': 'कुछ ही घंटों में जवाब',
 
+      /* data safety */
+      'safe.eye': '🔐 Data safety — लिखित में',
+      'safe.h2' : 'आपके क्लिनिक का data <span class="hl-light">आपका ही रहता है</span>। मेरे 4 लिखित वादे।',
+      'safe.sub': 'हर doctor को software vendor से यही सवाल सबसे पहले पूछना चाहिए। मेरा जवाब — लिखित में।',
+      'safe.sign': '— ये 4 वादे मैं हर client के agreement में लिख कर देता हूँ।',
+      'safe.1a' : 'आपके computer पर', 'safe.1b': 'OPD data आपके क्लिनिक में रहता है — offline भी चलता है',
+      'safe.2a' : 'कभी बेचा नहीं जाता', 'safe.2b': 'ना ads, ना data का धंधा — listing platforms की तरह नहीं',
+      'safe.3a' : 'Export कभी भी',   'safe.3b': 'आपका record Excel/PDF में, जब माँगें',
+      'safe.4a' : 'Domain आपके नाम', 'safe.4b': 'हर password आपके हाथ में; कभी भी जा सकते हैं, site आपकी रहेगी',
+
+      /* client testimonial (WhatsApp card) */
+      'testi.eye': '💬 सीधे client के WhatsApp से',
+      'testi.tag': 'Website + OPD software client',
+      'testi.cap': 'client का असली WhatsApp message — permission के साथ।',
+
       /* credibility strip */
-      'cred.1a': '600+',        'cred.1b': 'क्लिनिक वेबसाइटें बनीं (demo + client)',
+      'cred.1a': '4,000+ क्लिनिक',  'cred.1b': 'UP के सभी 75 districts में research',
       'cred.2a': '2 क्लिनिक',   'cred.2b': 'रोज़ाना मेरे OPD सॉफ़्टवेयर पर',
       'cred.3a': '16 शहर',      'cred.3b': 'पूरे UP में मैप किए',
       'cred.4a': 'IIT Kanpur',  'cred.4b': 'B.Tech, 2024',
@@ -102,13 +117,14 @@ window.I18N = {
       'ptrust.4': 'Renewal आपकी मर्ज़ी, कभी ज़बरदस्ती नहीं',
       'tier.1.h': 'Clinic Starter',
       'tier.1.for': 'अकेले practice करने वाले डॉक्टर के लिए — ऑनलाइन ठीक से मौजूद होने का पहला कदम।',
-      'tier.1.note': '📅 3–5 दिन में तैयार',
+      'tier.1.note': '📅 3–5 दिन में तैयार · दूसरे साल से ₹1,999/साल',
       'tier.1.out': '<strong>मरीज़ आपको ढूँढें और WhatsApp पर book करें.</strong>',
       'tier.1.live': '<strong>3–5 दिन में live</strong>',
       'tier.pop': 'सबसे ज़्यादा चुना गया',
       'tier.2.h': 'Clinic Growth',
       'tier.2.for': 'उस क्लिनिक के लिए जिसे Google से नए मरीज़ भी चाहिए और आधुनिक रिसेप्शन भी।',
-      'tier.2.note': '📅 7–10 दिन में तैयार · फिर ₹4,999/साल',
+      'tier.2.note': '📅 7–10 दिन में तैयार · फिर ₹7,999/साल',
+      'tiers.compare': 'तुलना के लिए: बड़े vendors क्लिनिक website ₹19,999/साल और OPD software ₹16,999/साल में अलग-अलग बेचते हैं — हर साल। यहाँ दोनों ₹14,999 में एक बार, फिर ₹7,999/साल।',
       'tier.2.out': '<strong>"near me" खोज में दिखिए — और OPD बिना रजिस्टर चलाइए.</strong>',
       'tier.2.live': '<strong>7–10 दिन में live</strong>',
       'tier.3.h': 'Hospital Pro',
@@ -168,7 +184,7 @@ window.I18N = {
       'cta.h2': 'क्लिनिक का <span class="hl-light">नाम भेजिए</span>। डेमो पाइए.',
       'cta.body': 'एक मैसेज। मिलेगा — <strong>चलती हुई डेमो</strong>, पक्का दाम, timeline। आमतौर पर उसी दिन।',
       'cta.prefer': 'Email बेहतर लगे?',
-      'foot.role': 'क्लिनिक के लिए वेबसाइट और सॉफ़्टवेयर, भारत।',
+      'foot.role': 'आपके क्लिनिक का technology partner — वेबसाइट, OPD सॉफ़्टवेयर और support, भारत।',
 
       /* journey milestones */
       'mile.1': 'समस्या', 'mile.2': 'समाधान', 'mile.3': 'प्लान', 'mile.4': 'सबूत', 'mile.5': 'शुरुआत',
@@ -287,7 +303,7 @@ window.I18N = {
 
       /* r4: trust chip + about */
       'tc.q': 'कौन है? →',
-      'ts.one': 'क्लिनिक के लिए वेबसाइट और OPD सॉफ़्टवेयर — एक engineer, सीधी बात।',
+      'ts.one': 'आपके क्लिनिक का technology partner — वेबसाइट और OPD सॉफ़्टवेयर। एक engineer, सीधी बात।',
       'ts.f1': 'IIT Kanpur, 2024 बैच',
       'ts.f2': 'ऐसे लाइव सिस्टम पर काम — जो रुक नहीं सकते',
       'ts.f3': 'पहले demo — payment approve के बाद',
@@ -363,7 +379,7 @@ window.I18N = {
       'ab.how.2': 'पसंद आए तो details',
       'ab.how.3': 'Site live — Starter 3–5 days, Growth 7–10 days',
       'ab.how.4': 'Payment live होने के बाद',
-      'ab.how.p': 'Fixed pricing: Clinic Starter ₹4,999 · Clinic Growth ₹9,999 — पूरा breakup <a href="/pricing">pricing page</a> पर। कोई hidden charge नहीं।',
+      'ab.how.p': 'Fixed pricing: Clinic Starter ₹4,999 · Clinic Growth ₹14,999 — पूरा breakup <a href="/pricing">pricing page</a> पर। कोई hidden charge नहीं।',
       'cert.title': '🎓 B.Tech degree — IIT Kanpur (view-only)',
       'cert.load': 'Certificate खुल रहा है…',
       'cert.note': 'Low-resolution, watermark वाली copy — सिर्फ़ verification के लिए। Roll no. और signatures privacy के लिए hide हैं। Screenshot रोकना browser में possible नहीं होता — इसीलिए watermark है।',
